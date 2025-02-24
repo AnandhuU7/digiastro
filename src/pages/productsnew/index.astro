@@ -1,0 +1,181 @@
+---
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import ProductCardnew from "../../components/ProductCardnew.astro";
+
+// Fetching all the product related content and sorting it by main.id
+const product: CollectionEntry<"products">[] = (
+  await getCollection("products")
+).sort(
+  (a: CollectionEntry<"products">, b: CollectionEntry<"products">) =>
+    a.data.main.id - b.data.main.id
+);
+
+const productCamera: CollectionEntry<"products">[] = (
+  await getCollection("products")
+).filter((a: CollectionEntry<"products">) => a.data.main.category == "Camera");
+
+const productDvr: CollectionEntry<"products">[] = (
+  await getCollection("products")
+).filter((a: CollectionEntry<"products">) => a.data.main.category == "DVR");
+
+const title: string =
+  "Hikvision National Distributor in Dubai| cctv,Access controll systems,DVR,NVR  DUBAI";
+
+// Add meta description and keywords
+const description: string = "Browse our comprehensive range of security solutions including CCTV cameras, DVR systems, and access control from Hikvision. Official distributor in Dubai offering professional security equipment.";
+const keywords: string = "Hikvision Dubai, CCTV cameras, security systems, DVR, NVR, access control, security solutions, surveillance cameras, Dubai security distributor";
+
+// Add structured data for products
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": product.map((item, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+      "@type": "Product",
+      "name": item.data.main.title,
+      "description": item.data.main.content,
+      "category": item.data.main.category,
+      "image": item.data.main.imgMain.src
+    }
+  }))
+};
+
+---
+
+<Layout 
+  title={title}
+  description={description}
+  keywords={keywords}
+>
+  <!-- Add JSON-LD structured data -->
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
+  <!-- Add breadcrumb navigation -->
+  <nav class="text-sm px-4 py-2 bg-gray-50" aria-label="Breadcrumb">
+    <ol class="list-none p-0 inline-flex">
+      <li class="flex items-center">
+        <a href="/" class="text-gray-600 hover:text-gray-900">Home</a>
+        <svg class="h-5 w-5 text-gray-400 mx-2" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+        </svg>
+      </li>
+      <li class="text-gray-900">Products</li>
+    </ol>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section">
+    <div class="hero-content">
+      <h2 class="text-4xl font-bold">Welcome to Our Products</h2>
+      <p class="mt-2 text-lg">Discover Our Range of Security Solutions</p>
+    </div>
+  </header>
+
+  <!-- Search Bar -->
+  <div class="max-w-2xl mx-auto mt-8 px-4">
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search products..."
+      class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500"
+    />
+  </div>
+
+  <!-- No Results Message -->
+  <p id="no-results" class="hidden text-center py-8 text-xl text-gray-600 font-medium bg-gray-50 rounded-lg mx-4 my-6 shadow-inner">
+    <span class="block text-3xl mb-2">🔍</span>
+    No matching results found
+  </p>
+
+
+  <!-- Products Grid -->
+  <div id="allProducts">
+    <div class="mt-6 sm:mb-1 mx-auto md:mb-6 w-1/4">
+      <h2
+        class="text-balance p-2 rounded text-center font-bold text-white dark:text-white sm:text-2xl lg:text-4xl"
+      >
+        All Products
+      </h2>
+    </div>
+    <div
+      class="grid grid-cols-1 px-4 mt-8 w-full gap-4 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2"
+    >
+      {product.map((product) => (
+        <div class="product-card" data-name={product.data.main.title.toLowerCase()}>
+          <ProductCardnew product={product} />
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div>
+    <div class="mt-6 sm:mb-1 mx-auto md:mb-6 w-1/4 text-center">
+      <h2
+        class="text-balance p-2 rounded font-bold text-white dark:text-white sm:text-3xl lg:text-4xl"
+      >
+        Camera
+      </h2>
+    </div>
+    <div
+      class="grid grid-cols-1 px-4 mt-8 w-full gap-4 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2"
+    >
+      {productCamera.map((product) => <ProductCardnew product={product} />)}
+    </div>
+  </div>
+
+  <div>
+    <div class="mt-6 sm:mb-1 mx-auto md:mb-6 w-1/4 text-center">
+      <h2
+        class="text-balance p-2 rounded font-bold text-white dark:text-white sm:text-3xl lg:text-4xl"
+      >
+        DVR
+      </h2>
+    </div>
+    <div
+      class="grid grid-cols-1 px-4 mt-8 w-full gap-4 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2"
+    >
+      {productDvr.map((product) => <ProductCardnew product={product} />)}
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .hero-section {
+    @apply bg-cover bg-center py-16 text-center text-white;
+    background-image: url("https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg");
+  }
+
+  .hero-content {
+    @apply px-4 py-8;
+  }
+</style>
+
+<script>
+  const searchInput = document.getElementById('searchInput');
+  const productCards = document.querySelectorAll('.product-card');
+  const noResults = document.getElementById('no-results');
+
+  searchInput?.addEventListener('input', (e) => {
+    const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
+    let hasVisibleCards = false;
+
+    productCards.forEach((card) => {
+      const productName = card.getAttribute('data-name');
+      if (productName?.includes(searchTerm)) {
+        (card as HTMLElement).style.display = '';
+        hasVisibleCards = true;
+      } else {
+        (card as HTMLElement).style.display = 'none';
+      }
+    });
+
+    // Toggle no results message
+    if (noResults) {
+      noResults.classList.toggle("hidden", hasVisibleCards);
+    }
+  });
+</script>

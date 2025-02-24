@@ -1,0 +1,252 @@
+---
+const slides = [
+  {
+    id: 1,
+    imgMain: '/src/assets/Banner-1.jpg',
+    title: 'First Slide',
+    subTitle: 'Subtitle for Slide 1',
+    content: 'Content for Slide 1',
+    subContent: 'Subcontent for Slide 1',
+  },
+  {
+    id: 2,
+    imgMain: '/src/assets/Banner-2.jpg',
+    title: 'Second Slide',
+    subTitle: 'Subtitle for Slide 2',
+    content: 'Content for Slide 2',
+    subContent: 'Subcontent for Slide 2',
+  },
+  {
+    id: 3,
+    imgMain: '/src/assets/Banner-1.jpg',
+    title: 'Third Slide',
+    subTitle: 'Subtitle for Slide 3',
+    content: 'Content for Slide 3',
+    subContent: 'Subcontent for Slide 3',
+  },
+];
+
+const services = [
+  {
+    icon: '⬇️',
+    title: 'BUSINESS SOLUTION',
+    description: 'Lorem ipsum dolor sit amet constur adipelit sed.',
+    link: '/products',
+  },
+  {
+    icon: '📑',
+    title: 'MARKET RESEARCH',
+    description: 'Lorem ipsum dolor sit amet constur adipelit sed.',
+    link: '#',
+  },
+  {
+    icon: '💡',
+    title: 'BUSINESS STRATEGY',
+    description: 'Lorem ipsum dolor sit amet constur adipelit sed.',
+    link: '#',
+  },
+  {
+    icon: '⚙️',
+    title: 'SPEED OPTIMIZATION',
+    description: 'Lorem ipsum dolor sit amet constur adipelit sed.',
+    link: '#',
+  },
+];
+---
+
+<div class="relative">
+  <div class="banner group">
+    {slides.map((slide) => (
+      <div class="slide" data-key={slide.id}>
+        <img src={slide.imgMain} alt={slide.title} />
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 relative z-20">
+          <div class="grid md:grid-cols-[1fr_2fr] gap-8 items-center">
+            <div>
+              <p class="text-white uppercase tracking-wider mb-2 animate-slide-top">{slide.subTitle}</p>
+              <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-slide-right">
+                {slide.content}
+              </h1>
+              <p class="text-white mb-8 animate-slide-bottom">
+                {slide.subContent}
+              </p>
+              <a
+                href="#"
+                class="inline-block px-6 py-3 border border-white rounded-full text-white hover:bg-white hover:text-black transition-all duration-300 animate-slide-bottom"
+              >
+                MORE DETAILS
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    ))}
+
+    <!-- Updated Prev and Next Buttons -->
+    <button id="prevBtn" class="nav-arrow prev-arrow absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg border border-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+    <button id="nextBtn" class="nav-arrow next-arrow absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg border border-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Service Cards Section -->
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-30">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {services.map((service) => (
+        <a href={service.link} target="_blank" rel="noopener noreferrer" class="block">
+          <div class="bg-white p-8 rounded-lg shadow-lg text-center transform hover:-translate-y-1 transition-transform duration-300">
+            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-green-100 flex items-center justify-center">
+              <span class="text-2xl">{service.icon}</span>
+            </div>
+            <h3 class="text-xl font-bold mb-3">{service.title}</h3>
+            <p class="text-gray-600">{service.description}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .banner {
+    position: relative;
+    width: 100%;
+    height: 430px;
+    overflow: hidden;
+  }
+  .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  .slide.active {
+    opacity: 1;
+  }
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Essential container style */
+  .container {
+    position: relative;
+  }
+
+  /* Animation keyframes */
+  @keyframes slideTop {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideRight {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideBottom {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Animation classes with slower duration */
+  .animate-slide-top {
+    animation: slideTop 1.2s ease-out forwards;
+  }
+
+  .animate-slide-right {
+    animation: slideRight 1.2s ease-out forwards;
+  }
+
+  .animate-slide-bottom {
+    animation: slideBottom 1.2s ease-out forwards;
+  }
+
+ 
+  .slide:not(.active) .animate-slide-top,
+  .slide:not(.active) .animate-slide-right,
+  .slide:not(.active) .animate-slide-bottom {
+    animation: none;
+  }
+</style>
+
+<script>
+  let currentSlide = 0;
+  let intervalId: number; 
+
+function changeSlide(direction = 'next') {
+  const slides = document.querySelectorAll('.slide');
+  const totalSlides = slides.length;
+
+  if (direction === 'next') {
+    currentSlide = (currentSlide + 1) % totalSlides;
+  } else if (direction === 'prev') {
+    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+  }
+
+  slides.forEach((slide, index) => {
+    slide.classList.toggle('active', index === currentSlide);
+  });
+}
+
+// Activate the first slide
+const firstSlide = document.querySelector('.slide');
+if (firstSlide) {
+  firstSlide.classList.add('active');
+}
+
+// Start the carousel
+if (typeof window !== 'undefined') {
+  intervalId = window.setInterval(() => changeSlide('next'), 5000); 
+
+ 
+  window.addEventListener('unload', () => {
+    window.clearInterval(intervalId); 
+  });
+
+
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      window.clearInterval(intervalId);
+      changeSlide('prev');
+      intervalId = window.setInterval(() => changeSlide('next'), 5000); 
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      window.clearInterval(intervalId); 
+      changeSlide('next');
+      intervalId = window.setInterval(() => changeSlide('next'), 5000); 
+    });
+  }
+}
+</script>
