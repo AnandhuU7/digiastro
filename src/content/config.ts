@@ -23,56 +23,28 @@ const featureCollection = defineCollection({
 
 const productsCollection = defineCollection({
   type: 'content',
-    schema: ({ image }) => z.object({
-    main: z.object({
-      id: z.number(),
-      title: z.string(),
-      subTitle: z.string(),
-      category: z.string(),
-      content: z.string(),
-      imgCard: image(),
-      imgMain: image(),
-      imgAlt: z.string(),
-      sale: z.boolean().default(false)
-    }),
-    tabs: z.array(
-      z.object({
-        id: z.string(),
-        dataTab: z.string(),
-        title: z.string(),
-      })
-    ),
-    description: z.object({
-      title: z.string(),
-      subTitle: z.string(),
-      btnTitle: z.string(),
-      btnURL: z.string(),
-    }),
-    descriptionList: z.array(
-      z.object({
-        title: z.string(),
-        subTitle: z.string(),
-      })
-    ),
-    specificationsLeft: z.array(
-      z.object({
-        title: z.string(),
-        subTitle: z.string(),
-      })
-    ),
-    specificationsRight: z.array(
-      z.object({
-        title: z.string(),
-        subTitle: z.string(),
-      })
+  schema: ({ image }) => z.object({
+    id: z.number(),
+    title: z.string(),
+    subTitle: z.string(),
+    category: z.string(),
+    imgCard: image(),
+    imgAlt: z.string(),
+    features: z.array(z.string()),
+    specifications: z.record(
+      z.string(),
+      z.record(
+        z.string(),
+        z.union([
+          z.string(),
+          z.record(z.string(), z.string()),
+          z.record(z.string(), z.union([z.string(), z.record(z.string(), z.string())]))
+        ])
+      )
     ).optional(),
-    blueprints: z.object({
-      first: image().optional(),
-      second: image().optional(),
-      third: image().optional(),
-    }),
   }),
 });
+
 
 const blogCollection = defineCollection({
   type: "content",

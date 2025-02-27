@@ -1,18 +1,9 @@
 ---
-
 import AccordionItem from "./widgets/AccordionItem.astro";
 
-
-
-// Define the string variable `subTitle` to provide additional information.
-const subTitle: string =
-  "Ask us anything about our brand and products, and get factual responses.";
-
-// Define a helper function to generate ids dynamically.
+const subTitle: string = "Ask us anything about our brand and products, and get factual responses.";
 const makeId = (base: any, index: any) => `${base}${index + 1}`;
-// Define an array `faqs` that holds the content for the Frequently Asked Questions.
 const faqs = [
-  // Content of each FAQ item goes here
   {
     heading: "Where can I purchase Hikvision products in the UAE?",
     content:
@@ -24,8 +15,7 @@ const faqs = [
       "We distribute a comprehensive range of Hikvision products, including CCTV cameras, DVRs, NVRs, access control systems, intercoms, and video management software.",
   },
   {
-    heading:
-      "Are your Hikvision products genuine and authentic?",
+    heading: "Are your Hikvision products genuine and authentic?",
     content:
       "Yes, all Hikvision products offered by Lovosis Technology are 100% genuine and authentic. As an authorized distributor, we ensure the highest quality standards and provide products directly from Hikvision.",
   },
@@ -40,62 +30,111 @@ const faqs = [
       "We offer comprehensive technical support and assistance for Hikvision products purchased through Lovosis Technology. Our team of experts is available to help you with product inquiries, troubleshooting, and guidance",
   },
   {
-    heading:
-      "How can I become a reseller or partner with Lovosis Technology for Hikvision products?",
+    heading: "How can I become a reseller or partner with Lovosis Technology for Hikvision products?",
     content:
       "If you're interested in becoming a reseller or partner with Lovosis Technology Dubai, please contact us to discuss partnership opportunities and requirements. We welcome collaborations with businesses looking to distribute Hikvision products in the UAE",
   },
 ];
 ---
 
-<!-- Main container that holds all content. Customized for different viewport sizes. -->
-
-<section
-  class="mx-auto  px-4 py-10 sm:px-6 lg:px-8 lg:py-10 2xl:max-w-full"
->
-  <div class="grid gap-2 md:grid-cols-5 px-5">
-    <div class="md:col-span-2">
-      <div class="max-w-xs">
-        <h2
-          class="text-2xl font-bold text-black md:text-4xl md:leading-tight"
-        >
-          Frequently asked questions
-        </h2>
-        <p class="mt-1 hidden text-black  md:block">
-          {subTitle}
-        </p>
-      </div>
+<section class="py-20 bg-gradient-to-b from-blue-50 to-white">
+  <div class="container mx-auto max-w-4xl px-4">
+    <div class="text-center mb-14">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+        Frequently Asked Questions
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        {subTitle}
+      </p>
     </div>
-    <!-- FAQ accordion items -->
-    <div class="md:col-span-3">
-      <div
-        class="hs-accordion-group divide-y divide-neutral-200"
-      >
-        {
-          faqs.map((question, i) => {
-            // Generate ids dynamically for each FAQ accordion item.
-            let id = makeId(
-              "hs-basic-with-title-and-arrow-stretched-heading-",
-              i,
-            );
-            let collapseId = makeId(
-              "hs-basic-with-title-and-arrow-stretched-collapse",
-              i,
-            );
-
-            return (
-              <AccordionItem
-                {...question}
-                id={id}
-                collapseId={collapseId}
-                first={i === 0}
-              />
-            );
-          })
-        }
-      </div>
+    <div class="bg-white rounded-xl shadow-xl overflow-hidden border border-gray-100">
+      {
+        faqs.map((question, i) => {
+          let id = makeId("faq-item-", i);
+          
+          return (
+            <div class={`faq-item ${i > 0 ? 'border-t border-gray-100' : ''}`} id={id}>
+              <button
+                class="faq-toggle w-full flex items-center justify-between p-6 group transition-all duration-200 hover:bg-blue-50"
+              >
+                <span class="font-medium text-lg text-left text-gray-800 group-hover:text-blue-600">
+                  {question.heading}
+                </span>
+                <span class="faq-icon ml-4 flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 transition-transform duration-300">
+                  <!-- Down arrow (default) -->
+                  <svg class="down-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                  <svg class="up-icon w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="18 15 12 9 6 15"></polyline>
+                  </svg>
+                </span>
+              </button>
+              <div class="faq-content hidden px-6 pb-6 pt-2 text-gray-600 bg-white">
+                <div class="p-4 bg-gray-50 rounded-lg border-l-4 border-blue-500">
+                  <p>{question.content}</p>
+                </div>
+              </div>
+            </div>
+          );
+        })
+      }
     </div>
   </div>
 </section>
 
-<script is:inline src="/scripts/vendor/preline/accordion/index.js"></script>
+<style>
+  .faq-item.active .faq-icon {
+    background-color: #3B82F6;
+    color: white;
+  }
+  
+  .faq-item.active .down-icon {
+    display: none;
+  }
+  
+  .faq-item.active .up-icon {
+    display: block;
+  }
+  
+  .faq-toggle:focus {
+    outline: none;
+  }
+  
+  .faq-item.active .faq-toggle {
+    background-color: #EFF6FF;
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Enhanced accordion functionality with arrow switching
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(function(item) {
+      const toggle = item.querySelector('.faq-toggle');
+      const content = item.querySelector('.faq-content');
+      
+      toggle.addEventListener('click', function() {
+        const isOpen = item.classList.contains('active');
+        
+        // Close all accordion items
+        faqItems.forEach(function(faqItem) {
+          faqItem.classList.remove('active');
+          const faqContent = faqItem.querySelector('.faq-content');
+          if (faqContent) {
+            faqContent.style.display = 'none';
+          }
+        });
+        
+        // If clicked item was not open, open it
+        if (!isOpen) {
+          item.classList.add('active');
+          if (content) {
+            content.style.display = 'block';
+          }
+        }
+      });
+    });
+  });
+</script>

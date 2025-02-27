@@ -1,0 +1,189 @@
+---
+import { getCollection } from 'astro:content';
+
+// Fetch slider data at build time in Astro
+const sliders = await getCollection("slider");
+// Duplicate the sliders for the infinite effect
+const doubledSliders = [...sliders, ...sliders];
+---
+
+<div class="relative w-full overflow-hidden rounded-xl bg-slate-800 py-12">
+  <div class="absolute inset-0 bg-gradient-to-r from-slate-900/60 via-slate-800/30 to-slate-700/40"></div>
+  
+  <!-- Enhanced decorative elements -->
+  <div class="absolute top-0 left-0 h-24 w-24 rounded-full bg-blue-500/10 blur-xl"></div>
+  <div class="absolute bottom-0 right-0 h-32 w-32 rounded-full bg-purple-500/10 blur-xl"></div>
+  <div class="absolute top-1/3 right-1/4 h-16 w-16 rounded-full bg-indigo-500/10 blur-lg"></div>
+  <div class="absolute bottom-1/3 left-1/4 h-20 w-20 rounded-full bg-slate-500/15 blur-lg"></div>
+  
+  <!-- Improved title section -->
+  <div class="relative mb-10 text-center">
+    <div class="inline-block">
+      <span class="absolute -left-6 -top-6 inline-flex h-12 w-12 animate-pulse rounded-full bg-indigo-400/10"></span>
+      <span class="absolute -right-6 -bottom-6 inline-flex h-12 w-12 animate-pulse rounded-full bg-purple-400/10 delay-700"></span>
+      <h3 class="relative text-3xl font-extrabold bg-gradient-to-r from-sky-400 via-blue-400 to-indigo-400 bg-clip-text text-transparent">
+        Our Products
+      </h3>
+      <div class="mt-2 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-sky-500 to-indigo-500"></div>
+    </div>
+  </div>
+  
+  <!-- Slider wrapper -->
+  <div class="relative mx-auto max-w-7xl px-4">
+    <div class="slider-container">
+      <div class="slider-track">
+        {doubledSliders.map((slider, index) => (
+          <div class="slider-item">
+            <div class="slider-card">
+              <div class="slider-image-container">
+                <img 
+                  src={slider.data.slider} 
+                  alt={slider.data.sliderAlt}
+                  class="slider-image"
+                />
+              </div>
+              <div class="slider-overlay">
+                <p class="slider-name">{slider.data.sliderAlt}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+  
+  <!-- Enhanced indicators -->
+  <div class="relative mt-10 flex justify-center space-x-3">
+    <div class="h-2.5 w-14 rounded-full bg-gradient-to-r from-sky-500 to-indigo-500 shadow-lg shadow-indigo-500/20"></div>
+    <div class="h-2.5 w-7 rounded-full bg-slate-600 hover:bg-sky-500 transition-all duration-300"></div>
+    <div class="h-2.5 w-7 rounded-full bg-slate-600 hover:bg-indigo-500 transition-all duration-300"></div>
+  </div>
+</div>
+
+<style>
+  /* Base styles for the slider */
+  .slider-container {
+    position: relative;
+    overflow: hidden;
+    padding: 1.5rem 0;
+  }
+  
+  .slider-track {
+    display: flex;
+    animation: slideAnimation 30s linear infinite;
+  }
+  
+  .slider-item {
+    flex-shrink: 0;
+    padding: 0 1rem;
+  }
+  
+  .slider-card {
+    position: relative;
+    display: flex;
+    height: 16rem;
+    width: 16rem;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .slider-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+  
+  .slider-image-container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  
+  .slider-image {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    opacity: 0.85;
+    filter: brightness(1.1);
+    transition: all 0.3s ease;
+  }
+  
+  .slider-card:hover .slider-image {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  
+  .slider-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(37, 99, 235, 0.9), rgba(37, 99, 235, 0));
+    padding: 1rem;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .slider-card:hover .slider-overlay {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .slider-name {
+    text-align: center;
+    font-weight: 500;
+    color: white;
+  }
+  
+  /* Animation keyframes */
+  @keyframes slideAnimation {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  /* Add pause on hover */
+  .slider-container:hover .slider-track {
+    animation-play-state: paused;
+  }
+  
+  /* Add a subtle shine effect on card hover */
+  .slider-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -75%;
+    z-index: 2;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.15) 100%);
+    transform: skewX(-25deg);
+    opacity: 0;
+    transition: all 0.6s ease;
+  }
+  
+  .slider-card:hover::before {
+    animation: shine 1s;
+  }
+  
+  @keyframes shine {
+    100% {
+      left: 125%;
+      opacity: 1;
+    }
+  }
+</style>

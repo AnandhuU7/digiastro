@@ -3,230 +3,151 @@ import { Image } from "astro:assets";
 import hikvision from "../assets/images/hik.png";
 import sample from "../assets/images/hikviison.jpg";
 import cam from "../assets/images/cam.png";
-
-// Data structure for card content
-const cardData = [
-  {
-    id: "security-modal",
-    title: "Premium Security Solutions",
-    description:
-      "Our comprehensive range of Hikvision products delivers cutting-edge security technology backed by expert support and installation services.",
-    imageSrc: hikvision,
-    imageAlt: "Hikvision Security Solutions",
-    details: [
-      "High-resolution security cameras",
-      "Advanced DVR and NVR systems",
-      "Professional installation services",
-      "24/7 technical support",
-      "Custom security system design",
-    ],
-  },
-  {
-    id: "surveillance-modal",
-    title: "Advanced Surveillance",
-    description:
-      "State-of-the-art cameras and monitoring systems designed for optimal performance in any environment.",
-    imageSrc: sample,
-    imageAlt: "Advanced Surveillance Systems",
-    details: [
-      "4K Ultra HD resolution",
-      "Night vision capabilities",
-      "Smart motion detection",
-      "Cloud storage integration",
-      "Mobile monitoring apps",
-    ],
-  },
-  {
-    id: "access-modal",
-    title: "Smart Access Control",
-    description:
-      "Next-generation biometric systems featuring advanced facial recognition and fingerprint technology.",
-    imageSrc: cam,
-    imageAlt: "Smart Access Control",
-    details: [
-      "Facial recognition technology",
-      "Fingerprint scanning",
-      "Multi-factor authentication",
-      "Time attendance tracking",
-      "Integration with security systems",
-    ],
-  },
-  {
-    id: "accesss-modal",
-    title: "Smart Accessss Control",
-    description:
-      "Next-generation biometric systems featuring advanced facial recognition and fingerprint technology.",
-    imageSrc: cam,
-    imageAlt: "Smart Access Control",
-    details: [
-      "Facial recognition technology",
-      "Fingerprint scanning",
-      "Multi-factor authentication",
-      "Time attendance tracking",
-      "Integration with security systems",
-    ],
-  },
-];
 ---
-<section
-  class="relative py-16 bg-gradient-to-b from-slate-900 to-slate-800 overflow-hidden"
->
-  <!-- Background Pattern -->
-  <div class="absolute inset-0 opacity-10">
-    <div
-      class="absolute inset-0"
-      style="background-image: url('data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"
-    >
-    </div>
-  </div>
-  <div class="container mx-auto px-4 relative">
-    <!-- Animated Header Section -->
-    <div class="text-center mb-12 relative">
-      <div class="inline-block">
-        <span
-          class="absolute -top-4 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-cyan-400 animate-pulse"
-        ></span>
-        <h2 class="text-4xl font-bold text-white mb-4 leading-tight">
-          Leading Hikvision Distributor
-          <span
-            class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300"
-            >in Dubai</span
-          >
-        </h2>
-        <span
-          class="absolute -bottom-4 right-0 w-full h-1 bg-gradient-to-r from-blue-500 to-cyan-400 animate-pulse"
-        ></span>
-      </div>
-      <p class="text-slate-300 max-w-3xl mx-auto text-base mt-6 leading-relaxed">
-        Experience unparalleled security solutions with Dubai's premier
-        Hikvision partner. Setting new standards in innovation, reliability, and
-        customer service.
-      </p>
-    </div>
-    <!-- Feature Cards -->
-    <div class="grid lg:grid-cols-4 gap-6 mt-12">
-      {
-        cardData.map((card) => (
-          <div class="group relative bg-white/5 backdrop-blur-xl rounded-lg overflow-hidden border border-white/10 hover:border-blue-500/50 transition-all duration-500 shadow-md hover:shadow-lg">
-            <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            <div class="h-48 w-full overflow-hidden relative">
-              <Image
-                src={card.imageSrc}
-                alt={card.imageAlt}
-                class="w-full h-full object-cover object-center"
-                width="400"
-                height="300"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 to-transparent" />
-              <button
-                class="modal-button absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-blue-600 text-white px-6 py-2 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                data-modal={card.id}
-              >
-                VIEW DETAILS
-              </button>
-            </div>
-            <div class="p-6 relative">
-              <h3 class="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
-                {card.title}
-              </h3>
-              <p class="text-slate-300 leading-relaxed text-sm">{card.description}</p>
-            </div>
-          </div>
-        ))
-      }
-    </div>
-  </div>
-  <!-- Modals -->
-  {
-    cardData.map((card) => (
-      <div id={card.id} class="modal fixed inset-0 z-50 hidden">
-        <div class="modal-overlay absolute inset-0 bg-black opacity-50" />
-        <div class="modal-container bg-slate-900 w-11/12 md:max-w-xl mx-auto rounded-lg shadow-lg z-50 overflow-y-auto absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <div class="modal-content py-4 text-left px-4">
-            <div class="flex justify-between items-center pb-2">
-              <p class="text-xl font-bold text-white">{card.title}</p>
-              <button class="modal-close cursor-pointer z-50">
-                <svg
-                  class="fill-current text-white"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 18 18"
-                >
-                  <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z" />
-                </svg>
-              </button>
-            </div>
-            <div class="my-4 text-slate-300">
-              <p class="mb-3 text-sm">{card.description}</p>
-              <ul class="list-disc ml-4 space-y-1 text-sm">
-                {card.details.map((detail) => (
-                  <li>{detail}</li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    ))
-  }
+
+<section class="bg-white">
+	<div class="py-4 px-2 mx-auto max-w-screen-xl sm:py-4 lg:px-6">
+		<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-4 h-full">
+			<!-- Item 1 -->
+			<div class="col-span-2 sm:col-span-1 md:col-span-2 bg-gray-50 h-auto md:h-full flex flex-col">
+				<div class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 flex-grow">
+					<Image src={hikvision} alt="Hikvision" class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" />
+					<div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+					<h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl transition-opacity duration-300 group-hover:opacity-0">A</h3>
+					<button onclick="openModal('modal1')" class="z-10 absolute inset-0 m-auto w-12 h-12 bg-white/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-5-5m0 0l-5-5m5 5V8a7 7 0 00-14 0v10a7 7 0 0014 0z" />
+						</svg>
+					</button>
+				</div>
+			</div>
+
+			<!-- Item 2 -->
+			<div class="col-span-2 sm:col-span-1 md:col-span-2 bg-stone-50">
+				<div class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 mb-4">
+					<Image src={hikvision} alt="Sample" class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" />
+					<div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+					<h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl transition-opacity duration-300 group-hover:opacity-0">B</h3>
+					<button onclick="openModal('modal2')" class="z-10 absolute inset-0 m-auto w-12 h-12 bg-white/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-5-5m0 0l-5-5m5 5V8a7 7 0 00-14 0v10a7 7 0 0014 0z" />
+						</svg>
+					</button>
+				</div>
+				<div class="grid gap-4 grid-cols-2 sm:grid-cols-2 lg:grid-cols-2">
+					<!-- Item 3 -->
+					<div class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40">
+						<Image src={cam} alt="Cam" class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" />
+						<div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+						<h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl transition-opacity duration-300 group-hover:opacity-0">C</h3>
+						<button onclick="openModal('modal3')" class="z-10 absolute inset-0 m-auto w-12 h-12 bg-white/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-5-5m0 0l-5-5m5 5V8a7 7 0 00-14 0v10a7 7 0 0014 0z" />
+							</svg>
+						</button>
+					</div>
+
+					<!-- Item 4 -->
+					<div class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40">
+						<Image src={cam} alt="Cam" class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" />
+						<div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+						<h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl transition-opacity duration-300 group-hover:opacity-0">D</h3>
+						<button onclick="openModal('modal4')" class="z-10 absolute inset-0 m-auto w-12 h-12 bg-white/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-5-5m0 0l-5-5m5 5V8a7 7 0 00-14 0v10a7 7 0 0014 0z" />
+							</svg>
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Item 5 -->
+			<div class="col-span-2 sm:col-span-1 md:col-span-1 bg-sky-50 h-auto md:h-full flex flex-col">
+				<div class="group relative flex flex-col overflow-hidden rounded-lg px-4 pb-4 pt-40 flex-grow">
+					<Image src={sample} alt="Sample" class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out" />
+					<div class="absolute inset-0 bg-gradient-to-b from-gray-900/25 to-gray-900/5"></div>
+					<h3 class="z-10 text-2xl font-medium text-white absolute top-0 left-0 p-4 xs:text-xl md:text-3xl transition-opacity duration-300 group-hover:opacity-0">E</h3>
+					<button onclick="openModal('modal5')" class="z-10 absolute inset-0 m-auto w-12 h-12 bg-white/50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-5-5m0 0l-5-5m5 5V8a7 7 0 00-14 0v10a7 7 0 0014 0z" />
+						</svg>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
+
+<!-- Modals -->
+<div id="modal1" class="fixed inset-0 z-50 hidden bg-black/50 justify-center items-center">
+	<div class="bg-white p-6 rounded-lg w-11/12 max-w-lg">
+		<h2 class="text-xl font-bold mb-4">Modal 1</h2>
+		<p>This is the content for Modal 1.</p>
+		<button onclick="closeModal('modal1')" class="mt-4 px-4 py-2 bg-gray-800 text-white rounded">Close</button>
+	</div>
+</div>
+
+<div id="modal2" class="fixed inset-0 z-50 hidden bg-black/50 justify-center items-center">
+	<div class="bg-white p-6 rounded-lg w-11/12 max-w-lg">
+		<h2 class="text-xl font-bold mb-4">Modal 2</h2>
+		<p>This is the content for Modal 2.</p>
+		<button onclick="closeModal('modal2')" class="mt-4 px-4 py-2 bg-gray-800 text-white rounded">Close</button>
+	</div>
+</div>
+
+<div id="modal3" class="fixed inset-0 z-50 hidden bg-black/50 justify-center items-center">
+	<div class="bg-white p-6 rounded-lg w-11/12 max-w-lg">
+		<h2 class="text-xl font-bold mb-4">Modal 3</h2>
+		<p>This is the content for Modal 3.</p>
+		<button onclick="closeModal('modal3')" class="mt-4 px-4 py-2 bg-gray-800 text-white rounded">Close</button>
+	</div>
+</div>
+
+<div id="modal4" class="fixed inset-0 z-50 hidden bg-black/50 justify-center items-center">
+	<div class="bg-white p-6 rounded-lg w-11/12 max-w-lg">
+		<h2 class="text-xl font-bold mb-4">Modal 4</h2>
+		<p>This is the content for Modal 4.</p>
+		<button onclick="closeModal('modal4')" class="mt-4 px-4 py-2 bg-gray-800 text-white rounded">Close</button>
+	</div>
+</div>
+
+<div id="modal5" class="fixed inset-0 z-50 hidden bg-black/50 justify-center items-center">
+	<div class="bg-white p-6 rounded-lg w-11/12 max-w-lg">
+		<h2 class="text-xl font-bold mb-4">Modal 5</h2>
+		<p>This is the content for Modal 5.</p>
+		<button onclick="closeModal('modal5')" class="mt-4 px-4 py-2 bg-gray-800 text-white rounded">Close</button>
+	</div>
+</div>
+
 <script>
-  // Existing modal functionality
-  document.addEventListener("DOMContentLoaded", () => {
-    const modalButtons = document.querySelectorAll(".modal-button");
-    const modalCloses = document.querySelectorAll(".modal-close");
-    const modalOverlays = document.querySelectorAll(".modal-overlay");
+	function openModal(modalId: string) {
+		try {
+			const modal = document.getElementById(modalId);
+			if (modal) {
+				modal.classList.remove('hidden');
+			} else {
+				throw new Error(`Modal with ID ${modalId} not found.`);
+			}
+		} catch (error) {
+			console.error(error);
+		}
+	}
 
-    // Open modal
-    modalButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const modalId = button.getAttribute("data-modal");
-        if (modalId) {
-          const modal = document.getElementById(modalId);
-          if (modal) {
-            modal.classList.remove("hidden");
-            document.body.style.overflow = "hidden";
-          }
-        }
-      });
-    });
-
-    // Close modal functions
-    const closeModal = (modal: HTMLElement | null) => {
-      if (modal) {
-        modal.classList.add("hidden");
-        document.body.style.overflow = "auto";
-      }
-    };
-
-    // Close on X button click
-    modalCloses.forEach((close) => {
-      close.addEventListener("click", () => {
-        const modal = close.closest(".modal") as HTMLElement | null; // Typecast to HTMLElement | null
-        if (modal) {
-          closeModal(modal);
-        }
-      });
-    });
-
-    // Close on overlay click
-    modalOverlays.forEach((overlay) => {
-      overlay.addEventListener("click", () => {
-        const modal = overlay.closest(".modal") as HTMLElement | null; // Typecast to HTMLElement | null
-        if (modal) {
-          closeModal(modal);
-        }
-      });
-    });
-
-    // Close on Escape key press
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") {
-        document.querySelectorAll(".modal:not(.hidden)").forEach((modal) => {
-          closeModal(modal as HTMLElement); // Typecast to HTMLElement
-        });
-      }
-    });
-  });
+	function closeModal(modalId: string) {
+		try {
+			const modal = document.getElementById(modalId);
+			if (modal) {
+				modal.classList.add('hidden');
+			} else {
+				throw new Error(`Modal with ID ${modalId} not found.`);
+			}
+		} catch (error) {
+			console.error(error);
+		}
+	}
 </script>

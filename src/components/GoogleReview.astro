@@ -6,8 +6,15 @@ import type { GoogleData } from "../types/responses";
 
 // Move this to an environment variable
 const GOOGLE_API_KEY = import.meta.env.GOOGLE_API_KEY;
-const res = await fetch(`https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJLTy5yipDXz4RSpZ-Ic54XRY&key=${GOOGLE_API_KEY}`);
-const data: GoogleData = await res.json();
+let reviews = [];
+
+try {
+  const res = await fetch(`https://maps.googleapis.com/maps/api/place/details/json?placeid=ChIJLTy5yipDXz4RSpZ-Ic54XRY&key=${GOOGLE_API_KEY}`);
+  const data: GoogleData = await res.json();
+  reviews = data?.result?.reviews || [];
+} catch (error) {
+  console.error('Error fetching Google reviews:', error);
+}
 ---
 
 
@@ -30,7 +37,7 @@ const data: GoogleData = await res.json();
 
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:p-8 mt-8">
-            {data.result.reviews
+            {reviews
                 .filter(review => review.rating > 4)
                 .map((review) => (
                     <div class="p-4 rounded bg-slate-500 shadow flex flex-col gap-y-4 items-center">
@@ -45,5 +52,10 @@ const data: GoogleData = await res.json();
                     </div>
                 ))
             }
+            {reviews.length === 0 && (
+                <div class="col-span-full text-center py-8">
+                    <p class="text-gray-400">No reviews available at the moment.</p>
+                </div>
+            )}
         </div>
     </div>
