@@ -12,7 +12,7 @@ export async function getStaticPaths() {
   }));
 }
 
-// Update the type definition
+// Update the type definition to make thumbnails optional
 type ProductData = {
   title: string;
   subTitle: string;
@@ -20,12 +20,19 @@ type ProductData = {
   features: string[];
   imgAlt: string;
   imgCard: { src: string };
+  thumbnails?: string[]; // Ensure thumbnails is an array of strings
   specifications: Record<string, Record<string, string | Record<string, string>>>;
 };
 
 // Access the product data passed via props
 const { product } = Astro.props;
-const { title, subTitle, category, features, imgAlt, imgCard, specifications } = product.data as ProductData;
+const { title, subTitle, category, features, imgAlt, imgCard, thumbnails, specifications } = product.data as ProductData;
+
+// Debugging: Log thumbnails to verify data
+console.log("Thumbnails:", thumbnails);
+
+// Ensure thumbnails is treated as an array
+const thumbnailsArray = thumbnails ? (Array.isArray(thumbnails) ? thumbnails : [thumbnails]) : [];
 ---
 
 <Layout title={title}>
@@ -70,11 +77,15 @@ const { title, subTitle, category, features, imgAlt, imgCard, specifications } =
           
           <!-- Thumbnail Images -->
           <div class="thumbnails grid grid-cols-4 gap-2 sm:gap-3">
-            {Array(4).fill(0).map((_, index) => (
-              <div class={`thumbnail-item ${index === 0 ? 'ring-2 ring-blue-500' : 'ring-1 ring-gray-200'} rounded-lg overflow-hidden cursor-pointer transition-all duration-300 hover:ring-2 hover:ring-blue-400 hover:-translate-y-0.5 hover:shadow-md`}>
-                <img src={imgCard.src} alt={`${imgAlt} ${index + 1}`} class="w-full h-full object-cover aspect-square" />
-              </div>
-            ))}
+            {thumbnailsArray.length > 0 ? (
+              thumbnailsArray.map((thumbnail, index) => (
+                <div class={`thumbnail-item ${index === 0 ? 'ring-2 ring-blue-500' : 'ring-1 ring-gray-200'} rounded-lg overflow-hidden cursor-pointer transition-all duration-300 hover:ring-2 hover:ring-blue-400 hover:-translate-y-0.5 hover:shadow-md`}>
+                  <img src={thumbnail} alt={`${imgAlt} ${index + 1}`} class="w-full h-full object-cover aspect-square" />
+                </div>
+              ))
+            ) : (
+              <p class="text-gray-500">No thumbnails available.</p>
+            )}
           </div>
         </div>
 
@@ -206,11 +217,11 @@ const { title, subTitle, category, features, imgAlt, imgCard, specifications } =
     const totalImages = thumbnails.length;
     
     // Function to update the main image
-    function updateMainImage(index: number) {
+    function updateMainImage(index:number) {
       if (thumbnails.length > 0 && mainImage) {
         const thumbnailImg = thumbnails[index]?.querySelector('img');
         if (thumbnailImg) {
-          const newSrc = (thumbnailImg as HTMLImageElement).src;
+          const newSrc = thumbnailImg.src;
           mainImage.src = newSrc;
           
           // Update active thumbnail

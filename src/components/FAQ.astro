@@ -1,6 +1,4 @@
 ---
-import AccordionItem from "./widgets/AccordionItem.astro";
-
 const subTitle: string = "Ask us anything about our brand and products, and get factual responses.";
 const makeId = (base: any, index: any) => `${base}${index + 1}`;
 const faqs = [
@@ -55,7 +53,7 @@ const faqs = [
           return (
             <div class={`faq-item ${i > 0 ? 'border-t border-gray-100' : ''}`} id={id}>
               <button
-                class="faq-toggle w-full flex items-center justify-between p-6 group transition-all duration-200 hover:bg-blue-50"
+                class="faq-toggle w-full flex items-center justify-between p-6 group transition-all duration-200 hover:bg-blue-50 focus:outline-none"
               >
                 <span class="font-medium text-lg text-left text-gray-800 group-hover:text-blue-600">
                   {question.heading}
@@ -82,29 +80,6 @@ const faqs = [
     </div>
   </div>
 </section>
-
-<style>
-  .faq-item.active .faq-icon {
-    background-color: #3B82F6;
-    color: white;
-  }
-  
-  .faq-item.active .down-icon {
-    display: none;
-  }
-  
-  .faq-item.active .up-icon {
-    display: block;
-  }
-  
-  .faq-toggle:focus {
-    outline: none;
-  }
-  
-  .faq-item.active .faq-toggle {
-    background-color: #EFF6FF;
-  }
-</style>
 
 <script is:inline>
   document.addEventListener('DOMContentLoaded', function() {

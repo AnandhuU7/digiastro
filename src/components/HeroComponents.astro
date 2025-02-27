@@ -53,43 +53,62 @@ const services = [
   },
 ];
 ---
-
 <div class="relative">
-  <div class="banner group">
-    {slides.map((slide) => (
-      <div class="slide" data-key={slide.id}>
-        <img src={slide.imgMain} alt={slide.title} />
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 relative z-20">
-          <div class="grid md:grid-cols-[1fr_2fr] gap-8 items-center">
-            <div>
-              <p class="text-white uppercase tracking-wider mb-2 animate-slide-top">{slide.subTitle}</p>
-              <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-slide-right">
-                {slide.content}
-              </h1>
-              <p class="text-white mb-8 animate-slide-bottom">
-                {slide.subContent}
-              </p>
-              <a
-                href="#"
-                class="inline-block px-6 py-3 border border-white rounded-full text-white hover:bg-white hover:text-black transition-all duration-300 animate-slide-bottom"
-              >
-                MORE DETAILS
-              </a>
-            </div>
-          </div>
+  <!-- Banner Section -->
+  <div class="group relative w-full h-[430px] overflow-hidden">
+    {slides.map((slide, index) => (
+      <div
+        class={`slide absolute w-full h-full opacity-0 transition-opacity duration-1000 ease-in-out ${
+          index === 0 ? 'active opacity-100' : ''
+        }`}
+        data-key={slide.id}
+      >
+        <img
+          src={slide.imgMain}
+          alt={slide.title}
+          class="w-full h-full object-cover"
+        />
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 relative z-50">
+          <!-- Content removed here -->
         </div>
       </div>
     ))}
 
-    <!-- Updated Prev and Next Buttons -->
-    <button id="prevBtn" class="nav-arrow prev-arrow absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg border border-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-      <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+    <!-- Navigation Buttons -->
+    <button
+      id="prevBtn"
+      class="nav-arrow prev-arrow absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg border border-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+    >
+      <svg
+        class="w-6 h-6 text-gray-800"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M15 19l-7-7 7-7"
+        />
       </svg>
     </button>
-    <button id="nextBtn" class="nav-arrow next-arrow absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg border border-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-      <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+    <button
+      id="nextBtn"
+      class="nav-arrow next-arrow absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg border border-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+    >
+      <svg
+        class="w-6 h-6 text-gray-800"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M9 5l7 7-7 7"
+        />
       </svg>
     </button>
   </div>
@@ -98,7 +117,12 @@ const services = [
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-30">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {services.map((service) => (
-        <a href={service.link} target="_blank" rel="noopener noreferrer" class="block">
+        <a
+          href={service.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block"
+        >
           <div class="bg-white p-8 rounded-lg shadow-lg text-center transform hover:-translate-y-1 transition-transform duration-300">
             <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-green-100 flex items-center justify-center">
               <span class="text-2xl">{service.icon}</span>
@@ -112,141 +136,62 @@ const services = [
   </div>
 </div>
 
-<style>
-  .banner {
-    position: relative;
-    width: 100%;
-    height: 430px;
-    overflow: hidden;
-  }
-  .slide {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-  }
-  .slide.active {
-    opacity: 1;
-  }
-  .slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /* Essential container style */
-  .container {
-    position: relative;
-  }
-
-  /* Animation keyframes */
-  @keyframes slideTop {
-    from {
-      opacity: 0;
-      transform: translateY(-50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes slideRight {
-    from {
-      opacity: 0;
-      transform: translateX(-50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes slideBottom {
-    from {
-      opacity: 0;
-      transform: translateY(50px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Animation classes with slower duration */
-  .animate-slide-top {
-    animation: slideTop 1.2s ease-out forwards;
-  }
-
-  .animate-slide-right {
-    animation: slideRight 1.2s ease-out forwards;
-  }
-
-  .animate-slide-bottom {
-    animation: slideBottom 1.2s ease-out forwards;
-  }
-
- 
-  .slide:not(.active) .animate-slide-top,
-  .slide:not(.active) .animate-slide-right,
-  .slide:not(.active) .animate-slide-bottom {
-    animation: none;
-  }
-</style>
-
 <script>
   let currentSlide = 0;
-  let intervalId: number; 
+  let intervalId: number;
 
-function changeSlide(direction = 'next') {
-  const slides = document.querySelectorAll('.slide');
-  const totalSlides = slides.length;
+  function changeSlide(direction = 'next') {
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
 
-  if (direction === 'next') {
-    currentSlide = (currentSlide + 1) % totalSlides;
-  } else if (direction === 'prev') {
-    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    if (direction === 'next') {
+      currentSlide = (currentSlide + 1) % totalSlides;
+    } else if (direction === 'prev') {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+    }
+
+    slides.forEach((slide, index) => {
+      slide.classList.toggle('active', index === currentSlide);
+      slide.classList.toggle('opacity-0', index !== currentSlide);
+      slide.classList.toggle('opacity-100', index === currentSlide);
+    });
   }
 
-  slides.forEach((slide, index) => {
-    slide.classList.toggle('active', index === currentSlide);
-  });
-}
-
-// Activate the first slide
-const firstSlide = document.querySelector('.slide');
-if (firstSlide) {
-  firstSlide.classList.add('active');
-}
-
-// Start the carousel
-if (typeof window !== 'undefined') {
-  intervalId = window.setInterval(() => changeSlide('next'), 5000); 
-
- 
-  window.addEventListener('unload', () => {
-    window.clearInterval(intervalId); 
+  // Activate the first slide on load
+  document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelectorAll('.slide');
+    if (slides.length > 0) {
+      slides[0].classList.add('active', 'opacity-100');
+    }
   });
 
+  // Start the carousel
+  if (typeof window !== 'undefined') {
+    intervalId = window.setInterval(() => changeSlide('next'), 5000);
 
-  const prevBtn = document.getElementById('prevBtn');
-  const nextBtn = document.getElementById('nextBtn');
-
-  if (prevBtn) {
-    prevBtn.addEventListener('click', () => {
+    // Clear interval on page unload
+    window.addEventListener('unload', () => {
       window.clearInterval(intervalId);
-      changeSlide('prev');
-      intervalId = window.setInterval(() => changeSlide('next'), 5000); 
     });
-  }
 
-  if (nextBtn) {
-    nextBtn.addEventListener('click', () => {
-      window.clearInterval(intervalId); 
-      changeSlide('next');
-      intervalId = window.setInterval(() => changeSlide('next'), 5000); 
-    });
+    // Navigation button event listeners
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        window.clearInterval(intervalId);
+        changeSlide('prev');
+        intervalId = window.setInterval(() => changeSlide('next'), 5000);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        window.clearInterval(intervalId);
+        changeSlide('next');
+        intervalId = window.setInterval(() => changeSlide('next'), 5000);
+      });
+    }
   }
-}
 </script>

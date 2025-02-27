@@ -30,6 +30,7 @@ const productsCollection = defineCollection({
     category: z.string(),
     imgCard: image(),
     imgAlt: z.string(),
+    thumbnails: z.array(image()).optional(),
     features: z.array(z.string()),
     specifications: z.record(
       z.string(),
