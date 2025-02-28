@@ -1,11 +1,10 @@
 ---
-import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 
 // Fetch all product entries and generate static paths
 export async function getStaticPaths() {
-  const productEntries = await getCollection("products");
+  const productEntries = await getCollection("ptzcamera");
   return productEntries.map((product) => ({
     params: { slug: product.slug },
     props: { product },
@@ -24,9 +23,17 @@ type ProductData = {
   specifications: Record<string, Record<string, string | Record<string, string>>>;
 };
 
+// Define the type for Astro.props
+type AstroProps = {
+  product: {
+    data: ProductData;
+    slug: string;
+  };
+};
+
 // Access the product data passed via props
-const { product } = Astro.props;
-const { title, subTitle, category, features, imgAlt, imgCard, thumbnails, specifications } = product.data as ProductData;
+const { product } = Astro.props as AstroProps;
+const { title, subTitle, category, features, imgAlt, imgCard, thumbnails, specifications } = product.data;
 
 // Debugging: Log thumbnails to verify data
 console.log("Thumbnails:", thumbnails);
@@ -210,20 +217,20 @@ const thumbnailsArray = thumbnails ? (Array.isArray(thumbnails) ? thumbnails : [
   document.addEventListener("DOMContentLoaded", () => {
     const prevArrow = document.querySelector(".prev-arrow");
     const nextArrow = document.querySelector(".next-arrow");
-    const mainImage = document.querySelector(".main-image-container img");
+    const mainImage = document.querySelector(".main-image-container img") as HTMLImageElement | null;
     const thumbnails = document.querySelectorAll(".thumbnail-item");
-    
+
     let currentIndex = 0;
     const totalImages = thumbnails.length;
-    
+
     // Function to update the main image
-    function updateMainImage(index:number) {
+    function updateMainImage(index: number) {
       if (thumbnails.length > 0 && mainImage) {
-        const thumbnailImg = thumbnails[index]?.querySelector('img');
+        const thumbnailImg = thumbnails[index]?.querySelector('img') as HTMLImageElement | null;
         if (thumbnailImg) {
           const newSrc = thumbnailImg.src;
           mainImage.src = newSrc;
-          
+
           // Update active thumbnail
           thumbnails.forEach((thumb, i) => {
             if (i === index) {
@@ -237,7 +244,7 @@ const thumbnailsArray = thumbnails ? (Array.isArray(thumbnails) ? thumbnails : [
         }
       }
     }
-    
+
     // Thumbnail click
     thumbnails.forEach((thumb, index) => {
       thumb.addEventListener("click", () => {
@@ -245,13 +252,13 @@ const thumbnailsArray = thumbnails ? (Array.isArray(thumbnails) ? thumbnails : [
         updateMainImage(currentIndex);
       });
     });
-    
+
     // Previous arrow click
     prevArrow?.addEventListener("click", () => {
       currentIndex = (currentIndex - 1 + totalImages) % totalImages;
       updateMainImage(currentIndex);
     });
-    
+
     // Next arrow click
     nextArrow?.addEventListener("click", () => {
       currentIndex = (currentIndex + 1) % totalImages;

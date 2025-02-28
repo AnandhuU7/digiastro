@@ -21,7 +21,32 @@ const featureCollection = defineCollection({
   }),
 });
 
-const productsCollection = defineCollection({
+const ptzcameraCollection = defineCollection({
+  type: 'content',
+  schema: ({ image }) => z.object({
+    id: z.number(),
+    title: z.string(),
+    subTitle: z.string(),
+    category: z.string(),
+    imgCard: image(),
+    imgAlt: z.string(),
+    thumbnails: z.array(image()).optional(),
+    features: z.array(z.string()),
+    specifications: z.record(
+      z.string(),
+      z.record(
+        z.string(),
+        z.union([
+          z.string(),
+          z.record(z.string(), z.string()),
+          z.record(z.string(), z.union([z.string(), z.record(z.string(), z.string())]))
+        ])
+      )
+    ).optional(),
+  }),
+});
+
+const networkcameraCollection = defineCollection({
   type: 'content',
   schema: ({ image }) => z.object({
     id: z.number(),
@@ -88,9 +113,10 @@ const bannerCollection = defineCollection({
 
 export const collections = {
   'feature' : featureCollection,
-  'products': productsCollection,
   'blogs': blogCollection,
   'category': categoriesCollection,
   'testimonials': testimonialCollection,
   'banner': bannerCollection,
+  'networkcamera': networkcameraCollection,
+  'ptzcamera': ptzcameraCollection,
 };

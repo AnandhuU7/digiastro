@@ -1,281 +1,251 @@
 ---
-import { getCollection } from "astro:content";
-import type { CollectionEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import ProductsCard from "../../components/ProductsCard.astro";
-
-// Fetching all the product-related content and sorting it by id
-const products: CollectionEntry<"products">[] = (
-  await getCollection("products")
-).sort((a, b) => a.data.id - b.data.id);
-
-// Filter products by category
-const productNetwork = products.filter((product) => product.data.category === "Network Products");
-const productTurboHD = products.filter((product) => product.data.category === "Turbo HD Products");
-const productAccessControl = products.filter((product) => product.data.category === "Access Control Products");
-const productLEDPanels = products.filter((product) => product.data.category === "LED Panels");
-
-// Define categories
-const categories = [
-  { id: "Network Products", name: "Network Products" },
-  { id: "Turbo HD Products", name: "Turbo HD Products" },
-  { id: "Access Control Products", name: "Access Control Products" },
-  { id: "LED Panels", name: "LED Panels" },
+// Hardcoded data for products and features
+const products = [
+  {
+    id: 1,
+    title: "Network Cameras",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
+    image: "/src/assets/images/cam.png",
+    link: "/networkcamera"
+  },
+  {
+    id: 2,
+    title: "Network Video Recorder",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
+    image: "/src/assets/images/cam.png",
+    link: "/network-video-recorders"
+  },
+  {
+    id: 3,
+    title: "PTZ Cameras",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
+    image: "/src/assets/images/cam.png",
+    link: "/ptzcamera"
+  },
+  {
+    id: 4,
+    title: "PTZ Cameras",
+    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
+    image: "/src/assets/images/cam.png",
+    link: "/ptz-cameras"
+  }
 ];
 
-// Get the category from URL params, default to "Network Products" if none specified
-const url = new URL(Astro.request.url);
-const activeCategory = url.searchParams.get('category') || "Network Products";
-
-// Page metadata
-const title = "Hikvision National Distributor in Dubai | CCTV, Access Control Systems, DVR, NVR Dubai";
-const description = "Browse our comprehensive range of security solutions including CCTV cameras, DVR systems, and access control from Hikvision. Official distributor in Dubai offering professional security equipment.";
-const keywords = "Hikvision Dubai, CCTV cameras, security systems, DVR, NVR, access control, security solutions, surveillance cameras, Dubai security distributor";
-
-// Structured data for SEO
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  itemListElement: products.map((product, index) => ({
-    "@type": "ListItem",
-    position: index + 1,
-    item: {
-      "@type": "Product",
-      name: product.data.title,
-      description: product.data.features,
-      image: product.data.imgCard.src,
-    },
-  })),
-};
+const features = [
+  {
+    id: 1,
+    title: "Advanced Security",
+    description: "Industry-leading encryption and protection mechanisms for maximum security.",
+    icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+  },
+  {
+    id: 2,
+    title: "High Performance",
+    description: "Exceptional speed and reliability even in challenging conditions.",
+    icon: "M13 10V3L4 14h7v7l9-11h-7z"
+  },
+  {
+    id: 3,
+    title: "Smart Features",
+    description: "AI-powered analytics and intelligent automation capabilities.",
+    icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+  },
+  {
+    id: 4,
+    title: "Scalable Solutions",
+    description: "Easily expandable systems that grow with your business needs.",
+    icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+  }
+];
 ---
-
-<Layout title={title} description={description} keywords={keywords}>
-  <div class="container mx-auto px-4 py-8">
-    <h1 class="text-4xl font-bold mb-6 text-center text-teal">Discover Our Products</h1>
-
-    <!-- Search Bar -->
-    <div class="mb-10 max-w-2xl mx-auto">
-      <div class="relative">
-        <input
-          id="searchInput"
-          type="text"
-          placeholder="Search for products..."
-          class="w-full py-4 px-6 rounded-full bg-white border-2 border-teal shadow-md focus:outline-none focus:ring-2 focus:ring-teal focus:border-transparent transition-all duration-300"
+<Layout>
+  <!-- Add scroll-smooth to the root HTML element -->
+  <div class="scroll-smooth">
+    <!-- Hero Section -->
+    <div class="relative overflow-hidden bg-gradient-to-r from-teal-800 to-blue-800">
+      <div class="absolute inset-0">
+        <img 
+          src="/images/security-background.jpg" 
+          alt="Security Background" 
+          class="w-full h-full object-cover opacity-20"
         />
-        <button 
-          id="searchButton"
-          class="absolute right-3 top-1/2 transform -translate-y-1/2 bg-teal hover:bg-teal-dark text-white p-3 rounded-full transition-all duration-300"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-        </button>
+        <div class="absolute inset-0 bg-gradient-to-r from-teal-900/80 to-blue-900/80"></div>
+      </div>
+      
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-24">
+        <div class="text-center">
+          <h1 class="text-5xl font-extrabold tracking-tight text-white sm:text-6xl mb-6 animate-fade-down">
+            <span class="block">Hikvision</span>
+            <span class="block text-teal-300">Lorem</span>
+          </h1>
+          <p class="max-w-3xl mx-auto text-xl text-teal-100 animate-fade-up">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto delectus incidunt est quae, v
+          </p>
+          <div class="mt-10 animate-fade-in">
+            <a href="#products" class="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-teal-900 bg-teal-100 hover:bg-teal-200 transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+              Explore Products
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 3a1 1 0 00-1 1v10.586l-3.293-3.293a1 1 0 10-1.414 1.414l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414L11 14.586V4a1 1 0 00-1-1z" clip-rule="evenodd" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Wave separator -->
+      <div class="absolute bottom-0 left-0 right-0">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120" class="w-full">
+          <path fill="#f9fafb" fill-opacity="1" d="M0,64L60,64C120,64,240,64,360,74.7C480,85,600,107,720,101.3C840,96,960,64,1080,53.3C1200,43,1320,53,1380,58.7L1440,64L1440,120L1380,120C1320,120,1200,120,1080,120C960,120,840,120,720,120C600,120,480,120,360,120C240,120,120,120,60,120L0,120Z"></path>
+        </svg>
       </div>
     </div>
 
-    <div class="flex flex-col md:flex-row gap-8">
-      <!-- Categories Sidebar -->
-      <div class="w-full md:w-1/4 lg:w-1/5">
-        <div class="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
-          <h2 class="text-2xl font-semibold mb-6 text-gray-800">Categories</h2>
-          <ul class="space-y-3">
-            {categories.map((category) => (
-              <li class="category-item">
-                <a
-                  href={`/productsnew?category=${encodeURIComponent(category.id)}`}
-                  class={`block p-3 rounded-lg transition-all duration-300 ${
-                    activeCategory === category.id 
-                      ? 'bg-teal text-white font-medium shadow-md' 
-                      : 'bg-white hover:bg-gray-100 shadow-sm'
-                  }`}
-                >
-                  {category.name}
-                </a>
-              </li>
-            ))}
-          </ul>
+    <main>
+      <!-- Header Section -->
+      <!-- Header Section -->
+      <div class="w-full bg-white py-6" id="products" >
+        <div class="container mx-auto" >
+          <h1 class="text-4xl font-bold text-center">
+            <span class="text-teal-800">Hikvision</span>
+            <span class="text-[#32869f]">Network Products Solutions</span>
+          </h1>
         </div>
       </div>
 
-      <!-- Products Grid -->
-      <div class="w-full md:w-3/4 lg:w-4/5">
-        <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {products
-            .filter((product) => product.data.category === activeCategory)
-            .map((product) => (
-              <div class="product-card bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500">
-                <div class="relative overflow-hidden group">
-                  <div class="h-56 bg-gray-100 overflow-hidden">
-                    <img
-                      src={product.data.imgCard.src}
-                      alt={product.data.imgAlt}
-                      class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                  </div>
-                  <div class="absolute top-3 right-3">
-                    <button class="favorite-btn bg-white p-2 rounded-full shadow-md hover:shadow-lg transition-all hover:scale-110 text-gray-700 hover:text-teal">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-                <div class="p-5">
-                  <div class="flex justify-between items-center mb-3">
-                    <h3 class="font-semibold text-lg text-gray-800">{product.data.title}</h3>
-                  </div>
-                  <p class="text-gray-500 text-sm mb-4">Category: {product.data.category}</p>
+      <!-- Banner Section -->
+      <div class="w-full bg-[#32869f] py-8">
+        <div class="container mx-auto px-4">
+          <p class="text-white text-center text-xl leading-relaxed">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.
+          </p>
+        </div>  
+      </div>
+
+      <!-- Divider -->
+      <div class="w-full flex justify-center items-center my-8">
+        <div class="flex items-center">
+          <div class="w-16 h-1 bg-gradient-to-r from-white via-[#32869f] to-white"></div>
+          <div class="w-2 h-2 rounded-full bg-[#32869f] mx-2"></div>
+          <div class="w-16 h-1 bg-gradient-to-r from-white via-[#32869f] to-white"></div>
+        </div>
+      </div>
+      <!-- Products Section -->
+      <div class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {products.map(product => (
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl max-w-xs mx-auto w-full group">
+              <div class="relative p-4 flex justify-center items-center bg-gradient-to-br from-teal-50 to-blue-50">
+                <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-teal-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <img 
+                  src={product.image} 
+                  alt={product.title} 
+                  class="h-36 object-contain transition-transform duration-500 group-hover:rotate-3 group-hover:scale-110 relative z-10"
+                />
+              </div>
+              <div class="p-5">
+                <h2 class="text-xl font-bold text-center text-teal-800 mb-3">{product.title}</h2>
+                <p class="text-gray-600 text-center text-sm mb-4">
+                  {product.description}
+                </p>
+                <div class="flex justify-center">
                   <a 
-                    href={`/productsnew/${product.slug}`}
-                    class="block w-full"
+                    href={product.link} 
+                    class="inline-flex items-center text-[#32869f] hover:text-teal-800 font-medium transition-all duration-300 group/btn"
                   >
-                    <button class="more-details w-full bg-teal text-white py-3 rounded-lg font-medium hover:bg-teal-dark transition-all duration-300 transform hover:-translate-y-1 shadow-md hover:shadow-lg">
-                      More Details
-                    </button>
+                    <span class="relative">
+                      View Products
+                      <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#32869f] group-hover/btn:w-full transition-all duration-300"></span>
+                    </span>
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      class="h-5 w-5 ml-2 transform transition-transform duration-300 group-hover/btn:translate-x-2" 
+                      fill="none" 
+                      viewBox="0 0 24 24" 
+                      stroke="currentColor"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
                   </a>
                 </div>
               </div>
-            ))}
+            </div>
+          ))}
         </div>
-
-        <!-- Fallback message if no products -->
-        {products.filter((product) => product.data.category === activeCategory).length === 0 && (
-          <div class="text-center py-12">
-            <p class="text-gray-500">No products found in this category.</p>
-          </div>
-        )}
       </div>
-    </div>
+      
+      <!-- Features Section -->
+      <div class="bg-gradient-to-b from-white to-gray-50 py-16">
+        <div class="container mx-auto px-4">
+          <h2 class="text-3xl font-bold text-center text-teal-800 mb-12">Why Choose Hikvision</h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map(feature => (
+              <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                <div class="w-14 h-14 bg-[#32869f]/10 rounded-full flex items-center justify-center mb-4 mx-auto">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#32869f]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={feature.icon} />
+                  </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-center text-teal-800 mb-2">{feature.title}</h3>
+                <p class="text-gray-600 text-center text-sm">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      
+      <!-- CTA Section -->
+      <div class="bg-[#32869f] py-16">
+        <div class="container mx-auto px-4 text-center">
+          <h2 class="text-3xl font-bold text-white mb-6">Ready to enhance your security infrastructure?</h2>
+          <p class="text-teal-100 max-w-2xl mx-auto mb-8">
+            Contact our team of experts today to discover the perfect Hikvision solution for your specific requirements.
+          </p>
+          <a href="/contact" class="inline-block px-8 py-3 bg-white text-[#32869f] font-semibold rounded-md hover:bg-teal-50 transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+            Get in Touch
+          </a>
+        </div>
+      </div>
+    </main>
   </div>
 </Layout>
 
-<style>
-  /* Your custom styles remain unchanged */
-  :root {
-    --teal: #32869f;
-    --teal-dark: #286b80;
-  }
-
-  .bg-teal {
-    background-color: var(--teal);
-  }
-
-  .bg-teal-dark {
-    background-color: var(--teal-dark);
-  }
-
-  .text-teal {
-    color: var(--teal);
-  }
-
-  .border-teal {
-    border-color: var(--teal);
-  }
-
-  .hover\:bg-teal-dark:hover {
-    background-color: var(--teal-dark);
-  }
-
-  .hover\:text-teal:hover {
-    color: var(--teal);
-  }
-
-  .focus\:ring-teal:focus {
-    --tw-ring-color: var(--teal);
-  }
-
-  /* Animation for category items */
-  .category-item {
-    animation: fadeInLeft 0.5s ease forwards;
-    opacity: 0;
-  }
-
-  .category-item:nth-child(1) { animation-delay: 0.1s; }
-  .category-item:nth-child(2) { animation-delay: 0.2s; }
-  .category-item:nth-child(3) { animation-delay: 0.3s; }
-  .category-item:nth-child(4) { animation-delay: 0.4s; }
-  .category-item:nth-child(5) { animation-delay: 0.5s; }
-  .category-item:nth-child(6) { animation-delay: 0.6s; }
-  .category-item:nth-child(7) { animation-delay: 0.7s; }
-  .category-item:nth-child(8) { animation-delay: 0.8s; }
-
-  /* Animation for product cards */
-  .product-card {
-    animation: fadeInUp 0.6s ease forwards;
-    opacity: 0;
-    animation-delay: calc(0.15s * var(--index, 0));
-  }
-
-  .product-card:nth-child(1) { --index: 1; }
-  .product-card:nth-child(2) { --index: 2; }
-  .product-card:nth-child(3) { --index: 3; }
-  .product-card:nth-child(4) { --index: 4; }
-  .product-card:nth-child(5) { --index: 5; }
-  .product-card:nth-child(6) { --index: 6; }
-  .product-card:nth-child(7) { --index: 7; }
-  .product-card:nth-child(8) { --index: 8; }
-
-  /* Pulse animation for More Details button */
-  .more-details:hover {
-    animation: pulse 1.5s infinite;
-  }
-
-  /* Animation keyframes */
-  @keyframes fadeInLeft {
-    from {
-      opacity: 0;
-      transform: translateX(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes pulse {
-    0% {
-      box-shadow: 0 0 0 0 rgba(50, 134, 159, 0.4);
-    }
-    70% {
-      box-shadow: 0 0 0 10px rgba(50, 134, 159, 0);
-    }
-    100% {
-      box-shadow: 0 0 0 0 rgba(50, 134, 159, 0);
-    }
-  }
-</style>
-
 <script>
-  // Optional JavaScript for additional functionality
-  document.addEventListener('astro:page-load', () => {
-  // Initialize animations
-  const productCards = document.querySelectorAll<HTMLElement>('.product-card');
-  productCards.forEach((card, index) => {
-    card.style.setProperty('--index', (index + 1).toString());
-  });
-
-  // Add hover effects
-  productCards.forEach((card) => {
-    card.addEventListener('mouseenter', function (this: HTMLElement) {
-      this.classList.add('shadow-lg');
-      this.style.transform = 'translateY(-5px)';
+  // Add intersection observer for scroll animations
+  document.addEventListener('DOMContentLoaded', () => {
+    const animatedElements = [
+      ...document.querySelectorAll('.rounded-lg'),
+      ...document.querySelectorAll('.bg-white.p-6')
+    ];
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-up');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    animatedElements.forEach(element => {
+      observer.observe(element);
     });
-
-    card.addEventListener('mouseleave', function (this: HTMLElement) {
-      this.classList.remove('shadow-lg');
-      this.style.transform = 'translateY(0)';
+    
+    // Add hover effect for cards
+    const cards = document.querySelectorAll('.rounded-lg');
+    cards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        (card as HTMLElement).style.transform = 'translateY(-10px) scale(1.03)';
+        (card as HTMLElement).style.boxShadow = '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)';
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        (card as HTMLElement).style.transform = '';
+        (card as HTMLElement).style.boxShadow = '';
+      });
     });
   });
-});
 </script>
