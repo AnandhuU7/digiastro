@@ -2,14 +2,6 @@
 
 import { z, defineCollection, reference } from 'astro:content';
 
-const categoriesCollection = defineCollection({
-  type: "content",
-  schema: () => z.object({
-    id: z.number(),
-    name: z.string(),
-    products: z.array(reference("products"))
-  }),
-});
 
 const featureCollection = defineCollection({
   type: "content",
@@ -71,6 +63,64 @@ const networkcameraCollection = defineCollection({
   }),
 });
 
+const nvrCollection = defineCollection({
+  type: 'content',
+  schema: ({ image }) => z.object({
+    id: z.number(),
+    title: z.string(),
+    subTitle: z.string(),
+    category: z.string(),
+    imgCard: image(),
+    imgAlt: z.string(),
+    features: z.array(z.string()),
+    specifications: z.object({
+      intelligent_analytics: z.object({
+        AI_by_NVR: z.array(z.string()),
+        AI_by_Camera: z.array(z.string()),
+      }),
+      facial_recognition: z.object({
+        Facial_Detection_and_Analytics: z.array(z.string()),
+        Face_Picture_Library: z.object({
+          Libraries: z.number(),
+          Max_Pictures: z.number(),
+          Picture_Size_Limit: z.string(),
+          Total_Capacity: z.string(),
+        }),
+        Face_Picture_Comparison: z.object({
+          Channels: z.number(),
+          Comparison_Speed: z.string(),
+        }),
+        Facial_Detection_and_Analytics_Performance: z.object({
+          Simultaneous_Mode: z.string(),
+          Independent_Mode: z.string(),
+        }),
+      }),
+      video_and_audio: z.object({
+        IP_Video_Input: z.string(),
+        Incoming_Bandwidth: z.string(),
+        Outgoing_Bandwidth: z.string(),
+        Incoming_Bandwidth_RAID_Mode: z.string(),
+        Outgoing_Bandwidth_RAID_Mode: z.string(),
+        HDMI_Outputs: z.record(z.string()),
+        VGA_Outputs: z.record(z.string()),
+        Video_Output_Mode: z.record(z.string()),
+        HDMI_Input: z.string(),
+        HDMI_Loopback: z.string(),
+        Audio_Output: z.string(),
+        Two_Way_Audio: z.string(),
+      }),
+      general: z.object({
+        GUI_Language: z.string(),
+        Power_Supply: z.string(),
+        Consumption: z.string(),
+        Working_Temperature: z.string(),
+        Working_Humidity: z.string(),
+        Dimension: z.string(),
+        Weight: z.string(),
+      }),
+    }).optional(),
+  }),
+});
 
 const blogCollection = defineCollection({
   type: "content",
@@ -89,34 +139,15 @@ const blogCollection = defineCollection({
   tags: z.array(z.string()).optional(),
   }),
 });
-const testimonialCollection = defineCollection({
-  type: "content",
-  schema: ({ image }) => z.object ({
-    id: z.number(),
-    content: z.string(),
-    author: z.string(),
-    role: z.string(),
-    avatarSrc: image(),
-    avatarAlt: z.string(),
-  }),
-});
 
-const bannerCollection = defineCollection({
-  schema: z.object({
-    imgMain: z.string(), // Path to the image
-    title: z.string(), // Title of the slide
-    subTitle: z.string(), // Subtitle of the slide
-    content: z.string(), // Main content
-    subContent: z.string(), // Subcontent
-  }),
-});
+
+
+
 
 export const collections = {
   'feature' : featureCollection,
   'blogs': blogCollection,
-  'category': categoriesCollection,
-  'testimonials': testimonialCollection,
-  'banner': bannerCollection,
   'networkcamera': networkcameraCollection,
   'ptzcamera': ptzcameraCollection,
+  'nvr': nvrCollection
 };

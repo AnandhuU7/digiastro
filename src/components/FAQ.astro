@@ -34,80 +34,111 @@ const faqs = [
   },
 ];
 ---
-
 <section class="py-20 bg-gradient-to-b from-blue-50 to-white">
-  <div class="container mx-auto max-w-4xl px-4">
+  <div class="container mx-auto max-w-6xl px-4">
     <div class="text-center mb-14">
-      <h2 class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+      <h2 id="faq-toggle-trigger" class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent cursor-pointer">
         Frequently Asked Questions
       </h2>
       <p class="text-lg text-gray-600 max-w-2xl mx-auto">
         {subTitle}
       </p>
     </div>
-    <div class="bg-white rounded-xl shadow-xl overflow-hidden border border-gray-100">
-      {
-        faqs.map((question, i) => {
-          let id = makeId("faq-item-", i);
-          
-          return (
-            <div class={`faq-item ${i > 0 ? 'border-t border-gray-100' : ''}`} id={id}>
-              <button
-                class="faq-toggle w-full flex items-center justify-between p-6 group transition-all duration-200 hover:bg-blue-50 focus:outline-none"
-              >
-                <span class="font-medium text-lg text-left text-gray-800 group-hover:text-blue-600">
-                  {question.heading}
-                </span>
-                <span class="faq-icon ml-4 flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 transition-transform duration-300">
-                  <!-- Down arrow (default) -->
-                  <svg class="down-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="6 9 12 15 18 9"></polyline>
-                  </svg>
-                  <svg class="up-icon w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="18 15 12 9 6 15"></polyline>
-                  </svg>
-                </span>
-              </button>
-              <div class="faq-content hidden px-6 pb-6 pt-2 text-gray-600 bg-white">
-                <div class="p-4 bg-gray-50 rounded-lg border-l-4 border-blue-500">
-                  <p>{question.content}</p>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- FAQ Section (12 columns) -->
+      <div class="lg:col-span-12">
+        <div class="bg-white rounded-xl shadow-xl overflow-hidden border border-gray-100">
+          {
+            faqs.map((question, i) => {
+              let id = makeId("faq-item-", i);
+              
+              return (
+                <div class={`faq-item ${i > 0 ? 'border-t border-gray-100' : ''} ${i >= 3 ? 'hidden extended-faq' : ''}`} id={id}>
+                  <button
+                    class="faq-toggle w-full flex items-center justify-between p-6 group transition-all duration-200 hover:bg-blue-50 focus:outline-none"
+                  >
+                    <span class="font-medium text-lg text-left text-gray-800 group-hover:text-blue-600">
+                      {question.heading}
+                    </span>
+                    <span class="faq-icon ml-4 flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-blue-100 text-blue-600 transition-transform duration-300">
+                      <!-- Down arrow (default) -->
+                      <svg class="down-icon w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                      </svg>
+                      <svg class="up-icon w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="18 15 12 9 6 15"></polyline>
+                      </svg>
+                    </span>
+                  </button>
+                  <div class="faq-content hidden px-6 pb-6 pt-2 text-gray-600 bg-white">
+                    <div class="p-4 bg-gray-50 rounded-lg border-l-4 border-blue-500">
+                      <p>{question.content}</p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          );
-        })
-      }
+              );
+            })
+          }
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <script is:inline>
   document.addEventListener('DOMContentLoaded', function() {
-    // Enhanced accordion functionality with arrow switching
+    const faqToggleTrigger = document.getElementById('faq-toggle-trigger');
+    const extendedFaqs = document.querySelectorAll('.extended-faq');
+    let isExtendedVisible = false; // Track if extended FAQs are visible
+
+    // Toggle extended FAQs on hover (mouseenter) of the FAQ section header
+    faqToggleTrigger.addEventListener('mouseenter', function() {
+      isExtendedVisible = !isExtendedVisible; // Toggle visibility state
+      extendedFaqs.forEach(function(faq) {
+        faq.classList.toggle('hidden', !isExtendedVisible); // Toggle hidden class
+      });
+    });
+
+    // FAQ accordion functionality (click on arrow to open/close)
     const faqItems = document.querySelectorAll('.faq-item');
-    
     faqItems.forEach(function(item) {
       const toggle = item.querySelector('.faq-toggle');
       const content = item.querySelector('.faq-content');
+      const downIcon = toggle.querySelector('.down-icon');
+      const upIcon = toggle.querySelector('.up-icon');
       
       toggle.addEventListener('click', function() {
         const isOpen = item.classList.contains('active');
         
-        // Close all accordion items
+        // Close all other FAQ items
         faqItems.forEach(function(faqItem) {
-          faqItem.classList.remove('active');
-          const faqContent = faqItem.querySelector('.faq-content');
-          if (faqContent) {
-            faqContent.style.display = 'none';
+          if (faqItem !== item) {
+            faqItem.classList.remove('active');
+            const faqContent = faqItem.querySelector('.faq-content');
+            if (faqContent) {
+              faqContent.style.display = 'none';
+            }
+            
+            const itemDownIcon = faqItem.querySelector('.down-icon');
+            const itemUpIcon = faqItem.querySelector('.up-icon');
+            if (itemDownIcon && itemUpIcon) {
+              itemDownIcon.classList.remove('hidden');
+              itemUpIcon.classList.add('hidden');
+            }
           }
         });
         
-        // If clicked item was not open, open it
-        if (!isOpen) {
-          item.classList.add('active');
-          if (content) {
-            content.style.display = 'block';
-          }
+        // Toggle the clicked FAQ item
+        item.classList.toggle('active');
+        if (content) {
+          content.style.display = item.classList.contains('active') ? 'block' : 'none';
+        }
+        
+        // Toggle icons
+        if (downIcon && upIcon) {
+          downIcon.classList.toggle('hidden', item.classList.contains('active'));
+          upIcon.classList.toggle('hidden', !item.classList.contains('active'));
         }
       });
     });
