@@ -7,6 +7,9 @@ imgCard: "/src/assets/images/networkcamera/DS-2CD2786G2H-IPTRZS/DS-2CD2786G2H-IP
 imgAlt: "DS-2CD2786G2H-IPTRZS"
 thumbnails: [
   "/src/assets/images/networkcamera/DS-2CD2786G2H-IPTRZS/DS-2CD2786G2H-IPTRZS-1.png",
+  "/src/assets/images/networkcamera/DS-2CD2786G2H-IPTRZS/DS-2CD2786G2H-IPTRZS-2.png",
+  "/src/assets/images/networkcamera/DS-2CD2786G2H-IPTRZS/DS-2CD2786G2H-IPTRZS-3.png",
+  "/src/assets/images/networkcamera/DS-2CD2786G2H-IPTRZS/DS-2CD2786G2H-IPTRZS-4.png",
 ]
 features: [
   "Motorized pan, tilt, rotate, and zoom for easy setup and monitoring",
