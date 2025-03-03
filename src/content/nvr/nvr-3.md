@@ -1,12 +1,12 @@
 ---
-id: 1
-title: "DS-96128NXI-S16"
-subTitle: "S Series NVR with AcuSense – 32×1080p Decoding & 8K Output"
+id: 3
+title: "DS-96128NXI-S24R"
+subTitle: "S Series NVR with AcuSense – 32×1080p Decoding & 8K HDMI Output"
 category: "Network Products"
-imgCard: "/src/assets/images/nvr/DS-96128NXI-S16/DS-96128NXI-S16-1.png"
-imgAlt: "DS-96128NXI-S16"
+imgCard: "/src/assets/images/nvr/DS-96128NXI-S24R/DS-96128NXI-S24R-1.png"
+imgAlt: "DS-96128NXI-S24R"
 thumbnails: [
-  "/src/assets/images/nvr/DS-96128NXI-S16/DS-96128NXI-S16-1.png",
+  "/src/assets/images/nvr/DS-96128NXI-S24R/DS-96128NXI-S24R-1.png"
 ]
 features: [
   "Supports 32×1080p decoding & 128-ch IP cameras",
@@ -15,6 +15,7 @@ features: [
   "Connect up to 8-ch IP speakers",
   "RAID 0, 1, 5, 6, 10 & N+M hot spare for secure storage",
   "8K HDMI video output for ultra-HD display",
+  "Redundant power supply for enhanced reliability"
 ]
 specifications: {
   Intelligent_Analytics: {
@@ -51,9 +52,9 @@ specifications: {
     Incoming_Bandwidth_RAID_Mode: "640 Mbps",
     Outgoing_Bandwidth_RAID_Mode: "512 Mbps",
     HDMI_Outputs: {
-      HDMI_1: "4K (4096 × 2160)/30 Hz, 4K (3840 × 2160)/60 Hz, 2K (2560 × 1440)/60 Hz, 1080P (1920 × 1080)/60 Hz",
-      HDMI_2: "4K (4096 × 2160)/30 Hz, 4K (3840 × 2160)/60 Hz, 2K (2560 × 1440)/60 Hz, 1080P (1920 × 1080)/60 Hz",
-      HDMI_3: "8K (7680 × 4320)/30 Hz, 4K (4096 × 2160)/30 Hz, 2K (2560 × 1440)/60 Hz, 1080P (1920 × 1080)/60 Hz",
+      HDMI_1: "4K (4096 × 2160)/30 Hz, 4K (3840 × 2160)/60 Hz, 4K (3840 × 2160)/30 Hz, 2K (2560 × 1440)/60 Hz, 1080P (1920 × 1080)/60 Hz",
+      HDMI_2: "4K (4096 × 2160)/30 Hz, 4K (3840 × 2160)/60 Hz, 4K (3840 × 2160)/30 Hz, 2K (2560 × 1440)/60 Hz, 1080P (1920 × 1080)/60 Hz",
+      HDMI_3: "8K (7680 × 4320)/30 Hz, 4K (4096 × 2160)/30 Hz, 4K (3840 × 2160)/60 Hz, 4K (3840 × 2160)/30 Hz, 2K (2560 × 1440)/60 Hz, 1080P (1920 × 1080)/60 Hz",
       HDMI_4: "1080P (1920 × 1080)/60 Hz"
     },
     VGA_Outputs: {
@@ -77,8 +78,8 @@ specifications: {
     Consumption: "≤ 100 W (without HDD)",
     Working_Temperature: "-10 to 55°C (14 to 131° F)",
     Working_Humidity: "10 to 90%",
-    Dimension: "442 mm × 497 mm × 146 mm (17.4 × 19.5 × 5.7 inch)",
-    Weight: "≤ 12 kg (without HDD, 28.7 lb.)"
+    Dimension: "447 mm × 572 mm × 173 mm (17.6 × 22.5 × 6.8 inch)",
+    Weight: "≤ 19 kg (without HDD, 28.7 lb.)"
   }
 }
 ---

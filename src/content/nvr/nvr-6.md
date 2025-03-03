@@ -1,20 +1,20 @@
 ---
-id: 1
-title: "DS-96128NXI-S16"
-subTitle: "S Series NVR with AcuSense – 32×1080p Decoding & 8K Output"
+id: 6
+title: "DS-96256NXI-S16"
+subTitle: "S Series NVR with AcuSense – 32×1080p Decoding, 256-ch IP & 8K HDMI"
 category: "Network Products"
-imgCard: "/src/assets/images/nvr/DS-96128NXI-S16/DS-96128NXI-S16-1.png"
-imgAlt: "DS-96128NXI-S16"
+imgCard: "/src/assets/images/nvr/DS-96256NXI-S16/DS-96256NXI-S16-1.png"
+imgAlt: "DS-96256NXI-S16"
 thumbnails: [
-  "/src/assets/images/nvr/DS-96128NXI-S16/DS-96128NXI-S16-1.png",
+  "/src/assets/images/nvr/DS-96256NXI-S16/DS-96256NXI-S16-1.png"
 ]
 features: [
-  "Supports 32×1080p decoding & 128-ch IP cameras",
+  "Supports 32×1080p decoding & 256-ch IP cameras",
   "H.265+/H.265/H.264+/H.264 video formats",
-  "Facial recognition, perimeter protection & AcuSearch",
+  "Intelligent analytics: facial recognition, perimeter protection & AcuSearch",
   "Connect up to 8-ch IP speakers",
   "RAID 0, 1, 5, 6, 10 & N+M hot spare for secure storage",
-  "8K HDMI video output for ultra-HD display",
+  "8K HDMI video output for ultra-HD display"
 ]
 specifications: {
   Intelligent_Analytics: {
@@ -45,15 +45,15 @@ specifications: {
     }
   },
   Video_and_Audio: {
-    IP_Video_Input: "128-ch, Up to 32 MP resolution",
+    IP_Video_Input: "256-ch, Up to 32 MP resolution",
     Incoming_Bandwidth: "1280 Mbps",
     Outgoing_Bandwidth: "1024 Mbps",
     Incoming_Bandwidth_RAID_Mode: "640 Mbps",
     Outgoing_Bandwidth_RAID_Mode: "512 Mbps",
     HDMI_Outputs: {
-      HDMI_1: "4K (4096 × 2160)/30 Hz, 4K (3840 × 2160)/60 Hz, 2K (2560 × 1440)/60 Hz, 1080P (1920 × 1080)/60 Hz",
-      HDMI_2: "4K (4096 × 2160)/30 Hz, 4K (3840 × 2160)/60 Hz, 2K (2560 × 1440)/60 Hz, 1080P (1920 × 1080)/60 Hz",
-      HDMI_3: "8K (7680 × 4320)/30 Hz, 4K (4096 × 2160)/30 Hz, 2K (2560 × 1440)/60 Hz, 1080P (1920 × 1080)/60 Hz",
+      HDMI_1: "4K (4096 × 2160)/30 Hz, 4K (3840 × 2160)/60 Hz, 4K (3840 × 2160)/30 Hz, 2K (2560 × 1440)/60 Hz, 1080P (1920 × 1080)/60 Hz",
+      HDMI_2: "4K (4096 × 2160)/30 Hz, 4K (3840 × 2160)/60 Hz, 4K (3840 × 2160)/30 Hz, 2K (2560 × 1440)/60 Hz, 1080P (1920 × 1080)/60 Hz",
+      HDMI_3: "8K (7680 × 4320)/30 Hz, 4K (4096 × 2160)/30 Hz, 4K (3840 × 2160)/60 Hz, 4K (3840 × 2160)/30 Hz, 2K (2560 × 1440)/60 Hz, 1080P (1920 × 1080)/60 Hz",
       HDMI_4: "1080P (1920 × 1080)/60 Hz"
     },
     VGA_Outputs: {
@@ -72,7 +72,9 @@ specifications: {
     Two_Way_Audio: "1-ch, RCA (2.0 Vp-p, 1 KΩ)"
   },
   General: {
-    GUI_Language: "Multiple languages supported including English, Russian, German, French, Spanish, Chinese, etc.",
+    GUI_Language: [
+      "English", "Russian", "German", "French", "Spanish", "Chinese", "etc."
+    ],
     Power_Supply: "100 to 240 VAC, 50 to 60 Hz, redundant power supply",
     Consumption: "≤ 100 W (without HDD)",
     Working_Temperature: "-10 to 55°C (14 to 131° F)",

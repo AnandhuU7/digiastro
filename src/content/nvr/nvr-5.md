@@ -1,12 +1,12 @@
 ---
-id: 1
-title: "DS-96128NXI-S16"
-subTitle: "S Series NVR with AcuSense – 32×1080p Decoding & 8K Output"
+id: 5
+title: "DS-96128NXI-S8"
+subTitle: "S Series NVR with AcuSense – 32×1080p Decoding, 128-ch IP & 8K HDMI"
 category: "Network Products"
-imgCard: "/src/assets/images/nvr/DS-96128NXI-S16/DS-96128NXI-S16-1.png"
-imgAlt: "DS-96128NXI-S16"
+imgCard: "/src/assets/images/nvr/DS-96128NXI-S8/DS-96128NXI-S8-1.png"
+imgAlt: "DS-96128NXI-S8"
 thumbnails: [
-  "/src/assets/images/nvr/DS-96128NXI-S16/DS-96128NXI-S16-1.png",
+  "/src/assets/images/nvr/DS-96128NXI-S8/DS-96128NXI-S8-1.png"
 ]
 features: [
   "Supports 32×1080p decoding & 128-ch IP cameras",
@@ -15,6 +15,7 @@ features: [
   "Connect up to 8-ch IP speakers",
   "RAID 0, 1, 5, 6, 10 & N+M hot spare for secure storage",
   "8K HDMI video output for ultra-HD display",
+  "Redundant power supply for uninterrupted operation"
 ]
 specifications: {
   Intelligent_Analytics: {
@@ -51,9 +52,9 @@ specifications: {
     Incoming_Bandwidth_RAID_Mode: "640 Mbps",
     Outgoing_Bandwidth_RAID_Mode: "512 Mbps",
     HDMI_Outputs: {
-      HDMI_1: "4K (4096 × 2160)/30 Hz, 4K (3840 × 2160)/60 Hz, 2K (2560 × 1440)/60 Hz, 1080P (1920 × 1080)/60 Hz",
-      HDMI_2: "4K (4096 × 2160)/30 Hz, 4K (3840 × 2160)/60 Hz, 2K (2560 × 1440)/60 Hz, 1080P (1920 × 1080)/60 Hz",
-      HDMI_3: "8K (7680 × 4320)/30 Hz, 4K (4096 × 2160)/30 Hz, 2K (2560 × 1440)/60 Hz, 1080P (1920 × 1080)/60 Hz",
+      HDMI_1: "4K (4096 × 2160)/30 Hz, 4K (3840 × 2160)/60 Hz, 4K (3840 × 2160)/30 Hz, 2K (2560 × 1440)/60 Hz, 1080P (1920 × 1080)/60 Hz",
+      HDMI_2: "4K (4096 × 2160)/30 Hz, 4K (3840 × 2160)/60 Hz, 4K (3840 × 2160)/30 Hz, 2K (2560 × 1440)/60 Hz, 1080P (1920 × 1080)/60 Hz",
+      HDMI_3: "8K (7680 × 4320)/30 Hz, 4K (4096 × 2160)/30 Hz, 4K (3840 × 2160)/60 Hz, 4K (3840 × 2160)/30 Hz, 2K (2560 × 1440)/60 Hz, 1080P (1920 × 1080)/60 Hz",
       HDMI_4: "1080P (1920 × 1080)/60 Hz"
     },
     VGA_Outputs: {
@@ -72,13 +73,19 @@ specifications: {
     Two_Way_Audio: "1-ch, RCA (2.0 Vp-p, 1 KΩ)"
   },
   General: {
-    GUI_Language: "Multiple languages supported including English, Russian, German, French, Spanish, Chinese, etc.",
+    GUI_Language: [
+      "English", "Russian", "Bulgarian", "Hungarian", "Greek", "German", "Italian", "Czech", "Slovak", "French",
+      "Polish", "Dutch", "Portuguese", "Spanish", "Romanian", "Turkish", "Japanese", "Danish", "Swedish",
+      "Norwegian", "Finnish", "Korean", "Traditional Chinese", "Thai", "Estonian", "Vietnamese", "Croatian",
+      "Slovenian", "Serbian", "Latvian", "Lithuanian", "Uzbek", "Kazakh", "Arabic", "Ukrainian", "Kyrgyz",
+      "Brazilian Portuguese", "Indonesian"
+    ],
     Power_Supply: "100 to 240 VAC, 50 to 60 Hz, redundant power supply",
     Consumption: "≤ 100 W (without HDD)",
     Working_Temperature: "-10 to 55°C (14 to 131° F)",
     Working_Humidity: "10 to 90%",
-    Dimension: "442 mm × 497 mm × 146 mm (17.4 × 19.5 × 5.7 inch)",
-    Weight: "≤ 12 kg (without HDD, 28.7 lb.)"
+    Dimension: "442 mm × 460 mm × 88 mm (17.4 × 18.1 × 3.5 inch)",
+    Weight: "≤ 10 kg (without HDD, 28.7 lb.)"
   }
 }
 ---

@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import ProductDetailsnvr from "../../components/ProductDetailsnvr.astro";
+import SlugProductDetailsnvr from "../../components/SlugProductDetails.astro";
 
 // Fetch all product entries and generate static paths
 export async function getStaticPaths() {
@@ -37,5 +37,5 @@ const structuredData = {
 ---
 
 <Layout title={product.data.title} structuredData={structuredData}>
-  <ProductDetailsnvr  product={product} />
+  <SlugProductDetailsnvr product={product} />
 </Layout>

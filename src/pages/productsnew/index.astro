@@ -14,7 +14,7 @@ const products = [
     title: "Network Video Recorder",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
     image: "/src/assets/images/cam.png",
-    link: "/network-video-recorders"
+    link: "/nvr"
   },
   {
     id: 3,
@@ -135,12 +135,12 @@ const features = [
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
           {products.map(product => (
             <div class="bg-white rounded-lg shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-xl max-w-xs mx-auto w-full group">
-              <div class="relative p-4 flex justify-center items-center bg-gradient-to-br from-teal-50 to-blue-50">
+              <div class="relative p-0 flex justify-center items-center bg-gradient-to-br from-teal-50 to-blue-50 w-full h-44">
                 <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-teal-500/10 to-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <img 
                   src={product.image} 
                   alt={product.title} 
-                  class="h-36 object-contain transition-transform duration-500 group-hover:rotate-3 group-hover:scale-110 relative z-10"
+                  class="w-full h-full object-cover relative z-10"
                 />
               </div>
               <div class="p-5">
