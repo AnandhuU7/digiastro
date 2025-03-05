@@ -2,7 +2,7 @@
 id: 5
 title: "DS-2CD2683G2-IZS"
 subTitle: "8 MP AcuSense Motorized Varifocal Bullet Camera"
-category: "Network Products"
+category: "Network Camera"
 imgCard: "/src/assets/images/networkcamera/DS-2CD2683G2-IZS/DS-2CD2683G2-IZS-1.png"
 imgAlt: "DS-2CD2683G2-IZS"
 thumbnails: [
@@ -18,7 +18,7 @@ features: [
   "IP67 water and dust resistance, IK10 vandal-proof",
 ]
 specifications: {
-  camera: {
+  Camera: {
     Image_Sensor: "1/2.8\" Progressive Scan CMOS",
     Max_Resolution: "3840 × 2160",
     Min_Illumination: "Color: 0.005 Lux @ (F1.6, AGC ON), B/W: 0 Lux with IR",
@@ -26,7 +26,7 @@ specifications: {
     Day_Night: "IR cut filter",
     Angle_Adjustment: "Pan: 0° to 355°, Tilt: 0° to 90°, Rotate: 0° to 360°"
   },
-  lens: {
+  Lens: {
     Lens_Type: "Varifocal lens, motorized lens, 2.8 to 12 mm",
     Focal_Length_FOV: {
       "2.8 to 12 mm": "Horizontal FOV 108° to 30°, Vertical FOV 56° to 17°, Diagonal FOV 131° to 35°"
@@ -35,7 +35,7 @@ specifications: {
     Iris_Type: "Fixed",
     Aperture: "F1.6"
   },
-  video: {
+  Video: {
     Main_Stream: {
       "50_Hz": "20 fps (3840 × 2160), 25 fps (3200 × 1800, 2688 × 1520, 1920 × 1080, 1280 × 720)",
       "60_Hz": "20 fps (3840 × 2160), 30 fps (3200 × 1800, 2688 × 1520, 1920 × 1080, 1280 × 720)"
@@ -60,7 +60,7 @@ specifications: {
     },
     Region_of_Interest: "1 fixed region for main stream and sub-stream"
   },
-  audio: {
+  Audio: {
     Audio_Compression: "G.711/G.722.1/G.726/MP2L2/PCM/MP3/AAC-LC",
     Audio_Bit_Rate: "64 Kbps (G.711 ulaw/G.711alaw)/16 Kbps (G.722.1)/16 Kbps (G.726)/32 to 192 Kbps (MP2L2)/8 to 320 Kbps (MP3)/16 to 64 Kbps (AAC-LC)",
     Audio_Sampling_Rate: "8 kHz/16 kHz/32 kHz/44.1 kHz/48 kHz",

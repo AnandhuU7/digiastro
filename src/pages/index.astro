@@ -4,6 +4,7 @@ import HeroComponents from "../components/HeroComponents.astro";
 import FeatureComponents from "../components/FeatureComponents.astro";
 import DigiComponents from "../components/DigiComponents.astro";
 import FAQ from "../components/FAQ.astro";
+import Slider from "../components/Slider.astro";
 const title: string =
   "Hikvision dealer in Dubai | Best Hikvision dealer in Dubai,U.A.E";
 const description: string = "Premier Hikvision distributor in Dubai, UAE. Explore our range of genuine products and benefit from expert support. Contact us for inquiries";
@@ -12,10 +13,7 @@ const description: string = "Premier Hikvision distributor in Dubai, UAE. Explor
 <Layout title={title} description ={description}>
   <HeroComponents />
   <DigiComponents />
+  <Slider/>
   <FeatureComponents />
-  <!-- <div class="grid grid-cols-1 pb-6 text-center text-white text-4xl mt-8">
-    Latest Hikvision products in UAE
-  </div> -->
-
   <FAQ />
 </Layout>

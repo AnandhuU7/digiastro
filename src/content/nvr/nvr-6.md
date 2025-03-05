@@ -2,7 +2,7 @@
 id: 6
 title: "DS-96256NXI-S16"
 subTitle: "S Series NVR with AcuSense – 32×1080p Decoding, 256-ch IP & 8K HDMI"
-category: "Network Products"
+category: "Network Video Recorder"
 imgCard: "/src/assets/images/nvr/DS-96256NXI-S16/DS-96256NXI-S16-1.png"
 imgAlt: "DS-96256NXI-S16"
 thumbnails: [

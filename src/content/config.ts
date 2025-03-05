@@ -95,6 +95,57 @@ const nvrCollection = defineCollection({
         .optional(),
     }),
 });
+
+const networkCollection = defineCollection({
+  type: 'content',
+  schema: ({ image }) => z.object({
+    id: z.number(),
+    title: z.string(),
+    subTitle: z.string(),
+    category: z.string(),
+    imgCard: image(),
+    imgAlt: z.string(),
+    thumbnails: z.array(image()).optional(),
+    features: z.array(z.string()),
+    specifications: z.record(
+      z.string(),
+      z.record(
+        z.string(),
+        z.union([
+          z.string(),
+          z.record(z.string(), z.string()),
+          z.record(z.string(), z.union([z.string(), z.record(z.string(), z.string())]))
+        ])
+      )
+    ).optional(),
+  }),
+});
+
+const explosionproofCollection = defineCollection({
+  type: 'content',
+  schema: ({ image }) => z.object({
+    id: z.number(),
+    title: z.string(),
+    subTitle: z.string(),
+    category: z.string(),
+    imgCard: image(),
+    imgAlt: z.string(),
+    thumbnails: z.array(image()).optional(),
+    features: z.array(z.string()),
+    specifications: z.record(
+      z.string(),
+      z.record(
+        z.string(),
+        z.union([
+          z.string(),
+          z.record(z.string(), z.string()),
+          z.record(z.string(), z.union([z.string(), z.record(z.string(), z.string())]))
+        ])
+      )
+    ).optional(),
+  }),
+});
+
 const blogCollection = defineCollection({
   type: "content",
   schema: ({ image }) => z.object ({
@@ -118,5 +169,7 @@ export const collections = {
   'blogs': blogCollection,
   'networkcamera': networkcameraCollection,
   'ptzcamera': ptzcameraCollection,
-  'nvr': nvrCollection
+  'nvr': nvrCollection,
+  'network': networkCollection,
+  'explosionproof': explosionproofCollection,
 };

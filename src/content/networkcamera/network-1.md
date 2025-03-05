@@ -2,7 +2,7 @@
 id: 1
 title: "DS-2CD2786G2H-IPTRZS"
 subTitle: "8 MP AcuSense PTRZ Varifocal Dome Network Camera"
-category: "Network Products"
+category: "Network Camera"
 imgCard: "/src/assets/images/networkcamera/DS-2CD2786G2H-IPTRZS/DS-2CD2786G2H-IPTRZS-1.png"
 imgAlt: "DS-2CD2786G2H-IPTRZS"
 thumbnails: [
@@ -20,7 +20,7 @@ features: [
   "Audio and alarm integration for enhanced security",
 ]
 specifications: {
-  camera: {
+  Camera: {
     Image_Sensor: "1/1.8\" Progressive Scan CMOS",
     Max_Resolution: "3840 × 2160",
     Min_Illumination: "Color: 0.0008 Lux @ (F1.2, AGC ON), B/W: 0 Lux with IR",
@@ -28,7 +28,7 @@ specifications: {
     Day_Night: "IR cut filter",
     Angle_Adjustment: "Remote adjustment (Max. 1,000 cycles) Pan: 0° to 350°, Tilt: 0° to 85°, Rotate: 0° to 350°"
   },
-  lens: {
+  Lens: {
     Lens_Type: "Varifocal lens, motorized lens, 2.8 to 12 mm",
     Focal_Length_FOV: "2.8 to 12 mm, horizontal FOV 112.3° to 41.2°, vertical FOV 58.1° to 23.1°, diagonal FOV 137.4° to 47.3°",
     Lens_Mount: "Integrated",
@@ -36,7 +36,7 @@ specifications: {
     Aperture: "Max. F1.2",
     Depth_of_Field: "1 m to ∞"
   },
-  video: {
+  Video: {
     Main_Stream: {
       "50_Hz": "25 fps (3840 × 2160, 3200 × 1800, 2688 × 1520, 1920 × 1080, 1280 × 720)",
       "60_Hz": "24 fps (3840 × 2160), 30 fps (3200 × 1800, 2688 × 1520, 1920 × 1080, 1280 × 720)"
@@ -63,7 +63,7 @@ specifications: {
     Scalable_Video_Coding: "H.264 and H.265 encoding",
     Region_of_Interest: "1 fixed region for main stream and sub-stream include remaining"
   },
-  audio: {
+  Audio: {
     Audio_Compression: "G.711/G.722.1/G.726/MP2L2/PCM/MP3/AAC-LC",
     Audio_Bit_Rate: "64 Kbps (G.711ulaw/G.711alaw) / 16 Kbps (G.722.1) / 16 Kbps (G.726) / 32 to 192 Kbps (MP2L2) / 8 to 320 Kbps (MP3) / 16 to 64 Kbps (AAC-LC)",
     Audio_Sampling_Rate: "8 kHz / 16 kHz / 32 kHz / 48 kHz",

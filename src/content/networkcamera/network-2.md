@@ -2,7 +2,7 @@
 id: 2
 title: "DS-2CD2383G2-LI(2U)"
 subTitle: "8 MP AcuSense Smart Hybrid Light Turret Camera"
-category: "Network Products"
+category: "Network Camera"
 imgCard: "/src/assets/images/networkcamera/DS-2CD2383G2-LI(2U)/DS-2CD2383G2-LI(2U)-1.png"
 imgAlt: "DS-2CD2383G2-LI(2U)"
 thumbnails: [
@@ -18,7 +18,7 @@ features: [
   "IP67 water and dust resistance for reliable outdoor use",
 ]
 specifications: {
-  camera: {
+  Camera: {
     Image_Sensor: "1/2.8\" Progressive Scan CMOS",
     Max_Resolution: "3840 × 2160",
     Min_Illumination: "Color: 0.005 Lux @ (F1.6, AGC ON), 0 Lux with light",
@@ -26,7 +26,7 @@ specifications: {
     Day_Night: "IR cut filter",
     Angle_Adjustment: "Pan: 0° to 360°, Tilt: 0° to 75°, Rotate: 0° to 360°"
   },
-  lens: {
+  Lens: {
     Lens_Type: "Fixed focal lens, 2.8 and 4 mm optional",
     Focal_Length_FOV: {
       "2.8 mm": "Horizontal FOV 108°, Vertical FOV 59°, Diagonal FOV 127°",
@@ -40,7 +40,7 @@ specifications: {
       "4 mm": "2.6 m to ∞"
     }
   },
-  video: {
+  Video: {
     Main_Stream: {
       "50_Hz": "20 fps (3840 × 2160), 25 fps (3200 × 1800, 2688 × 1520, 1920 × 1080, 1280 × 720)",
       "60_Hz": "20 fps (3840 × 2160), 30 fps (3200 × 1800, 2688 × 1520, 1920 × 1080, 1280 × 720)"
@@ -68,7 +68,7 @@ specifications: {
     Region_of_Interest: "1 fixed region for main stream and sub-stream",
     Target_Cropping: "Yes"
   },
-  audio: {
+  Audio: {
     Audio_Compression: "-2U: G.711/G.722.1/G.726/MP2L2/PCM/MP3/AAC-LC",
     Audio_Bit_Rate: "-2U: 64 Kbps (G.711ulaw/G.711alaw)/16 Kbps (G.722.1)/16 Kbps (G.726)/32 to 160 Kbps (MP2L2)/8 to 320 Kbps (MP3)/16 to 64 Kbps (AAC-LC)",
     Audio_Sampling_Rate: "-2U: 8 kHz/16 kHz/32 kHz/48 kHz",

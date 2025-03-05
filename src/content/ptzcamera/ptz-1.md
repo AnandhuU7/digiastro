@@ -2,7 +2,7 @@
 id: 1
 title: "DS-2SE3C204MWG-4G/12"
 subTitle: "TandemVu 2MP+2MP 4X 4G PTZ Network Camera"
-category: "Network Products"
+category: "PTZ Camera"
 imgCard: "/src/assets/images/ptzcamera/DS-2SE3C204MWG-4G12/DS-2SE3C204MWG-4G12-1.png"
 imgAlt: "DS-2SE3C204MWG-4G/12"
 thumbnails: [
@@ -17,7 +17,7 @@ features: [
   "Human and vehicle detection for enhanced security",
 ]
 specifications: {
-  camera: {
+  Camera: {
     Image_Sensor: "[Bullet channel]: 1/2.8\" Progressive Scan CMOS; [PTZ channel]: 1/2.8\" progressive scan CMOS",
     Min_Illumination: "[Bullet channel]: Color: 0.03 Lux @ (F2.0, AGC ON), B/W: 0.01 Lux @ (F2.0, AGC ON), 0 Lux with IR; [PTZ channel]: Color: 0.01 Lux @ (F1.5, AGC ON), B/W: 0.005Lux @ (F1.5, AGC ON), 0 Lux with IR",
     Shutter_Speed: "1 s to 1/30,000 s",
@@ -26,14 +26,14 @@ specifications: {
     Zoom: "[PTZ channel] 4 × optical, 16 × digital",
     Max_Resolution: "[Bullet channel] 1920 × 1080, [PTZ channel] 1920 × 1080"
   },
-  lens: {
+  Lens: {
     Focus: "Auto, Manual, Semi-auto",
     Focal_Length: "[Bullet channel]: 2.8 mm; [PTZ channel]: 2.8 to 12 mm, 4 × optical",
     Zoom_Speed: "[PTZ channel]: approx. 3.3 s",
     FOV: "[Bullet channel] Horizontal: 104.9°, Vertical: 57.9°, Diagonal: 122.8°; [PTZ channel] Horizontal: 92° to 33°, Vertical: 49° to 18.2°, Diagonal: 104° to 37.7°",
     Aperture: "[Bullet channel] F2.0, [PTZ channel] F1.5 to F2.9"
   },
-  video: {
+  Video: {
     Region_of_Interest: "1 fixed region for main stream",
     Main_Stream: "[Bullet_Channel]:50_Hz: 25 fps (1920 × 1080, 1280 × 720),60_Hz:30 fps (1920 × 1080, 1280 × 720);[PTZ_Channel]:50_Hz: 25 fps (1920 × 1080, 1280 × 720),60_Hz:30 fps (1920 × 1080, 1280 × 720)",
     Sub_Stream: "[Bullet_Channel]:50_Hz: 25 fps (640 × 480, 640 × 360),60_Hz:30 fps (640 × 480, 640 × 360);[PTZ_Channel]:50_Hz: 25 fps (640 × 480, 640 × 360),60_Hz:30 fps (640 × 480, 640 × 360)",
@@ -44,7 +44,7 @@ specifications: {
     H265_Type: "Main Profile",
     Scalable_Video_Coding: "Yes"
   },
-  audio: {
+  Audio: {
     Audio_Compression: "G.711, G.722.1, G.726, MP2L2, PCM, MP3, AAC",
     Audio_Bit_Rate: "MP2L2: 32-160 kbps; AAC: 16, 32, 64 kbps; MP3: 8-160 kbps",
     Audio_Sampling_Rate: "MP2L2: 16 kHz, AAC-LC: 16 kHz, PCM: 8 kHz, 16 kHz, MP3: 8 kHz, 16 kHz",

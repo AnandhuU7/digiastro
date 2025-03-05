@@ -2,7 +2,7 @@
 id: 8
 title: "DS-2DP8A440IXG1-LEF/832"
 subTitle: "32MP 360° Panoramic & PTZ Camera"
-category: "Network Products"
+category: "PTZ Camera"
 imgCard: "/src/assets/images/ptzcamera/DS-2DP8A440IXG1-LEF832(F0)/DS-2DP8A440IXG1-LEF832(F0)-1.png"
 imgAlt: "DS-2DP8A440IXG1-LEF/832"
 thumbnails: [

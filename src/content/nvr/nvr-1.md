@@ -2,7 +2,7 @@
 id: 1
 title: "DS-96128NXI-S16"
 subTitle: "S Series NVR with AcuSense – 32×1080p Decoding & 8K Output"
-category: "Network Products"
+category: "Network Video Recorder"
 imgCard: "/src/assets/images/nvr/DS-96128NXI-S16/DS-96128NXI-S16-1.png"
 imgAlt: "DS-96128NXI-S16"
 thumbnails: [

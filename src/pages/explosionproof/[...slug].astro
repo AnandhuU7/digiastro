@@ -1,0 +1,41 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import SlugProductDetails from "../../components/SlugProductDetails.astro";
+
+// Fetch all product entries and generate static paths
+export async function getStaticPaths() {
+  const productEntries = await getCollection("explosionproof");
+  return productEntries.map((product) => ({
+    params: { slug: product.slug },
+    props: { product },
+  }));
+}
+
+// Access the product data passed via props
+const { product } = Astro.props;
+
+// Generate structured data for the product
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: product.data.title,
+  description: product.data.subTitle,
+  category: product.data.category,
+  image: product.data.imgCard.src,
+  brand: {
+    "@type": "Brand",
+    name: "Your Brand Name", 
+  },
+  offers: {
+    "@type": "Offer",
+    priceCurrency: "USD", 
+    price: "0.00", 
+    availability: "https://schema.org/InStock",
+  },
+};
+---
+
+<Layout title={product.data.title} structuredData={structuredData}>
+  <SlugProductDetails product={product} />
+</Layout>

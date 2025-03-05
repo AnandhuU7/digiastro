@@ -2,7 +2,7 @@
 const slides = [
   {
     id: 1,
-    imgMain: '/src/assets/Banner-1.jpg',
+    imgMain: '/src/assets/images/banner/Banner-1.jpg',
     title: 'First Slide',
     subTitle: 'Subtitle for Slide 1',
     content: 'Content for Slide 1',
@@ -10,7 +10,7 @@ const slides = [
   },
   {
     id: 2,
-    imgMain: '/src/assets/Banner-2.jpg',
+    imgMain: '/src/assets/images/banner/Banner-2.jpg',
     title: 'Second Slide',
     subTitle: 'Subtitle for Slide 2',
     content: 'Content for Slide 2',
@@ -18,7 +18,7 @@ const slides = [
   },
   {
     id: 3,
-    imgMain: '/src/assets/Banner-1.jpg',
+    imgMain: '/src/assets/images/banner/Banner-1.jpg',
     title: 'Third Slide',
     subTitle: 'Subtitle for Slide 3',
     content: 'Content for Slide 3',
@@ -29,25 +29,25 @@ const slides = [
 const services = [
   {
     icon: '⬇️',
-    title: 'BUSINESS SOLUTION',
+    title: 'DarkFighter Technology',
     description: 'Lorem ipsum dolor sit amet constur adipelit sed.',
     link: '/products',
   },
   {
     icon: '📑',
-    title: 'MARKET RESEARCH',
+    title: 'TandemVu Technology',
     description: 'Lorem ipsum dolor sit amet constur adipelit sed.',
     link: '#',
   },
   {
     icon: '💡',
-    title: 'BUSINESS STRATEGY',
+    title: 'ColorVu Technology',
     description: 'Lorem ipsum dolor sit amet constur adipelit sed.',
     link: '#',
   },
   {
     icon: '⚙️',
-    title: 'SPEED OPTIMIZATION',
+    title: 'Acusense technology',
     description: 'Lorem ipsum dolor sit amet constur adipelit sed.',
     link: '#',
   },
@@ -121,14 +121,16 @@ const services = [
           href={service.link}
           target="_blank"
           rel="noopener noreferrer"
-          class="block"
+          class="block group"
         >
-          <div class="bg-white p-8 rounded-lg shadow-lg text-center transform hover:-translate-y-1 transition-transform duration-300">
-            <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-green-100 flex items-center justify-center">
-              <span class="text-2xl">{service.icon}</span>
+          <div class="bg-white p-8 rounded-2xl shadow-xl text-center transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl border border-gray-100 hover:border-green-100 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 to-blue-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+            <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-green-50 flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow duration-300">
+              <span class="text-4xl text-green-600 group-hover:scale-110 transition-transform duration-300">{service.icon}</span>
             </div>
-            <h3 class="text-xl font-bold mb-3">{service.title}</h3>
-            <p class="text-gray-600">{service.description}</p>
+            <h3 class="text-2xl font-semibold mb-4 text-gray-800 group-hover:text-green-700 transition-colors duration-300">{service.title}</h3>
+            <p class="text-gray-600 group-hover:text-gray-800 transition-colors duration-300">{service.description}</p>
+            <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-green-400 transform origin-right scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
           </div>
         </a>
       ))}

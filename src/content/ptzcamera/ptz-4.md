@@ -2,7 +2,7 @@
 id: 4
 title: "DS-2SE2C400MWG-E/14"
 subTitle: "TandemVu 4MP+4MP Fixed Lens POE PT Network Camera"
-category: "Network Products"
+category: "PTZ Camera"
 imgCard: "/src/assets/images/ptzcamera/DS-2SE2C400MWG-E14/DS-2SE2C400MWG-E14-1.png"
 imgAlt: "DS-2SE2C400MWG-E/14"
 thumbnails: [
@@ -18,7 +18,7 @@ features: [
   "IP66 water and dust resistance for outdoor durability"
 ]
 specifications: {
-  camera: {
+  Camera: {
     Image_Sensor: "[Bullet channel]: 1/2.8\" Progressive Scan CMOS; [PTZ channel]: 1/2.8\" Progressive Scan CMOS",
     Min_Illumination: "[Bullet channel]: Color: 0.005 Lux @ (F2.0, AGC ON), B/W: 0.005 Lux @ (F2.0, AGC ON), 0 Lux with IR; [PTZ channel]: Color: 0.005 Lux @ (F2.0, AGC ON), B/W: 0.005 Lux @ (F2.0, AGC ON), 0 Lux with IR",
     Shutter_Speed: "1 s to 1/30,000 s",
@@ -26,12 +26,12 @@ specifications: {
     Day_Night: "ICR",
     Max_Resolution: "[Bullet channel] 2560 × 1440, [PTZ channel] 2560 × 1440"
   },
-  lens: {
+  Lens: {
     Focal_Length: "[Panoramic channel]: 2.8 mm, [PTZ channel]: 8 mm",
     FOV: "[Panoramic channel]: Horizontal: 94°, Vertical: 49°, Diagonal: 114°; [PTZ channel]: Horizontal: 44°, Vertical: 24°, Diagonal: 51°",
     Aperture: "[Bullet channel] F1.6, [PTZ channel] F1.6"
   },
-  video: {
+  Video: {
     Scalable_Video_Coding: "Yes",
     Region_of_Interest: "1 fixed region for main stream",
     Main_Stream: "[Bullet channel]: 50 Hz: 25 fps (2560 × 1440, 1920 × 1080, 1280 × 720); 60 Hz: 30 fps (2560 × 1440, 1920 × 1080, 1280 × 720); [PTZ channel]: 50 Hz: 25 fps (2560 × 1440, 1920 × 1080, 1280 × 720); 60 Hz: 30 fps (2560 × 1440, 1920 × 1080, 1280 × 720)",
@@ -41,7 +41,7 @@ specifications: {
     H264_Type: "Baseline Profile, Main Profile, High Profile",
     H265_Type: "Main Profile"
   },
-  audio: {
+  Audio: {
     Audio_Compression: "G.711, G.722.1, G.726, MP2L2, PCM, MP3, AAC-LC",
     Audio_Bit_Rate: "64 Kbps (G.711ulaw/G.711alaw), 16 Kbps (G.722.1), 16 Kbps (G.726), 32 to 160 Kbps (MP2L2), 16 to 64 Kbps (AAC-LC), 8 to 160 Kbps (MP3), 8 to 48 Kbps (PCM)",
     Audio_Sampling_Rate: "8 kHz, 16 kHz",

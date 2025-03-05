@@ -59,6 +59,9 @@ importers:
       sharp:
         specifier: ^0.33.3
         version: 0.33.3
+      swiper:
+        specifier: ^11.2.5
+        version: 11.2.5
       tailwindcss:
         specifier: ^3.4.3
         version: 3.4.3
@@ -2476,6 +2479,10 @@ packages:
     resolution: {integrity: sha512-OoohrmuUlBs8B8o6MB2Aevn+pRIH9zDALSR+6hhqVfa6fRwG/Qw9VUMSMW9VNg2CFc/MTIfabtdOVl9ODIJjpw==}
     engines: {node: '>=14.0.0'}
     hasBin: true
+
+  swiper@11.2.5:
+    resolution: {integrity: sha512-nG0kbIyBfeE2BPFt9nPUX03qUBF75o6+enzjIT/DfCmbh8ORlwhc4eZz1+4H/yseAgb3H+OoEYzmb64i0tYNnQ==}
+    engines: {node: '>= 4.7.0'}
 
   tailwindcss@3.4.3:
     resolution: {integrity: sha512-U7sxQk/n397Bmx4JHbJx/iSOOv5G+II3f1kpLpY2QeUv5DcPdcTsYLlusZfq1NthHS1c1cZoyFmmkex1rzke0A==}
@@ -5843,6 +5850,8 @@ snapshots:
       css-what: 6.1.0
       csso: 5.0.5
       picocolors: 1.0.0
+
+  swiper@11.2.5: {}
 
   tailwindcss@3.4.3:
     dependencies:
