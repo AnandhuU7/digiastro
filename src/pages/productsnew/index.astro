@@ -1,33 +1,38 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import networkimg from "/src/assets/images/products/network.png";
+import nvrimg from "/src/assets/images/products/nvr.png";
+import ptzimg from "/src/assets/images/products/ptz.png";
+import explosionimg from "/src/assets/images/products/explosion.png";
+
 // Hardcoded data for products and features
 const products = [
   {
     id: 1,
     title: "Network Cameras",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
-    image: "/src/assets/images/products/network.png",
+    image: networkimg,
     link: "/networkcamera"
   },
   {
     id: 2,
     title: "Network Video Recorder",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
-    image: "/src/assets/images/products/nvr.png",
+    image: nvrimg,
     link: "/nvr"
   },
   {
     id: 3,
     title: "PTZ Cameras",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
-    image: "/src/assets/images/products/ptz.png",
+    image: ptzimg,
     link: "/ptzcamera"
   },
   {
     id: 4,
     title: "Explosion Proof",
     description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.",
-    image: "/src/assets/images/products/explosion.png",
+    image: explosionimg,
     link: "/explosionproof"
   }
 ];
@@ -141,7 +146,7 @@ const features = [
       <div class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg group relative">
         <div class="relative p-0 flex justify-center items-center w-full h-56 overflow-hidden">
           <img 
-            src={product.image} 
+            src={product.image.src} 
             alt={product.title} 
             class="w-auto h-full max-h-full object-contain p-4"
           />
