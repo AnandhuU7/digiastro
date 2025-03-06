@@ -7,9 +7,15 @@ import playformCompress from "@playform/compress";
 
 export default defineConfig({
   site: 'https://dubai-hikvision.com',
-  integrations: [tailwind(), react(), sitemap(), partytown({
-    config: {
-    forward: ["dataLayer.push"]
-    }
-  }), playformCompress()],  
+  integrations: [
+    tailwind(),
+    react(),
+    sitemap(),
+    partytown({
+      config: {
+        forward: ["dataLayer.push"]
+      }
+    }),
+    playformCompress()
+  ],  
 });

@@ -30,26 +30,30 @@ const services = [
   {
     icon: '⬇️',
     title: 'DarkFighter Technology',
-    description: 'Lorem ipsum dolor sit amet constur adipelit sed.',
+    shortDescription: 'DarkFighter technology enables clear, full-color imaging in low light.',
+    description: 'DarkFighter technology enhances low-light imaging with advanced sensors and processing for clear, full-color visuals.',
     link: '/products',
   },
   {
     icon: '📑',
     title: 'TandemVu Technology',
-    description: 'Lorem ipsum dolor sit amet constur adipelit sed.',
-    link: '#',
+    shortDescription: 'TandemVu combines fixed and PTZ lenses for efficient dual surveillance.',
+    description: 'TandemVu technology integrates fixed and PTZ lenses in one camera, delivering efficient, dual-purpose surveillance for enhanced security and monitoring.',
+    link: '/products',
   },
   {
     icon: '💡',
     title: 'ColorVu Technology',
-    description: 'Lorem ipsum dolor sit amet constur adipelit sed.',
-    link: '#',
+    shortDescription: 'ColorVu Technology enables full-color surveillance for enhanced security.',
+    description: 'ColorVu Technology by Hikvision delivers full-color, 24/7 surveillance with high-sensitivity sensors and built-in lighting for enhanced low-light security monitoring.',
+    link: '/products',
   },
   {
     icon: '⚙️',
     title: 'Acusense technology',
-    description: 'Lorem ipsum dolor sit amet constur adipelit sed.',
-    link: '#',
+    shortDescription: 'AcuSense Technology uses AI to detect humans and vehicles accurately.',
+    description: 'AcuSense Technology by Hikvision uses AI to accurately detect humans and vehicles, reducing false alarms and enhancing surveillance efficiency.',
+    link: '/products',
   },
 ];
 ---
@@ -123,13 +127,14 @@ const services = [
           rel="noopener noreferrer"
           class="block group"
         >
-          <div class="bg-white p-8 rounded-2xl shadow-xl text-center transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl border border-gray-100 hover:border-green-100 relative overflow-hidden">
+          <div class="bg-white p-8 rounded-2xl shadow-xl text-center transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl border border-gray-100 hover:border-green-100 relative overflow-hidden h-[250px]">
             <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 to-blue-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
             <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-green-50 flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow duration-300">
               <span class="text-4xl text-green-600 group-hover:scale-110 transition-transform duration-300">{service.icon}</span>
             </div>
             <h3 class="text-2xl font-semibold mb-4 text-gray-800 group-hover:text-green-700 transition-colors duration-300">{service.title}</h3>
-            <p class="text-gray-600 group-hover:text-gray-800 transition-colors duration-300">{service.description}</p>
+            <p class="text-gray-600 group-hover:text-gray-800 transition-colors duration-300">{service.shortDescription}</p>
+            <p class="text-gray-600 group-hover:text-gray-800 transition-colors duration-300 absolute bottom-0 left-0 right-0 p-6 bg-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 text-justify">{service.description}</p>
             <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-green-400 transform origin-right scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
           </div>
         </a>

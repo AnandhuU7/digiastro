@@ -1,4 +1,9 @@
-<section class="py-24">
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+<section class="py-8">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex justify-center flex-wrap md:flex-wrap lg:flex-nowrap lg:flex-row lg:justify-between gap-8">
             <div class="w-full flex justify-between flex-col lg:w-2/5">
@@ -54,6 +59,34 @@
                                 </svg>
                             </a>
                         </div>
+                        <div class="swiper-slide w-full max-lg:max-w-xl lg:w-1/2 group">
+                            <div class="flex items-center mb-9">
+                                <img src="https://pagedone.io/asset/uploads/1696244074.png" alt="blogs tailwind section" class="rounded-2xl w-full object-cover">
+                            </div>
+                            <h3 class="text-xl text-gray-900 font-medium leading-8 mb-4 group-hover:text-indigo-600">How to grow your profit through systematic investment with us</h3>
+                            <p class="text-gray-500 leading-6 transition-all duration-500 mb-8">
+                         the power of systematic investment with us and watch your profits soar. Our expert team will guide you on the path to financial..
+                            </p>
+                            <a href="javascript:;" class="cursor-pointer flex items-center gap-2 text-lg text-indigo-700 font-semibold">
+                                Read more<svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.25 6L13.25 6M9.5 10.5L13.4697 6.53033C13.7197 6.28033 13.8447 6.15533 13.8447 6C13.8447 5.84467 13.7197 5.71967 13.4697 5.46967L9.5 1.5" stroke="#4338CA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="swiper-slide w-full max-lg:max-w-xl lg:w-1/2 group">
+                            <div class="flex items-center mb-9">
+                                <img src="https://pagedone.io/asset/uploads/1696244074.png" alt="blogs tailwind section" class="rounded-2xl w-full object-cover">
+                            </div>
+                            <h3 class="text-xl text-gray-900 font-medium leading-8 mb-4 group-hover:text-indigo-600">How to grow your profit through systematic investment with us</h3>
+                            <p class="text-gray-500 leading-6 transition-all duration-500 mb-8">
+                                Unlock the power of systematic investment with us and watch your profits soar. Our expert team will guide you on the path to financial..
+                            </p>
+                            <a href="javascript:;" class="cursor-pointer flex items-center gap-2 text-lg text-indigo-700 font-semibold">
+                                Read more<svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.25 6L13.25 6M9.5 10.5L13.4697 6.53033C13.7197 6.28033 13.8447 6.15533 13.8447 6C13.8447 5.84467 13.7197 5.71967 13.4697 5.46967L9.5 1.5" stroke="#4338CA" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </a>
+                        </div>
                         <!-- Add more slides here if needed -->
                     </div>
                 </div>
@@ -61,6 +94,7 @@
         </div>
     </div>
 </section>
+</Layout>
 
 <style is:global>
     .swiper-button-prev:after,
@@ -98,38 +132,96 @@
         --tw-text-opacity: 1;
         color: rgb(79 70 229 / var(--tw-text-opacity));
     }
+    
+    /* Modified slide width and container styling */
+    .swiper {
+        overflow: hidden !important;
+        position: relative !important;
+        width: 100% !important;
+    }
+    
+    .swiper-wrapper {
+        display: flex !important;
+        width: 100% !important;
+        box-sizing: content-box !important;
+    }
+    
+    .swiper-slide {
+        flex: 0 0 auto !important;
+        width: 50% !important; /* Make slides exactly 50% */
+        padding: 16px !important;
+        box-sizing: border-box !important;
+        transition: transform 300ms ease !important;
+    }
 </style>
 
 <script is:inline>
-    var swiper = new Swiper(".mySwiper", {
-        slidesPerView: 2,
-        spaceBetween: 28,
-        centeredSlides: false,
-        loop: true,
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-        breakpoints: {
-            0: {
-                slidesPerView: 1,
-                spaceBetween: 20,
-                centeredSlides: false,
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize Swiper with improved settings
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 2,
+            spaceBetween: 0, // Remove space between to avoid showing third slide
+            loop: true,
+            loopFillGroupWithBlank: true, // Fill empty slide groups
+            speed: 500,
+            watchOverflow: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
             },
-            568: {
-                slidesPerView: 2,
-                spaceBetween: 28,
-                centeredSlides: false,
+            slideVisibleClass: "swiper-slide-visible",
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                },
+                568: {
+                    slidesPerView: 2,
+                    spaceBetween: 0,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 0,
+                },
+                1024: {
+                    slidesPerView: 2,
+                    spaceBetween: 0,
+                },
             },
-            768: {
-                slidesPerView: 2,
-                spaceBetween: 28,
-                centeredSlides: false,
-            },
-            1024: {
-                slidesPerView: 2,
-                spaceBetween: 32,
-            },
-        },
+            on: {
+                init: function() {
+                    // Force update to ensure correct rendering
+                    setTimeout(() => {
+                        this.update();
+                    }, 100);
+                },
+                resize: function() {
+                    // Update on window resize
+                    this.update();
+                }
+            }
+        });
+        
+        // Additional workaround to ensure only 2 slides are visible
+        function updateSwiperWidth() {
+            const swiperContainer = document.querySelector('.mySwiper');
+            if (swiperContainer) {
+                const containerWidth = swiperContainer.offsetWidth;
+                const slides = document.querySelectorAll('.swiper-slide');
+                slides.forEach(slide => {
+                    // Set each slide to be exactly half the container width
+                    slide.style.width = (containerWidth / 2) + 'px';
+                });
+                
+                // Force Swiper to recalculate
+                if (swiper) {
+                    swiper.update();
+                }
+            }
+        }
+        
+        // Run on load and resize
+        updateSwiperWidth();
+        window.addEventListener('resize', updateSwiperWidth);
     });
 </script>
