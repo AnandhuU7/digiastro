@@ -1,6 +1,17 @@
 ---
- import banner1 from '../assets/images/banner/Banner-1.jpg';
- import banner2 from '../assets/images/banner/Banner-2.jpg';
+import banner1 from '../assets/images/banner/Banner-1.jpg';
+import banner2 from '../assets/images/banner/Banner-2.jpg';
+
+// Enhanced SEO Metadata
+const metaData = {
+  title: "Security Camera Technologies - DarkFighter, TandemVu, ColorVu, and AcuSense",
+  description: "Discover advanced security camera technologies including DarkFighter for low-light imaging, TandemVu's dual-lens system, ColorVu for 24/7 color surveillance, and AI-powered AcuSense detection.",
+  keywords: "DarkFighter Technology, TandemVu Technology, ColorVu Technology, AcuSense Technology, security cameras, surveillance systems, low-light imaging, AI detection, CCTV, video surveillance, Hikvision",
+  ogImage: banner1.src,
+  author: "Dubai Hikvision",
+  publishedDate: new Date().toISOString(),
+};
+
 const slides = [
   {
     id: 1,
@@ -58,10 +69,92 @@ const services = [
     link: '/productsnew',
   },
 ];
+
+// Enhanced Schema.org structured data
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": metaData.title,
+  "description": metaData.description,
+  "url": "https://dubai-hikvision.com",
+  "datePublished": metaData.publishedDate,
+  "author": {
+    "@type": "Organization",
+    "name": metaData.author
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": services.map((service, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Product",
+        "name": service.title,
+        "description": service.description,
+        "url": new URL(service.link, Astro.url.origin).toString(),
+        "offers": {
+          "@type": "Offer",
+          "availability": "https://schema.org/InStock"
+        },
+        "brand": {
+          "@type": "Brand",
+          "name": "Hikvision"
+        }
+      }
+    }))
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": Astro.url.origin
+    }, {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Security Technologies",
+      "item": Astro.url.href
+    }]
+  }
+};
 ---
+
+<!-- Add SEO meta tags -->
+<head>
+  <title>{metaData.title}</title>
+  <meta name="description" content={metaData.description} />
+  <meta name="keywords" content={metaData.keywords} />
+  <meta name="author" content={metaData.author} />
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="revisit-after" content="7 days" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href={Astro.url.href} />
+  
+  <!-- Open Graph tags -->
+  <meta property="og:title" content={metaData.title} />
+  <meta property="og:description" content={metaData.description} />
+  <meta property="og:image" content={metaData.ogImage} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={Astro.url.href} />
+  <meta property="og:site_name" content={metaData.author} />
+  
+  <!-- Twitter Card tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={metaData.title} />
+  <meta name="twitter:description" content={metaData.description} />
+  <meta name="twitter:image" content={metaData.ogImage} />
+  <meta name="twitter:site" content="@DubaiHikvision" />
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+</head>
+
 <div class="relative">
   <!-- Banner Section -->
-  <div class="group relative w-full h-[430px] overflow-hidden">
+  <div class="group relative w-full h-[300px] md:h-[430px] overflow-hidden">
     {slides.map((slide, index) => (
       <div
         class={`slide absolute w-full h-full opacity-0 transition-opacity duration-1000 ease-in-out ${
@@ -74,9 +167,6 @@ const services = [
           alt={slide.title}
           class="w-full h-full object-cover"
         />
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 relative z-50">
-          <!-- Content removed here -->
-        </div>
       </div>
     ))}
 
@@ -123,29 +213,28 @@ const services = [
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-30">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {services.map((service) => (
-        <a
-          href={service.link}
-          target="_blank"
-          rel="noopener noreferrer"
+        <div
           class="block group"
+          onclick="toggleDescription(event)"
         >
           <div class="bg-white p-8 rounded-2xl shadow-xl text-center transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl border border-gray-100 hover:border-green-100 relative overflow-hidden h-[250px]">
             <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 to-blue-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
             <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-green-50 flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow duration-300">
               <span class="text-4xl text-green-600 group-hover:scale-110 transition-transform duration-300">{service.icon}</span>
             </div>
-            <h3 class="text-2xl font-semibold mb-4 text-gray-800 group-hover:text-green-700 transition-colors duration-300">{service.title}</h3>
+            <h3 class="text-2xl font-semibold mb-4 text-gray-800 group-hover:text-cyan-600 transition-colors duration-300">{service.title}</h3>
             <p class="text-gray-600 group-hover:text-gray-800 transition-colors duration-300">{service.shortDescription}</p>
             <p class="text-gray-600 group-hover:text-gray-800 transition-colors duration-300 absolute bottom-0 left-0 right-0 p-6 bg-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 text-justify">{service.description}</p>
             <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-green-400 transform origin-right scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
           </div>
-        </a>
+        </div>
       ))}
     </div>
   </div>
 </div>
 
 <script>
+  // Carousel functionality
   let currentSlide = 0;
   let intervalId: number;
 
@@ -202,5 +291,12 @@ const services = [
         intervalId = window.setInterval(() => changeSlide('next'), 5000);
       });
     }
+  }
+
+  // Toggle description on mobile
+  function toggleDescription(event: MouseEvent) {
+    const card = (event.currentTarget as HTMLElement).querySelector('div');
+    const description = card?.querySelector('p:last-child');
+    description?.classList.toggle('translate-y-full');
   }
 </script>

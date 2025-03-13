@@ -3,7 +3,58 @@ import type { CollectionEntry } from "astro:content";
 
 // Props passed from the parent component (index.astro)
 const { product, mainColor, category } = Astro.props;
+
+// Add SEO metadata
+const title = `${product.data.title} | Hikvision Security Products`;
+const description = product.data.description || `High-quality Hikvision ${product.data.title} available in UAE. Professional security solution with expert installation and support.`;
+const canonicalURL = new URL(`/${category}/${product.slug}`, Astro.site);
+
 ---
+
+<!-- Add SEO meta tags -->
+<head>
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={canonicalURL} />
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="product" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:image" content={product.data.imgCard.src} />
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": product.data.title,
+      "image": product.data.imgCard.src,
+      "description": description,
+      "brand": {
+        "@type": "Brand",
+        "name": "Hikvision"
+      },
+      "category": category,
+      "offers": {
+        "@type": "Offer",
+        "url": canonicalURL,
+        "priceCurrency": "AED",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Product Status",
+          "value": "New Release"
+        }
+      ]
+    }
+  </script>
+</head>
 
 <div class="group">
   <div class="product-card bg-white rounded-lg overflow-hidden shadow-lg group-hover:shadow-2xl transform transition-all duration-300 border border-gray-100 group-hover:border-[#32869f] group-hover:-translate-y-2">

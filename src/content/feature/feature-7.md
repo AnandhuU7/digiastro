@@ -1,6 +1,6 @@
 ---
 id: 7
-title:  "Parking Guidance System"
-body:   "Hikvision's Parking Guidance System transforms parking management with real-time monitoring, video analytics, and sensor integration, optimizing space use, reducing congestion, and boosting efficiency."
-name: "Parking Guidance"
+title:  "Hikvision WiFi Camera"
+body:   "The Hikvision WiFi Camera is an outstanding device that provides a sharp and detailed view of your home or business. It's a fantastic choice for anyone wanting to monitor their property or for those who need to oversee their business activities."
+name: "Hikvision WiFi Camera"
 ---

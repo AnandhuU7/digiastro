@@ -33,11 +33,49 @@ const faqs = [
       "If you're interested in becoming a reseller or partner with Lovosis Technology Dubai, please contact us to discuss partnership opportunities and requirements. We welcome collaborations with businesses looking to distribute Hikvision products in the UAE",
   },
 ];
+
+// Add SEO metadata
+const seoTitle = "Hikvision Security Products FAQ | Lovosis Technology UAE";
+const seoDescription = "Find answers to frequently asked questions about Hikvision security products, including purchasing, authenticity, installation, and technical support in UAE.";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
+
+<!-- Add SEO meta tags -->
+<head>
+  <title>{seoTitle}</title>
+  <meta name="description" content={seoDescription} />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={canonicalURL} />
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:title" content={seoTitle} />
+  <meta property="og:description" content={seoDescription} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {faqs.map(faq => ({
+          "@type": "Question",
+          "name": faq.heading,
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": faq.content
+          }
+        }))}
+      ]
+    }
+  </script>
+</head>
+
 <section class="py-20 bg-gradient-to-b from-blue-50 to-white">
   <div class="container mx-auto max-w-6xl px-4">
     <div class="text-center mb-14">
-      <h2 id="faq-toggle-trigger" class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent cursor-pointer">
+      <h2 id="faq-toggle-trigger" class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent cursor-pointer">
         Frequently Asked Questions
       </h2>
       <p class="text-lg text-gray-600 max-w-2xl mx-auto">

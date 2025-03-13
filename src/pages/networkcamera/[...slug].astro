@@ -14,7 +14,6 @@ export async function getStaticPaths() {
 
 // Access the product data passed via props
 const { product } = Astro.props;
-
 // Generate structured data for the product
 const structuredData = {
   "@context": "https://schema.org",
@@ -23,19 +22,110 @@ const structuredData = {
   description: product.data.subTitle,
   category: product.data.category,
   image: product.data.imgCard.src,
+  title: `${product.data.title} | Hikvision Dubai`,
+  keywords: `${product.data.title}, ${product.data.subTitle}, ${product.data.category}, Hikvision Dubai, Hikvision Security Products, Hikvision Network Cameras, Hikvision NVR Systems, Hikvision PTZ Cameras, Hikvision Explosion-Proof Cameras, Hikvision CCTV Cameras, Hikvision Webcams, Hikvision Dubai Distributor, Hikvision Security Solutions, Hikvision Surveillance Equipment, Hikvision Dubai Security Systems, Hikvision Distributor Dubai,Hikvision distributor Dubai,
+hikvision cctv,
+hikvision cctv in dubai,
+hikvision cctv in uae,
+hikvision cctv camera for home in dubai,
+hikvision cctv camera for home in uae,
+hikvision cctv camera price,
+hikvision cctv camera price in dubai,
+hikvision cctv camera price in uae,
+hikvision camera,
+hikvision camera in dubai,
+hikvision camera in uae,
+hikvision ipcamera,
+hikvision ipcamera in dubai,
+hikvision ipcamera in uae,
+hik camera,
+hik camera price,
+hikvision camera price,
+hikvision ip camera price,
+hikvision ip camera price in dubai,
+hikvision ip camera price in uae,
+hik ip camera,
+Hikvision,
+Hikvision in dubai,
+Hikvision in uae,
+hikvision nvr 8 channel,
+hikvision nvr 16 channel,
+hikvision nvr 32 channel,
+hikvision colorvu,
+hikvision dvr 4 channel,
+hikvision dvr 8 channel
+hikvision security,
+hikvision wifi camera,
+hikvision wifi camera price,
+hikvision wifi,
+hikvision ptz camera,
+hikvision ptz camera price,
+hikvision ptz,
+hik cctv,
+hik cctv camera,
+hikvision webcam in dubai,
+hik cctv in dubai,`,
+  openGraph: {
+    basic: {
+      title: product.data.title,
+      type: "product",
+      image: product.data.imgCard.src,
+      url: new URL(Astro.url.pathname, Astro.site).toString(),
+    },
+    optional: {
+      description: product.data.subTitle,
+      locale: "Dubai , UAE",
+      siteName: "Hikvision Dubai",
+    },
+    image: {
+      alt: product.data.title
+    }
+  },
   brand: {
     "@type": "Brand",
-    name: "Your Brand Name", 
+    name: "Hikvision Dubai",
   },
   offers: {
     "@type": "Offer",
-    priceCurrency: "USD", 
-    price: "0.00", 
+    priceCurrency: "AED",
+    price: "0.00",
     availability: "https://schema.org/InStock",
+    url: new URL(Astro.url.pathname, Astro.site).toString(),
+  },
+  manufacturer: {
+    "@type": "Organization",
+    name: "Hikvision Dubai"
+  }
+};
+
+// Generate SEO metadata
+const seoData = {
+  title: `${product.data.title} | Your Brand Name`,
+  description: product.data.subTitle,
+  openGraph: {
+    basic: {
+      title: product.data.title,
+      type: "product",
+      image: product.data.imgCard.src,
+      url: new URL(Astro.url.pathname, Astro.site).toString(),
+    },
+    optional: {
+      description: product.data.subTitle,
+      locale: "Dubai , UAE",
+      siteName: "Hikvision Dubai",
+    },
+    image: {
+      alt: product.data.title
+    },
   },
 };
 ---
 
-<Layout title={product.data.title} structuredData={structuredData}>
+<Layout 
+  title={structuredData.title} 
+  description={structuredData.description}
+  openGraph={structuredData.openGraph}
+  structuredData={structuredData}
+>
   <SlugProductDetails product={product} />
 </Layout>

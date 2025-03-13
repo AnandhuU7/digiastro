@@ -1,0 +1,72 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="About Us">
+  <div class="min-h-screen bg-gradient-to-b from-purple-50 to-blue-100">
+    {/* Hero Section */}
+    <div class="relative bg-gradient-to-r from-purple-500 to-blue-500 text-white">
+      <div class="container mx-auto px-4 py-16 flex flex-col md:flex-row items-center">
+        <div class="w-full md:w-1/2 text-center md:text-left">
+          <h1 class="text-4xl md:text-5xl font-bold mb-4">We deliver happiness</h1>
+          <p class="text-lg md:text-xl mb-8 max-w-md mx-auto md:mx-0">
+            The greatest, most sustainable happiness comes from making others happy. 
+            It is our promise to deliver you happiness every single moment.
+          </p>
+          <div class="flex justify-center md:justify-start space-x-4">
+            <a href="#about" class="px-6 py-2 border border-white text-white rounded-full hover:bg-white hover:text-blue-500 transition">ABOUT US</a>
+            <a href="#philosophy" class="px-6 py-2 border border-white text-white rounded-full hover:bg-white hover:text-blue-500 transition">OUR PHILOSOPHY</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Mission, Vision, Value, Culture Section */}
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-30">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          { 
+            icon: '📈', 
+            title: 'Our mission', 
+            description: 'Make communications frictionless and secure for everyone, everywhere.',
+            bgColor: 'bg-green-100',
+            textColor: 'text-green-600',
+            iconBgColor: 'bg-green-500'
+          },
+          { 
+            icon: '🔮', 
+            title: 'Our vision', 
+            description: 'Communications empowering people to accomplish more together.',
+            bgColor: 'bg-blue-100',
+            textColor: 'text-blue-600',
+            iconBgColor: 'bg-blue-500'
+          },
+          { 
+            icon: '💎', 
+            title: 'Our value', 
+            description: 'Care, community, innovation, and customer happiness drive everything we do.',
+            bgColor: 'bg-teal-100',
+            textColor: 'text-teal-600',
+            iconBgColor: 'bg-teal-500'
+          },
+          { 
+            icon: '🌟', 
+            title: 'Our culture', 
+            description: 'Delivering happiness starts with a workplace that fosters creativity and wellbeing.',
+            bgColor: 'bg-purple-100',
+            textColor: 'text-purple-600',
+            iconBgColor: 'bg-purple-500'
+          }
+        ].map((card) => (
+          <div class="bg-white rounded-lg p-6 text-center shadow-lg hover:shadow-xl transition duration-300 flex flex-col items-center">
+            <div class={`w-16 h-16 rounded-full ${card.iconBgColor} text-white flex items-center justify-center text-3xl mb-4`}>
+              {card.icon}
+            </div>
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">{card.title}</h3>
+            <p class="text-gray-600 text-sm text-center">{card.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</Layout>

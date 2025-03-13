@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar.astro";
 import FooterSections from "../components/FooterSections.astro";
 import Whatsapp from "../components/Whatsapp";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
+import ScrollProgress from "../components/ScrollProgress.astro";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const { title, description, keywords } = Astro.props;
 const structuredData = {
@@ -120,5 +121,6 @@ const structuredData = {
     </div>
     <Whatsapp client:load />
     <FooterSections />
+    <ScrollProgress />
   </body>
 </html>

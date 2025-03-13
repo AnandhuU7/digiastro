@@ -1,6 +1,6 @@
 ---
 id: 8
-title:  "Hikvision Traffic Flow Systems"
-body:   "Hikvision's Traffic Flow Systems deliver advanced traffic monitoring and management using video surveillance, intelligent analytics, and data integration, offering real-time insights into traffic conditions, congestion, and flow patterns."
-name: "Traffic Flow Systems"
+title:  "Hikvision IP Camera"
+body:   "The Hikvision IP Camera is an excellent device that offers a clear and detailed view of your home or business. It's a great option for anyone looking to keep an eye on their property or for those who need to manage their business operations effectively."
+name: "Hikvision IP Camera"
 ---

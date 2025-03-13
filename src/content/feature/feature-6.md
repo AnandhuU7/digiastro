@@ -1,6 +1,6 @@
 ---
 id: 6
-title:  "Portable Hikvisions Products"
-body:   "Hikvision's portable products provide flexible, on-the-go surveillance solutions, ideal for remote sites, events, or temporary installations, ensuring reliable video capture and monitoring anywhere."
-name: "Portable Products"
+title:  "Hikvision PTZ Camera"
+body:   "The Hikvision PTZ Camera is a top-notch device that provides a full 360-degree view of your home or business. It's a fantastic choice for anyone wanting to monitor their property or for those who need to oversee their business activities."
+name: "Hikvision PTZ Camera"
 ---

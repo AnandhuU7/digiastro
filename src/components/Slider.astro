@@ -5,7 +5,50 @@ import { getCollection } from 'astro:content';
 const sliders = await getCollection("slider");
 // Duplicate the sliders for the infinite effect
 const doubledSliders = [...sliders, ...sliders];
+
+// Add SEO metadata
+const seoTitle = "Hikvision Security Products Showcase | Lovosis Technology";
+const seoDescription = "Browse our comprehensive collection of Hikvision security products. View our latest surveillance cameras, smart security systems, and innovative access control solutions.";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
+
+<!-- Add SEO meta tags -->
+<head>
+  <title>{seoTitle}</title>
+  <meta name="description" content={seoDescription} />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href={canonicalURL} />
+  
+  <!-- Open Graph / Social Media Meta Tags -->
+  <meta property="og:title" content={seoTitle} />
+  <meta property="og:description" content={seoDescription} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        {sliders.map((slider, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "item": {
+            "@type": "Product",
+            "name": slider.data.sliderAlt,
+            "image": slider.data.slider,
+            "brand": {
+              "@type": "Brand",
+              "name": "Hikvision"
+            },
+            "category": "Security Products"
+          }
+        }))}
+      ]
+    }
+  </script>
+</head>
 
 <div class="relative w-full overflow-hidden rounded-xl bg-[#f1f7ff] pt-10">
   <!-- Removed the gradient overlay since we have a solid bg color -->
@@ -17,16 +60,17 @@ const doubledSliders = [...sliders, ...sliders];
   <div class="absolute bottom-1/3 left-1/4 h-20 w-20 rounded-full bg-slate-500/15 blur-lg"></div>
   
   <!-- Updated title section -->
-  <div class="relative mb-10 text-center">
-    <div class="inline-block relative">
-      <span class="absolute -left-6 -top-6 inline-flex h-12 w-12 animate-pulse rounded-full bg-indigo-400/5"></span>
-      <span class="absolute -right-6 -bottom-6 inline-flex h-12 w-12 animate-pulse rounded-full bg-purple-400/5 delay-700"></span>
-      <h3 class="relative text-3xl font-extrabold bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
-        Our Products
-      </h3>
-      <div class="mt-2 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-blue-500 to-purple-500"></div>
-    </div>
+  <!-- Updated title section -->
+<div class="relative mb-10 text-center">
+  <div class="inline-block relative">
+    <span class="absolute -left-6 -top-6 inline-flex h-12 w-12 animate-pulse rounded-full bg-cyan-400/5"></span>
+    <span class="absolute -right-6 -bottom-6 inline-flex h-12 w-12 animate-pulse rounded-full bg-cyan-400/5 delay-700"></span>
+    <h3 class="relative text-3xl font-extrabold bg-gradient-to-r from-cyan-600 to-cyan-500 bg-clip-text text-transparent">
+      Our Products
+    </h3>
+    <div class="mt-2 h-1 w-24 mx-auto rounded-full bg-gradient-to-r from-cyan-600 to-cyan-500"></div>
   </div>
+</div>
   
   <!-- Slider wrapper -->
   <div class="relative mx-auto max-w-7xl px-4">
@@ -54,9 +98,9 @@ const doubledSliders = [...sliders, ...sliders];
   
   <!-- Updated indicators -->
   <div class="relative mt-6 sm:mt-10 flex justify-center space-x-2 sm:space-x-3">
-    <div class="h-2 w-10 sm:h-2.5 sm:w-14 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 shadow-lg shadow-blue-500/10"></div>
+    <div class="h-2 w-10 sm:h-2.5 sm:w-14 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 shadow-lg shadow-blue-500/10"></div>
     <div class="h-2 w-5 sm:h-2.5 sm:w-7 rounded-full bg-slate-200 hover:bg-blue-500 transition-all duration-300"></div>
-    <div class="h-2 w-5 sm:h-2.5 sm:w-7 rounded-full bg-slate-200 hover:bg-purple-500 transition-all duration-300"></div>
+    <div class="h-2 w-5 sm:h-2.5 sm:w-7 rounded-full bg-slate-200 hover:bg-cyan-500 transition-all duration-300"></div>
   </div>
 </div>
 

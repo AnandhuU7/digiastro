@@ -27,6 +27,37 @@ const {
   specifications,
 } = product.data as ProductData;
 
+// Generate meta description from subtitle and first feature
+const metaDescription = `${subTitle} ${features[0]}`;
+
+// Create schema.org structured data
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: title,
+  description: subTitle,
+  category: category,
+  image: imgCard.src,
+  offers: {
+    "@type": "Offer",
+    availability: "https://schema.org/InStock",
+  },
+  additionalProperty: features.map(feature => ({
+    "@type": "PropertyValue",
+    name: "Feature",
+    value: feature
+  })),
+  // Convert specifications to schema.org properties
+  ...Object.entries(specifications).reduce((acc: Record<string, string>, [category, specs]) => {
+    Object.entries(specs).forEach(([key, value]) => {
+      if (typeof value === 'string') {
+        acc[key] = value;
+      }
+    });
+    return acc;
+  }, {})
+};
+
 // Ensure thumbnails is treated as an array
 const thumbnailsArray = thumbnails
   ? Array.isArray(thumbnails)
@@ -34,6 +65,28 @@ const thumbnailsArray = thumbnails
     : [thumbnails]
   : [];
 ---
+
+<!-- Add SEO meta tags -->
+<head>
+  <!-- Basic SEO -->
+  <title>{title} | {category}</title>
+  <meta name="description" content={metaDescription} />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={metaDescription} />
+  <meta property="og:image" content={imgCard.src} />
+  <meta property="og:type" content="product" />
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={metaDescription} />
+  <meta name="twitter:image" content={imgCard.src} />
+  
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+</head>
 
 <main class="container mx-auto px-4 py-4 sm:py-8">
   <div class="product-container max-w-6xl mx-auto">

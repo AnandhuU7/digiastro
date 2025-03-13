@@ -4,8 +4,56 @@ import networkimg from "/src/assets/images/products/network.png";
 import nvrimg from "/src/assets/images/products/nvr.png";
 import ptzimg from "/src/assets/images/products/ptz.png";
 import explosionimg from "/src/assets/images/products/explosion.png";
+import { SEO } from "astro-seo";
 
-// Hardcoded data for products and features
+// SEO metadata
+
+const title = "Hikvision Security Products & Solutions | Network Cameras, NVR, PTZ & More";
+const description = "Explore our comprehensive range of Hikvision security solutions including network cameras, NVR systems, PTZ cameras, and explosion-proof equipment. Industry-leading security technology for all your surveillance needs.";
+const keywords = `Hikvision cameras, network cameras, NVR systems, PTZ cameras, explosion proof cameras, security solutions, CCTV systems, surveillance equipment, Dubai security systems,Hikvision distributor Dubai,
+hikvision cctv,
+hikvision cctv in dubai,
+hikvision cctv in uae,
+hikvision cctv camera for home in dubai,
+hikvision cctv camera for home in uae,
+hikvision cctv camera price,
+hikvision cctv camera price in dubai,
+hikvision cctv camera price in uae,
+hikvision camera,
+hikvision camera in dubai,
+hikvision camera in uae,
+hikvision ipcamera,
+hikvision ipcamera in dubai,
+hikvision ipcamera in uae,
+hik camera,
+hik camera price,
+hikvision camera price,
+hikvision ip camera price,
+hikvision ip camera price in dubai,
+hikvision ip camera price in uae,
+hik ip camera,
+Hikvision,
+Hikvision in dubai,
+Hikvision in uae,
+hikvision nvr 8 channel,
+hikvision nvr 16 channel,
+hikvision nvr 32 channel,
+hikvision colorvu,
+hikvision dvr 4 channel,
+hikvision dvr 8 channel
+hikvision security,
+hikvision wifi camera,
+hikvision wifi camera price,
+hikvision wifi,
+hikvision ptz camera,
+hikvision ptz camera price,
+hikvision ptz,
+hik cctv,
+hik cctv camera,
+hikvision webcam in dubai,
+hik cctv in dubai,`;
+
+// Hardcoded data for products
 const products = [
   {
     id: 1,
@@ -37,34 +85,111 @@ const products = [
   }
 ];
 
+// Generate structured data for the product listing page
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Hikvision Security Products",
+  "description": description,
+  "url": "https://dubai-hikvision.com/productsnew",
+  "mainEntity": {
+    "@type": "ItemList",
+    "name": "Hikvision Security Products",
+    "description": description,
+    "numberOfItems": products.length,
+    "itemListElement": products.map((product, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Product",
+        "name": product.title,
+        "description": product.description,
+        "image": product.image.src,
+        "url": `https://dubai-hikvision.com${product.link}`,
+        "brand": {
+          "@type": "Brand",
+          "name": "Hikvision"
+        },
+        "offers": {
+          "@type": "Offer",
+          "availability": "https://schema.org/InStock",
+          "priceCurrency": "AED",
+          "seller": {
+            "@type": "Organization",
+            "name": "Hikvision Dubai"
+          }
+        }
+      }
+    }))
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Hikvision Dubai",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dubai-hikvision.com/logo.png"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Satellite Market Naif Deira, Baghlaf Building Showroom No.5",
+      "addressLocality": "Dubai",
+      "addressCountry": "AE",
+      "addressRegion": "Dubai, United Arab Emirates",
+      "postalCode": "123421"
+    }
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "@id": "https://dubai-hikvision.com/#breadcrumb",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https://dubai-hikvision.com",
+          "name": "Home"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@id": "https://dubai-hikvision.com/productsnew",
+          "name": "Products"
+        }
+      }
+    ]
+  }
+};
+
 const features = [
   {
     id: 1,
     title: "Advanced Security",
-    description: "Industry-leading encryption and protection mechanisms for maximum security.",
+    description: "Experience top-notch encryption and protection that ensures your safety and reliability like never before.",
     icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
   },
   {
     id: 2,
     title: "High Performance",
-    description: "Exceptional speed and reliability even in challenging conditions.",
+    description: "Experience unparalleled speed, reliability, and efficiency that make your operations run smoothly and effortlessly.",
     icon: "M13 10V3L4 14h7v7l9-11h-7z"
   },
   {
     id: 3,
     title: "Smart Features",
-    description: "AI-powered analytics and intelligent automation capabilities.",
+    description: "Discover how AI-powered analytics and automation can lead to smart, future-ready solutions that truly make a difference.",
     icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
   },
   {
     id: 4,
     title: "Scalable Solutions",
-    description: "Easily expandable systems that grow with your business needs.",
+    description: "Discover adaptable systems that evolve alongside your business needs.",
     icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
   }
 ];
 ---
-<Layout>
+<Layout title={title} description={description} keywords={keywords} structuredData={structuredData}>
   <!-- Add scroll-smooth to the root HTML element -->
   <div class="scroll-smooth">
     <!-- Hero Section -->
@@ -78,19 +203,19 @@ const features = [
         <div class="absolute inset-0 bg-gradient-to-r from-teal-900/80 to-blue-900/80"></div>
       </div>
       
-      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-24">
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
         <div class="text-center">
-          <h1 class="text-5xl font-extrabold tracking-tight text-white sm:text-6xl mb-6 animate-fade-down">
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white mb-6 animate-fade-down">
             <span class="block">Hikvision</span>
             <span class="block text-teal-300">Lorem</span>
           </h1>
-          <p class="max-w-3xl mx-auto text-xl text-teal-100 animate-fade-up">
+          <p class="max-w-3xl mx-auto text-base sm:text-xl text-teal-100 px-4 animate-fade-up">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto delectus incidunt est quae, v
           </p>
-          <div class="mt-10 animate-fade-in">
-            <a href="#products" class="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-teal-900 bg-teal-100 hover:bg-teal-200 transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+          <div class="mt-8 sm:mt-10 animate-fade-in">
+            <a href="#products" class="inline-flex items-center px-6 sm:px-8 py-2 sm:py-3 border border-transparent text-sm sm:text-base font-medium rounded-md text-teal-900 bg-teal-100 hover:bg-teal-200 transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
               Explore Products
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M10 3a1 1 0 00-1 1v10.586l-3.293-3.293a1 1 0 10-1.414 1.414l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414L11 14.586V4a1 1 0 00-1-1z" clip-rule="evenodd" />
               </svg>
             </a>
@@ -108,21 +233,20 @@ const features = [
 
     <main>
       <!-- Header Section -->
-      <!-- Header Section -->
-      <div class="w-full bg-white py-6" id="products" >
-        <div class="container mx-auto" >
-          <h1 class="text-4xl font-bold text-center">
+      <div class="w-full bg-white py-4 sm:py-6" id="products">
+        <div class="container mx-auto px-4">
+          <h1 class="text-3xl sm:text-4xl font-bold text-center">
             <span class="text-teal-800">Hikvision</span>
-            <span class="text-[#32869f]">Network Products Solutions</span>
+            <span class="text-[#32869f]"> Products Solutions</span>
           </h1>
         </div>
       </div>
 
       <!-- Banner Section -->
-      <div class="w-full bg-[#32869f] py-8">
+      <div class="w-full bg-[#32869f] py-6 sm:py-8">
         <div class="container mx-auto px-4">
-          <p class="text-white text-center text-xl leading-relaxed">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.
+          <p class="text-white text-center text-base sm:text-xl leading-relaxed">
+            Discover Hikvision's advanced security solutions in Dubai and UAE, featuring network cameras, NVR systems, PTZ cameras, and explosion-proof cameras. As a leading Hikvision distributor in Dubai, we provide cutting-edge CCTV systems and surveillance equipment for homes and businesses. Enhance safety with Hikvision cameras and reliable Dubai security systems.
           </p>
         </div>  
       </div>
@@ -135,69 +259,66 @@ const features = [
           <div class="w-16 h-1 bg-gradient-to-r from-white via-[#32869f] to-white"></div>
         </div>
       </div>
+
       <!-- Products Section -->
-      <!-- Products Section -->
-      <!-- Products Section -->
-      <!-- Products Section -->
-<!-- Products Section -->
-<div class="container mx-auto px-4 py-8">
-  <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-    {products.map(product => (
-      <div class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg group relative">
-        <div class="relative p-0 flex justify-center items-center w-full h-56 overflow-hidden">
-          <img 
-            src={product.image.src} 
-            alt={product.title} 
-            class="w-auto h-full max-h-full object-contain p-4"
-          />
-        </div>
-        <div class="p-5 relative">
-          <h2 class="text-xl font-bold text-center text-teal-800 mb-3">
-            {product.title}
-          </h2>
-          <p class="text-gray-600 text-center text-sm mb-4">
-            {product.description}
-          </p>
-          <div class="flex justify-center">
-            <a 
-              href={product.link} 
-              class="inline-flex items-center text-[#32869f] hover:text-teal-800 font-medium transition-all duration-300 group/btn"
-            >
-              <span class="relative">
-                View Products
-                <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#32869f] group-hover/btn:w-full transition-all duration-300"></span>
-              </span>
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                class="h-5 w-5 ml-2 transform transition-transform duration-300 group-hover/btn:translate-x-2" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                stroke="currentColor"
-              >
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
-          </div>
+      <div class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8">
+          {products.map(product => (
+            <div class="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg group relative">
+              <div class="relative p-0 flex justify-center items-center w-full h-48 sm:h-56 overflow-hidden">
+                <img 
+                  src={product.image.src} 
+                  alt={product.title} 
+                  class="w-auto h-full max-h-full object-contain p-3 sm:p-4"
+                />
+              </div>
+              <div class="p-4 sm:p-5 relative">
+                <h2 class="text-lg sm:text-xl font-bold text-center text-teal-800 mb-2 sm:mb-3">
+                  {product.title}
+                </h2>
+                <p class="text-gray-600 text-center text-xs sm:text-sm mb-3 sm:mb-4">
+                  {product.description}
+                </p>
+                <div class="flex justify-center">
+                  <a 
+                    href={product.link} 
+                    class="inline-flex items-center text-[#32869f] hover:text-teal-800 font-medium text-sm transition-all duration-300 group/btn"
+                  >
+                    <span class="relative">
+                      View Products
+                      <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#32869f] group-hover/btn:w-full transition-all duration-300"></span>
+                    </span>
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      class="h-4 w-4 sm:h-5 sm:w-5 ml-2 transform transition-transform duration-300 group-hover/btn:translate-x-2" 
+                      fill="none" 
+                      viewBox="0 0 24 24" 
+                      stroke="currentColor"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    ))}
-  </div>
-</div> 
+
       <!-- Features Section -->
-      <div class="bg-gradient-to-b from-white to-gray-50 py-16">
+      <div class="bg-gradient-to-b from-white to-gray-50 py-12 sm:py-16">
         <div class="container mx-auto px-4">
-          <h2 class="text-3xl font-bold text-center text-teal-800 mb-12">Why Choose Hikvision</h2>
-          
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <h2 class="text-2xl sm:text-3xl font-bold text-center text-teal-800 mb-8 sm:mb-12">Why Choose Us?</h2>  
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {features.map(feature => (
-              <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
-                <div class="w-14 h-14 bg-[#32869f]/10 rounded-full flex items-center justify-center mb-4 mx-auto">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#32869f]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div class="bg-white p-5 sm:p-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                <div class="w-12 h-12 sm:w-14 sm:h-14 bg-[#32869f]/10 rounded-full flex items-center justify-center mb-3 sm:mb-4 mx-auto">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 sm:h-8 sm:w-8 text-[#32869f]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={feature.icon} />
                   </svg>
                 </div>
-                <h3 class="text-lg font-semibold text-center text-teal-800 mb-2">{feature.title}</h3>
-                <p class="text-gray-600 text-center text-sm">
+                <h3 class="text-base sm:text-lg font-semibold text-center text-teal-800 mb-2">{feature.title}</h3>
+                <p class="text-gray-600 text-center text-xs sm:text-sm">
                   {feature.description}
                 </p>
               </div>
@@ -207,13 +328,13 @@ const features = [
       </div>
       
       <!-- CTA Section -->
-      <div class="bg-[#32869f] py-16">
+      <div class="bg-[#32869f] py-12 sm:py-16">
         <div class="container mx-auto px-4 text-center">
-          <h2 class="text-3xl font-bold text-white mb-6">Ready to enhance your security infrastructure?</h2>
-          <p class="text-teal-100 max-w-2xl mx-auto mb-8">
+          <h2 class="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6">Ready to enhance your security infrastructure?</h2>
+          <p class="text-teal-100 max-w-2xl mx-auto mb-6 sm:mb-8 text-sm sm:text-base">
             Contact our team of experts today to discover the perfect Hikvision solution for your specific requirements.
           </p>
-          <a href="/contact" class="inline-block px-8 py-3 bg-white text-[#32869f] font-semibold rounded-md hover:bg-teal-50 transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+          <a href="/contact" class="inline-block px-6 sm:px-8 py-2 sm:py-3 bg-white text-[#32869f] font-semibold rounded-md hover:bg-teal-50 transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-sm sm:text-base">
             Get in Touch
           </a>
         </div>
