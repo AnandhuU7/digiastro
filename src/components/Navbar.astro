@@ -266,7 +266,7 @@ const currentPath = Astro.url.pathname;
   </div>
 </nav>
 
-<!-- Spacer for fixed mobile navbar -->
+
 <div class="h-16 md:hidden"></div>
 
 <script>
@@ -293,3 +293,8 @@ const currentPath = Astro.url.pathname;
     });
   }
 </script>
+<style>
+  .nav-link {
+    @apply text-gray-500 hover:text-blue-600 transform hover:scale-125 transition-all duration-300;
+  }
+</style>
