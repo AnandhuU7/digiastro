@@ -116,34 +116,50 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       </div>
     </div>
   </div>
-  <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-6 pt-6 p-2 pb-12" style="background-color: #f1f7ff;">
-    {feature.map((feature) => (
-      <div class="group perspective h-[400px] w-full cursor-pointer">
-        <div class="relative preserve-3d duration-1000 ease-in-out h-full w-full">
-          <div class="absolute w-full h-full backface-hidden">
-            <div class="rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 relative bg-gradient-to-br from-[#e5edf7] to-[#e5edf7] p-8 overflow-hidden h-full border border-slate-700/50">
-              <div class="flex items-center justify-center size-24 text-white text-center rounded-full p-4 bg-gradient-to-r from-cyan-600 to-cyan-500 group-hover:from-cyan-500 group-hover:to-cyan-400 transition-colors duration-500 shadow-lg">
-                <p class="font-bold">{feature.data.name}</p>
-              </div>
-              <div class="content mt-8 relative z-10">
-                <a href="/productsnew" class="title text-xl font-bold text-black hover:text-cyan-600 transition-colors duration-300 block mb-4">
-                  {feature.data.title}
-                </a>
-                <p class="text-gray-700 leading-relaxed text-justify text-sm font-['Poppins',_sans-serif]">{feature.data.body}</p>
+  <div class="relative">
+    <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-6 pt-6 p-2 pb-12 mobile-feature-carousel" style="background-color: #f1f7ff;">
+      {feature.map((feature, index) => (
+        <div 
+          class="group perspective h-[400px] w-full cursor-pointer feature-card" 
+          data-index={index}
+        >
+          <div class="relative preserve-3d duration-1000 ease-in-out h-full w-full">
+            <div class="absolute w-full h-full backface-hidden">
+              <div class="rounded-xl shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 relative bg-gradient-to-br from-[#e5edf7] to-[#e5edf7] p-8 overflow-hidden h-full border border-slate-700/50">
+                <div class="flex items-center justify-center size-24 text-white text-center rounded-full p-4 bg-gradient-to-r from-cyan-600 to-cyan-500 group-hover:from-cyan-500 group-hover:to-cyan-400 transition-colors duration-500 shadow-lg">
+                  <p class="font-bold">{feature.data.name}</p>
+                </div>
+                <div class="content mt-8 relative z-10">
+                  <a href="/productsnew" class="title text-xl font-bold text-black hover:text-cyan-600 transition-colors duration-300 block mb-4">
+                    {feature.data.title}
+                  </a>
+                  <p class="text-gray-700 leading-relaxed text-justify text-sm font-['Poppins',_sans-serif]">{feature.data.body}</p>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="absolute inset-0 h-full w-full [transform:rotateY(180deg)] backface-hidden">
-            <div class="rounded-xl shadow-lg transform transition-all duration-300 relative bg-gradient-to-br from-[#e5edf7] to-[#e5edf7] p-8 overflow-hidden h-full border border-slate-700/50">
-              <div class="flex flex-col items-center justify-center h-full text-black">
-                <h3 class="text-2xl font-bold mb-4">{feature.data.name}</h3>
-                <p class="text-gray-700 text-center text-sm font-['Poppins',_sans-serif]">{feature.data.body}</p>
+            <div class="absolute inset-0 h-full w-full [transform:rotateY(180deg)] backface-hidden">
+              <div class="rounded-xl shadow-lg transform transition-all duration-300 relative bg-gradient-to-br from-[#e5edf7] to-[#e5edf7] p-8 overflow-hidden h-full border border-slate-700/50">
+                <div class="flex flex-col items-center justify-center h-full text-black">
+                  <h3 class="text-2xl font-bold mb-4">{feature.data.name}</h3>
+                  <p class="text-gray-700 text-center text-sm font-['Poppins',_sans-serif]">{feature.data.body}</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    ))}
+      ))}
+    </div>
+
+    <button class="nav-arrow prev-arrow md:hidden absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg border border-gray-100">
+      <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+    <button class="nav-arrow next-arrow md:hidden absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg border border-gray-100">
+      <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
   </div>
 </section>
 
@@ -152,6 +168,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   .preserve-3d { transform-style: preserve-3d; }
   .backface-hidden { backface-visibility: hidden; }
   .flip { transform: rotateY(180deg); }
+  .feature-card {
+    display: none;
+  }
+  .feature-card.active {
+    display: block;
+  }
+  @media (min-width: 768px) {
+    .feature-card {
+      display: block;
+    }
+  }
 </style>
 
 <script>
@@ -160,6 +187,50 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       const relativeElement = card.querySelector('.relative');
       if (relativeElement) {
         relativeElement.classList.toggle('flip');
+      }
+    });
+  });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const featureCards = document.querySelectorAll('.feature-card');
+    const prevButton = document.querySelector('.prev-arrow');
+    const nextButton = document.querySelector('.next-arrow');
+    
+    let currentIndex = 0;
+
+    if (window.innerWidth < 768) {
+      featureCards.forEach((card, index) => {
+        card.classList.toggle('active', index === 0);
+      });
+    }
+
+    function navigateCards(direction: 'prev' | 'next') {
+      if (window.innerWidth >= 768) return;
+
+      featureCards[currentIndex].classList.remove('active');
+
+      if (direction === 'next') {
+        currentIndex = (currentIndex + 1) % featureCards.length;
+      } else {
+        currentIndex = (currentIndex - 1 + featureCards.length) % featureCards.length;
+      }
+
+      featureCards[currentIndex].classList.add('active');
+    }
+
+    if (prevButton && nextButton) {
+      prevButton.addEventListener('click', () => navigateCards('prev'));
+      nextButton.addEventListener('click', () => navigateCards('next'));
+    }
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 768) {
+        featureCards.forEach(card => card.classList.add('active'));
+      } else {
+        featureCards.forEach((card, index) => {
+          card.classList.toggle('active', index === 0);
+        });
+        currentIndex = 0;
       }
     });
   });

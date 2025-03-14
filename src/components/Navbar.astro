@@ -8,7 +8,7 @@ const currentPath = Astro.url.pathname;
 
 <header
   id="navbar"
-  class="bg-white text-black backdrop-blur transition-all duration-300 shadow-lg h-24 hidden md:flex sticky top-0 z-50 px-8"
+  class="bg-white text-black backdrop-blur transition-all duration-300 shadow-lg h-24 hidden lg:flex sticky top-0 z-50 px-8"
 >
   <a
     href="/"
@@ -156,7 +156,7 @@ const currentPath = Astro.url.pathname;
 </header>
 
 <!-- Mobile Navbar -->
-<nav class="w-screen md:hidden px-2 bg-white shadow-md fixed top-0 z-50 h-16 flex items-center">
+<nav class="w-screen lg:hidden px-2 bg-white shadow-md fixed top-0 z-50 h-16 flex items-center">
   <div class="flex justify-between items-center w-full px-3">
     <a
       href="/"
@@ -169,7 +169,7 @@ const currentPath = Astro.url.pathname;
         loading={"eager"}
       />
     </a>
-    <div class="md:hidden">
+    <div class="lg:hidden">
       <button id="collapseBtn" aria-expanded="false" aria-label="Open menu navigation" class="p-2 rounded-full bg-cyan-50 hover:bg-cyan-100 transition-colors duration-300 focus:outline-none">
         <svg width="24" height="24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="text-cyan-600">
           <path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -267,7 +267,7 @@ const currentPath = Astro.url.pathname;
 </nav>
 
 
-<div class="h-16 md:hidden"></div>
+<div class="h-16 lg:hidden"></div>
 
 <script>
   const collapseButton = document.getElementById('collapseBtn');
@@ -293,4 +293,3 @@ const currentPath = Astro.url.pathname;
     });
   }
 </script>
-
