@@ -4,6 +4,7 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import partytown from '@astrojs/partytown';
 import playformCompress from "@playform/compress";
+import icon from 'astro-icon';
 
 export default defineConfig({
   site: 'https://dubai-hikvision.com',
@@ -16,6 +17,7 @@ export default defineConfig({
         forward: ["dataLayer.push"]
       }
     }),
-    playformCompress()
+    playformCompress(),
+    icon()
   ],  
 });

@@ -2,9 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 
-const feature: CollectionEntry<"feature">[] = (
-  await getCollection("feature")
-);
+const feature: CollectionEntry<"feature">[] = await getCollection("feature");
 
 // Add SEO metadata
 const seoTitle = "Hikvision Security Solutions | Premium Security Technology";
@@ -149,18 +147,18 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         </div>
       ))}
     </div>
-
-    <button class="nav-arrow prev-arrow md:hidden absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg border border-gray-100">
-      <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-      </svg>
-    </button>
-    <button class="nav-arrow next-arrow md:hidden absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg border border-gray-100">
-      <svg class="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-      </svg>
-    </button>
-  </div>
+    <div class="mobile-navigation-buttons absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-4">
+      <button id="prevButton" class="bg-white text-gray-700 flex items-center justify-center rounded-xl shadow-md hover:shadow-lg transition-all duration-300" style="width: 44px; height: 44px; background: white; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="stroke: #06adcc; stroke-width: 2;">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button id="nextButton" class="bg-white text-gray-700 flex items-center justify-center rounded-xl shadow-md hover:shadow-lg transition-all duration-300" style="width: 44px; height: 44px; background: white; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="stroke: #06adcc; stroke-width: 2;">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
 </section>
 
 <style>
@@ -168,70 +166,102 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   .preserve-3d { transform-style: preserve-3d; }
   .backface-hidden { backface-visibility: hidden; }
   .flip { transform: rotateY(180deg); }
-  .feature-card {
+
+  /* Hide navigation buttons on larger screens */
+  .mobile-navigation-buttons {
     display: none;
   }
-  .feature-card.active {
-    display: block;
+
+  /* Show navigation buttons only on mobile screens */
+  @media (max-width: 767px) {
+    .mobile-navigation-buttons {
+      display: flex;
+    }
+
+    /* Hide all cards except the first one on mobile */
+    .feature-card {
+      display: none;
+    }
+
+    .feature-card[data-index="0"] {
+      display: block;
+    }
   }
+.mobile-navigation-buttons {
+  margin-top: 20px;
+  bottom: -5px; 
+}
+
+/* Add more space at the bottom of the card container */
+.mobile-feature-carousel {
+  padding-bottom: 3rem !important; 
+}
+
   @media (min-width: 768px) {
     .feature-card {
-      display: block;
+      display: block !important; /* Override any inline styles */
     }
   }
 </style>
 
 <script>
-  document.querySelectorAll('.group').forEach(card => {
-    card.addEventListener('click', () => {
-      const relativeElement = card.querySelector('.relative');
-      if (relativeElement) {
-        relativeElement.classList.toggle('flip');
-      }
+  // Flip-flop functionality for larger screens
+  if (window.innerWidth > 767) { // Only apply this logic on screens larger than mobile
+    document.querySelectorAll('.group').forEach(card => {
+      card.addEventListener('click', () => {
+        const relativeElement = card.querySelector('.relative');
+        if (relativeElement) {
+          relativeElement.classList.toggle('flip');
+        }
+      });
     });
-  });
+  }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const featureCards = document.querySelectorAll('.feature-card');
-    const prevButton = document.querySelector('.prev-arrow');
-    const nextButton = document.querySelector('.next-arrow');
-    
-    let currentIndex = 0;
+  // Mobile card navigation logic
+  let currentCardIndex = 0;
+  const cards = document.querySelectorAll('.feature-card');
+  const totalCards = cards.length;
 
-    if (window.innerWidth < 768) {
-      featureCards.forEach((card, index) => {
-        card.classList.toggle('active', index === 0);
+  const updateCardVisibility = () => {
+    if (window.innerWidth <= 767) { // Only apply this logic on mobile screens
+      cards.forEach((card, index) => {
+        (card as HTMLElement).style.display = index === currentCardIndex ? 'block' : 'none';
       });
     }
+  };
 
-    function navigateCards(direction: 'prev' | 'next') {
-      if (window.innerWidth >= 768) return;
+  const prevButton = document.getElementById('prevButton');
+  const nextButton = document.getElementById('nextButton');
 
-      featureCards[currentIndex].classList.remove('active');
-
-      if (direction === 'next') {
-        currentIndex = (currentIndex + 1) % featureCards.length;
-      } else {
-        currentIndex = (currentIndex - 1 + featureCards.length) % featureCards.length;
-      }
-
-      featureCards[currentIndex].classList.add('active');
-    }
-
-    if (prevButton && nextButton) {
-      prevButton.addEventListener('click', () => navigateCards('prev'));
-      nextButton.addEventListener('click', () => navigateCards('next'));
-    }
-
-    window.addEventListener('resize', () => {
-      if (window.innerWidth >= 768) {
-        featureCards.forEach(card => card.classList.add('active'));
-      } else {
-        featureCards.forEach((card, index) => {
-          card.classList.toggle('active', index === 0);
-        });
-        currentIndex = 0;
-      }
+  if (prevButton && nextButton) { // Check if buttons exist
+    prevButton.addEventListener('click', () => {
+      currentCardIndex = (currentCardIndex - 1 + totalCards) % totalCards;
+      updateCardVisibility();
     });
+
+    nextButton.addEventListener('click', () => {
+      currentCardIndex = (currentCardIndex + 1) % totalCards;
+      updateCardVisibility();
+    });
+  }
+
+  // Initial visibility update
+  updateCardVisibility();
+
+  // Update visibility on window resize
+  window.addEventListener('resize', () => {
+    updateCardVisibility();
+
+    // Reapply flip-flop logic if screen size changes
+    if (window.innerWidth > 767) {
+      document.querySelectorAll('.group').forEach(card => {
+        card.addEventListener('click', () => {
+          const relativeElement = card.querySelector('.relative');
+          if (relativeElement) {
+            relativeElement.classList.toggle('flip');
+          }
+        });
+      });
+    }
   });
 </script>

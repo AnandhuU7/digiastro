@@ -14,8 +14,8 @@ const products: CollectionEntry<typeof category>[] = (
 ).sort((a, b) => a.data.id - b.data.id);
 
 // Enhanced SEO metadata
-const title = `${category.toUpperCase()} Products | Hikvision Dubai`;
-const description = `Browse our comprehensive range of PTZ (Pan-Tilt-Zoom) cameras from Hikvision, the leading distributor in Dubai. Professional-grade motorized surveillance cameras with advanced pan, tilt, and zoom capabilities for dynamic monitoring.`;
+const title = `${category.toUpperCase()} Products | Dubai Hikvision`;
+const description = `Browse our comprehensive range of ${category}  cameras from Hikvision, the leading distributor in Dubai. Professional-grade motorized surveillance cameras with advanced pan, tilt, and zoom capabilities for dynamic monitoring.`;
 const keywords = `${category}, PTZ Camera, Pan Tilt Zoom Camera, Hikvision Dubai, security cameras, surveillance systems, Dubai distributor, CCTV cameras, motorized cameras, dome cameras, security solutions, Hikvision distributor Dubai,Hikvision distributor Dubai,
 hikvision cctv,
 hikvision cctv in dubai,
@@ -98,11 +98,11 @@ const structuredData = {
         url: `https://dubai-hikvision.com/${category}`,
         brand: {
           "@type": "Brand",
-          name: "Hikvision Dubai"
+          name: "Dubai Hikvision"
         },
         manufacturer: {
           "@type": "Organization",
-          name: "Hikvision Dubai"
+          name: "Dubai Hikvision"
         },
         category: "PTZ Security Cameras",
         offers: {
@@ -111,7 +111,7 @@ const structuredData = {
           priceCurrency: "AED",
           seller: {
             "@type": "Organization",
-            name: "Hikvision Dubai"
+            name: "Dubai Hikvision"
           }
         }
       }
@@ -119,7 +119,7 @@ const structuredData = {
   },
   organization: {
     "@type": "Organization",
-    name: "Hikvision Dubai",
+    name: "Dubai Hikvision",
     url: "https://dubai-hikvision.com",
     logo: "https://dubai-hikvision.com/logo.png"
   }
@@ -128,7 +128,7 @@ const structuredData = {
 const mainColor = "#32869f";
 ---
 
-<Layout title={title} description={description} keywords={keywords}>
+<Layout title={title} description={description} keywords={keywords} structuredData={structuredData}>
   <!-- Add canonical URL -->
   <link rel="canonical" href={`https://dubai-hikvision.com/${category}`} slot="head" />
   
@@ -137,7 +137,7 @@ const mainColor = "#32869f";
   <meta property="og:description" content={description} slot="head" />
   <meta property="og:type" content="website" slot="head" />
   <meta property="og:url" content={`https://dubai-hikvision.com/${category}`} slot="head" />
-  <meta property="og:site_name" content="Hikvision Dubai" slot="head" />
+  <meta property="og:site_name" content="Dubai Hikvision" slot="head" />
   
   <!-- Add Twitter Card tags -->
   <meta name="twitter:card" content="summary_large_image" slot="head" />
@@ -145,7 +145,6 @@ const mainColor = "#32869f";
   <meta name="twitter:description" content={description} slot="head" />
 
   <!-- Add structured data -->
-  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} slot="head" />
 
   <div class="container mx-auto px-4 py-8 bg-gray-50">
     <h1 class="text-4xl font-bold mb-6 text-center" style={`color: ${mainColor};`}>

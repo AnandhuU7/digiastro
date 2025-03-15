@@ -4,11 +4,12 @@ import networkimg from "/src/assets/images/products/network.png";
 import nvrimg from "/src/assets/images/products/nvr.png";
 import ptzimg from "/src/assets/images/products/ptz.png";
 import explosionimg from "/src/assets/images/products/explosion.png";
+import banner1 from "/src/assets/images/banner/Banner1.png";
 import { SEO } from "astro-seo";
 
 // SEO metadata
 
-const title = "Hikvision Security Products & Solutions | Network Cameras, NVR, PTZ & More";
+const title = "Hikvision Security Products & Solutions | Network Cameras, NVR, PTZ, Explosion Proof & More";
 const description = "Explore our comprehensive range of Hikvision security solutions including network cameras, NVR systems, PTZ cameras, and explosion-proof equipment. Industry-leading security technology for all your surveillance needs.";
 const keywords = `Hikvision cameras, network cameras, NVR systems, PTZ cameras, explosion proof cameras, security solutions, CCTV systems, surveillance equipment, Dubai security systems,Hikvision distributor Dubai,
 hikvision cctv,
@@ -89,63 +90,61 @@ const products = [
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Hikvision Security Products",
-  "description": description,
-  "url": "https://dubai-hikvision.com/productsnew",
-  "mainEntity": {
+  name: title,
+  description: description,
+  url: "https://dubai-hikvision.com/productsnew",
+  mainEntity: {
     "@type": "ItemList",
-    "name": "Hikvision Security Products",
-    "description": description,
-    "numberOfItems": products.length,
-    "itemListElement": products.map((product, index) => ({
+    name: "Hikvision Security Products",
+    description: description,
+    numberOfItems: products.length,
+    itemListElement: products.map((product, index) => ({
       "@type": "ListItem",
-      "position": index + 1,
-      "item": {
+      position: index + 1,
+      item: {
         "@type": "Product",
-        "name": product.title,
-        "description": product.description,
-        "image": product.image.src,
-        "url": `https://dubai-hikvision.com${product.link}`,
-        "brand": {
+        name: product.title,
+        description: product.description,
+        image: product.image.src,
+        url: `https://dubai-hikvision.com${product.link}`,
+        brand: {
           "@type": "Brand",
-          "name": "Hikvision"
+          name: "Dubai Hikvision"
         },
-        "offers": {
+        offers: {
           "@type": "Offer",
-          "availability": "https://schema.org/InStock",
-          "priceCurrency": "AED",
-          "seller": {
+          availability: "https://schema.org/InStock",
+          priceCurrency: "AED",
+          seller: {
             "@type": "Organization",
-            "name": "Hikvision Dubai"
+            name: "Dubai Hikvision"
           }
         }
       }
     }))
   },
-  "publisher": {
+  organization: {
     "@type": "Organization",
-    "name": "Hikvision Dubai",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://dubai-hikvision.com/logo.png"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Satellite Market Naif Deira, Baghlaf Building Showroom No.5",
-      "addressLocality": "Dubai",
-      "addressCountry": "AE",
-      "addressRegion": "Dubai, United Arab Emirates",
-      "postalCode": "123421"
-    }
+    name: "Hikvision Dubai",
+    url: "https://dubai-hikvision.com",
+    logo: "https://dubai-hikvision.com/logo.png",
   },
-  "breadcrumb": {
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Satellite Market Naif Deira, Baghlaf Building Showroom No.5",
+    addressLocality: "Dubai",
+    addressCountry: "AE",
+    addressRegion: "Dubai, United Arab Emirates",
+    postalCode: "123421"
+  },
+  breadcrumb: {
     "@type": "BreadcrumbList",
     "@id": "https://dubai-hikvision.com/#breadcrumb",
-    "itemListElement": [
+    itemListElement: [
       {
         "@type": "ListItem",
-        "position": 1,
-        "item": {
+        position: 1,
+        item: {
           "@id": "https://dubai-hikvision.com",
           "name": "Home"
         }
@@ -196,21 +195,20 @@ const features = [
     <div class="relative overflow-hidden bg-gradient-to-r from-teal-800 to-blue-800">
       <div class="absolute inset-0">
         <img 
-          src="/images/security-background.jpg" 
+          src={banner1.src} 
           alt="Security Background" 
           class="w-full h-full object-cover opacity-20"
         />
-        <div class="absolute inset-0 bg-gradient-to-r from-teal-900/80 to-blue-900/80"></div>
       </div>
       
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
         <div class="text-center">
           <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white mb-6 animate-fade-down">
             <span class="block">Hikvision</span>
-            <span class="block text-teal-300">Lorem</span>
+            <span class="block text-teal-300"></span>
           </h1>
           <p class="max-w-3xl mx-auto text-base sm:text-xl text-teal-100 px-4 animate-fade-up">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto delectus incidunt est quae, v
+            Explore Hikvision's cutting-edge security solutions in Dubai and the UAE. Strengthen safety with Hikvision cameras and dependable security systems.
           </p>
           <div class="mt-8 sm:mt-10 animate-fade-in">
             <a href="#products" class="inline-flex items-center px-6 sm:px-8 py-2 sm:py-3 border border-transparent text-sm sm:text-base font-medium rounded-md text-teal-900 bg-teal-100 hover:bg-teal-200 transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
@@ -246,7 +244,8 @@ const features = [
       <div class="w-full bg-[#32869f] py-6 sm:py-8">
         <div class="container mx-auto px-4">
           <p class="text-white text-center text-base sm:text-xl leading-relaxed">
-            Discover Hikvision's advanced security solutions in Dubai and UAE, featuring network cameras, NVR systems, PTZ cameras, and explosion-proof cameras. As a leading Hikvision distributor in Dubai, we provide cutting-edge CCTV systems and surveillance equipment for homes and businesses. Enhance safety with Hikvision cameras and reliable Dubai security systems.
+            <span class="hidden sm:inline">Discover Hikvision's advanced security solutions in Dubai and UAE, featuring network cameras, NVR systems, PTZ cameras, and explosion-proof cameras. As a leading Hikvision distributor in Dubai, we provide cutting-edge CCTV systems and surveillance equipment for homes and businesses. Enhance safety with Hikvision cameras and reliable Dubai security systems.</span>
+            <span class="inline sm:hidden">Discover Hikvision's advanced security solutions in Dubai and UAE. Enhance safety with Hikvision cameras and reliable security systems.</span>
           </p>
         </div>  
       </div>
@@ -377,5 +376,17 @@ const features = [
         (card as HTMLElement).style.boxShadow = '';
       });
     });
+
+    // Smooth scroll for Explore Products button
+    const exploreButton = document.querySelector('a[href="#products"]');
+    if (exploreButton) {
+      exploreButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector('#products');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    }
   });
 </script>

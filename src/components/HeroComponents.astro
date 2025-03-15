@@ -1,12 +1,15 @@
 ---
-import banner1 from '../assets/images/banner/Banner-1.jpg';
-import banner2 from '../assets/images/banner/Banner-2.jpg';
+import banner1 from "../assets/images/banner/Banner-1.png";
+import banner2 from "../assets/images/banner/Banner-2.jpg";
 
 // Enhanced SEO Metadata
 const metaData = {
-  title: "Security Camera Technologies - DarkFighter, TandemVu, ColorVu, and AcuSense",
-  description: "Discover advanced security camera technologies including DarkFighter for low-light imaging, TandemVu's dual-lens system, ColorVu for 24/7 color surveillance, and AI-powered AcuSense detection.",
-  keywords: "DarkFighter Technology, TandemVu Technology, ColorVu Technology, AcuSense Technology, security cameras, surveillance systems, low-light imaging, AI detection, CCTV, video surveillance, Hikvision",
+  title:
+    "Security Camera Technologies - DarkFighter, TandemVu, ColorVu, and AcuSense",
+  description:
+    "Discover advanced security camera technologies including DarkFighter for low-light imaging, TandemVu's dual-lens system, ColorVu for 24/7 color surveillance, and AI-powered AcuSense detection.",
+  keywords:
+    "DarkFighter Technology, TandemVu Technology, ColorVu Technology, AcuSense Technology, security cameras, surveillance systems, low-light imaging, AI detection, CCTV, video surveillance, Hikvision",
   ogImage: banner1.src,
   author: "Dubai Hikvision",
   publishedDate: new Date().toISOString(),
@@ -16,57 +19,65 @@ const slides = [
   {
     id: 1,
     imgMain: banner1,
-    title: 'First Slide',
-    subTitle: 'Subtitle for Slide 1',
-    content: 'Content for Slide 1',
-    subContent: 'Subcontent for Slide 1',
+    title: "First Slide",
+    subTitle: "Subtitle for Slide 1",
+    content: "Content for Slide 1",
+    subContent: "Subcontent for Slide 1",
   },
   {
     id: 2,
     imgMain: banner2,
-    title: 'Second Slide',
-    subTitle: 'Subtitle for Slide 2',
-    content: 'Content for Slide 2',
-    subContent: 'Subcontent for Slide 2',
+    title: "Second Slide",
+    subTitle: "Subtitle for Slide 2",
+    content: "Content for Slide 2",
+    subContent: "Subcontent for Slide 2",
   },
   {
     id: 3,
     imgMain: banner1,
-    title: 'Third Slide',
-    subTitle: 'Subtitle for Slide 3',
-    content: 'Content for Slide 3',
-    subContent: 'Subcontent for Slide 3',
+    title: "Third Slide",
+    subTitle: "Subtitle for Slide 3",
+    content: "Content for Slide 3",
+    subContent: "Subcontent for Slide 3",
   },
 ];
 
 const services = [
   {
-    icon: '⬇️',
-    title: 'DarkFighter Technology',
-    shortDescription: 'DarkFighter technology enables clear, full-color imaging in low light.',
-    description: 'DarkFighter technology enhances low-light imaging with advanced sensors and processing for clear, full-color visuals.',
-    link: '/productsnew',
+    icon: "/src/assets/images/darkfighter.png",
+    title: "DarkFighter Technology",
+    shortDescription:
+      "DarkFighter technology enables clear, full-color imaging in low light.",
+    description:
+      "DarkFighter technology enhances low-light imaging with advanced sensors and processing for clear, full-color visuals.",
+    link: "/productsnew",
   },
   {
-    icon: '📑',
-    title: 'TandemVu Technology',
-    shortDescription: 'TandemVu combines fixed and PTZ lenses for efficient dual surveillance.',
-    description: 'TandemVu technology integrates fixed and PTZ lenses in one camera, delivering efficient, dual-purpose surveillance for enhanced security and monitoring.',
-    link: '/productsnew',
+    icon: "/src/assets/images/tandem.png",
+    title: "TandemVu Technology",
+    shortDescription:
+      "TandemVu combines fixed and PTZ lenses for efficient dual surveillance.",
+    description:
+      "TandemVu technology integrates fixed and PTZ lenses in one camera, delivering efficient, dual-purpose surveillance for enhanced security and monitoring.",
+    link: "/productsnew",
   },
   {
-    icon: '💡',
-    title: 'ColorVu Technology',
-    shortDescription: 'ColorVu Technology enables full-color surveillance for enhanced security.',
-    description: 'ColorVu Technology by Hikvision delivers full-color, 24/7 surveillance with high-sensitivity sensors and built-in lighting for enhanced low-light security monitoring.',
-    link: '/productsnew',
+    icon: "/src/assets/images/color.png",
+    title: "ColorVu Technology",
+    shortDescription:
+      "ColorVu Technology enables full-color surveillance for enhanced security.",
+    description:
+      "ColorVu Technology by Hikvision delivers full-color, 24/7 surveillance with high-sensitivity sensors and built-in lighting for enhanced low-light security monitoring.",
+    link: "/productsnew",
   },
   {
-    icon: '⚙️',
-    title: 'Acusense technology',
-    shortDescription: 'AcuSense Technology uses AI to detect humans and vehicles accurately.',
-    description: 'AcuSense Technology by Hikvision uses AI to accurately detect humans and vehicles, reducing false alarms and enhancing surveillance efficiency.',
-    link: '/productsnew',
+    icon: "/src/assets/images/Acuense.png",
+    title: "Acusense technology",
+    shortDescription:
+      "AcuSense Technology uses AI to detect humans and vehicles accurately.",
+    description:
+      "AcuSense Technology by Hikvision uses AI to accurately detect humans and vehicles, reducing false alarms and enhancing surveillance efficiency.",
+    link: "/productsnew",
   },
 ];
 
@@ -74,49 +85,52 @@ const services = [
 const schemaData = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": metaData.title,
-  "description": metaData.description,
-  "url": "https://dubai-hikvision.com",
-  "datePublished": metaData.publishedDate,
-  "author": {
+  name: metaData.title,
+  description: metaData.description,
+  url: "https://dubai-hikvision.com",
+  datePublished: metaData.publishedDate,
+  author: {
     "@type": "Organization",
-    "name": metaData.author
+    name: metaData.author,
   },
-  "mainEntity": {
+  mainEntity: {
     "@type": "ItemList",
-    "itemListElement": services.map((service, index) => ({
+    itemListElement: services.map((service, index) => ({
       "@type": "ListItem",
-      "position": index + 1,
-      "item": {
+      position: index + 1,
+      item: {
         "@type": "Product",
-        "name": service.title,
-        "description": service.description,
-        "url": new URL(service.link, Astro.url.origin).toString(),
-        "offers": {
+        name: service.title,
+        description: service.description,
+        url: new URL(service.link, Astro.url.origin).toString(),
+        offers: {
           "@type": "Offer",
-          "availability": "https://schema.org/InStock"
+          availability: "https://schema.org/InStock",
         },
-        "brand": {
+        brand: {
           "@type": "Brand",
-          "name": "Hikvision"
-        }
-      }
-    }))
+          name: "Hikvision",
+        },
+      },
+    })),
   },
-  "breadcrumb": {
+  breadcrumb: {
     "@type": "BreadcrumbList",
-    "itemListElement": [{
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": Astro.url.origin
-    }, {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Security Technologies",
-      "item": Astro.url.href
-    }]
-  }
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: Astro.url.origin,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Security Technologies",
+        item: Astro.url.href,
+      },
+    ],
+  },
 };
 ---
 
@@ -129,10 +143,10 @@ const schemaData = {
   <meta name="robots" content="index, follow" />
   <meta name="googlebot" content="index, follow" />
   <meta name="revisit-after" content="7 days" />
-  
+
   <!-- Canonical URL -->
   <link rel="canonical" href={Astro.url.href} />
-  
+
   <!-- Open Graph tags -->
   <meta property="og:title" content={metaData.title} />
   <meta property="og:description" content={metaData.description} />
@@ -140,7 +154,7 @@ const schemaData = {
   <meta property="og:type" content="website" />
   <meta property="og:url" content={Astro.url.href} />
   <meta property="og:site_name" content={metaData.author} />
-  
+
   <!-- Twitter Card tags -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={metaData.title} />
@@ -155,20 +169,22 @@ const schemaData = {
 <div class="relative">
   <!-- Banner Section -->
   <div class="group relative w-full h-[300px] md:h-[430px] overflow-hidden">
-    {slides.map((slide, index) => (
-      <div
-        class={`slide absolute w-full h-full opacity-0 transition-opacity duration-1000 ease-in-out ${
-          index === 0 ? 'active opacity-100' : ''
-        }`}
-        data-key={slide.id}
-      >
-        <img
-          src={slide.imgMain.src}
-          alt={slide.title}
-          class="w-full h-full object-cover"
-        />
-      </div>
-    ))}
+    {
+      slides.map((slide, index) => (
+        <div
+          class={`slide absolute w-full h-full opacity-0 transition-opacity duration-1000 ease-in-out ${
+            index === 0 ? "active opacity-100" : ""
+          }`}
+          data-key={slide.id}
+        >
+          <img
+            src={slide.imgMain.src}
+            alt={slide.title}
+            class="w-full h-full object-cover"
+          />
+        </div>
+      ))
+    }
 
     <!-- Navigation Buttons -->
     <button
@@ -185,8 +201,7 @@ const schemaData = {
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="2"
-          d="M15 19l-7-7 7-7"
-        />
+          d="M15 19l-7-7 7-7"></path>
       </svg>
     </button>
     <button
@@ -203,8 +218,7 @@ const schemaData = {
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="2"
-          d="M9 5l7 7-7 7"
-        />
+          d="M9 5l7 7-7 7"></path>
       </svg>
     </button>
   </div>
@@ -212,23 +226,32 @@ const schemaData = {
   <!-- Service Cards Section -->
   <div class="container mx-auto px-4 sm:px-6 lg:px-8 -mt-12 relative z-30">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      {services.map((service) => (
-        <div
-          class="block group"
-          onclick="toggleDescription(event)"
-        >
-          <div class="bg-white p-8 rounded-2xl shadow-xl text-center transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl border border-gray-100 hover:border-green-100 relative overflow-hidden h-[250px]">
-            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 to-blue-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-            <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-green-50 flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow duration-300">
-              <span class="text-4xl text-green-600 group-hover:scale-110 transition-transform duration-300">{service.icon}</span>
+      {
+        services.map((service) => (
+          <div class="block group" onclick="toggleDescription(event)">
+            <div class="bg-white p-8 rounded-2xl shadow-xl text-center transform hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl border border-gray-100 hover:border-green-100 relative overflow-hidden h-[250px]">
+              <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 to-blue-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+              <div class="flex items-center justify-center mb-4">
+                <img
+                  src={service.icon}
+                  alt={service.title}
+                  class="w-32 h-auto object-contain"
+                />
+              </div>
+              <h3 class="text-2xl font-semibold mb-4 text-gray-800 group-hover:text-cyan-600 transition-colors duration-300">
+                {service.title}
+              </h3>
+              <p class="text-gray-600 group-hover:text-gray-800 transition-colors duration-300">
+                {service.shortDescription}
+              </p>
+              <p class="text-gray-600 group-hover:text-gray-800 transition-colors duration-300 absolute bottom-0 left-0 right-0 p-6 bg-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 text-justify">
+                {service.description}
+              </p>
+              <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-green-400 transform origin-right scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
             </div>
-            <h3 class="text-2xl font-semibold mb-4 text-gray-800 group-hover:text-cyan-600 transition-colors duration-300">{service.title}</h3>
-            <p class="text-gray-600 group-hover:text-gray-800 transition-colors duration-300">{service.shortDescription}</p>
-            <p class="text-gray-600 group-hover:text-gray-800 transition-colors duration-300 absolute bottom-0 left-0 right-0 p-6 bg-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 text-justify">{service.description}</p>
-            <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-green-400 transform origin-right scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
           </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 </div>
@@ -238,65 +261,65 @@ const schemaData = {
   let currentSlide = 0;
   let intervalId: number;
 
-  function changeSlide(direction = 'next') {
-    const slides = document.querySelectorAll('.slide');
+  function changeSlide(direction = "next") {
+    const slides = document.querySelectorAll(".slide");
     const totalSlides = slides.length;
 
-    if (direction === 'next') {
+    if (direction === "next") {
       currentSlide = (currentSlide + 1) % totalSlides;
-    } else if (direction === 'prev') {
+    } else if (direction === "prev") {
       currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
     }
 
     slides.forEach((slide, index) => {
-      slide.classList.toggle('active', index === currentSlide);
-      slide.classList.toggle('opacity-0', index !== currentSlide);
-      slide.classList.toggle('opacity-100', index === currentSlide);
+      slide.classList.toggle("active", index === currentSlide);
+      slide.classList.toggle("opacity-0", index !== currentSlide);
+      slide.classList.toggle("opacity-100", index === currentSlide);
     });
   }
 
   // Activate the first slide on load
-  document.addEventListener('DOMContentLoaded', () => {
-    const slides = document.querySelectorAll('.slide');
+  document.addEventListener("DOMContentLoaded", () => {
+    const slides = document.querySelectorAll(".slide");
     if (slides.length > 0) {
-      slides[0].classList.add('active', 'opacity-100');
+      slides[0].classList.add("active", "opacity-100");
     }
   });
 
   // Start the carousel
-  if (typeof window !== 'undefined') {
-    intervalId = window.setInterval(() => changeSlide('next'), 5000);
+  if (typeof window !== "undefined") {
+    intervalId = window.setInterval(() => changeSlide("next"), 5000);
 
     // Clear interval on page unload
-    window.addEventListener('unload', () => {
+    window.addEventListener("unload", () => {
       window.clearInterval(intervalId);
     });
 
     // Navigation button event listeners
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
 
     if (prevBtn) {
-      prevBtn.addEventListener('click', () => {
+      prevBtn.addEventListener("click", () => {
         window.clearInterval(intervalId);
-        changeSlide('prev');
-        intervalId = window.setInterval(() => changeSlide('next'), 5000);
+        changeSlide("prev");
+        intervalId = window.setInterval(() => changeSlide("next"), 5000);
       });
     }
 
     if (nextBtn) {
-      nextBtn.addEventListener('click', () => {
+      nextBtn.addEventListener("click", () => {
         window.clearInterval(intervalId);
-        changeSlide('next');
-        intervalId = window.setInterval(() => changeSlide('next'), 5000);
+        changeSlide("next");
+        intervalId = window.setInterval(() => changeSlide("next"), 5000);
       });
     }
   }
 
   // Toggle description on mobile
   function toggleDescription(event: MouseEvent) {
-    const card = (event.currentTarget as HTMLElement).querySelector('div');
-    const description = card?.querySelector('p:last-child');
-    description?.classList.toggle('translate-y-full');
+    const card = (event.currentTarget as HTMLElement).querySelector("div");
+    const description = card?.querySelector("p:last-child");
+    description?.classList.toggle("translate-y-full");
   }
 </script>

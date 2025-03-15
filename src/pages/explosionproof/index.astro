@@ -14,7 +14,7 @@ const products: CollectionEntry<typeof category>[] = (
 ).sort((a, b) => a.data.id - b.data.id);
 
 // Enhanced SEO metadata
-const title = `${category.toUpperCase()} Products | Hikvision Dubai`;
+const title = `${category.toUpperCase()} Products | Dubai Hikvision`;
 const description = `Browse our comprehensive range of ${category} products from Hikvision, the leading distributor in Dubai. Professional-grade explosion-proof security cameras and surveillance systems for hazardous environments.`;
 const keywords = `${category}, Hikvision Dubai, explosion proof cameras, hazardous environment cameras, Dubai distributor, CCTV cameras, explosion protected cameras, industrial security solutions, 
 Hikvision distributor Dubai,
@@ -100,11 +100,11 @@ const structuredData = {
         url: `https://dubai-hikvision.com/${category}`,
         brand: {
           "@type": "Brand",
-          name: "Hikvision Dubai",
+          name: "Dubai Hikvision",
         },
         manufacturer: {
           "@type": "Organization",
-          name: "Hikvision Dubai",
+          name: "Dubai Hikvision",
         },
         category: category.charAt(0).toUpperCase() + category.slice(1),
         offers: {
@@ -113,7 +113,7 @@ const structuredData = {
           priceCurrency: "AED",
           seller: {
             "@type": "Organization",
-            name: "Hikvision Dubai",
+            name: "Dubai Hikvision",
           },
         },
       },
@@ -130,8 +130,9 @@ const structuredData = {
 const mainColor = "#32869f";
 ---
 
-<Layout title={title} description={description} keywords={keywords}>
-  <!-- Add canonical URL -->
+<Layout title={title} description={description} keywords={keywords} structuredData={structuredData}>
+ <!-- 
+  Add canonical URL -->
   <link
     rel="canonical"
     href={`https://dubai-hikvision.com/${category}`}
@@ -147,7 +148,7 @@ const mainColor = "#32869f";
     content={`https://dubai-hikvision.com/${category}`}
     slot="head"
   />
-  <meta property="og:site_name" content="Hikvision Dubai" slot="head" />
+  <meta property="og:site_name" content="Dubai Hikvision" slot="head" />
 
   <!-- Add Twitter Card tags -->
   <meta name="twitter:card" content="summary_large_image" slot="head" />

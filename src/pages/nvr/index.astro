@@ -14,7 +14,7 @@ const products: CollectionEntry<typeof category>[] = (
 ).sort((a, b) => a.data.id - b.data.id);
 
 // Enhanced SEO metadata
-const title = `${category.toUpperCase()} Products | Hikvision Dubai`;
+const title = `${category.toUpperCase()} Products | Dubai Hikvision`;
 const description = `Browse our comprehensive range of Network Video Recorders (NVR) from Hikvision, the leading distributor in Dubai. Professional-grade surveillance recording solutions with advanced features for security systems.`;
 const keywords = `${category}, NVR, Network Video Recorder, Hikvision Dubai, security recording, surveillance systems, Dubai distributor, CCTV recorder, IP camera recorder, security solutions, Hikvision distributor Dubai, video management system,
 Hikvision distributor Dubai,
@@ -99,11 +99,11 @@ const structuredData = {
         url: `https://dubai-hikvision.com/${category}`,
         brand: {
           "@type": "Brand",
-          name: "Hikvision Dubai"
+          name: "Dubai Hikvision"
         },
         manufacturer: {
           "@type": "Organization",
-          name: "Hikvision Dubai"
+          name: "Dubai Hikvision"
         },
         category: "Network Video Recorder",
         offers: {
@@ -112,7 +112,7 @@ const structuredData = {
           priceCurrency: "AED",
           seller: {
             "@type": "Organization",
-            name: "Hikvision Dubai"
+            name: "Dubai Hikvision"
           }
         }
       }
@@ -120,7 +120,7 @@ const structuredData = {
   },
   organization: {
     "@type": "Organization",
-    name: "Hikvision Dubai",
+    name: "Dubai Hikvision",
     url: "https://dubai-hikvision.com",
     logo: "https://dubai-hikvision.com/logo.png"
   }
@@ -129,7 +129,7 @@ const structuredData = {
 const mainColor = "#32869f";
 ---
 
-<Layout title={title} description={description} keywords={keywords}>
+<Layout title={title} description={description} keywords={keywords} structuredData={structuredData}>
   <!-- Add canonical URL -->
   <link rel="canonical" href={`https://dubai-hikvision.com/${category}`} slot="head" />
   
@@ -138,15 +138,13 @@ const mainColor = "#32869f";
   <meta property="og:description" content={description} slot="head" />
   <meta property="og:type" content="website" slot="head" />
   <meta property="og:url" content={`https://dubai-hikvision.com/${category}`} slot="head" />
-  <meta property="og:site_name" content="Hikvision Dubai" slot="head" />
+  <meta property="og:site_name" content="Dubai Hikvision" slot="head" />
   
   <!-- Add Twitter Card tags -->
   <meta name="twitter:card" content="summary_large_image" slot="head" />
   <meta name="twitter:title" content={title} slot="head" />
   <meta name="twitter:description" content={description} slot="head" />
 
-  <!-- Add structured data -->
-  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} slot="head" />
 
   <div class="container mx-auto px-4 py-8 bg-gray-50">
     <h1 class="text-4xl font-bold mb-6 text-center" style={`color: ${mainColor};`}>

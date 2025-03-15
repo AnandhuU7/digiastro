@@ -60,25 +60,52 @@ const structuredData = {
 
 <Layout title={title} description={description} structuredData={structuredData}>
   <!-- Hero Section with enhanced glassmorphism and #32869f color scheme -->
-  <section class="relative bg-gradient-to-r from-cyan-900/80 to-indigo-900/80 pb-28 pt-10 overflow-hidden">
-    <div class="container mx-auto px-4 relative">
+  <section class="relative bg-gradient-to-br from-[#32869f] to-[#1d5566] pb-28 pt-10 overflow-hidden">
+    <!-- Static background elements -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full transform translate-x-1/3 -translate-y-1/3"></div>
+    <div class="absolute bottom-0 left-0 w-64 h-64 bg-white opacity-5 rounded-full transform -translate-x-1/4 translate-y-1/4"></div>
+    <div class="absolute top-1/2 left-1/4 w-32 h-32 bg-white opacity-5 rounded-full"></div>
+    
+    <!-- Subtle pattern overlay -->
+    <div class="absolute inset-0 bg-[url('/api/placeholder/400/320')] opacity-5 z-1 mix-blend-overlay"></div>
+    
+    <!-- Decorative elements -->
+    <div class="absolute top-10 left-10 w-16 h-16 border-t-2 border-l-2 border-white opacity-20"></div>
+    <div class="absolute bottom-10 right-10 w-16 h-16 border-b-2 border-r-2 border-white opacity-20"></div>
+    
+    <div class="container mx-auto px-4 relative z-10">
       <div class="text-center">
-        <span class="inline-block px-6 py-2 bg-gradient-to-r from-[#4bbedf]/40 to-[#5dcaf0]/40 text-[#e0f5fc] rounded-full text-sm font-medium mb-6 animate-pulse backdrop-blur-sm border border-[#4bbedf]/30 shadow-lg shadow-[#32869f]/20">
+        <span class="inline-block px-6 py-2 bg-white/10 text-white rounded-full text-sm font-medium mb-6 backdrop-blur-sm border border-white/30 shadow-lg shadow-[#32869f]/20">
           Let's Connect
         </span>
+        
         <h1 class="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight">
           Let's Build Something 
-          <span class="relative">
-            <span class="bg-gradient-to-r from-[#4bbedf] via-[#5dcaf0] to-[#32869f] bg-clip-text text-transparent animate-gradient">
-              Extraordinary
-            </span>
-            <span class="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#4bbedf] to-[#32869f] rounded-full transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></span>
+          <span class="relative inline-block">
+            <span class="relative z-10">Extraordinary</span>
+            <span class="absolute bottom-0 left-0 w-full h-3 bg-[#f0cb35] opacity-70 rounded"></span>
+            <span class="absolute bottom-0 left-0 w-full h-1 bg-[#f0cb35] opacity-30 blur-sm"></span>
           </span>
         </h1>
-        <p class="text-[#e0f5fc] text-lg md:text-xl max-w-2xl mx-auto leading-relaxed pb-6">
+        
+        <p class="text-white/90 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed pb-6">
           Transform your security infrastructure with cutting-edge solutions. Our experts are ready to guide you every step of the way.
         </p>
+        
+        <!-- Optional decorative separator -->
+        <div class="flex justify-center mt-8">
+          <div class="w-24 h-1 bg-white opacity-30 rounded-full"></div>
+        </div>
+        
+        <!-- CTA buttons -->
       </div>
+    </div>
+    
+    <!-- Decorative wave at bottom -->
+    <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-0">
+      <svg class="relative block w-full h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.92,146.86,136.44,221.91,119.3,302.86,101.1,272,68,321.39,56.44Z" fill="#ffffff" fill-opacity="0.1"></path>
+      </svg>
     </div>
   </section>
   
