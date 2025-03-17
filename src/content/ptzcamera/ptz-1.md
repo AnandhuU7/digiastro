@@ -16,6 +16,8 @@ features: [
   "12V DC support for flexible installation",
   "Human and vehicle detection for enhanced security",
 ]
+rating: 4.5
+reviewCount: 50
 specifications: {
   Camera: {
     Image_Sensor: "[Bullet channel]: 1/2.8\" Progressive Scan CMOS; [PTZ channel]: 1/2.8\" progressive scan CMOS",

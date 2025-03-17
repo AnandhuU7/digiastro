@@ -17,6 +17,8 @@ features: [
   "8K HDMI video output for ultra-HD display",
   "Redundant power supply for uninterrupted operation"
 ]
+rating: 4.5
+reviewCount: 50
 specifications: {
   Intelligent_Analytics: {
     AI_by_NVR: {

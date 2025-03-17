@@ -18,6 +18,8 @@ features: [
   "Real-time security with built-in two-way audio",
   "IP67 water and dust resistance",
 ]
+rating: 4
+reviewCount: 50
 specifications: {
   Camera: {
     Image_Sensor: "1/1.8\" Progressive Scan CMOS",

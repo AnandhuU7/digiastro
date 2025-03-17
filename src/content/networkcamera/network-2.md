@@ -17,6 +17,8 @@ features: [
   "Efficient H.265+ compression for optimized storage",
   "IP67 water and dust resistance for reliable outdoor use",
 ]
+rating: 4.5
+reviewCount: 50
 specifications: {
   Camera: {
     Image_Sensor: "1/2.8\" Progressive Scan CMOS",

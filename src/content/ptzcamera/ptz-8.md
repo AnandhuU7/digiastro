@@ -19,6 +19,8 @@ features: [
   "Automatic target switching",
   "Supports 7 alarm inputs, 2 alarm outputs, 1 audio input, and 1 audio output"
 ]
+rating: 4.5
+reviewCount: 50
 specifications: {
   camera: {
     Image_Sensor: "[Panoramic channel]: 1/1.8\" Progressive Scan CMOS; [PTZ channel]: 1/1.8\" Progressive Scan CMOS",

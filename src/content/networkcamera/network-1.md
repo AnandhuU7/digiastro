@@ -19,6 +19,9 @@ features: [
   "IP66 water and dust resistance, IK10 vandal-proof",
   "Audio and alarm integration for enhanced security",
 ]
+rating: 4.5
+reviewCount: 50
+slug: "DS-2CD2786G2H-IPTRZS"
 specifications: {
   Camera: {
     Image_Sensor: "1/1.8\" Progressive Scan CMOS",

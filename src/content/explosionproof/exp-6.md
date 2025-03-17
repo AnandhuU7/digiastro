@@ -16,6 +16,8 @@ features: [
   "Extreme Temperature Resistance: Built-in heater allows operation in ultra-low temperatures down to -40°C",
   "High-Resolution Imaging: 4 MP sensor captures clear and detailed visuals"
 ]
+rating: 4.5
+reviewCount: 50
 specifications: {
   Camera: {
     Image Sensor: "1/3\" Progressive Scan CMOS",

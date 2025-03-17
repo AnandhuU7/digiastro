@@ -18,6 +18,8 @@ features: [
   "Advanced Image Processing: 120dB WDR and 3D DNR for superior clarity",
   "Reliable Performance: Built with a high-performance sensor for enhanced surveillance",
 ]
+rating: 5
+reviewCount: 50
 specifications: {
   Camera: {
     Image Sensor: "1/2.8\" Progressive Scan CMOS",

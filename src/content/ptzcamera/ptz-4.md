@@ -17,6 +17,8 @@ features: [
   "Supports microSD/SDHC/SDXC cards up to 512 GB",
   "IP66 water and dust resistance for outdoor durability"
 ]
+rating: 4.5
+reviewCount: 50
 specifications: {
   Camera: {
     Image_Sensor: "[Bullet channel]: 1/2.8\" Progressive Scan CMOS; [PTZ channel]: 1/2.8\" Progressive Scan CMOS",

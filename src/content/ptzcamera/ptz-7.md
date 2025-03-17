@@ -18,6 +18,8 @@ features: [
   "Supports 36 VDC & PoE (802.3at) for flexible installation",
   "Efficient H.265+/H.265 compression for optimized storage"
 ]
+rating: 4
+reviewCount: 50
 specifications: {
   camera: {
     Image_Sensor: "1/2.8\" Progressive Scan CMOS",

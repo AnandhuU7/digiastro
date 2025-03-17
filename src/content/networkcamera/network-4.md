@@ -16,6 +16,8 @@ features: [
   "IP67 water and dust resistance, IK10 vandal-proof",
   "Deep learning for human and vehicle classification",
 ]
+rating: 4
+reviewCount: 50
 specifications: {
   Camera: {
     Image_Sensor: "1/2.8\" Progressive Scan CMOS",

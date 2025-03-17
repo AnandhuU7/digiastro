@@ -16,6 +16,8 @@ features: [
   "RAID 0, 1, 5, 6, 10 & N+M hot spare for secure storage",
   "8K HDMI video output for ultra-HD display",
 ]
+rating: 4.5
+reviewCount: 50
 specifications: {
   Intelligent_Analytics: {
     AI_by_NVR: {

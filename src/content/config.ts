@@ -24,6 +24,8 @@ const ptzcameraCollection = defineCollection({
     imgAlt: z.string(),
     thumbnails: z.array(image()).optional(),
     features: z.array(z.string()),
+    rating: z.number().min(0).max(5).optional(),
+    reviewCount: z.number().min(0).optional(),
     specifications: z.record(
       z.string(),
       z.record(
@@ -49,6 +51,8 @@ const networkcameraCollection = defineCollection({
     imgAlt: z.string(),
     thumbnails: z.array(image()).optional(),
     features: z.array(z.string()),
+    rating: z.number().min(0).max(5).optional(),
+    reviewCount: z.number().min(0).optional(),
     specifications: z.record(
       z.string(),
       z.record(
@@ -60,6 +64,7 @@ const networkcameraCollection = defineCollection({
         ])
       )
     ).optional(),
+    slug: z.string(), 
   }),
 });
 
@@ -75,6 +80,8 @@ const nvrCollection = defineCollection({
       thumbnails: z.array(image()).optional(),
       imgAlt: z.string(),
       features: z.array(z.string()),
+      rating: z.number().min(0).max(5).optional(),
+      reviewCount: z.number().min(0).optional(),
       specifications: z
         .record(
           z.string(),
@@ -107,6 +114,8 @@ const explosionproofCollection = defineCollection({
     imgAlt: z.string(),
     thumbnails: z.array(image()).optional(),
     features: z.array(z.string()),
+    rating: z.number().min(0).max(5).optional(),
+    reviewCount: z.number().min(0).optional(),
     specifications: z.record(
       z.string(),
       z.record(

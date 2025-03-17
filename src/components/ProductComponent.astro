@@ -9,6 +9,8 @@ const title = `${product.data.title} | Hikvision Security Products`;
 const description = product.data.description || `High-quality Hikvision ${product.data.title} available in UAE. Professional security solution with expert installation and support.`;
 const canonicalURL = new URL(`/${category}/${product.slug}`, Astro.site);
 
+// Extract rating from product data
+const rating = product.data.rating;
 ---
 
 <!-- Add SEO meta tags -->
@@ -76,17 +78,43 @@ const canonicalURL = new URL(`/${category}/${product.slug}`, Astro.site);
           </div>
         )}
       </div>
-      
-      <!-- Left to right overlay on hover -->
-      <div class="absolute inset-0 bg-gradient-to-r from-[#32869f] to-transparent opacity-0 group-hover:opacity-20 transition-all duration-500 transform -translate-x-full group-hover:translate-x-0"></div>
     </div>
     
     <!-- Product Details -->
     <div class="px-6 py-4">
-      <!-- Product Title -->
       <h3 class="product-title font-bold text-xl mb-2 text-gray-800 group-hover:text-[#32869f] transition-colors duration-300 line-clamp-2">
         {product.data.title}
       </h3>
+      <!-- Display Rating with Half-Star Support -->
+      {rating && (
+        <div class="flex items-center mt-2">
+          <div class="flex">
+            {Array.from({ length: 5 }).map((_, i) => {
+              const starValue = i + 1;
+              const isHalfStar = rating >= starValue - 0.5 && rating < starValue;
+              const isFullStar = rating >= starValue;
+      
+              return (
+                <span
+                  class={`text-2xl ${
+                    isFullStar ? 'text-yellow-500' : isHalfStar ? 'text-gray-300 relative' : 'text-gray-300'
+                  }`}
+                >
+                  {isHalfStar ? (
+                    <span class="relative">
+                      ★
+                      <span class="absolute top-0 left-0 overflow-hidden text-yellow-500" style="width: 50%;">★</span>
+                    </span>
+                  ) : (
+                    '★'
+                  )}
+                </span>
+              );
+            })}
+          </div>
+          <span class="ml-2 text-gray-600">({rating}/5)</span>
+        </div>
+      )}
       <!-- Dynamic Link Based on Category -->
       <div class="mt-6 flex items-center justify-end border-t border-gray-100 pt-4">
         <a 
@@ -102,17 +130,3 @@ const canonicalURL = new URL(`/${category}/${product.slug}`, Astro.site);
     </div>
   </div>
 </div>
-
-<!-- Styles for the Product Card -->
-<style>
-  .product-card {
-    visibility: visible;
-    position: static;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-
-  .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  }
-</style>

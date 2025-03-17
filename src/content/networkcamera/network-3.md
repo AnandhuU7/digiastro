@@ -17,6 +17,8 @@ features: [
   "Audio and alarm interface support",
   "IP67 water/dust resistance, IK10 vandal-proof",
 ]
+rating: 5
+reviewCount: 50
 specifications: {
   Camera: {
     Image_Sensor: "1/2.8\" Progressive Scan CMOS",

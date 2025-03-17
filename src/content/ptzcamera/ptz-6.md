@@ -16,6 +16,8 @@ features: [
   "Supports 12V DC & PoE+ for flexible installation",
   "Deep learning for human and vehicle classification"
 ]
+rating: 5
+reviewCount: 50
 specifications: {
   camera: {
     Image_Sensor: "[Bullet channel]: 1/2.5\" Progressive Scan CMOS; [PTZ channel]: 1/2.8\" Progressive Scan CMOS",

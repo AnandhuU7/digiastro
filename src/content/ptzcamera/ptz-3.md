@@ -16,6 +16,8 @@ features: [
   "Human detection and Auto-tracking Lite support",
   "IP66 water and dust resistance for outdoor durability",
 ]
+rating: 4
+reviewCount: 50
 specifications: {
   Camera: {
     Image_Sensor: "1/2.7\" Progressive Scan CMOS",

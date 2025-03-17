@@ -16,6 +16,8 @@ features: [
   "High-Resolution Imaging: 4 MP 1/2.8\" progressive scan CMOS sensor",
   "Advanced Image Processing: 120dB WDR and 3D DNR for superior clarity"
 ]
+rating: 4.5
+reviewCount: 50
 specifications: {
   Camera: {
     Image_Sensor: "1/2.8\" progressive scan CMOS",

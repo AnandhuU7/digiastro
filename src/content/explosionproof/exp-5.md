@@ -17,6 +17,8 @@ features: [
   "Wide Dynamic Range: 120dB true WDR ensures clear imaging against strong backlight",
   "Rugged and Reliable: IP68-rated water and dust resistance for harsh environments"
 ]
+rating: 4
+reviewCount: 50
 specifications: {
   Camera: {
     Image Sensor: "1/1.8\" progressive scan CMOS",

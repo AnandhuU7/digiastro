@@ -15,6 +15,8 @@ features: [
   "Handles up to 40 Mbps incoming bandwidth",
   "AcuSense technology for enhanced security & reduced manual effort"
 ]
+rating: 4.5
+reviewCount: 50
 specifications: {
   Intelligent_Analytics: {
     AI_by_Device: {

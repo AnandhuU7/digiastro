@@ -15,6 +15,8 @@ features: [
   "4× optical zoom for closer views of subjects",
   "IP66 water and dust resistance for outdoor durability"
 ]
+rating: 4.5
+reviewCount: 50
 specifications: {
   Camera: {
     Image_Sensor: "1/2.8\" Progressive Scan CMOS",

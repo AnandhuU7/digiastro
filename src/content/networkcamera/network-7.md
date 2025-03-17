@@ -17,6 +17,8 @@ features: [
   "24/7 colorful imaging",
   "IP67 water and dust resistance",
 ]
+rating: 5
+reviewCount: 50
 specifications: {
   Camera: {
     Image_Sensor: "1/1.8\" Progressive Scan CMOS",
