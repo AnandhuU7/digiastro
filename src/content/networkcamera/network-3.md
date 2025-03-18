@@ -1,6 +1,7 @@
 ---
 id: 3
 title: "DS-2CD2783G2-IZS"
+slug: "network-3"
 subTitle: "8 MP AcuSense Motorized Varifocal Dome Camera"
 category: "Network Camera"
 imgCard: "/src/assets/images/networkcamera/DS-2CD2783G2-IZS/DS-2CD2783G2-IZS-1.png"

@@ -16,49 +16,49 @@ const products: CollectionEntry<typeof category>[] = (
 // Enhanced SEO metadata
 const title = `${category.toUpperCase()} Products | Dubai Hikvision`;
 const description = `Browse our comprehensive range of Network Video Recorders (NVR) from Hikvision, the leading distributor in Dubai. Professional-grade surveillance recording solutions with advanced features for security systems.`;
-const keywords = `${category}, NVR, Network Video Recorder, Hikvision Dubai, security recording, surveillance systems, Dubai distributor, CCTV recorder, IP camera recorder, security solutions, Hikvision distributor Dubai, video management system,
-Hikvision distributor Dubai,
-hikvision cctv,
-hikvision cctv in dubai,
-hikvision cctv in uae,
-hikvision cctv camera for home in dubai,
-hikvision cctv camera for home in uae,
-hikvision cctv camera price,
-hikvision cctv camera price in dubai,
-hikvision cctv camera price in uae,
-hikvision camera,
-hikvision camera in dubai,
-hikvision camera in uae,
-hikvision ipcamera,
-hikvision ipcamera in dubai,
-hikvision ipcamera in uae,
-hik camera,
-hik camera price,
-hikvision camera price,
-hikvision ip camera price,
-hikvision ip camera price in dubai,
-hikvision ip camera price in uae,
-hik ip camera,
-Hikvision,
-Hikvision in dubai,
-Hikvision in uae,
-hikvision nvr 8 channel,
-hikvision nvr 16 channel,
-hikvision nvr 32 channel,
-hikvision colorvu,
-hikvision dvr 4 channel,
-hikvision dvr 8 channel
-hikvision security,
-hikvision wifi camera,
-hikvision wifi camera price,
-hikvision wifi,
-hikvision ptz camera,
-hikvision ptz camera price,
-hikvision ptz,
-hik cctv,
-hik cctv camera,
-hikvision webcam in dubai,
-hik cctv in dubai,`;
+// const keywords = `${category}, Hikvision Dubai, security cameras, surveillance systems, Dubai distributor, CCTV cameras, IP cameras, network cameras, security solutions, Hikvision distributor Dubai,
+// Hikvision distributor Dubai,
+// hikvision cctv,
+// hikvision cctv in dubai,
+// hikvision cctv in uae,
+// hikvision cctv camera for home in dubai,
+// hikvision cctv camera for home in uae,
+// hikvision cctv camera price,
+// hikvision cctv camera price in dubai,
+// hikvision cctv camera price in uae,
+// hikvision camera,
+// hikvision camera in dubai,
+// hikvision camera in uae,
+// hikvision ipcamera,
+// hikvision ipcamera in dubai,
+// hikvision ipcamera in uae,
+// hik camera,
+// hik camera price,
+// hikvision camera price,
+// hikvision ip camera price,
+// hikvision ip camera price in dubai,
+// hikvision ip camera price in uae,
+// hik ip camera,
+// Hikvision,
+// Hikvision in dubai,
+// Hikvision in uae,
+// hikvision nvr 8 channel,
+// hikvision nvr 16 channel,
+// hikvision nvr 32 channel,
+// hikvision colorvu,
+// hikvision dvr 4 channel,
+// hikvision dvr 8 channel
+// hikvision security,
+// hikvision wifi camera,
+// hikvision wifi camera price,
+// hikvision wifi,
+// hikvision ptz camera,
+// hikvision ptz camera price,
+// hikvision ptz,
+// hik cctv,
+// hik cctv camera,
+// hikvision webcam in dubai,
+// hik cctv in dubai,`;
 
 // Enhanced structured data
 const structuredData = {
@@ -67,7 +67,7 @@ const structuredData = {
   name: title,
   description: description,
   url: `https://dubai-hikvision.com/${category}`,
-  keywords: keywords,
+  // keywords: keywords,
   breadcrumb: {
     "@type": "BreadcrumbList",
     itemListElement: [
@@ -75,15 +75,15 @@ const structuredData = {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://dubai-hikvision.com"
+        item: "https://dubai-hikvision.com",
       },
       {
         "@type": "ListItem",
         position: 2,
-        name: category.toUpperCase(),
-        item: `https://dubai-hikvision.com/${category}`
-      }
-    ]
+        name: category.charAt(0).toUpperCase() + category.slice(1),
+        item: `https://dubai-hikvision.com/${category}`,
+      },
+    ],
   },
   mainEntity: {
     "@type": "ItemList",
@@ -94,42 +94,56 @@ const structuredData = {
       item: {
         "@type": "Product",
         name: product.data.title,
-        description: product.data.features,
+        description: Array.isArray(product.data.features)
+          ? product.data.features.join(", ")
+          : product.data.features,
         image: product.data.imgCard.src,
-        url: `https://dubai-hikvision.com/${category}`,
+        url: `https://dubai-hikvision.com/${category}/${product.data.slug}`,
         brand: {
           "@type": "Brand",
-          name: "Dubai Hikvision"
+          name: "Dubai Hikvision",
         },
         manufacturer: {
           "@type": "Organization",
-          name: "Dubai Hikvision"
+          name: "Dubai Hikvision",
         },
-        category: "Network Video Recorder",
+        category: category.charAt(0).toUpperCase() + category.slice(1),
         offers: {
           "@type": "Offer",
-          availability: "https://schema.org/InStock",
           priceCurrency: "AED",
+          availability: "https://schema.org/InStock",
           seller: {
             "@type": "Organization",
-            name: "Dubai Hikvision"
-          }
-        }
-      }
-    }))
+            name: "Dubai Hikvision",
+          },
+        },
+        // ✅ Adding Rating & Review Count
+        aggregateRating: product.data.rating && product.data.reviewCount
+          ? {
+              "@type": "AggregateRating",
+              ratingValue: product.data.rating.toFixed(1), // Ensure it's formatted properly
+              reviewCount: product.data.reviewCount,
+            }
+          : undefined, // Avoid adding if no rating data exists
+      },
+    })),
   },
   organization: {
     "@type": "Organization",
-    name: "Dubai Hikvision",
+    name: "Hikvision Dubai",
     url: "https://dubai-hikvision.com",
-    logo: "https://dubai-hikvision.com/logo.png"
-  }
+    logo: "https://dubai-hikvision.com/logo.png",
+  },
 };
 
 const mainColor = "#32869f";
 ---
 
-<Layout title={title} description={description} keywords={keywords} structuredData={structuredData}>
+<Layout 
+  title={title} 
+  description={description} 
+  structuredData={structuredData}
+>
   <!-- Add canonical URL -->
   <link rel="canonical" href={`https://dubai-hikvision.com/${category}`} slot="head" />
   
@@ -145,12 +159,10 @@ const mainColor = "#32869f";
   <meta name="twitter:title" content={title} slot="head" />
   <meta name="twitter:description" content={description} slot="head" />
 
-
   <div class="container mx-auto px-4 py-8 bg-gray-50">
     <h1 class="text-4xl font-bold mb-6 text-center" style={`color: ${mainColor};`}>
       Discover Our {category.charAt(0).toUpperCase() + category.slice(1)} Products
     </h1>
-
     <!-- Search Bar -->
     <Search mainColor={mainColor} />
 

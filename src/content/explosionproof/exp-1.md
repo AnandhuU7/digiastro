@@ -1,6 +1,7 @@
 ---
 id: 1
 title: "DS-2DF4420WG-XEY"
+slug: "exp-1"
 subTitle:  "4-Inch 20× Explosion-Proof Network Speed Dome – ATEX & IECEx Certified"
 category: "Explosion-Proof Products"
 imgCard: "/src/assets/images/explosionproof/DS-2DF4420WG-XEY/DS-2DF4420WG-XEY-1.png"

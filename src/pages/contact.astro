@@ -11,18 +11,30 @@ const structuredData = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
   "name": "Hikvision Dubai - Contact Us",
-  "description": description,
+  "description": "Get in touch with Hikvision Dubai for sales, support, and inquiries. Visit our showroom or contact us via phone, email, or WhatsApp.",
   "url": "https://dubai-hikvision.com/contact",
   "mainEntity": {
     "@type": "Organization",
     "name": "Hikvision Dubai",
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "contactType": "Sales and Support",
-      "telephone": "+971 50 123 4567",
-      "email": "info@dubai-hikvision.com",
-      "availableLanguage": ["English", "Arabic"]
-    },
+    "title": "Contact us for more information hikvision dubai,uae" ,
+    "url": "https://dubai-hikvision.com",
+    "logo": "https://dubai-hikvision.com/logo.png",
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "contactType": "Sales",
+        "telephone": "+971 55 292 9644",
+        "email": "sales@dubai-hikvision.com",
+        "availableLanguage": ["English", "Arabic"]
+      },
+      {
+        "@type": "ContactPoint",
+        "contactType": "Support",
+        "telephone": "+971 55 292 9644",
+        "email": "support@dubai-hikvision.com",
+        "availableLanguage": ["English", "Arabic"]
+      }
+    ],
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Satellite Market Naif Deira, Baghlaf Building Showroom No.5",
@@ -30,11 +42,16 @@ const structuredData = {
       "addressCountry": "AE",
       "addressRegion": "Dubai, United Arab Emirates",
       "postalCode": "123421"
-    }
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "25.276987",
+      "longitude": "55.296249"
+    },
+    "openingHours": "Mo-Su 09:00-20:00"
   },
   "breadcrumb": {
     "@type": "BreadcrumbList",
-    "@id": "https://dubai-hikvision.com/#breadcrumb",
     "itemListElement": [
       {
         "@type": "ListItem",
@@ -50,6 +67,43 @@ const structuredData = {
         "item": {
           "@id": "https://dubai-hikvision.com/contact",
           "name": "Contact"
+        }
+      }
+    ]
+  },
+  "faq": {
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What are your business hours?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Our showroom is open 7 days a week from 9:00 AM to 8:00 PM."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer installation services?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we provide professional installation services for all Hikvision products we sell. Our technicians are certified and experienced."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What payment methods do you accept?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We accept cash, credit/debit cards, bank transfers, and online payments. For large orders, we can also arrange flexible payment terms."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you provide after-sales support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we offer comprehensive after-sales support including technical assistance, warranty claims, and maintenance services."
         }
       }
     ]

@@ -105,15 +105,20 @@
             <!-- Video section -->
             <div class="md:w-1/2 w-full animate-fade-in-right">
                 <div class="relative aspect-video rounded-xl overflow-hidden shadow-2xl">
-                    <!-- Replace the static thumbnail and play button with YouTube iframe -->
-                    <iframe 
-                        class="absolute inset-0 w-full h-full"
-                        src="https://www.youtube.com/embed/MGjX7jfqMZA?si=Dnuo2vATsgzT2JOA"
+                    <!-- Provide a YouTube link with a thumbnail -->
+                    <a 
+                        href="https://youtube.com/shorts/obweq6yMfBE?si=8PourlE9y_lYu6l_"
                         title="Hikvision Security Solutions"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
+                        target="_blank"
+                        class="block w-full h-full">
+                        <img 
+                            src="https://img.youtube.com/vi/obweq6yMfBE/maxresdefault.jpg" 
+                            alt="Hikvision Security Solutions Thumbnail"
+                            class="w-full h-full object-cover">
+                        <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 hover:bg-opacity-30 transition duration-300">
+                            <span class="text-white text-lg font-semibold">Watch on YouTube</span>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>

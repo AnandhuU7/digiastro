@@ -16,49 +16,48 @@ const products: CollectionEntry<typeof category>[] = (
 // Enhanced SEO metadata
 const title = `${category.toUpperCase()} Products | Dubai Hikvision`;
 const description = `Browse our comprehensive range of ${category} products from Hikvision, the leading distributor in Dubai. Professional-grade security cameras and surveillance systems with advanced features.`;
-const keywords = `${category}, Hikvision Dubai, security cameras, surveillance systems, Dubai distributor, CCTV cameras, IP cameras, network cameras, security solutions, Hikvision distributor Dubai,
-Hikvision distributor Dubai,
-hikvision cctv,
-hikvision cctv in dubai,
-hikvision cctv in uae,
-hikvision cctv camera for home in dubai,
-hikvision cctv camera for home in uae,
-hikvision cctv camera price,
-hikvision cctv camera price in dubai,
-hikvision cctv camera price in uae,
-hikvision camera,
-hikvision camera in dubai,
-hikvision camera in uae,
-hikvision ipcamera,
-hikvision ipcamera in dubai,
-hikvision ipcamera in uae,
-hik camera,
-hik camera price,
-hikvision camera price,
-hikvision ip camera price,
-hikvision ip camera price in dubai,
-hikvision ip camera price in uae,
-hik ip camera,
-Hikvision,
-Hikvision in dubai,
-Hikvision in uae,
-hikvision nvr 8 channel,
-hikvision nvr 16 channel,
-hikvision nvr 32 channel,
-hikvision colorvu,
-hikvision dvr 4 channel,
-hikvision dvr 8 channel
-hikvision security,
-hikvision wifi camera,
-hikvision wifi camera price,
-hikvision wifi,
-hikvision ptz camera,
-hikvision ptz camera price,
-hikvision ptz,
-hik cctv,
-hik cctv camera,
-hikvision webcam in dubai,
-hik cctv in dubai,`;
+// const keywords = `
+// Hikivision Dubai,
+// Hikvision distributor Dubai,
+// hikvision cctv in uae,
+// hikvision cctv camera for home in dubai,
+// hikvision cctv camera for home in uae,
+// hikvision cctv camera price,
+// hikvision cctv camera price in dubai,
+// hikvision cctv camera price in uae,
+// hikvision camera,
+// hikvision camera in dubai,
+// hikvision camera in uae,
+// hikvision ipcamera,
+// hikvision ipcamera in dubai,
+// hikvision ipcamera in uae,
+// hik camera,
+// hik camera price,
+// hikvision camera price,
+// hikvision ip camera price,
+// hikvision ip camera price in dubai,
+// hikvision ip camera price in uae,
+// hik ip camera,
+// Hikvision,
+// Hikvision in dubai,
+// Hikvision in uae,
+// hikvision nvr 8 channel,
+// hikvision nvr 16 channel,
+// hikvision nvr 32 channel,
+// hikvision colorvu,
+// hikvision dvr 4 channel,
+// hikvision dvr 8 channel
+// hikvision security,
+// hikvision wifi camera,
+// hikvision wifi camera price,
+// hikvision wifi,
+// hikvision ptz camera,
+// hikvision ptz camera price,
+// hikvision ptz,
+// hik cctv,
+// hik cctv camera,
+// hikvision webcam in dubai,
+// hik cctv in dubai,`;
 
 // Enhanced structured data
 const structuredData = {
@@ -67,7 +66,7 @@ const structuredData = {
   name: title,
   description: description,
   url: `https://dubai-hikvision.com/${category}`,
-  keywords: keywords,
+  // keywords: keywords,
   breadcrumb: {
     "@type": "BreadcrumbList",
     itemListElement: [
@@ -142,7 +141,6 @@ const mainColor = "#32869f";
 <Layout 
   title={title} 
   description={description} 
-  keywords={keywords}
   structuredData={structuredData}
 >
   <!-- Add canonical URL -->

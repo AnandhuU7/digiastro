@@ -1,8 +1,9 @@
 ---
 id: 1
-title: "Clever ways to invest in product to organize your portfolio"
-description: "Discover smart investment strategies to streamline and organize your portfolio. Explore innovative approaches to optimize your..."
+title: "Welcome to Lovosis Technology – Your Premier Hikvision Camera Distributor in Dubai!"
+description: "Lovosis Technology, the leading Hikvision distributor in Dubai, provides advanced security solutions. From HD CCTV to surveillance systems, we ensure safety for homes, businesses, and institutions with expert support and top-quality products."
 cardImage: "/src/assets/images/1.png"
 publishDate: "2024-01-01"
-author: "John Doe"
+author: "Abdul Gafoor"
+readingTime: 5
 ---

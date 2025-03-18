@@ -9,8 +9,51 @@ const title = `${product.data.title} | Hikvision Security Products`;
 const description = product.data.description || `High-quality Hikvision ${product.data.title} available in UAE. Professional security solution with expert installation and support.`;
 const canonicalURL = new URL(`/${category}/${product.slug}`, Astro.site);
 
+
 // Extract rating from product data
 const rating = product.data.rating;
+
+// Structured Data for SEO
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": product.data.title,
+  "image": product.data.imgCard.src,
+  "description": description,
+  "brand": {
+    "@type": "Brand",
+    "name": "Hikvision"
+  },
+  "category": category,
+  "url": `https://dubai-hikvision.com/${category}/${product.slug}`,
+  "offers": {
+    "@type": "Offer",
+    "url": `https://dubai-hikvision.com/${category}/${product.slug}`,
+    "priceCurrency": "AED",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
+    "seller": {
+      "@type": "Organization",
+      "name": "Dubai Hikvision",
+      "url": "https://dubai-hikvision.com"
+    }
+  },
+  "aggregateRating": product.data.rating && product.data.reviewCount ? {
+    "@type": "AggregateRating",
+    "ratingValue": product.data.rating.toFixed(1),
+    "reviewCount": product.data.reviewCount
+  } : undefined,
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "Product Status",
+      "value": new Date(product.data.date) > new Date(Date.now() - 90 * 24 * 60 * 60 * 1000) ? "New Release" : "Standard"
+    }
+  ]
+};
+
+// Add a no-op usage to satisfy TypeScript
+const _unused = structuredData;
 ---
 
 <!-- Add SEO meta tags -->
@@ -29,32 +72,7 @@ const rating = product.data.rating;
 
   <!-- Schema.org structured data -->
   <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": product.data.title,
-      "image": product.data.imgCard.src,
-      "description": description,
-      "brand": {
-        "@type": "Brand",
-        "name": "Hikvision"
-      },
-      "category": category,
-      "offers": {
-        "@type": "Offer",
-        "url": canonicalURL,
-        "priceCurrency": "AED",
-        "availability": "https://schema.org/InStock",
-        "itemCondition": "https://schema.org/NewCondition"
-      },
-      "additionalProperty": [
-        {
-          "@type": "PropertyValue",
-          "name": "Product Status",
-          "value": "New Release"
-        }
-      ]
-    }
+    {JSON.stringify(structuredData)}
   </script>
 </head>
 

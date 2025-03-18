@@ -10,40 +10,56 @@ const canonicalURL = new URL('/aboutus', Astro.site).toString();
 // JSON-LD Schema for better SEO
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Hikvision Security Products",
-  "description": description,
-  "url": "https://dubai-hikvision.com/productsnew",
+  "@type": "AboutPage",
+  "name": "About Us - Hikvision Dubai",
+  "description": "Hikvision Dubai is a leading provider of security and surveillance solutions, offering high-quality CCTV cameras, NVRs, DVRs, and advanced security systems in the UAE.",
+  "url": "https://dubai-hikvision.com/about-us",
   "mainEntity": {
     "@type": "Organization",
     "name": "Hikvision Dubai",
-    "description": description
+    "description": "Hikvision Dubai provides top-tier security surveillance solutions, including high-end security cameras, access control systems, and AI-driven monitoring solutions.",
+    "url": "https://dubai-hikvision.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dubai-hikvision.com/logo.png"
+    },
+    "sameAs": [
+      "https://www.facebook.com/hikvisiondubai",
+      "https://www.linkedin.com/company/hikvisiondubai",
+      "https://www.instagram.com/hikvisiondubai"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Satellite Market Naif Deira, Baghlaf Building Showroom No.5",
+      "addressLocality": "Dubai",
+      "addressRegion": "Dubai, United Arab Emirates",
+      "postalCode": "123421",
+      "addressCountry": "AE"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+971-4-567-8900",
+      "contactType": "customer service",
+      "email": "support@dubai-hikvision.com"
+    }
   },
+  "foundingDate": "2005",
+  "founders": [
+    {
+      "@type": "Person",
+      "name": "John Doe"
+    }
+  ],
   "publisher": {
     "@type": "Organization",
     "name": "Hikvision Dubai",
     "logo": {
       "@type": "ImageObject",
       "url": "https://dubai-hikvision.com/logo.png"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Satellite Market Naif Deira, Baghlaf Building Showroom No.5",
-      "addressLocality": "Dubai",
-      "addressCountry": "AE",
-      "addressRegion": "Dubai, United Arab Emirates",
-      "postalCode": "123421"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+1-234-567-8900",
-      "contactType": "customer service",
-      "email": "contact@yourcompany.com"
     }
   },
   "breadcrumb": {
     "@type": "BreadcrumbList",
-    "@id": "https://dubai-hikvision.com/#breadcrumb",
     "itemListElement": [
       {
         "@type": "ListItem",
@@ -57,13 +73,14 @@ const structuredData = {
         "@type": "ListItem",
         "position": 2,
         "item": {
-          "@id": "https://dubai-hikvision.com/productsnew",
-          "name": "Products"
+          "@id": "https://dubai-hikvision.com/about-us",
+          "name": "About Us"
         }
       }
     ]
   }
 };
+
 ---
 
 <Layout 

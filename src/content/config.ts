@@ -18,6 +18,7 @@ const ptzcameraCollection = defineCollection({
   schema: ({ image }) => z.object({
     id: z.number(),
     title: z.string(),
+    slug: z.string().optional(),
     subTitle: z.string(),
     category: z.string(),
     imgCard: image(),
@@ -45,6 +46,7 @@ const networkcameraCollection = defineCollection({
   schema: ({ image }) => z.object({
     id: z.number(),
     title: z.string(),
+    slug: z.string().optional(),
     subTitle: z.string(),
     category: z.string(),
     imgCard: image(),
@@ -64,7 +66,6 @@ const networkcameraCollection = defineCollection({
         ])
       )
     ).optional(),
-    slug: z.string(), 
   }),
 });
 
@@ -74,6 +75,7 @@ const nvrCollection = defineCollection({
     z.object({
       id: z.number(),
       title: z.string(),
+      slug: z.string().optional(),
       subTitle: z.string(),
       category: z.string(),
       imgCard: image(),
@@ -108,6 +110,7 @@ const explosionproofCollection = defineCollection({
   schema: ({ image }) => z.object({
     id: z.number(),
     title: z.string(),
+    slug: z.string().optional(),
     subTitle: z.string(),
     category: z.string(),
     imgCard: image(),
@@ -133,12 +136,14 @@ const explosionproofCollection = defineCollection({
 const blogCollection = defineCollection({
   type: "content",
   schema: ({ image }) => z.object ({
-  id: z.number(),
-  title: z.string(),
-  description: z.string(),
-  cardImage: image(),
-  publishDate: z.string(),
-  author: z.string(),
+    id: z.number(),
+    title: z.string(),
+    description: z.string(),
+    cardImage: image(),
+    publishDate: z.string(),
+    author: z.string(),
+    readingTime: z.number(),
+    // tags: z.array(z.string()),
   }),
 });
 

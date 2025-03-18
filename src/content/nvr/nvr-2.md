@@ -1,6 +1,7 @@
 ---
 id: 2
 title: "DS-96128NXI-S16(LCD)"
+slug: "nvr-2"
 subTitle: "S Series NVR with AcuSense – 32×1080p Decoding & 8K HDMI Output"
 category: "Network Video Recorder"
 imgCard: "/src/assets/images/nvr/DS-96128NXI-S16(LCD)/DS-96128NXI-S16(LCD)-1.png"

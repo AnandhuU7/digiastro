@@ -1,6 +1,7 @@
 ---
 id: 3
 title: "DS-2DF4420-DX(S6/316L)(C)"
+slug: "exp-3"
 subTitle:  "4-Inch 20× Explosion-Proof Network Speed Dome – ATEX & IECEx Certified"
 category: "Explosion-Proof Products"
 imgCard: "/src/assets/images/explosionproof/DS-2DF4420-DX(S6316L)/DS-2DF4420-DX(S6316L)-1.png"

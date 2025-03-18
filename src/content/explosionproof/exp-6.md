@@ -1,6 +1,7 @@
 ---
 id: 6
 title: "DS-2XE6145G0-HS/304"
+slug: "exp-6"
 subTitle:  "Fixed Dome Explosion-Proof Network Camera – ATEX & IECEx Certified"
 category: "Explosion-Proof Products"
 imgCard: "/src/assets/images/explosionproof/DS-2XE6145G0-HS304/DS-2XE6145G0-HS304-1.png"

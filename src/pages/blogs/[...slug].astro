@@ -1,0 +1,357 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection, getEntry } from "astro:content";
+import { Image } from "astro:assets";
+import { format } from "date-fns";
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("blogs");
+  return blogEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+// Get more posts for related blogs section
+const allBlogs = await getCollection("blogs");
+const relatedBlogs = allBlogs
+  .filter(blog => blog.slug !== entry.slug)
+  .sort(() => Math.random() - 0.5)
+  .slice(0, 3);
+
+// Format the publishing date if it exists
+const formattedDate = entry.data.publishDate 
+  ? format(new Date(entry.data.publishDate), "MMMM dd, yyyy")
+  : null;
+
+// Add structured data for SEO
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": entry.data.title,
+  "description": entry.data.description,
+  "image": entry.data.cardImage.src,
+  "datePublished": entry.data.publishDate || "",
+  "author": {
+    "@type": "Organization",
+    "name": "Dubai Hikvision"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dubai Hikvision",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dubai-hikvision.com/logo.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://dubai-hikvision.com/blogs/${entry.slug}`
+  },
+  "articleBody": entry.body,
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "@id": "https://dubai-hikvision.com/#breadcrumb",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https://dubai-hikvision.com",
+          "name": "Home"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@id": "https://dubai-hikvision.com/blogs",
+          "name": "Blogs"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": `https://dubai-hikvision.com/blogs/${entry.slug}`,
+          "name": entry.data.title
+        }
+      }
+    ]
+  }
+};
+---
+
+<Layout
+  title={`${entry.data.title} | Hikvision Dubai`}
+  description={entry.data.description}
+  canonicalURL={`https://dubai-hikvision.com/blogs/${entry.slug}`}
+  structuredData={structuredData}
+>
+  <!-- Hero Section with Cover Image -->
+  <section class="relative w-full">
+    <div class="w-full h-[50vh] min-h-[400px] relative overflow-hidden">
+      <!-- Cover image (fallback to card image if no cover image) -->
+      <div class="absolute inset-0 bg-gradient-to-br from-[#32869f] to-[#1d5566] z-0"></div>
+  
+      <!-- Static background elements (no animations) -->
+      <div class="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full transform translate-x-1/3 -translate-y-1/3"></div>
+      <div class="absolute bottom-0 left-0 w-64 h-64 bg-white opacity-5 rounded-full transform -translate-x-1/4 translate-y-1/4"></div>
+      <div class="absolute top-1/2 left-1/4 w-32 h-32 bg-white opacity-5 rounded-full"></div>
+      
+      <!-- Subtle pattern overlay -->
+      <div class="absolute inset-0 bg-[url('/api/placeholder/400/320')] opacity-5 z-1 mix-blend-overlay"></div>
+      
+      <!-- Decorative elements -->
+      <div class="absolute top-10 left-10 w-16 h-16 border-t-2 border-l-2 border-white opacity-20"></div>
+      <div class="absolute bottom-10 right-10 w-16 h-16 border-b-2 border-r-2 border-white opacity-20"></div>
+      <div class="max-w-7xl mx-auto px-5 relative z-10">
+        <div class="text-center">
+          <!-- Badge -->    
+          
+          <!-- Improved subheading with better typography -->
+          <h1 class="text-3xl md:text-4xl lg:text-5xl max-w-3xl mx-auto text-white font-bold leading-tight tracking-tight pt-16 pb-6 px-4 text-center shadow-text">
+            {entry.data.title}
+          </h1>
+        </div>
+      </div>
+      <!-- Content overlay -->
+      <div class="absolute inset-0 z-20 flex items-end justify-center">
+        <div class="container max-w-6xl mx-auto px-6 pb-16">
+         
+          
+          <!-- Date and reading time -->
+          <div class="flex flex-wrap items-center gap-4 text-white/80">
+            {formattedDate && (
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                  <line x1="16" y1="2" x2="16" y2="6"></line>
+                  <line x1="8" y1="2" x2="8" y2="6"></line>
+                  <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                <span>{formattedDate}</span>
+              </div>
+            )}
+            
+            <!-- Reading time (optional) -->
+            {entry.data.readingTime && (
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                <span>{entry.data.readingTime} min read</span>
+              </div>
+            )}
+            
+            <!-- Author if exists -->
+            {entry.data.author && (
+              <div class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <span>{entry.data.author}</span>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Breadcrumb -->
+  <nav class="bg-gray-50 py-3 border-b border-gray-100">
+    <div class="container max-w-6xl mx-auto px-6">
+      <ol class="flex flex-wrap items-center gap-2 text-sm text-gray-500">
+        <li><a href="/" class="hover:text-[#32869f]">Home</a></li>
+        <li class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-1">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </li>
+        <li><a href="/blogs" class="hover:text-[#32869f]">Blogs</a></li>
+        <li class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-1">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </li>
+        <li class="text-[#32869f] font-medium truncate max-w-[200px] md:max-w-xs">{entry.data.title}</li>
+      </ol>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <article class="py-12">
+    <div class="container max-w-6xl mx-auto px-6">
+      <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-4 max-w-3xl leading-tight border-l-4 border-blue-500 pl-4">
+        {entry.data.title}
+      </h2>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <!-- Main Content -->
+        <div class="lg:col-span-8">
+          <!-- Blog intro if exists -->
+          {entry.data.description && (
+            <div class="mb-8 text-xl text-gray-700 leading-relaxed font-light italic">
+              {entry.data.description}
+            </div>
+          )}
+          
+          <!-- Content -->
+          <!-- <div class="prose prose-lg max-w-none prose-img:rounded-lg prose-img:my-8 prose-headings:mt-8 prose-headings:text-[#32869f] prose-a:text-[#32869f] prose-a:underline prose-a:decoration-1 prose-a:underline-offset-2 prose-blockquote:border-l-[#32869f] prose-blockquote:bg-gray-50 prose-blockquote:p-4 prose-blockquote:rounded-md prose-pre:bg-gray-800 prose-pre:rounded-lg prose-pre:p-6 prose-ul:list-disc prose-ul:marker:text-[#32869f] prose-table:border-collapse prose-table:w-full prose-table:my-8 prose-th:bg-gray-100 prose-th:text-gray-700 prose-th:font-semibold prose-th:text-left prose-td:border prose-td:border-gray-200 prose-td:p-3 prose-th:border prose-th:border-gray-200 prose-th:p-3 prose-tr:even:bg-gray-50">
+            {entry.data.body}
+          </div> -->
+          
+          <!-- Tags -->
+          <!-- {entry.data.tags && entry.data.tags.length > 0 && (
+            <div class="mt-10 pt-8 border-t border-gray-200">
+              <h3 class="text-lg font-semibold text-gray-800 mb-4">Tags</h3>
+              <div class="flex flex-wrap gap-2">
+                {entry.data.tags.map((tag: string) => (
+                  <a href={`/tags/${tag}`} class="px-4 py-1.5 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-full text-sm transition-colors">
+                    #{tag}
+                  </a>
+                ))}
+              </div>
+            </div>
+          )} -->
+          
+          <!-- Share buttons -->
+          <div class="mt-10 pt-8 border-t border-gray-200">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">Share this article</h3>
+            <div class="flex gap-3">
+              <a href={`https://twitter.com/intent/tweet?text=${entry.data.title}&url=https://dubai-hikvision.com/blogs/${entry.slug}`} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-10 h-10 bg-gray-100 hover:bg-[#1DA1F2] hover:text-white rounded-full transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+                </svg>
+              </a>
+              <a href={`https://www.facebook.com/sharer/sharer.php?u=https://dubai-hikvision.com/blogs/${entry.slug}`} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-10 h-10 bg-gray-100 hover:bg-[#1877F2] hover:text-white rounded-full transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+              </a>
+              <a href={`https://www.linkedin.com/shareArticle?mini=true&url=https://dubai-hikvision.com/blogs/${entry.slug}&title=${entry.data.title}`} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-10 h-10 bg-gray-100 hover:bg-[#0A66C2] hover:text-white rounded-full transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </a>
+              <a href={`mailto:?subject=${entry.data.title}&body=Check out this article: https://dubai-hikvision.com/blogs/${entry.slug}`} class="flex items-center justify-center w-10 h-10 bg-gray-100 hover:bg-gray-800 hover:text-white rounded-full transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Sidebar -->
+        <aside class="lg:col-span-4">
+          <!-- Featured/CTA box -->
+          <!-- <div class="bg-gradient-to-br from-[#32869f] to-[#1d5566] text-white p-6 rounded-xl mb-8">
+            <h3 class="text-xl font-bold mb-4">Stay Updated</h3>
+            <p class="mb-4">Subscribe to our newsletter and never miss our latest security insights.</p>
+            <form class="space-y-3">
+              <input type="email" placeholder="Your email address" class="w-full px-4 py-3 rounded-lg bg-white/10 border border-white/20 placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/30">
+              <button type="submit" class="w-full bg-white text-[#1d5566] font-medium px-4 py-3 rounded-lg hover:bg-white/90 transition-colors">
+                Subscribe Now
+              </button>
+            </form>
+          </div> -->
+          
+          <!-- Related posts -->
+          <div class="border border-gray-200 rounded-xl p-6 bg-gray-50">
+            <h3 class="text-xl font-bold text-gray-900 mb-4">Related Articles</h3>
+            <div class="space-y-6">
+              {relatedBlogs.map(blog => (
+                <a href={`/blogs/${blog.slug}`} class="flex gap-4 group">
+                  <div class="flex-shrink-0">
+                    <Image 
+                      src={blog.data.cardImage} 
+                      alt={blog.data.title}
+                      class="w-20 h-20 object-cover rounded-lg"
+                      width={80}
+                      height={80}
+                    />
+                  </div>
+                  <div>
+                    <h4 class="text-base font-medium text-gray-900 group-hover:text-[#32869f] transition-colors leading-tight">
+                      {blog.data.title}
+                    </h4>
+                    <p class="text-sm text-gray-500 mt-1 line-clamp-2">
+                      {blog.data.description}
+                    </p>
+                  </div>
+                </a>
+              ))}
+            </div>
+            <a href="/blogs" class="mt-6 inline-flex items-center gap-2 text-[#32869f] font-medium hover:underline">
+              View all blogs
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </article>
+  
+  <!-- CTA Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container max-w-6xl mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Want to learn more about our solutions?</h2>
+      <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+        Discover how Hikvision security systems can help safeguard your business.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/contact" class="px-8 py-3 bg-[#32869f] hover:bg-[#266277] text-white font-medium rounded-lg transition-colors">
+          Contact Us
+        </a>
+        <a href="/products" class="px-8 py-3 bg-white border border-gray-300 text-gray-800 font-medium rounded-lg hover:bg-gray-100 transition-colors">
+          Explore Products
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Next/Prev Article Navigation -->
+  <section class="border-t border-gray-200">
+    <div class="container max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-200">
+        <a href="/blogs" class="group py-8 px-6 flex items-center gap-4">
+          <div class="flex-shrink-0 h-10 w-10 flex items-center justify-center rounded-full bg-gray-100 group-hover:bg-[#32869f] transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600 group-hover:text-white transition-colors">
+              <path d="M19 12H5"></path>
+              <path d="M12 19l-7-7 7-7"></path>
+            </svg>
+          </div>
+          <div>
+            <span class="block text-sm text-gray-500">Back to</span>
+            <span class="font-medium text-gray-900 group-hover:text-[#32869f] transition-colors">All Blogs</span>
+          </div>
+        </a>
+        <a href="/contact" class="group py-8 px-6 flex items-center justify-end gap-4">
+          <div>
+            <span class="block text-sm text-gray-500 text-right">Any questions?</span>
+            <span class="font-medium text-gray-900 group-hover:text-[#32869f] transition-colors">Contact Us</span>
+          </div>
+          <div class="flex-shrink-0 h-10 w-10 flex items-center justify-center rounded-full bg-gray-100 group-hover:bg-[#32869f] transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-gray-600 group-hover:text-white transition-colors">
+              <path d="M5 12h14"></path>
+              <path d="M12 5l7 7-7 7"></path>
+            </svg>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

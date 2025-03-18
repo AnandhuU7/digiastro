@@ -1,6 +1,7 @@
 ---
 id: 7
 title: "DS-7604NXI-K1"
+slug: "nvr-7"
 subTitle: "4-ch 1U K Series AcuSense 4K NVR – Smart & Efficient Surveillance"
 category: "Network Video Recorder"
 imgCard: "/src/assets/images/nvr/DS-7604NXI-K1/DS-7604NXI-K1-1.png"

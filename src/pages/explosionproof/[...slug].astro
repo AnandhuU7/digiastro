@@ -24,48 +24,7 @@ const structuredData = {
   category: product.data.category,
   image: product.data.imgCard.src,
   title: `${product.data.title} | Hikvision Dubai`,
-  keywords: `${product.data.title}, ${product.data.subTitle}, ${product.data.category}, Hikvision Dubai, Hikvision Security Products, Hikvision Network Cameras, Hikvision NVR Systems, Hikvision PTZ Cameras, Hikvision Explosion-Proof Cameras, Hikvision CCTV Cameras, Hikvision Webcams, Hikvision Dubai Distributor, Hikvision Security Solutions, Hikvision Surveillance Equipment, Hikvision Dubai Security Systems, Hikvision Distributor Dubai,Hikvision distributor DubaiHikvision distributor Dubai,
-hikvision cctv,
-hikvision cctv in dubai,
-hikvision cctv in uae,
-hikvision cctv camera for home in dubai,
-hikvision cctv camera for home in uae,
-hikvision cctv camera price,
-hikvision cctv camera price in dubai,
-hikvision cctv camera price in uae,
-hikvision camera,
-hikvision camera in dubai,
-hikvision camera in uae,
-hikvision ipcamera,
-hikvision ipcamera in dubai,
-hikvision ipcamera in uae,
-hik camera,
-hik camera price,
-hikvision camera price,
-hikvision ip camera price,
-hikvision ip camera price in dubai,
-hikvision ip camera price in uae,
-hik ip camera,
-Hikvision,
-Hikvision in dubai,
-Hikvision in uae,
-hikvision nvr 8 channel,
-hikvision nvr 16 channel,
-hikvision nvr 32 channel,
-hikvision colorvu,
-hikvision dvr 4 channel,
-hikvision dvr 8 channel
-hikvision security,
-hikvision wifi camera,
-hikvision wifi camera price,
-hikvision wifi,
-hikvision ptz camera,
-hikvision ptz camera price,
-hikvision ptz,
-hik cctv,
-hik cctv camera,
-hikvision webcam in dubai,
-hik cctv in dubai`,
+  // keywords: `${product.data.title}, ${product.data.subTitle}, ${product.data.category}, Hikvision Dubai, Hikvision Security Products, Hikvision Network Cameras, Hikvision NVR Systems, Hikvision PTZ Cameras, Hikvision CCTV Cameras, Hikvision Webcams, Hikvision Dubai Distributor, Hikvision Security Solutions, Hikvision Surveillance Equipment, Hikvision Dubai Security Systems, Hikvision Distributor Dubai, hikvision cctv in dubai, hikvision cctv in uae, hikvision cctv camera price in dubai, hikvision ip camera, hikvision dvr 4 channel, hikvision dvr 8 channel, hikvision wifi camera, hikvision ptz camera`,
   openGraph: {
     basic: {
       title: product.data.title,
@@ -75,11 +34,11 @@ hik cctv in dubai`,
     },
     optional: {
       description: product.data.subTitle,
-      locale: "Dubai , UAE",
+      locale: "en_DUBAI",
       siteName: "Hikvision Dubai",
     },
     image: {
-      alt: product.data.title
+      alt: product.data.title,
     }
   },
   brand: {
@@ -89,15 +48,31 @@ hik cctv in dubai`,
   offers: {
     "@type": "Offer",
     priceCurrency: "AED",
-    price: "0.00",
     availability: "https://schema.org/InStock",
     url: new URL(Astro.url.pathname, Astro.site).toString(),
   },
+  aggregateRating: product.data.rating && product.data.reviewCount
+    ? {
+        "@type": "AggregateRating",
+        ratingValue: product.data.rating.toFixed(1),
+        reviewCount: product.data.reviewCount,
+      }
+    : undefined,
   manufacturer: {
     "@type": "Organization",
-    name: "Hikvision Dubai"
-  }
+    name: "Hikvision Dubai",
+  },
+  sameAs: [
+    "https://www.facebook.com/HikvisionDubai",
+    "https://www.instagram.com/HikvisionDubai",
+    "https://www.linkedin.com/company/hikvision-dubai",
+  ],
+  categoryHierarchy: [
+    { "@type": "Thing", name: "CCTV Cameras" },
+    { "@type": "Thing", name: product.data.category },
+  ],
 };
+
 
 ---
 

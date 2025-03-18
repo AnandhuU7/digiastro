@@ -1,6 +1,7 @@
 ---
 id: 7
 title: "DS-2CD2347G2-L(U)"
+slug: "network-7"
 subTitle: "4 MP ColorVu Fixed Turret Network Camera"
 category: "Network Camera"
 imgCard: "/src/assets/images/networkcamera/DS-2CD2347G2-L(U)/DS-2CD2347G2-L(U)-1.png"

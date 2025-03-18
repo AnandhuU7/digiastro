@@ -174,7 +174,7 @@ const structuredData = {
                   <p class="text-gray-500 leading-6 transition-all duration-500 mb-8">
                     {blog.data.description}
                   </p>
-                  <a href="javascript:;" class="cursor-pointer flex items-center gap-2 text-lg text-[#32869f] font-semibold">
+                  <a href={`/blogs/${blog.slug}`} class="cursor-pointer flex items-center gap-2 text-lg text-[#32869f] font-semibold">
                     Read more<svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M1.25 6L13.25 6M9.5 10.5L13.4697 6.53033C13.7197 6.28033 13.8447 6.15533 13.8447 6C13.8447 5.84467 13.7197 5.71967 13.4697 5.46967L9.5 1.5" stroke="#32869f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
@@ -294,3 +294,4 @@ const structuredData = {
     }
   });
 </script>
+

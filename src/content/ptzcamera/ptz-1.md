@@ -1,6 +1,7 @@
 ---
 id: 1
 title: "DS-2SE3C204MWG-4G/12"
+slug: "ptz-1"
 subTitle: "TandemVu 2MP+2MP 4X 4G PTZ Network Camera"
 category: "PTZ Camera"
 imgCard: "/src/assets/images/ptzcamera/DS-2SE3C204MWG-4G12/DS-2SE3C204MWG-4G12-1.png"

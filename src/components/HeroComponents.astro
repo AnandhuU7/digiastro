@@ -1,6 +1,12 @@
 ---
 import banner1 from "../assets/images/banner/Banner-1.png";
-import banner2 from "../assets/images/banner/Banner-2.jpg";
+import banner2 from "../assets/images/banner/Banner-2.png";
+import banner3 from "../assets/images/banner/Banner-3.png";
+import banner4 from "../assets/images/banner/Banner-4.png";
+import service1 from "/src/assets/images/darkfighter.png";
+import service2 from "/src/assets/images/tandem.png";
+import service3 from "/src/assets/images/color.png";
+import service4 from "/src/assets/images/Acuense.png";
 
 // Enhanced SEO Metadata
 const metaData = {
@@ -34,7 +40,7 @@ const slides = [
   },
   {
     id: 3,
-    imgMain: banner1,
+    imgMain: banner3,
     title: "Third Slide",
     subTitle: "Subtitle for Slide 3",
     content: "Content for Slide 3",
@@ -44,7 +50,7 @@ const slides = [
 
 const services = [
   {
-    icon: "/src/assets/images/darkfighter.png",
+    icon: service1,
     title: "DarkFighter Technology",
     shortDescription:
       "DarkFighter technology enables clear, full-color imaging in low light.",
@@ -53,7 +59,7 @@ const services = [
     link: "/productsnew",
   },
   {
-    icon: "/src/assets/images/tandem.png",
+    icon: service2,
     title: "TandemVu Technology",
     shortDescription:
       "TandemVu combines fixed and PTZ lenses for efficient dual surveillance.",
@@ -62,7 +68,7 @@ const services = [
     link: "/productsnew",
   },
   {
-    icon: "/src/assets/images/color.png",
+    icon: service3,
     title: "ColorVu Technology",
     shortDescription:
       "ColorVu Technology enables full-color surveillance for enhanced security.",
@@ -71,7 +77,7 @@ const services = [
     link: "/productsnew",
   },
   {
-    icon: "/src/assets/images/Acuense.png",
+    icon: service4,
     title: "Acusense technology",
     shortDescription:
       "AcuSense Technology uses AI to detect humans and vehicles accurately.",
@@ -233,7 +239,7 @@ const schemaData = {
               <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-400 to-blue-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               <div class="flex items-center justify-center mb-4">
                 <img
-                  src={service.icon}
+                  src={service.icon.src}
                   alt={service.title}
                   class="w-32 h-auto object-contain"
                 />

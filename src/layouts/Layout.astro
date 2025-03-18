@@ -7,30 +7,30 @@ import Whatsapp from "../components/Whatsapp";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
 import ScrollProgress from "../components/ScrollProgress.astro";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const { title, description, keywords } = Astro.props;
-const structuredData = {
-  "@context": "http://schema.org",
-  "@type": "Organization",
-  name: "Lovosis Technology Dubai",
-  url: "https://dubai-hikvision.com/",
-  logo: "https://dubai-hikvision.com/lovosisgraph.jpg",
-  description:
-    description ??
-    "Authorized Hikvision distributor based in Dubai, UAE. Explore our range of Hikvision products for your security needs.",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "25th St - Naif - Dubai - United Arab Emirates",
-    addressLocality: "Dubai",
-    addressRegion: "Dubai",
-    postalCode: "123241",
-    addressCountry: "AE",
-  },
-  contactPoint: {
-    "@type": "ContactPoint",
-    telephone: "+971 50 998 2727",
-    contactType: "Sales",
-  },
-};
+const { title, description, keywords ,structuredData} = Astro.props;
+// const structuredData = {
+//   "@context": "http://schema.org",
+//   "@type": "Organization",
+//   name: "Lovosis Technology Dubai",
+//   url: "https://dubai-hikvision.com/",
+//   logo: "https://dubai-hikvision.com/lovosisgraph.jpg",
+//   description:
+//     description ??
+//     "Authorized Hikvision distributor based in Dubai, UAE. Explore our range of Hikvision products for your security needs.",
+//   address: {
+//     "@type": "PostalAddress",
+//     streetAddress: "25th St - Naif - Dubai - United Arab Emirates",
+//     addressLocality: "Dubai",
+//     addressRegion: "Dubai",
+//     postalCode: "123241",
+//     addressCountry: "AE",
+//   },
+//   contactPoint: {
+//     "@type": "ContactPoint",
+//     telephone: "+971 50 998 2727",
+//     contactType: "Sales",
+//   },
+// };
 
 ---
 
@@ -72,6 +72,7 @@ const structuredData = {
 					description:
 						description ??
 						"Hikvision dealer in Dubai,U.A.E. Get top-tier CCTV systems at competitive rates. Authorized dealer.",
+          
 					siteName: "Lovosis Technology Dubai",
 					locale: "en_US",
         video: "https://youtube.com/shorts/obweq6yMfBE"

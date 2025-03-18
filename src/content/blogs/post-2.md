@@ -1,8 +1,9 @@
 ---
 id: 2
-title: "How to grow your profit through systematic investment with us"
-description: "Unlock the power of systematic investment with us and watch your profits soar. Our expert team will guide you on the path to financial.."
+title: "Elevate Your Surveillance: Lovosis Technology, the Premier Supplier of Hikvision Cameras in the UAE"
+description: "Lovosis Technology, the top Hikvision seller in the UAE, offers expert guidance, seamless installation, and ongoing support. With a wide range of cameras, we ensure optimal security solutions for homes and businesses. Experience superior surveillance today!"
 cardImage: "/src/assets/images/2.png"
 publishDate: "2024-01-01"
-author: "John Doe"
+author: "Shajid"
+readingTime: 10
 ---
