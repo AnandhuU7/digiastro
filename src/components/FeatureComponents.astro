@@ -5,23 +5,38 @@ import { getCollection } from "astro:content";
 const feature: CollectionEntry<"feature">[] = await getCollection("feature");
 
 // Add SEO metadata
-const seoTitle = "Hikvision Security Solutions | Premium Security Technology";
-const seoDescription = "Professional Hikvision security solutions featuring expert installation, 24/7 support, and comprehensive warranty coverage. Access cutting-edge surveillance technology at competitive prices.";
+const title = "Hikvision Security Solutions | Premium Security Technology";
+const description = "Professional Hikvision security solutions featuring expert installation, 24/7 support, and comprehensive warranty coverage. Access cutting-edge surveillance technology at competitive prices.";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const image = "https://dubai-hikvision.com/logo.png";
+
+// Generate dynamic SEO keywords and descriptions based on features
+const featureKeywords = feature.map(f => f.data.name).join(", ");
+const featureDescriptions = feature.map(f => f.data.body).join(" ");
+const seoKeywords = `Hikvision, Security Solutions, ${featureKeywords}, Surveillance, CCTV, Access Control`;
+const seoDescription = `${description} ${featureDescriptions}`;
 ---
 
 <!-- Add SEO meta tags -->
 <head>
-  <title>{seoTitle}</title>
-  <meta name="description" content={seoDescription} />
+  <title>{title}</title>
+  <meta name="description" content={title} />
+  <meta name="keywords" content={seoKeywords} />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href={canonicalURL} />
   
   <!-- Open Graph / Social Media Meta Tags -->
-  <meta property="og:title" content={seoTitle} />
+  <meta property="og:title" content={title} />
   <meta property="og:description" content={seoDescription} />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalURL} />
+  <meta property="og:image" content={image} />
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={seoDescription} />
+  <meta name="twitter:image" content={image} />
   
   <!-- Schema.org structured data -->
   <script type="application/ld+json">
@@ -29,16 +44,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       "@context": "https://schema.org",
       "@type": "Product",
       "name": "Hikvision Security Solutions",
-      "description": "Professional security solutions featuring Hikvision technology with expert installation and support",
+      "description": "{seoDescription}",
       "brand": {
         "@type": "Brand",
-        "name": "Hikvision"
+        "name": "Hikvision Dubai"
       },
       "offers": {
         "@type": "AggregateOffer",
-        "priceCurrency": "USD",
+        "priceCurrency": "AED",
         "availability": "https://schema.org/InStock"
       },
+      "image": "{image}",
       "additionalProperty": [
         {
           "@type": "PropertyValue",
@@ -54,12 +70,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           "@type": "PropertyValue",
           "name": "Warranty",
           "value": "Comprehensive warranty and maintenance plans"
-        }
+        },
+        ...feature.map(f => ({
+          "@type": "PropertyValue",
+          "name": f.data.name,
+          "value": f.data.body
+        }))
       ]
     }
   </script>
 </head>
-
 <section class="relative">
   <div class="container relative pt-10" style="background-color: #f1f7ff;">
     <div class="grid grid-cols-1 pb-5 text-center">

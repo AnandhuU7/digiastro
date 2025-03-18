@@ -25,33 +25,36 @@ const faqs = [
   {
     heading: "What kind of support do you offer for Hikvision products?",
     content:
-      "We offer comprehensive technical support and assistance for Hikvision products purchased through Lovosis Technology. Our team of experts is available to help you with product inquiries, troubleshooting, and guidance",
+      "We offer comprehensive technical support and assistance for Hikvision products purchased through Lovosis Technology. Our team of experts is available to help you with product inquiries, troubleshooting, and guidance.",
   },
   {
     heading: "How can I become a reseller or partner with Lovosis Technology for Hikvision products?",
     content:
-      "If you're interested in becoming a reseller or partner with Lovosis Technology Dubai, please contact us to discuss partnership opportunities and requirements. We welcome collaborations with businesses looking to distribute Hikvision products in the UAE",
+      "If you're interested in becoming a reseller or partner with Lovosis Technology Dubai, please contact us to discuss partnership opportunities and requirements. We welcome collaborations with businesses looking to distribute Hikvision products in the UAE.",
   },
 ];
 
 // Add SEO metadata
-const seoTitle = "Hikvision Security Products FAQ | Lovosis Technology UAE";
-const seoDescription = "Find answers to frequently asked questions about Hikvision security products, including purchasing, authenticity, installation, and technical support in UAE.";
+const title = "Hikvision Security Products FAQ | Lovosis Technology UAE";
+const description = "Find answers to frequently asked questions about Hikvision security products, including purchasing, authenticity, installation, and technical support in UAE.";
+const keywords = "Hikvision UAE, Hikvision products, Hikvision distributor, security cameras UAE, buy Hikvision UAE, CCTV Dubai";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!-- Add SEO meta tags -->
 <head>
-  <title>{seoTitle}</title>
-  <meta name="description" content={seoDescription} />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="keywords" content={keywords} />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href={canonicalURL} />
   
   <!-- Open Graph / Social Media Meta Tags -->
-  <meta property="og:title" content={seoTitle} />
-  <meta property="og:description" content={seoDescription} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalURL} />
+  <meta property="og:image" content="https://dubai-hikvision.com/logo.png" />
 
   <!-- Schema.org structured data -->
   <script type="application/ld+json">
@@ -71,7 +74,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     }
   </script>
 </head>
-
 <section class="pb-20 bg-gradient-to-b from-blue-50 to-white pt-8">
   <div class="container mx-auto max-w-6xl px-4">
     <div class="text-center mb-14">
