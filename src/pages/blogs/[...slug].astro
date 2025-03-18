@@ -195,12 +195,13 @@ const structuredData = {
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <!-- Main Content -->
         <div class="lg:col-span-8">
-          <!-- Blog intro if exists -->
           {entry.data.description && (
-            <div class="mb-8 text-xl text-gray-700 leading-relaxed font-light italic">
-              {entry.data.description}
-            </div>
+            <div
+              class="mb-8 text-xl text-gray-700 leading-relaxed font-light italic text-justify"
+              set:html={entry.data.description.replace(/\n/g, '<br/>')}
+            />
           )}
+          
           
           <!-- Content -->
           <!-- <div class="prose prose-lg max-w-none prose-img:rounded-lg prose-img:my-8 prose-headings:mt-8 prose-headings:text-[#32869f] prose-a:text-[#32869f] prose-a:underline prose-a:decoration-1 prose-a:underline-offset-2 prose-blockquote:border-l-[#32869f] prose-blockquote:bg-gray-50 prose-blockquote:p-4 prose-blockquote:rounded-md prose-pre:bg-gray-800 prose-pre:rounded-lg prose-pre:p-6 prose-ul:list-disc prose-ul:marker:text-[#32869f] prose-table:border-collapse prose-table:w-full prose-table:my-8 prose-th:bg-gray-100 prose-th:text-gray-700 prose-th:font-semibold prose-th:text-left prose-td:border prose-td:border-gray-200 prose-td:p-3 prose-th:border prose-th:border-gray-200 prose-th:p-3 prose-tr:even:bg-gray-50">
@@ -316,7 +317,7 @@ const structuredData = {
         <a href="/contact" class="px-8 py-3 bg-[#32869f] hover:bg-[#266277] text-white font-medium rounded-lg transition-colors">
           Contact Us
         </a>
-        <a href="/products" class="px-8 py-3 bg-white border border-gray-300 text-gray-800 font-medium rounded-lg hover:bg-gray-100 transition-colors">
+        <a href="/productsnew" class="px-8 py-3 bg-white border border-gray-300 text-gray-800 font-medium rounded-lg hover:bg-gray-100 transition-colors">
           Explore Products
         </a>
       </div>

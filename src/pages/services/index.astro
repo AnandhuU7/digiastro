@@ -1,47 +1,107 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 
-// Sample service data - replace with your actual services
+// Updated service data for security cameras
 const services = [
   {
-    icon: 'web',
-    title: 'Web Development',
-    description: 'Custom websites built with the latest technologies to ensure fast loading, responsive design, and seamless user experience.',
-    link: '/services/web-development'
+    icon: 'cctv',
+    title: 'CCTV Installation',
+    description: 'Professional installation of high-quality CCTV systems to monitor and secure your property 24/7.',
+    link: '/services/cctv-installation'
   },
   {
-    icon: 'cellphone',
-    title: 'Mobile App Development',
-    description: 'Native and cross-platform mobile applications that deliver exceptional performance across all devices.',
-    link: '/services/mobile-development'
+    icon: 'surveillance',
+    title: 'Surveillance Systems',
+    description: 'Custom-designed surveillance solutions tailored to meet the specific needs of your home or business.',
+    link: '/services/surveillance-systems'
   },
   {
-    icon: 'palette',
-    title: 'UI/UX Design',
-    description: 'User-centered design solutions that create intuitive, engaging, and memorable experiences for your customers.',
-    link: '/services/design'
+    icon: 'monitoring',
+    title: 'Remote Monitoring',
+    description: 'Access live footage and receive alerts from your security cameras anytime, anywhere with our remote monitoring services.',
+    link: '/services/remote-monitoring'
   },
   {
-    icon: 'chart-line',
-    title: 'Digital Marketing',
-    description: 'Result-driven strategies to increase your online visibility, drive traffic, and convert leads into customers.',
-    link: '/services/marketing'
+    icon: 'alarm',
+    title: 'Security Alarms',
+    description: 'Integrated alarm systems that work seamlessly with your security cameras for enhanced protection.',
+    link: '/services/security-alarms'
   },
   {
-    icon: 'cog-outline',
-    title: 'IT Consulting',
-    description: 'Expert advice and strategic guidance to help your business leverage technology for growth and innovation.',
-    link: '/services/consulting'
+    icon: 'smart-home',
+    title: 'Smart Home Integration',
+    description: 'Connect your security cameras with smart home devices for a fully automated and secure living environment.',
+    link: '/services/smart-home-integration'
   },
   {
-    icon: 'security',
-    title: 'Cybersecurity',
-    description: 'Comprehensive security solutions to protect your digital assets from threats and vulnerabilities.',
-    link: '/services/security'
+    icon: 'maintenance',
+    title: 'Maintenance & Support',
+    description: 'Regular maintenance and technical support to ensure your security systems are always functioning at their best.',
+    link: '/services/maintenance-support'
   }
 ];
+
+// Structured Data for Services
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Our Services",
+  "description": "Explore our comprehensive range of security solutions, including CCTV installation, surveillance systems, remote monitoring, and more.",
+  "url": "https://dubai-hikvision.com/services",
+  "itemListElement": services.map((service, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+      "@type": "Service",
+      "name": service.title,
+      "description": service.description,
+      "url": `https://dubai-hikvision.com/${service.link}`,
+      "provider": {
+        "@type": "Organization",
+        "name": "Dubai Hikvision",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://dubai-hikvision.com/logo.png"
+        }
+      }
+    }
+  })),
+  "publisher": {
+    "@type": "Organization",
+    "name": "Dubai Hikvision",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dubai-hikvision.com/logo.png"
+    }
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "@id": "https://dubai-hikvision.com/#breadcrumb",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@id": "https://dubai-hikvision.com",
+          "name": "Home"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@id": "https://yourcompany.com/services",
+          "name": "Services"
+        }
+      }
+    ]
+  }
+};
 ---
-<Layout title="Our Services | Your Company Name">
+<Layout title="Our Services | Dubai Hikvision" structuredData={structuredData}>
+  <!-- Structured Data Script -->
+
+  <!-- Hero Section -->
   <section class="relative py-14 overflow-hidden">
     <!-- Gradient background with improved colors -->
     <div class="absolute inset-0 bg-gradient-to-br from-[#32869f] to-[#1d5566] z-0"></div>
@@ -71,7 +131,7 @@ const services = [
         
         <!-- Improved subheading with better typography -->
         <p class="text-2xl max-w-3xl mx-auto text-white/90 font-light leading-relaxed">
-          We're on a mission to create innovative solutions that make a difference.
+          We're on a mission to provide top-notch security solutions to protect what matters most to you.
         </p>
         
         <!-- Optional decorative separator -->
@@ -96,66 +156,67 @@ const services = [
       </svg>
     </div>
   </section>
-    <!-- Services Section -->
-    <section class="py-20 px-4 bg-[#f0f7fa]">
-      <div class="max-w-6xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map(service => (
-            <div class="bg-white rounded-lg p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden group h-full flex flex-col">
-              <div class="absolute left-0 top-0 w-1 h-full bg-[#32869f] transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom"></div>
-              <div class="text-4xl text-[#32869f] mb-6">
-                <!-- Inline SVG Icons -->
-                {service.icon === 'web' && (
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-                  </svg>
-                )}
-                {service.icon === 'cellphone' && (
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10">
-                    <path d="M10.5 18h3v-3h-3v3zM4 22V2h16v20H4zm3-7h10v-1H7v1zm0-3h10v-1H7v1zm0-3h10V8H7v1z"/>
-                  </svg>
-                )}
-                {service.icon === 'palette' && (
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-                  </svg>
-                )}
-                {service.icon === 'chart-line' && (
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10">
-                    <path d="M22 22H2V2h2v18h18v2zM5 17l3.5-4.5 2.5 3 5-6.5L19 17H5z"/>
-                  </svg>
-                )}
-                {service.icon === 'cog-outline' && (
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2V7zm0 8h2v2h-2v-2z"/>
-                  </svg>
-                )}
-                {service.icon === 'security' && (
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10">
-                    <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 19.87V12H5V6.3l7-3.11 7 3.11V12h-7v8.87z"/>
-                  </svg>
-                )}
-              </div>
-              <h3 class="text-2xl font-semibold text-gray-800 mb-4">{service.title}</h3>
-              <p class="text-gray-600 mb-6 flex-grow">{service.description}</p>
-              <a href={service.link} class="inline-flex items-center text-[#32869f] font-medium transition-all duration-300 hover:text-[#f4a261] group-hover:gap-2">
-                Learn more
-                <!-- Arrow Right Icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 ml-1">
-                  <path d="M10 17l5-5-5-5v10z"/>
+
+  <!-- Services Section -->
+  <section class="py-20 px-4 bg-[#f0f7fa]">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.map(service => (
+          <div class="bg-white rounded-lg p-8 shadow-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-xl relative overflow-hidden group h-full flex flex-col">
+            <div class="absolute left-0 top-0 w-1 h-full bg-[#32869f] transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom"></div>
+            <div class="text-4xl text-[#32869f] mb-6">
+              <!-- Inline SVG Icons -->
+              {service.icon === 'cctv' && (
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
                 </svg>
-              </a>
+              )}
+              {service.icon === 'surveillance' && (
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                </svg>
+              )}
+              {service.icon === 'monitoring' && (
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                </svg>
+              )}
+              {service.icon === 'alarm' && (
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                </svg>
+              )}
+              {service.icon === 'smart-home' && (
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                </svg>
+              )}
+              {service.icon === 'maintenance' && (
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                </svg>
+              )}
             </div>
-          ))}
-        </div>
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">{service.title}</h3>
+            <p class="text-gray-600 mb-6 flex-grow">{service.description}</p>
+            <a href={service.link} class="inline-flex items-center text-[#32869f] font-medium transition-all duration-300 hover:text-[#f4a261] group-hover:gap-2">
+              Learn more
+              <!-- Arrow Right Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 ml-1">
+                <path d="M10 17l5-5-5-5v10z"/>
+              </svg>
+            </a>
+          </div>
+        ))}
       </div>
-    </section>
+    </div>
+  </section>
 
     <!-- CTA Section -->
     <section class="py-20 bg-gradient-to-r from-[#4c95ab] to-[#3a7d8c] text-white text-center">
       <div class="max-w-7xl mx-auto px-5">
         <h2 class="text-4xl font-bold mb-4">Want to Learn More?</h2>
-        <p class="text-xl mb-8">We'd love to hear from you and discuss how we can help with your project.</p>
+        <p class="text-xl mb-8">We'd love to hear from you and discuss how we can help secure your property with our advanced security solutions.</p>
         <a href="/contact" class="inline-block bg-white text-[#4c95ab] font-semibold py-4 px-8 rounded-full mt-4 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">Get In Touch</a>
       </div>
     </section>

@@ -34,7 +34,7 @@ const structuredData = {
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Hikvision Dubai",
+    "name": "Dubai Hikvision",
     "logo": {
       "@type": "ImageObject",
       "url": "https://dubai-hikvision.com/logo.png"
@@ -130,7 +130,6 @@ const structuredData = {
     </svg>
   </div>
 </section>
-
   <section class="py-8" >
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"id="blog">
       <div class="flex justify-center flex-wrap md:flex-wrap lg:flex-nowrap lg:flex-row lg:justify-between gap-8">
@@ -170,9 +169,9 @@ const structuredData = {
                       height={400}
                     />
                   </div>
-                  <h3 class="text-xl text-gray-900 font-medium leading-8 mb-4 group-hover:text-[#32869f]">{blog.data.title}</h3>
+                  <a href={`/blogs/${blog.slug}`}><h3 class="text-xl text-gray-900 font-medium leading-8 mb-4 group-hover:text-[#32869f]">{blog.data.title}</h3></a>
                   <p class="text-gray-500 leading-6 transition-all duration-500 mb-8">
-                    {blog.data.description}
+                    {blog.data.intro}
                   </p>
                   <a href={`/blogs/${blog.slug}`} class="cursor-pointer flex items-center gap-2 text-lg text-[#32869f] font-semibold">
                     Read more<svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
