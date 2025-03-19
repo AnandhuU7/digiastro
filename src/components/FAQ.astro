@@ -35,9 +35,9 @@ const faqs = [
 ];
 
 // Add SEO metadata
-const title = "Hikvision Security Products FAQ | Lovosis Technology UAE";
+const title = "Dubai Hikvision Security Products FAQ";
 const description = "Find answers to frequently asked questions about Hikvision security products, including purchasing, authenticity, installation, and technical support in UAE.";
-const keywords = "Hikvision UAE, Hikvision products, Hikvision distributor, security cameras UAE, buy Hikvision UAE, CCTV Dubai";
+const keywords = "Hikvision UAE, Hikvision products, Hikvision distributor, security cameras UAE, buy Hikvision UAE, CCTV Dubai,Dubai Hikvision";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -54,7 +54,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalURL} />
-  <meta property="og:image" content="https://dubai-hikvision.com/logo.png" />
+  <meta property="og:image" content="https://dubai-hikvision.com/logo.svg" />
 
   <!-- Schema.org structured data -->
   <script type="application/ld+json">
@@ -86,7 +86,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     </div>
     
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-      <!-- FAQ Section (12 columns) -->
       <div class="lg:col-span-12">
         <div class="bg-white rounded-xl shadow-xl overflow-hidden border border-gray-100">
           {
@@ -130,13 +129,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   document.addEventListener('DOMContentLoaded', function() {
     const faqToggleTrigger = document.getElementById('faq-toggle-trigger');
     const extendedFaqs = document.querySelectorAll('.extended-faq');
-    let isExtendedVisible = false; // Track if extended FAQs are visible
+    let isExtendedVisible = false; 
 
     // Toggle extended FAQs on hover (mouseenter) of the FAQ section header
     faqToggleTrigger.addEventListener('mouseenter', function() {
-      isExtendedVisible = !isExtendedVisible; // Toggle visibility state
+      isExtendedVisible = !isExtendedVisible; 
       extendedFaqs.forEach(function(faq) {
-        faq.classList.toggle('hidden', !isExtendedVisible); // Toggle hidden class
+        faq.classList.toggle('hidden', !isExtendedVisible); 
       });
     });
 

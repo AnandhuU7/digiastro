@@ -31,9 +31,9 @@ const MapContainer = ({ APIKEY }: { APIKEY: string }) => {
         <InfoWindow position={placeCoordinates}>
         
         <div>
-          <h4 style= {{color:"black",fontWeight:"bold",fontSize:"18px"}}>Lovosis Technology L.L.C</h4>
+          <h4 style= {{color:"black",fontWeight:"bold",fontSize:"18px"}}>Dubai Hikvision</h4>
           <p style = {{color:"black", fontWeight: "bold"}}>Hikvision Distributor in DUBAI,U.A.E</p>
-          <p style = {{color: "black"}}>Mobile: +971559462214 </p>
+          <p style = {{color: "black"}}>Mobile: +971 55 292 9644 </p>
           <button className="bg-green-500 rounded-2xl p-2" onClick={handleDirectionsClick}>Get Directions</button>
         </div>
 

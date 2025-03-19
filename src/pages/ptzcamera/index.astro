@@ -14,8 +14,8 @@ const products: CollectionEntry<typeof category>[] = (
 ).sort((a, b) => a.data.id - b.data.id);
 
 // Enhanced SEO metadata
-const title = `${category.toUpperCase()} Products | Dubai Hikvision`;
-const description = `Browse our comprehensive range of ${category}  cameras from Hikvision, the leading distributor in Dubai. Professional-grade motorized surveillance cameras with advanced pan, tilt, and zoom capabilities for dynamic monitoring.`;
+const title = `PTZ Camera Products - Dubai Hikvision`;
+const description = `Browse our comprehensive range of PTZ camera products from Hikvision, the leading distributor in Dubai. Professional-grade motorized surveillance cameras with advanced pan, tilt, and zoom capabilities for dynamic monitoring.`;
 // const keywords = `${category}, Hikvision Dubai, security cameras, surveillance systems, Dubai distributor, CCTV cameras, IP cameras, network cameras, security solutions, Hikvision distributor Dubai,
 // Hikvision distributor Dubai,
 // hikvision cctv,
@@ -66,24 +66,37 @@ const structuredData = {
   "@type": "WebPage",
   name: title,
   description: description,
-  url: `https://dubai-hikvision.com/${category}`,
+  url: `https://dubai-hikvision.com/ptzcamera`,
   // keywords: keywords,
   breadcrumb: {
     "@type": "BreadcrumbList",
-    itemListElement: [
+    "@id": "https://dubai-hikvision.com/#breadcrumb",
+    "itemListElement": [
       {
         "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: "https://dubai-hikvision.com",
+        "position": 1,
+        "item": {
+          "@id": "https://dubai-hikvision.com",
+          "name": "Home"
+        }
       },
       {
         "@type": "ListItem",
-        position: 2,
-        name: category.charAt(0).toUpperCase() + category.slice(1),
-        item: `https://dubai-hikvision.com/${category}`,
+        "position": 2,
+        "item": {
+          "@id": "https://dubai-hikvision.com/productsnew",
+          "name": "Products"
+        }
       },
-    ],
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https://dubai-hikvision.com/ptzcamera",
+          "name": "PTZ Camera"
+        }
+      }
+    ]
   },
   mainEntity: {
     "@type": "ItemList",
@@ -98,18 +111,18 @@ const structuredData = {
           ? product.data.features.join(", ")
           : product.data.features,
         image: product.data.imgCard.src,
-        url: `https://dubai-hikvision.com/${category}/${product.data.slug}`,
         brand: {
           "@type": "Brand",
-          name: "Dubai Hikvision",
+          name: "Hikvision",
         },
         manufacturer: {
           "@type": "Organization",
-          name: "Dubai Hikvision",
+          name: "Dubai Hikvision",  
         },
-        category: category.charAt(0).toUpperCase() + category.slice(1),
+        category: "PTZ Camera",
         offers: {
           "@type": "Offer",
+          price: 100,
           priceCurrency: "AED",
           availability: "https://schema.org/InStock",
           seller: {
@@ -129,9 +142,9 @@ const structuredData = {
   },
   organization: {
     "@type": "Organization",
-    name: "Hikvision Dubai",
+    name: "Dubai Hikvision",
     url: "https://dubai-hikvision.com",
-    logo: "https://dubai-hikvision.com/logo.png",
+    logo: "https://dubai-hikvision.com/logo.svg",
   },
 };
 

@@ -3,31 +3,25 @@ import Layout from '../../layouts/Layout.astro';
 import aboutus from "../../assets/images/hikvision.jpg";
 
 // SEO metadata
-const title = "About Us | Dubai Hikvision";
-const description = "Founded in 2015, we're a company committed to innovation, quality, and customer satisfaction, creating technology that genuinely improves people's lives with global reach.";
-const canonicalURL = new URL('/aboutus', Astro.site).toString();
+const title = "About Us - Dubai Hikvision";
+const description = "Founded in 2010, we're a company committed to innovation, quality, and customer satisfaction, creating technology that genuinely improves people's lives with global reach.";
+const canonicalURL = "https://dubai-hikvision.com/aboutus";
 
 // JSON-LD Schema for better SEO
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "AboutPage",
-  "name": "About Us - Hikvision Dubai",
-  "description": "Hikvision Dubai is a leading provider of security and surveillance solutions, offering high-quality CCTV cameras, NVRs, DVRs, and advanced security systems in the UAE.",
-  "url": "https://dubai-hikvision.com/about-us",
+  "name": "About Us - Dubai Hikvision",
+  "description": "Dubai Hikvision is a leading provider of security and surveillance solutions, offering high-quality CCTV cameras, NVRs, DVRs, and advanced security systems in the UAE.",
+  "url": "https://dubai-hikvision.com/aboutus",
   "mainEntity": {
     "@type": "Organization",
-    "name": "Hikvision Dubai",
-    "description": "Hikvision Dubai provides top-tier security surveillance solutions, including high-end security cameras, access control systems, and AI-driven monitoring solutions.",
-    "url": "https://dubai-hikvision.com",
+    "name": "Dubai Hikvision",
+    "description": "Dubai Hikvision provides top-tier security surveillance solutions, including high-end security cameras, access control systems, and AI-driven monitoring solutions.",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://dubai-hikvision.com/logo.png"
+      "url": "https://dubai-hikvision.com/logo.svg"
     },
-    "sameAs": [
-      "https://www.facebook.com/hikvisiondubai",
-      "https://www.linkedin.com/company/hikvisiondubai",
-      "https://www.instagram.com/hikvisiondubai"
-    ],
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Satellite Market Naif Deira, Baghlaf Building Showroom No.5",
@@ -38,24 +32,24 @@ const structuredData = {
     },
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+971-4-567-8900",
+      "telephone": "+971 55 292 9644",
       "contactType": "customer service",
-      "email": "support@dubai-hikvision.com"
+      "email": "sales@lovosis.com"
     }
   },
-  "foundingDate": "2005",
+  "foundingDate": "2010",
   "founders": [
     {
       "@type": "Person",
-      "name": "John Doe"
+      "name": "Abdul Gafoor"
     }
   ],
   "publisher": {
     "@type": "Organization",
-    "name": "Hikvision Dubai",
+    "name": "Dubai Hikvision",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://dubai-hikvision.com/logo.png"
+      "url": "https://dubai-hikvision.com/logo.svg"
     }
   },
   "breadcrumb": {
@@ -73,7 +67,7 @@ const structuredData = {
         "@type": "ListItem",
         "position": 2,
         "item": {
-          "@id": "https://dubai-hikvision.com/about-us",
+          "@id": "https://dubai-hikvision.com/aboutus",
           "name": "About Us"
         }
       }
@@ -89,10 +83,7 @@ const structuredData = {
   canonicalURL={canonicalURL}
   structuredData={structuredData}
 >
-  <!-- Schema.org JSON-LD -->
 
-  <!-- Hero Section -->
-  <!-- Hero Section with enhanced visual elements -->
 <section class="relative py-14 overflow-hidden">
   <!-- Gradient background with improved colors -->
   <div class="absolute inset-0 bg-gradient-to-r from-[#3a7d8c] to-[#2c5f6b] z-0"></div>
@@ -101,10 +92,7 @@ const structuredData = {
   <div class="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full transform translate-x-1/3 -translate-y-1/3"></div>
   <div class="absolute bottom-0 left-0 w-64 h-64 bg-white opacity-5 rounded-full transform -translate-x-1/4 translate-y-1/4"></div>
   <div class="absolute top-1/2 left-1/4 w-32 h-32 bg-white opacity-5 rounded-full"></div>
-  
-  <!-- Subtle pattern overlay -->
-  <div class="absolute inset-0 bg-[url('/api/placeholder/400/320')] opacity-5 z-1"></div>
-  
+   
   <div class="max-w-7xl mx-auto px-5 relative z-10">
     <div class="text-center">
       <!-- Enhanced heading with animation classes -->
@@ -202,7 +190,7 @@ const structuredData = {
             </svg>
           </div>
           <h3 class="text-2xl font-bold mb-3">Innovation</h3>
-          <p class="leading-relaxed">We constantly push boundaries and explore new ideas to stay ahead of the curve.</p>
+          <p class="leading-relaxed">We constantly push boundaries and explore new technologies to enhance security solutions.</p>
         </div>
         
         <div class="bg-white rounded-xl p-8 text-center shadow-lg hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 border-b-4 border-[#4c95ab]">
@@ -212,7 +200,7 @@ const structuredData = {
             </svg>
           </div>
           <h3 class="text-2xl font-bold mb-3">Collaboration</h3>
-          <p class="leading-relaxed">We believe great things happen when passionate people work together toward a common goal.</p>
+          <p class="leading-relaxed">We work closely with clients and partners to create tailored security systems that meet their needs.</p>
         </div>
         
         <div class="bg-white rounded-xl p-8 text-center shadow-lg hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 border-b-4 border-[#4c95ab]">
@@ -221,8 +209,8 @@ const structuredData = {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
             </svg>
           </div>
-          <h3 class="text-2xl font-bold mb-3">Sustainability</h3>
-          <p class="leading-relaxed">We're committed to practices that ensure a better future for our planet.</p>
+          <h3 class="text-2xl font-bold mb-3">Reliability</h3>
+          <p class="leading-relaxed">We deliver dependable surveillance solutions that ensure safety and peace of mind.</p>
         </div>
         
         <div class="bg-white rounded-xl p-8 text-center shadow-lg hover:shadow-2xl hover:-translate-y-3 transition-all duration-500 border-b-4 border-[#4c95ab]">
@@ -232,7 +220,7 @@ const structuredData = {
             </svg>
           </div>
           <h3 class="text-2xl font-bold mb-3">Excellence</h3>
-          <p class="leading-relaxed">We strive for excellence in everything we do, from product development to customer service.</p>
+          <p class="leading-relaxed">We strive for excellence in providing cutting-edge security systems and exceptional customer service.</p>
         </div>
         
       </div>

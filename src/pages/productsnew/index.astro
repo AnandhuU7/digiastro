@@ -106,14 +106,14 @@ const structuredData = {
         name: product.title,
         description: product.description,
         image: product.image.src,
-        url: `https://dubai-hikvision.com${product.link}`,
         brand: {
           "@type": "Brand",
-          name: "Dubai Hikvision"
+          name: "Hikvision"
         },
         offers: {
           "@type": "Offer",
           availability: "https://schema.org/InStock",
+          price: 100,
           priceCurrency: "AED",
           seller: {
             "@type": "Organization",
@@ -125,9 +125,9 @@ const structuredData = {
   },
   organization: {
     "@type": "Organization",
-    name: "Hikvision Dubai",
+    name: "Dubai Hikvision",
     url: "https://dubai-hikvision.com",
-    logo: "https://dubai-hikvision.com/logo.png",
+    logo: "https://dubai-hikvision.com/logo.svg",
   },
   address: {
     "@type": "PostalAddress",

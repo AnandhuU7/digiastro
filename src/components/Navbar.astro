@@ -1,8 +1,8 @@
 ---
 import { Image } from "astro:assets";
-import logo from "../assets/images/logolovosis.svg";
+// import logo from "../assets/images/logolovosis.svg";
+import logo from "../../src/assets/logo.svg"
 
-// Get the current URL path for active link highlighting
 const currentPath = Astro.url.pathname;
 ---
 
@@ -17,7 +17,7 @@ const currentPath = Astro.url.pathname;
     <Image
       class="mx-auto w-32 h-12"
       src={logo}
-      alt="Lovosis Technology U.A.E"
+      alt="Dubai Hikvision"
       loading={"eager"}
     />
   </a>

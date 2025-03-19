@@ -5,17 +5,15 @@ import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 
 const category = "blogs";
+const blogs = (await getCollection(category))
+  .sort((a, b) => a.data.id - b.data.id)
+  .slice(0, 4); 
 
-// Fetch content dynamically based on the category
-const blogs: CollectionEntry<typeof category>[] = (
-  await getCollection(category)
-).sort((a, b) => a.data.id - b.data.id);
-
-// Add structured data for SEO
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Blog",
   "name": "Our Blogs",
+  "title": "Our Blogs | Dubai Hikvision",
   "description": "Welcome to our blog section, where knowledge meets inspiration. Explore insightful articles, expert tips, and the latest trends in our field.",
   "url": "https://dubai-hikvision.com/blogs",
   "mainEntity": {
@@ -28,7 +26,6 @@ const structuredData = {
         "headline": blog.data.title,
         "description": blog.data.description,
         "image": blog.data.cardImage.src,
-        "url": `https://dubai-hikvision.com/blogs/${blog.slug}`
       }
     }))
   },
@@ -37,7 +34,7 @@ const structuredData = {
     "name": "Dubai Hikvision",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://dubai-hikvision.com/logo.png"
+      "url": "https://dubai-hikvision.com/logo.svg"
     }
   },
   "breadcrumb": {
@@ -65,11 +62,12 @@ const structuredData = {
 };
 ---
 
-<!-- Swiper CSS -->
-<link rel="stylesheet" href="https://unpkg.com/swiper@11/swiper-bundle.min.css" />
 
-<!-- Swiper JS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'" />
+
+
 <script src="https://unpkg.com/swiper@11/swiper-bundle.min.js" defer></script>
+
 <Layout
   title="Our Blogs"
   description="Welcome to our blog section, where knowledge meets inspiration. Explore insightful articles, expert tips, and the latest trends in our field."
@@ -77,18 +75,14 @@ const structuredData = {
   structuredData={structuredData}
 >
 <section class="relative py-14 overflow-hidden">
-  <!-- Gradient background with improved colors -->
+
   <div class="absolute inset-0 bg-gradient-to-br from-[#32869f] to-[#1d5566] z-0"></div>
   
-  <!-- Static background elements (no animations) -->
   <div class="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full transform translate-x-1/3 -translate-y-1/3"></div>
   <div class="absolute bottom-0 left-0 w-64 h-64 bg-white opacity-5 rounded-full transform -translate-x-1/4 translate-y-1/4"></div>
   <div class="absolute top-1/2 left-1/4 w-32 h-32 bg-white opacity-5 rounded-full"></div>
   
-  <!-- Subtle pattern overlay -->
-  <div class="absolute inset-0 bg-[url('/api/placeholder/400/320')] opacity-5 z-1 mix-blend-overlay"></div>
-  
-  <!-- Decorative elements -->
+ 
   <div class="absolute top-10 left-10 w-16 h-16 border-t-2 border-l-2 border-white opacity-20"></div>
   <div class="absolute bottom-10 right-10 w-16 h-16 border-b-2 border-r-2 border-white opacity-20"></div>
   
@@ -103,17 +97,17 @@ const structuredData = {
         </span>
       </h1>
       
-      <!-- Improved subheading with better typography -->
+      
       <p class="text-2xl max-w-3xl mx-auto text-white/90 font-light leading-relaxed">
         We're on a mission to create innovative solutions that make a difference.
       </p>
       
-      <!-- Optional decorative separator -->
+      
       <div class="flex justify-center mt-8">
         <div class="w-24 h-1 bg-white opacity-30 rounded-full"></div>
       </div>
       
-      <!-- Optional CTA button -->
+      
       <a href="#blog" class="inline-flex items-center gap-2 mt-10 px-8 py-3 bg-white/10 hover:bg-white/20 text-white border border-white/30 rounded-full transition duration-300 backdrop-blur-sm shadow-lg hover:shadow-xl transform hover:-translate-y-1">
         Read Latest
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -123,7 +117,7 @@ const structuredData = {
     </div>
   </div>
   
-  <!-- Decorative wave at bottom -->
+  
   <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-0">
     <svg class="relative block w-full h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
       <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.92,146.86,136.44,221.91,119.3,302.86,101.1,272,68,321.39,56.44Z" fill="#ffffff" fill-opacity="0.1"></path>
@@ -260,36 +254,16 @@ const structuredData = {
         spaceBetween: 20,
         loop: true,
         speed: 500,
-        watchOverflow: true,
         navigation: {
           nextEl: "#slider-button-right",
           prevEl: "#slider-button-left",
         },
         breakpoints: {
-          0: { 
-            slidesPerView: 1,
-            spaceBetween: 20
-          },
-          768: { 
-            slidesPerView: 2,
-            spaceBetween: 30
-          },
-          1024: { 
-            slidesPerView: 2,
-            spaceBetween: 30
-          }
-        },
-        on: {
-          init: function() {
-            setTimeout(() => this.update(), 100);
-          },
-          resize: function() {
-            this.update();
-          }
+          0: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 2 }
         }
       });
-    } else {
-      console.error('Swiper is not defined. Please ensure the Swiper library is loaded correctly.');
     }
   });
 </script>

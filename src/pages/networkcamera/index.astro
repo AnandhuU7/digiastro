@@ -14,8 +14,8 @@ const products: CollectionEntry<typeof category>[] = (
 ).sort((a, b) => a.data.id - b.data.id);
 
 // Enhanced SEO metadata
-const title = `${category.toUpperCase()} Products | Dubai Hikvision`;
-const description = `Browse our comprehensive range of ${category} products from Hikvision, the leading distributor in Dubai. Professional-grade security cameras and surveillance systems with advanced features.`;
+const title = `Network Camera Products - Dubai Hikvision`;
+const description = `Browse our comprehensive range of network camera products from Hikvision, the leading distributor in Dubai. Professional-grade security cameras and surveillance systems with advanced features.`;
 // const keywords = `
 // Hikivision Dubai,
 // Hikvision distributor Dubai,
@@ -65,24 +65,37 @@ const structuredData = {
   "@type": "WebPage",
   name: title,
   description: description,
-  url: `https://dubai-hikvision.com/${category}`,
+  url: `https://dubai-hikvision.com/networkcamera`,
   // keywords: keywords,
   breadcrumb: {
     "@type": "BreadcrumbList",
-    itemListElement: [
+    "@id": "https://dubai-hikvision.com/#breadcrumb",
+    "itemListElement": [
       {
         "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: "https://dubai-hikvision.com",
+        "position": 1,
+        "item": {
+          "@id": "https://dubai-hikvision.com",
+          "name": "Home"
+        }
       },
       {
         "@type": "ListItem",
-        position: 2,
-        name: category.charAt(0).toUpperCase() + category.slice(1),
-        item: `https://dubai-hikvision.com/${category}`,
+        "position": 2,
+        "item": {
+          "@id": "https://dubai-hikvision.com/productsnew",
+          "name": "Products"
+        }
       },
-    ],
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@id": "https://dubai-hikvision.com/networkcamera",
+          "name": "Network Camera"
+        }
+      }
+    ]
   },
   mainEntity: {
     "@type": "ItemList",
@@ -97,18 +110,18 @@ const structuredData = {
           ? product.data.features.join(", ")
           : product.data.features,
         image: product.data.imgCard.src,
-        url: `https://dubai-hikvision.com/${category}/${product.data.slug}`,
         brand: {
           "@type": "Brand",
-          name: "Dubai Hikvision",
+          name: "Hikvision",
         },
         manufacturer: {
           "@type": "Organization",
           name: "Dubai Hikvision",
         },
-        category: category.charAt(0).toUpperCase() + category.slice(1),
+        category: "Network Camera",
         offers: {
           "@type": "Offer",
+          price: 100,
           priceCurrency: "AED",
           availability: "https://schema.org/InStock",
           seller: {
@@ -116,22 +129,21 @@ const structuredData = {
             name: "Dubai Hikvision",
           },
         },
-        // ✅ Adding Rating & Review Count
         aggregateRating: product.data.rating && product.data.reviewCount
           ? {
               "@type": "AggregateRating",
-              ratingValue: product.data.rating.toFixed(1), // Ensure it's formatted properly
+              ratingValue: product.data.rating.toFixed(1), 
               reviewCount: product.data.reviewCount,
             }
-          : undefined, // Avoid adding if no rating data exists
+          : undefined, 
       },
     })),
   },
   organization: {
     "@type": "Organization",
-    name: "Hikvision Dubai",
+    name: "Dubai Hikvision",  
     url: "https://dubai-hikvision.com",
-    logo: "https://dubai-hikvision.com/logo.png",
+    logo: "https://dubai-hikvision.com/logo.svg",
   },
 };
 
@@ -144,13 +156,13 @@ const mainColor = "#32869f";
   structuredData={structuredData}
 >
   <!-- Add canonical URL -->
-  <link rel="canonical" href={`https://dubai-hikvision.com/${category}`} slot="head" />
+  <link rel="canonical" href={`https://dubai-hikvision.com/networkcamera`} slot="head" />
   
   <!-- Add Open Graph tags -->
   <meta property="og:title" content={title} slot="head" />
   <meta property="og:description" content={description} slot="head" />
   <meta property="og:type" content="website" slot="head" />
-  <meta property="og:url" content={`https://dubai-hikvision.com/${category}`} slot="head" />
+  <meta property="og:url" content={`https://dubai-hikvision.com/networkcamera`} slot="head" />
   <meta property="og:site_name" content="Dubai Hikvision" slot="head" />
   
   <!-- Add Twitter Card tags -->
@@ -160,7 +172,7 @@ const mainColor = "#32869f";
 
   <div class="container mx-auto px-4 py-8 bg-gray-50">
     <h1 class="text-4xl font-bold mb-6 text-center" style={`color: ${mainColor};`}>
-      Discover Our {category.charAt(0).toUpperCase() + category.slice(1)} Products
+      Discover Our Network Camera Products
     </h1>
     <!-- Search Bar -->
     <Search mainColor={mainColor} />

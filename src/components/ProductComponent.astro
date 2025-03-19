@@ -1,19 +1,12 @@
 ---
-import type { CollectionEntry } from "astro:content";
+const { product, category } = Astro.props;
 
-// Props passed from the parent component (index.astro)
-const { product, mainColor, category } = Astro.props;
-
-// Add SEO metadata
 const title = `${product.data.title} | Hikvision Security Products`;
-const description = product.data.description || `High-quality Hikvision ${product.data.title} available in UAE. Professional security solution with expert installation and support.`;
+const description = product.data.description || `High-quality Hikvision ${product.data.title} available in Dubai. Professional security solution with expert installation and support.`;
 const canonicalURL = new URL(`/${category}/${product.slug}`, Astro.site);
 
-
-// Extract rating from product data
 const rating = product.data.rating;
 
-// Structured Data for SEO
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Product",
@@ -25,10 +18,9 @@ const structuredData = {
     "name": "Hikvision"
   },
   "category": category,
-  "url": `https://dubai-hikvision.com/${category}/${product.slug}`,
+  "url": `https://dubai-hikvision.com/${category}`,
   "offers": {
     "@type": "Offer",
-    "url": `https://dubai-hikvision.com/${category}/${product.slug}`,
     "priceCurrency": "AED",
     "availability": "https://schema.org/InStock",
     "itemCondition": "https://schema.org/NewCondition",
@@ -51,9 +43,6 @@ const structuredData = {
     }
   ]
 };
-
-// Add a no-op usage to satisfy TypeScript
-const _unused = structuredData;
 ---
 
 <!-- Add SEO meta tags -->
@@ -71,10 +60,9 @@ const _unused = structuredData;
   <meta property="og:image" content={product.data.imgCard.src} />
 
   <!-- Schema.org structured data -->
-  <script type="application/ld+json">
-    {JSON.stringify(structuredData)}
-  </script>
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 </head>
+
 
 <div class="group">
   <div class="product-card bg-white rounded-lg overflow-hidden shadow-lg group-hover:shadow-2xl transform transition-all duration-300 border border-gray-100 group-hover:border-[#32869f] group-hover:-translate-y-2">

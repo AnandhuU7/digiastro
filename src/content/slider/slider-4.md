@@ -1,5 +1,5 @@
 ---
 id: 4
 slider: "../slider/hik2.webp"
-sliderAlt:  "seamless Integration:"
+sliderAlt:  "Dubai Hikvision cctv camera 4"
 ---
