@@ -15,7 +15,7 @@ description: |
   Despite offering premium products and services, Lovosis Technology remains committed to competitive pricing. Clients can enjoy the benefits of cutting-edge security solutions without breaking the bank, making Lovosis the preferred choice for businesses of all sizes.
 
   While based in Dubai, Lovosis Technology has a global reach, serving clients across various industries and geographies. Whether you're looking to secure a small retail store or a sprawling corporate campus, Lovosis has the expertise and resources to meet your needs.
-cardImage: "/src/assets/images/Image03.png"
+cardImage: "/src/assets/images/image03.webp"
 publishDate: "2024-01-01"
 author: "Shajid"
 readingTime: 15

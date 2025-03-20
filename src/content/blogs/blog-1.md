@@ -20,7 +20,7 @@ description: |
   Abdul Gafoor  
   CEO & FOUNDER  
   Lovosis Technology  
-cardImage: "/src/assets/images/Image01.png"
+cardImage: "/src/assets/images/image01.webp"
 publishDate: "2024-01-01"
 author: "Abdul Gafoor"
 readingTime: 5

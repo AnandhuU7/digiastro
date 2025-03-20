@@ -34,7 +34,7 @@ const structuredData = {
   "description": entry.data.description,
   "url": `https://dubai-hikvision.com/blogs/${entry.slug}`,
   "image": entry.data.cardImage.src,
-  "datePublished": entry.data.publishDate || "",
+  "datePublished": entry.data.publishDate,
   "author": {
     "@type": "Organization",
     "name": "Dubai Hikvision"
@@ -92,79 +92,80 @@ const structuredData = {
   canonicalURL={`https://dubai-hikvision.com/blogs/${entry.slug}`}
   structuredData={structuredData}
 >
-  <!-- Hero Section with Cover Image -->
-  <section class="relative w-full">
-    <div class="w-full h-[50vh] min-h-[400px] relative overflow-hidden">
-      <!-- Cover image (fallback to card image if no cover image) -->
-      <div class="absolute inset-0 bg-gradient-to-br from-[#32869f] to-[#1d5566] z-0"></div>
+<section class="relative py-24 overflow-hidden">
+  <!-- Gradient background with improved colors -->
+  <div class="absolute inset-0 bg-gradient-to-br from-[#32869f] to-[#1d5566] z-0"></div>
   
-      <!-- Static background elements (no animations) -->
-      <div class="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full transform translate-x-1/3 -translate-y-1/3"></div>
-      <div class="absolute bottom-0 left-0 w-64 h-64 bg-white opacity-5 rounded-full transform -translate-x-1/4 translate-y-1/4"></div>
-      <div class="absolute top-1/2 left-1/4 w-32 h-32 bg-white opacity-5 rounded-full"></div>
-      
-      <!-- Subtle pattern overlay -->
-      <!-- <div class="absolute inset-0 bg-[url('/api/placeholder/400/320')] opacity-5 z-1 mix-blend-overlay"></div> -->
-      
-      <!-- Decorative elements -->
-      <div class="absolute top-10 left-10 w-16 h-16 border-t-2 border-l-2 border-white opacity-20"></div>
-      <div class="absolute bottom-10 right-10 w-16 h-16 border-b-2 border-r-2 border-white opacity-20"></div>
-      <div class="max-w-7xl mx-auto px-5 relative z-10">
-        <div class="text-center">
-          <!-- Badge -->    
-          
-          <!-- Improved subheading with better typography -->
-          <h1 class="text-3xl md:text-4xl lg:text-5xl max-w-3xl mx-auto text-white font-bold leading-tight tracking-tight pt-16 pb-6 px-4 text-center shadow-text">
-            {entry.data.title}
-          </h1>
-        </div>
-      </div>
-      <!-- Content overlay -->
-      <div class="absolute inset-0 z-20 flex items-end justify-center">
-        <div class="container max-w-6xl mx-auto px-6 pb-16">
-         
-          
-          <!-- Date and reading time -->
-          <div class="flex flex-wrap items-center gap-4 text-white/80">
-            {formattedDate && (
-              <div class="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                  <line x1="16" y1="2" x2="16" y2="6"></line>
-                  <line x1="8" y1="2" x2="8" y2="6"></line>
-                  <line x1="3" y1="10" x2="21" y2="10"></line>
-                </svg>
-                <span>{formattedDate}</span>
-              </div>
-            )}
-            
-            <!-- Reading time (optional) -->
-            {entry.data.readingTime && (
-              <div class="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <polyline points="12 6 12 12 16 14"></polyline>
-                </svg>
-                <span>{entry.data.readingTime} min read</span>
-              </div>
-            )}
-            
-            <!-- Author if exists -->
-            {entry.data.author && (
-              <div class="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="12" cy="7" r="4"></circle>
-                </svg>
-                <span>{entry.data.author}</span>
-              </div>
-            )}
+  <!-- Static background elements (no animations) -->
+  <div class="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full transform translate-x-1/3 -translate-y-1/3"></div>
+  <div class="absolute bottom-0 left-0 w-64 h-64 bg-white opacity-5 rounded-full transform -translate-x-1/4 translate-y-1/4"></div>
+  <div class="absolute top-1/2 left-1/4 w-32 h-32 bg-white opacity-5 rounded-full"></div>
+  
+  <!-- Decorative elements -->
+  <div class="absolute top-10 left-10 w-16 h-16 border-t-2 border-l-2 border-white opacity-20"></div>
+  <div class="absolute bottom-10 right-10 w-16 h-16 border-b-2 border-r-2 border-white opacity-20"></div>
+  
+  <div class="max-w-7xl mx-auto px-5 relative z-10">
+    <div class="text-center">
+      <!-- Badge -->    
+      <h1 class="text-4xl md:text-6xl font-bold mb-24 text-white"> <!-- Increased margin-bottom to mb-24 -->
+        Insights & <span class="relative inline-block">
+          <span class="relative z-10">Perspectives</span>
+          <span class="absolute bottom-0 left-0 w-full h-3 bg-[#f0cb35] opacity-70 rounded"></span>
+          <span class="absolute bottom-0 left-0 w-full h-1 bg-[#f0cb35] opacity-30 blur-sm"></span>
+        </span>
+      </h1>
+    </div>
+  </div>
+  
+  <div class="absolute inset-0 z-20 flex items-end justify-center">
+    <div class="container max-w-6xl mx-auto px-6 pb-16 pt-24"> <!-- Increased padding-top to pt-24 -->
+      <!-- Date and reading time -->
+      <div class="flex flex-col md:flex-row md:flex-wrap items-center gap-4 text-white/80"> <!-- Added flex-col for mobile, md:flex-row for desktop -->
+        {formattedDate && (
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <span>{formattedDate}</span>
           </div>
-        </div>
+        )}
+        
+        <!-- Reading time (optional) -->
+        {entry.data.readingTime && (
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>{entry.data.readingTime} min read</span>
+          </div>
+        )}
+        
+        <!-- Author if exists -->
+        {entry.data.author && (
+          <div class="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span>{entry.data.author}</span>
+          </div>
+        )}
       </div>
     </div>
-  </section>
+  </div>
   
+  <!-- Decorative wave at bottom -->
+  <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-0">
+    <svg class="relative block w-full h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+      <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.92,146.86,136.44,221.91,119.3,302.86,101.1,272,68,321.39,56.44Z" fill="#ffffff" fill-opacity="0.1"></path>
+    </svg>
+  </div>
+</section>
   <!-- Breadcrumb -->
   <nav class="bg-gray-50 py-3 border-b border-gray-100" aria-label="Breadcrumb">
     <div class="container max-w-6xl mx-auto px-6">
@@ -202,7 +203,6 @@ const structuredData = {
               set:html={entry.data.description.replace(/\n/g, '<br/>')}
             />
           )}
-          
           <!-- Share buttons -->
           <div class="mt-10 pt-8 border-t border-gray-200">
             <h3 class="text-lg font-semibold text-gray-800 mb-4">Share this article</h3>
@@ -233,7 +233,6 @@ const structuredData = {
             </div>
           </div>
         </div>
-        
         <!-- Sidebar -->
         <aside class="lg:col-span-4">    
           <!-- Related posts -->

@@ -11,7 +11,7 @@ description: |
   At Lovosis Technology, our commitment to customer satisfaction doesn't end after the sale. We provide comprehensive maintenance and support services to ensure that your Hikvision cameras continue to perform at their best. Whether you require troubleshooting assistance, software updates, or regular maintenance checks, our dedicated support team is always available to assist you
 
   When it comes to surveillance technology, Hikvision cameras are in a league of their own. And when it comes to sourcing Hikvision cameras in the UAE, Lovosis Technology stands out as the premier supplier. With our unrivaled quality, extensive product selection, expert guidance, seamless integration, and ongoing support, Lovosis Technology is your trusted partner for all your Hikvision camera needs. Elevate your surveillance capabilities today with Lovosis Technology and experience the difference firsthand.
-cardImage: "/src/assets/images/Image02.png"
+cardImage: "/src/assets/images/image02.webp"
 publishDate: "2024-01-01"
 author: "Shajid"
 readingTime: 10

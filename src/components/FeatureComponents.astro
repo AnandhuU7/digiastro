@@ -8,7 +8,6 @@ const feature: CollectionEntry<"feature">[] = await getCollection("feature");
 const title = "Hikvision Security Solutions | Premium Security Technology";
 const description = "Professional Hikvision security solutions featuring expert installation, 24/7 support, and comprehensive warranty coverage. Access cutting-edge surveillance technology at competitive prices.";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const image = "https://dubai-hikvision.com/logo.svg";
 
 // Generate dynamic SEO keywords and descriptions based on features
 const featureKeywords = feature.map(f => f.data.name).join(", ");
@@ -30,13 +29,13 @@ const seoDescription = `${description} ${featureDescriptions}`;
   <meta property="og:description" content={seoDescription} />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalURL} />
-  <meta property="og:image" content={image} />
+  <meta property="og:image" content="https://dubai-hikvision.com/logo.svg" />
   
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={seoDescription} />
-  <meta name="twitter:image" content={image} />
+  <meta name="twitter:image" content="https://dubai-hikvision.com/logo.svg" />
   
   <!-- Schema.org structured data -->
   <script type="application/ld+json">
@@ -54,7 +53,7 @@ const seoDescription = `${description} ${featureDescriptions}`;
         "priceCurrency": "AED",
         "availability": "https://schema.org/InStock"
       },
-      "image": "{image}",
+      "image": "https://dubai-hikvision.com/logo.svg",
       "additionalProperty": [
         {
           "@type": "PropertyValue",

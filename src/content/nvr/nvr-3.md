@@ -3,7 +3,7 @@ id: 3
 title: "DS-96128NXI-S24R"
 slug: "nvr-3"
 subTitle: "S Series NVR with AcuSense – 32×1080p Decoding & 8K HDMI Output"
-category: "Network Video Recorder"
+category: "NVR"
 imgCard: "/src/assets/images/nvr/DS-96128NXI-S24R/DS-96128NXI-S24R-1.png"
 imgAlt: "DS-96128NXI-S24R"
 thumbnails: [

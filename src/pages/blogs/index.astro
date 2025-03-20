@@ -131,7 +131,7 @@ const structuredData = {
           <div class="block lg:text-left text-center" >
             <h2 class="text-4xl font-bold text-gray-900 leading-[3.25rem] mb-5">Our latest <span class="text-[#32869f]">blogs</span></h2>
             <p class="text-gray-500 mb-10 max-lg:max-w-xl max-lg:mx-auto">Welcome to our blog section, where knowledge meets inspiration. Explore insightful articles, expert tips, and the latest trends in our field.</p>
-            <a href="javascript:;" class="cursor-pointer border border-gray-300 shadow-sm rounded-full py-3.5 px-7 w-52 lg:mx-0 mx-auto flex justify-center text-gray-900 font-semibold transition-all duration-300 hover:bg-gray-100">View All</a>
+            <a href="#" class="cursor-pointer border border-gray-300 shadow-sm rounded-full py-3.5 px-7 w-52 lg:mx-0 mx-auto flex justify-center text-gray-900 font-semibold transition-all duration-300 hover:bg-gray-100">View All</a>
           </div>
           <!-- Slider controls -->
           <div class="flex items-center lg:justify-start justify-center lg:mt-0 mt-8 gap-8 mb-4">
@@ -164,7 +164,7 @@ const structuredData = {
                     />
                   </div>
                   <a href={`/blogs/${blog.slug}`}><h3 class="text-xl text-gray-900 font-medium leading-8 mb-4 group-hover:text-[#32869f]">{blog.data.title}</h3></a>
-                  <p class="text-gray-500 leading-6 transition-all duration-500 mb-8">
+                  <p class="text-gray-500 leading-6 transition-all duration-500 mb-8 text-justify">
                     {blog.data.intro}
                   </p>
                   <a href={`/blogs/${blog.slug}`} class="cursor-pointer flex items-center gap-2 text-lg text-[#32869f] font-semibold">
@@ -251,7 +251,7 @@ const structuredData = {
     if (typeof Swiper !== 'undefined') {
       var swiper = new Swiper(".mySwiper", {
         slidesPerView: 1,
-        spaceBetween: 20,
+        spaceBetween: 10,
         loop: true,
         speed: 500,
         navigation: {
@@ -267,4 +267,3 @@ const structuredData = {
     }
   });
 </script>
-

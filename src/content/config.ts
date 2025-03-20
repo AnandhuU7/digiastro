@@ -144,7 +144,6 @@ const blogCollection = defineCollection({
     author: z.string(),
     readingTime: z.number(),
     intro: z.string(),
-    // tags: z.array(z.string()),
   }),
 });
 
