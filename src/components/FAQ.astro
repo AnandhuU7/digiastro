@@ -74,10 +74,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     }
   </script>
 </head>
-<section class="pb-20 bg-gradient-to-b from-blue-50 to-white pt-8">
+<section class="pb-20 pt-10 bg-gradient-to-b from-blue-50 to-white pt-8">
   <div class="container mx-auto max-w-6xl px-4">
-    <div class="text-center mb-14">
-      <h2 id="faq-toggle-trigger" class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent cursor-pointer">
+    <div class="text-center mb-6">
+      <h2 id="faq-toggle-trigger" class="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-400 bg-clip-text text-transparent cursor-pointer" style="line-height:1.2;">
         Frequently Asked Questions
       </h2>
       <p class="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -126,9 +126,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   </div>
 </section>
 <style>
-.faq-toggle:focus {
-  outline: none;
-}
+  .faq-toggle:focus {
+    outline: none;
+  }
 </style>
 
 <script is:inline>
