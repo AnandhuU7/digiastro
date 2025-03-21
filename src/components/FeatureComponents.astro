@@ -7,7 +7,7 @@ const feature: CollectionEntry<"feature">[] = await getCollection("feature");
 // Add SEO metadata
 const title = "Hikvision Security Solutions | Premium Security Technology";
 const description = "Professional Hikvision security solutions featuring expert installation, 24/7 support, and comprehensive warranty coverage. Access cutting-edge surveillance technology at competitive prices.";
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const canonicalURL = "https://dubai-hikvision.com";
 
 // Generate dynamic SEO keywords and descriptions based on features
 const featureKeywords = feature.map(f => f.data.name).join(", ");
@@ -29,13 +29,13 @@ const seoDescription = `${description} ${featureDescriptions}`;
   <meta property="og:description" content={seoDescription} />
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonicalURL} />
-  <meta property="og:image" content="https://dubai-hikvision.com/logo.svg" />
+  <meta property="og:image" content="https://dubai-hikvision.com/assets/logo.svg" />
   
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={seoDescription} />
-  <meta name="twitter:image" content="https://dubai-hikvision.com/logo.svg" />
+  <meta name="twitter:image" content="https://dubai-hikvision.com/assets/logo.svg" />
   
   <!-- Schema.org structured data -->
   <script type="application/ld+json">
@@ -53,7 +53,7 @@ const seoDescription = `${description} ${featureDescriptions}`;
         "priceCurrency": "AED",
         "availability": "https://schema.org/InStock"
       },
-      "image": "https://dubai-hikvision.com/logo.svg",
+      "image": "https://dubai-hikvision.com/assets/logo.svg",
       "additionalProperty": [
         {
           "@type": "PropertyValue",
@@ -124,7 +124,7 @@ const seoDescription = `${description} ${featureDescriptions}`;
         </div>
       </div>  
       <div class="mt-10">
-        <a href="/productsnew" class="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
+        <a href="#products" class="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
           Explore Products
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
             <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -186,15 +186,18 @@ const seoDescription = `${description} ${featureDescriptions}`;
   .backface-hidden { backface-visibility: hidden; }
   .flip { transform: rotateY(180deg); }
 
+  /* Hide navigation buttons on larger screens */
   .mobile-navigation-buttons {
     display: none;
   }
 
+  /* Show navigation buttons only on mobile screens */
   @media (max-width: 767px) {
     .mobile-navigation-buttons {
       display: flex;
     }
 
+    /* Hide all cards except the first one on mobile */
     .feature-card {
       display: none;
     }
@@ -208,20 +211,21 @@ const seoDescription = `${description} ${featureDescriptions}`;
   bottom: -5px; 
 }
 
+/* Add more space at the bottom of the card container */
 .mobile-feature-carousel {
   padding-bottom: 3rem !important; 
 }
 
   @media (min-width: 768px) {
     .feature-card {
-      display: block !important; 
+      display: block !important; /* Override any inline styles */
     }
   }
 </style>
 
 <script>
- 
-  if (window.innerWidth > 767) { 
+  // Flip-flop functionality for larger screens
+  if (window.innerWidth > 767) { // Only apply this logic on screens larger than mobile
     document.querySelectorAll('.group').forEach(card => {
       card.addEventListener('click', () => {
         const relativeElement = card.querySelector('.relative');
@@ -232,13 +236,13 @@ const seoDescription = `${description} ${featureDescriptions}`;
     });
   }
 
- 
+  // Mobile card navigation logic
   let currentCardIndex = 0;
   const cards = document.querySelectorAll('.feature-card');
   const totalCards = cards.length;
 
   const updateCardVisibility = () => {
-    if (window.innerWidth <= 767) { 
+    if (window.innerWidth <= 767) { // Only apply this logic on mobile screens
       cards.forEach((card, index) => {
         (card as HTMLElement).style.display = index === currentCardIndex ? 'block' : 'none';
       });
@@ -248,7 +252,7 @@ const seoDescription = `${description} ${featureDescriptions}`;
   const prevButton = document.getElementById('prevButton');
   const nextButton = document.getElementById('nextButton');
 
-  if (prevButton && nextButton) {
+  if (prevButton && nextButton) { // Check if buttons exist
     prevButton.addEventListener('click', () => {
       currentCardIndex = (currentCardIndex - 1 + totalCards) % totalCards;
       updateCardVisibility();
@@ -260,14 +264,14 @@ const seoDescription = `${description} ${featureDescriptions}`;
     });
   }
 
-  
+  // Initial visibility update
   updateCardVisibility();
 
-  
+  // Update visibility on window resize
   window.addEventListener('resize', () => {
     updateCardVisibility();
 
-    
+    // Reapply flip-flop logic if screen size changes
     if (window.innerWidth > 767) {
       document.querySelectorAll('.group').forEach(card => {
         card.addEventListener('click', () => {
