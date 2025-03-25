@@ -63,12 +63,17 @@ const description = `Browse our comprehensive range of Network Video Recorders (
 // Enhanced structured data
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  name: title,
-  description: description,
-  url: `https://dubai-hikvision.com/nvr`,
-  // keywords: keywords,
-  breadcrumb: {
+  "@type": "CollectionPage",
+  "name": title,
+  "description": description,
+  "url": `https://dubai-hikvision.com/nvr`,
+  "image": products.map(p => ({
+    "@type": "ImageObject",
+    "url": `https://dubai-hikvision.com${p.data.imgCard.src}`,
+    "width": 300,
+    "height": 300
+  })),
+  "breadcrumb": {
     "@type": "BreadcrumbList",
     "@id": "https://dubai-hikvision.com/#breadcrumb",
     "itemListElement": [
@@ -98,10 +103,11 @@ const structuredData = {
       }
     ]
   },
-  mainEntity: {
+  "mainContentOfPage": {
     "@type": "ItemList",
-    numberOfItems: products.length,
-    itemListElement: products.map((product, index) => ({
+    "itemListOrder": "https://schema.org/ItemListOrderAscending",
+    "numberOfItems": products.length,
+    "itemListElement": products.map((product, index) => ({
       "@type": "ListItem",
       position: index + 1,
       item: {
@@ -113,22 +119,13 @@ const structuredData = {
         image: product.data.imgCard.src,
         brand: {
           "@type": "Brand",
-          name: "Hikvision",
+          "name": "Hikvision",
         },
-        manufacturer: {
-          "@type": "Organization",
-          name: "Dubai Hikvision",
-        },
-        category: "NVR",
         offers: {
           "@type": "Offer",
           price: 100,
           priceCurrency: "AED",
           availability: "https://schema.org/InStock",
-          seller: {
-            "@type": "Organization",
-            name: "Dubai Hikvision",
-          },
         },
         aggregateRating: product.data.rating && product.data.reviewCount
           ? {
@@ -136,16 +133,20 @@ const structuredData = {
               ratingValue: product.data.rating.toFixed(1), 
               reviewCount: product.data.reviewCount,
             }
-          : undefined,
+          : undefined, 
       },
     })),
   },
-  organization: {
+  "publisher": {
     "@type": "Organization",
-    name: "Dubai Hikvision",  
-    url: "https://dubai-hikvision.com",
-    logo: "https://dubai-hikvision.com/logo.svg",
-  },
+    "name": "Dubai Hikvision",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dubai-hikvision.com/logo.svg",
+      "width": 300,
+      "height": 60
+    }
+  }
 };
 
 const mainColor = "#32869f";
@@ -157,13 +158,13 @@ const mainColor = "#32869f";
   structuredData={structuredData}
 >
   <!-- Add canonical URL -->
-  <link rel="canonical" href={`https://dubai-hikvision.com/${category}`} slot="head" />
+  <link rel="canonical" href={`https://dubai-hikvision.com/nvr`} slot="head" />
   
   <!-- Add Open Graph tags -->
   <meta property="og:title" content={title} slot="head" />
   <meta property="og:description" content={description} slot="head" />
   <meta property="og:type" content="website" slot="head" />
-  <meta property="og:url" content={`https://dubai-hikvision.com/${category}`} slot="head" />
+  <meta property="og:url" content={`https://dubai-hikvision.com/nvr`} slot="head" />
   <meta property="og:site_name" content="Dubai Hikvision" slot="head" />
   
   <!-- Add Twitter Card tags -->

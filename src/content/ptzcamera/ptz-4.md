@@ -3,7 +3,7 @@ id: 4
 title: "DS-2SE2C400MWG-E/14"
 slug: "ptz-4"
 subTitle: "TandemVu 4MP+4MP Fixed Lens POE PT Network Camera"
-category: "PTZ Camera"
+category: "ptzcamera"
 imgCard: "/src/assets/images/ptzcamera/DS-2SE2C400MWG-E14/DS-2SE2C400MWG-E14-1.png"
 imgAlt: "DS-2SE2C400MWG-E/14"
 thumbnails: [

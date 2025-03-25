@@ -1,4 +1,21 @@
 ---
+
+const structuredData =    {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Hikvision CCTV Cameras in Dubai",
+    "description": "See how Hikvision's new technologies deliver full-color night vision and ultra-low-light surveillance for homes and businesses in Dubai.",
+    "thumbnailUrl": "https://img.youtube.com/vi/MGjX7jfqMZA/maxresdefault.jpg",
+    "uploadDate": "2024-03-20",
+    "duration": "PT1M33S",
+    "contentUrl": "https://www.youtube.com/watch?v=MGjX7jfqMZA",
+    "embedUrl": "https://www.youtube.com/embed/MGjX7jfqMZA",
+    "potentialAction": {
+      "@type": "SeekToAction",
+      "target": "https://www.youtube.com/watch?v=MGjX7jfqMZA&t={seek_to_second_number}s",
+      "startOffset-input": "required name=seek_to_second_number"
+    }
+  };
 ---
 
 <head>
@@ -19,56 +36,7 @@
     <meta property="og:type" content="website" />
 
     <!-- Schema.org structured data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "Dubai Hikvision",
-      "description": "Leading provider of Hikvision CCTV cameras and smart security solutions in Dubai",
-      "image": "https://dubai-hikvision.com/logo.svg",
-      "url": "https://dubai-hikvision.com",
-      "telephone": "+971 55 292 9644",
-      "email": "sales@lovosis.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "25th St, Naif - Dubai - United Arab Emirates",
-        "addressLocality": "Dubai",
-        "addressRegion": "Dubai, United Arab Emirates",
-        "postalCode": "123421",
-        "addressCountry": "AE"
-      },
-      "contactPoint": [
-        {
-          "@type": "ContactPoint",
-          "contactType": "Support",
-          "telephone": "+971 55 292 9644",
-          "email": "sales@lovosis.com",
-          "availableLanguage": ["English", "Arabic"]
-        }
-      ],
-      "openingHours": "Mo-Sa 09:00-18:00",
-      "offers": {
-        "@type": "AggregateOffer",
-        "offers": [
-          {
-            "@type": "Offer",
-            "name": "CCTV Camera Solutions",
-            "description": "Hikvision CCTV camera installation and maintenance"
-          },
-          {
-            "@type": "Offer",
-            "name": "IP Camera Systems",
-            "description": "Hikvision IP camera solutions with WiFi connectivity"
-          },
-          {
-            "@type": "Offer",
-            "name": "Smart Security Solutions",
-            "description": "Advanced security systems with ColorVu, DarkFighter, and AcuSense technology"
-          }
-        ]
-      }
-    }
-    </script>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 </head>
 
 <section class="bg-gradient-to-br from-[#f1f7ff] to-[#e6f0ff] pt-16 pb-10 relative overflow-hidden" style="font-family: 'Poppins', sans-serif;">
@@ -77,7 +45,7 @@
             <!-- Text content -->
             <div class="md:w-1/2 animate-fade-in-left">
                 <h1 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#32869f] to-[#4fb3d9] bg-clip-text text-transparent mb-6 leading-tight animate-bounce-in" style="font-family: 'Poppins', sans-serif;">
-                    Dubai Hikvision - Authorized Distributor
+                    Hikvision Dubai - CCTV & IP Camera Distributor in Dubai & UAE
                 </h1>
                 
                 <!-- Full content for extra-large screens (xl and above) -->
@@ -90,22 +58,22 @@
                     Welcome to Hikvision Dubai, your trusted distributor for advanced surveillance systems and security solutions. We offer a wide range of Hikvision products, including CCTV cameras, IP cameras, and ColorVu technology for clear images in low light. Our solutions feature DarkFighter, TandemVu, and AcuSense technologies, ensuring top-notch security for homes and businesses. Explore our competitive pricing and high-quality surveillance systems today!
                 </p>
 
-                <a href="#" class="inline-flex items-center gap-2 bg-gradient-to-r from-[#32869f] to-[#4fb3d9] text-white px-6 py-3 rounded-full font-medium transition-all hover:shadow-xl hover:bg-opacity-90 group" style="font-family: 'Poppins', sans-serif;">
-                    <span class="text-sm">Discover More</span>
+                <a href="/contact" class="inline-flex items-center gap-2 bg-gradient-to-r from-[#32869f] to-[#4fb3d9] text-white px-6 py-3 rounded-full font-medium transition-all hover:shadow-xl hover:bg-opacity-90 group">
+                    <span class="text-sm">Get Free CCTV Quote</span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                     </svg>
                 </a>
             </div>
             
-            <!-- Video section -->
+            <!-- Video Section (SEO-Optimized Embed) -->
             <div class="md:w-1/2 w-full animate-fade-in-right">
                 <div class="relative aspect-video rounded-xl overflow-hidden shadow-2xl">
-                    <!-- Replace the static thumbnail and play button with YouTube iframe -->
                     <iframe 
                         class="absolute inset-0 w-full h-full"
-                        src="https://www.youtube.com/embed/MGjX7jfqMZA?si=Dnuo2vATsgzT2JOA"
-                        title="Hikvision Security Solutions"
+                        src="https://www.youtube.com/embed/MGjX7jfqMZA?rel=0&enablejsapi=1"
+                        title="Hikvision CCTV Cameras in Dubai - ColorVu & DarkFighter Demo"
+                        loading="lazy"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>

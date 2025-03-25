@@ -3,7 +3,7 @@ id: 4
 title: "DS-96128NXI-S24R(LCD)"
 slug: "nvr-4"
 subTitle: "S Series NVR with AcuSense – 32×1080p Decoding, 256-ch IP & 8K HDMI"
-category: "NVR"
+category: "nvr"
 imgCard: "/src/assets/images/nvr/DS-96128NXI-S24R(LCD)/DS-96128NXI-S24R(LCD)-1.png"
 imgAlt: "DS-96128NXI-S24R(LCD)"
 thumbnails: [

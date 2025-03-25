@@ -9,14 +9,29 @@ const blogs = (await getCollection(category))
   .sort((a, b) => a.data.id - b.data.id)
   .slice(0, 4); 
 
-const structuredData = {
+  const title = "Hikvision Security Insights & Technology Blog | Dubai Hikvision";
+  const description = "Expert articles on CCTV systems, security cameras, surveillance tech, and smart security solutions in Dubai and UAE. Learn from Hikvision's authorized distributor.";
+  const canonicalURL = "https://dubai-hikvision.com/blogs";
+  
+
+  const structuredData = {
   "@context": "https://schema.org",
   "@type": "Blog",
-  "name": "Our Blogs",
-  "description": "Welcome to our blog section, where knowledge meets inspiration. Explore insightful articles, expert tips, and the latest trends in our field.",
+  "headline": "Hikvision Security Insights & Technology Blog | Dubai Hikvision",
+  "description": "Expert articles on CCTV systems, security cameras, surveillance tech, and smart security solutions in Dubai and UAE. Learn from Hikvision's authorized distributor.",
   "url": "https://dubai-hikvision.com/blogs",
+  "image": blogs.map(blog => ({ 
+    "@type": "ImageObject",
+    "contentUrl": "https://dubai-hikvision.com" + blog.data.cardImage.src,
+    "creditText": "Hikvision " + blog.data.title,
+    "creator": {
+      "@type": "Organization",
+      "name": "Dubai Hikvision"
+    }
+  })),
   "mainEntity": {
     "@type": "ItemList",
+    "numberOfItems": blogs.length,
     "itemListElement": blogs.map((blog, index) => ({
       "@type": "ListItem",
       "position": index + 1,
@@ -24,7 +39,12 @@ const structuredData = {
         "@type": "BlogPosting",
         "headline": blog.data.title,
         "description": blog.data.description,
-        "image": blog.data.cardImage.src,
+        "url": `https://dubai-hikvision.com/blogs/${blog.slug}`, 
+        "datePublished": blog.data.publishDate, 
+        "author": {
+          "@type": "Person",
+          "name": blog.data.author 
+        },
       }
     }))
   },
@@ -33,12 +53,13 @@ const structuredData = {
     "name": "Dubai Hikvision",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://dubai-hikvision.com/logo.svg"
+      "url": "https://dubai-hikvision.com/logo.svg",
+      "width": "300",
+      "height": "60"
     }
   },
   "breadcrumb": {
     "@type": "BreadcrumbList",
-    "@id": "https://dubai-hikvision.com/#breadcrumb",
     "itemListElement": [
       {
         "@type": "ListItem",
@@ -57,7 +78,7 @@ const structuredData = {
         }
       }
     ]
-  },
+  }
 };
 ---
 
@@ -66,10 +87,10 @@ const structuredData = {
 <script src="https://unpkg.com/swiper@11/swiper-bundle.min.js" defer></script>
 
 <Layout
-  title="Our Blogs"
-  description="Welcome to our blog section, where knowledge meets inspiration. Explore insightful articles, expert tips, and the latest trends in our field."
-  canonicalURL="https://dubai-hikvision.com/blogs"
-  structuredData={structuredData}
+    title={title}
+    description={description}
+    canonicalURL={canonicalURL}
+    structuredData={structuredData}
 >
 <section class="relative py-14 overflow-hidden">
 

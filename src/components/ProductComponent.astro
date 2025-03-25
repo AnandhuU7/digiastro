@@ -10,19 +10,42 @@ const rating = product.data.rating;
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Product",
+  "productID": product.data.id,
   "name": product.data.title,
-  "image": product.data.imgCard.src,
+  "image": [
+    {
+      "@type": "ImageObject",
+      "contentUrl": "https://dubai-hikvision.com" + product.data.imgCard.src,
+      "creditText": "Hikvision " + product.data.title,
+      "creator": {
+        "@type": "Organization",
+        "name": "Dubai Hikvision"
+      },
+      "width": "300px",
+      "height": "300px"
+    },
+  ],
   "description": description,
   "brand": {
     "@type": "Brand",
-    "name": "Hikvision"
+    "name": "Hikvision",
+    "logo": {
+      "@type": "ImageObject",
+      "contentUrl": "https://dubai-hikvision.com/logo.svg",
+      "width": "300px",
+      "height": "60px"
+    }
   },
-  "category": category,
-  "url": `https://dubai-hikvision.com/${category}`,
+  "category": category.charAt(0).toUpperCase() + category.slice(1),
+  "url": canonicalURL,
   "offers": {
     "@type": "Offer",
     "priceCurrency": "AED",
-    "availability": "https://schema.org/InStock",
+    "price": 50,
+    "priceValidUntil": new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+    "availability": product.data.inStock !== false 
+      ? "https://schema.org/InStock" 
+      : "https://schema.org/OutOfStock",
     "itemCondition": "https://schema.org/NewCondition",
     "seller": {
       "@type": "Organization",
@@ -33,15 +56,33 @@ const structuredData = {
   "aggregateRating": product.data.rating && product.data.reviewCount ? {
     "@type": "AggregateRating",
     "ratingValue": product.data.rating.toFixed(1),
-    "reviewCount": product.data.reviewCount
+    "reviewCount": product.data.reviewCount,
+    "bestRating": "5",
+    "worstRating": "1"
   } : undefined,
-  "additionalProperty": [
-    {
-      "@type": "PropertyValue",
-      "name": "Product Status",
-      "value": new Date(product.data.date) > new Date(Date.now() - 90 * 24 * 60 * 60 * 1000) ? "New Release" : "Standard"
-    }
-  ]
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://dubai-hikvision.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Products",
+        "item": "https://dubai-hikvision.com/productsnew"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": category.charAt(0).toUpperCase() + category.slice(1),
+        "item": `https://dubai-hikvision.com/${category}`
+      },
+    ]
+  }
 };
 ---
 

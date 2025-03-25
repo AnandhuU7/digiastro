@@ -3,7 +3,7 @@ id: 2
 title: "DS-2CD2383G2-LI(2U)"
 slug: "network-2"
 subTitle: "8 MP AcuSense Smart Hybrid Light Turret Camera"
-category: "Network Camera"
+category: "networkcamera"
 imgCard: "/src/assets/images/networkcamera/DS-2CD2383G2-LI(2U)/DS-2CD2383G2-LI(2U)-1.png"
 imgAlt: "DS-2CD2383G2-LI(2U)"
 thumbnails: [

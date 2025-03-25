@@ -3,7 +3,7 @@ id: 6
 title: "DS-2CD2047G2-LU/SL"
 slug: "network-6"
 subTitle: "4 MP ColorVu Strobe Light Mini Bullet Network Camera"
-category: "Network Camera"
+category: "networkcamera"
 imgCard: "/src/assets/images/networkcamera/DS-2CD2047G2-LUSL/DS-2CD2047G2-LUSL-1.png"
 imgAlt: "DS-2CD2047G2-LU/SL"
 thumbnails: [

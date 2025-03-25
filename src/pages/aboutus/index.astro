@@ -3,53 +3,67 @@ import Layout from '../../layouts/Layout.astro';
 import aboutus from "../../assets/images/hikvision.jpg";
 
 // SEO metadata
-const title = "About Us - Dubai Hikvision";
-const description = "Founded in 2010, we're a company committed to innovation, quality, and customer satisfaction, creating technology that genuinely improves people's lives with global reach.";
+const title = "About Dubai Hikvision - Leading Security Solutions Provider in Dubai & UAE";
+const description = "Dubai Hikvision is a trusted provider of advanced security and surveillance solutions in Dubai & UAE, specializing in Hikvision CCTV cameras, NVRs, DVRs, access control, and AI-powered security systems.";
 const canonicalURL = "https://dubai-hikvision.com/aboutus";
 
-// JSON-LD Schema for better SEO
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "AboutPage",
-  "name": "About Us - Dubai Hikvision",
-  "description": "Dubai Hikvision is a leading provider of security and surveillance solutions, offering high-quality CCTV cameras, NVRs, DVRs, and advanced security systems in the UAE.",
+  "@type": ["AboutPage", "WebPage"],
+  "headline": "About Dubai Hikvision - Leading Security Solutions Provider in Dubai & UAE",
+  "description": "Dubai Hikvision is a trusted provider of advanced security and surveillance solutions in Dubai & UAE, specializing in Hikvision CCTV cameras, NVRs, DVRs, access control, and AI-powered security systems.",
   "url": "https://dubai-hikvision.com/aboutus",
   "mainEntity": {
-    "@type": "Organization",
+    "@type": "LocalBusiness",
     "name": "Dubai Hikvision",
-    "description": "Dubai Hikvision provides top-tier security surveillance solutions, including high-end security cameras, access control systems, and AI-driven monitoring solutions.",
+    "description": "Award-winning Hikvision distributor in Dubai & UAE providing cutting-edge security cameras, video surveillance, and smart security solutions since 2010.",
+    "url": "https://dubai-hikvision.com",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://dubai-hikvision.com/logo.svg"
+      "url": "https://dubai-hikvision.com/logo.svg",
+      "width": "300",
+      "height": "60"
     },
+    "foundingDate": "2010",
+    "founders": [
+      {
+        "@type": "Person",
+        "name": "Abdul Gafoor",
+        "jobTitle": "Founder & CEO"
+      }
+    ],
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": " 25th St, Naif - Dubai - United Arab Emirates",
+      "streetAddress": "25th St, Naif - Dubai - United Arab Emirates",
       "addressLocality": "Dubai",
-      "addressRegion": "Dubai, United Arab Emirates",
+      "addressRegion": "Dubai",
       "postalCode": "123421",
       "addressCountry": "AE"
     },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+971 55 292 9644",
-      "contactType": "customer service",
-      "email": "sales@lovosis.com"
-    }
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+971 55 292 9644",
+        "contactType": "sales",
+        "email": "sales@lovosis.com",
+        "areaServed": "AE",
+        "availableLanguage": ["English", "Arabic"]
+      },
+      {
+        "@type": "ContactPoint",
+        "telephone": "+971 55 292 9644",
+        "contactType": "customer support"
+      }
+    ],
   },
-  "foundingDate": "2010",
-  "founders": [
-    {
-      "@type": "Person",
-      "name": "Abdul Gafoor"
-    }
-  ],
   "publisher": {
     "@type": "Organization",
     "name": "Dubai Hikvision",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://dubai-hikvision.com/logo.svg"
+      "url": "https://dubai-hikvision.com/logo.svg",
+      "width": "300",
+      "height": "60"
     }
   },
   "breadcrumb": {
@@ -74,7 +88,6 @@ const structuredData = {
     ]
   }
 };
-
 ---
 
 <Layout 

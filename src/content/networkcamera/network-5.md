@@ -3,7 +3,7 @@ id: 5
 title: "DS-2CD2683G2-IZS"
 subTitle: "8 MP AcuSense Motorized Varifocal Bullet Camera"
 slug: "network-5"
-category: "Network Camera"
+category: "networkcamera"
 imgCard: "/src/assets/images/networkcamera/DS-2CD2683G2-IZS/DS-2CD2683G2-IZS-1.png"
 imgAlt: "DS-2CD2683G2-IZS"
 thumbnails: [

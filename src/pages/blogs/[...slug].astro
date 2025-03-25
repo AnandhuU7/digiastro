@@ -33,29 +33,33 @@ const structuredData = {
   "headline": entry.data.title,
   "description": entry.data.description,
   "url": `https://dubai-hikvision.com/blogs/${entry.slug}`,
-  "image": entry.data.cardImage.src,
+  "image": {
+    "@type": "ImageObject",
+    "url": `https://dubai-hikvision.com${entry.data.cardImage.src}`,
+    "caption": entry.data.title
+  },
   "datePublished": entry.data.publishDate,
   "author": {
-    "@type": "Organization",
-    "name": "Dubai Hikvision"
+    "@type": "Person", 
+    "name": entry.data.author 
   },
   "publisher": {
     "@type": "Organization",
     "name": "Dubai Hikvision",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://dubai-hikvision.com/logo.svg"
+      "url": "https://dubai-hikvision.com/logo.svg",
+      "width": 300,
+      "height": 60
     }
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "title": entry.data.title,
-    "description": entry.data.description,
+    "@id": `https://dubai-hikvision.com/blogs/${entry.slug}`
   },
-  "articleBody": entry.data.description,
+  "articleBody": entry.data.description, 
   "breadcrumb": {
     "@type": "BreadcrumbList",
-    "@id": "https://dubai-hikvision.com/#breadcrumb",
     "itemListElement": [
       {
         "@type": "ListItem",
@@ -255,7 +259,7 @@ const structuredData = {
                       {blog.data.title}
                     </h4>
                     <p class="text-sm text-gray-500 mt-1 line-clamp-2">
-                      {blog.data.description}
+                      {blog.data.intro}
                     </p>
                   </div>
                 </a>

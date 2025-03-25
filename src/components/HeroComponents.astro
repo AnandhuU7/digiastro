@@ -20,7 +20,6 @@ const metaData = {
     "DarkFighter Technology, TandemVu Technology, ColorVu Technology, AcuSense Technology, security cameras, surveillance systems, low-light imaging, AI detection, CCTV, video surveillance, Hikvision,Dubai Hikvision",
   ogImage: "https://dubai-hikvision.com/logo.svg",
   author: "Dubai Hikvision",
-  publishedDate: new Date().toISOString(),
 };
 
 const slides = [
@@ -86,50 +85,74 @@ const services = [
   },
 ];
 
-
 const schemaData = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: metaData.title,
-  description: metaData.description,
-  url: "https://dubai-hikvision.com",
-  datePublished: metaData.publishedDate,
-  author: {
-    "@type": "Organization",
-    name: metaData.author,
+  "name": metaData.title,
+  "description": metaData.description,
+  "url": "https://dubai-hikvision.com",
+  "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": slides[0].imgMain.src,
+    "width": 1920,
+    "height": 1080
   },
-  mainEntity: {
-    "@type": "ItemList",
-    itemListElement: services.map((service, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      item: {
-        "@type": "Product",
-        name: service.title,
-        description: service.description,
-        offers: {
-          "@type": "Offer",
-          availability: "https://schema.org/InStock",
-        },
-        brand: {
-          "@type": "Brand",
-          name: "Hikvision",
-        },
-      },
+  "image": [
+    ...slides.map(slide => ({
+      "@type": "ImageObject",
+      "url": slide.imgMain.src,
+      "width": 1920,
+      "height": 1080,
+      "name": slide.title
     })),
+    ...services.map(service => ({
+      "@type": "ImageObject",
+      "url": service.icon.src,
+      "width": 300,
+      "height": 300,
+      "name": service.title
+    }))
+  ],
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": services.map((service, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Product",
+        "name": service.title,
+        "description": service.description,
+        "image": {
+          "@type": "ImageObject",
+          "url": service.icon.src,
+          "width": 300,
+          "height": 300
+        },
+        "offers": {
+          "@type": "Offer",
+          "availability": "https://schema.org/InStock",
+          "priceCurrency": "AED"
+        },
+        "brand": {
+          "@type": "Brand",
+          "name": "Hikvision"
+        }
+      }
+    }))
   },
-  breadcrumb: {
+  "breadcrumb": {
     "@type": "BreadcrumbList",
-    itemListElement: [
+    "itemListElement": [
       {
         "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: "https://dubai-hikvision.com"
-      },
-    ],
-  },
+        "position": 1,
+        "name": "Home",
+        "item": "https://dubai-hikvision.com"
+      }
+    ]
+  }
 };
+
 ---
 
 <!-- Add SEO meta tags -->

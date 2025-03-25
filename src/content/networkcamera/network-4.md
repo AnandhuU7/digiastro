@@ -3,7 +3,7 @@ id: 4
 title: "DS-2CD2H23G2-IZS"
 slug: "network-4"
 subTitle: "2 MP AcuSense Motorized Varifocal Turret Camera"
-category: "Network Camera"
+category: "networkcamera"
 imgCard: "/src/assets/images/networkcamera/DS-2CD2H23G2-IZS/DS-2CD2H23G2-IZS-1.png"
 imgAlt: "DS-2CD2H23G2-IZS"
 thumbnails: [

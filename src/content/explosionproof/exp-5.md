@@ -3,7 +3,7 @@ id: 5
 title: "DS-2DF6C431-CX(T5/316L)"
 slug: "exp-5"
 subTitle:  "6-Inch 31× Explosion-Proof Network Speed Dome – High-Performance 4 MP Imaging"
-category: "Explosion Proof"
+category: "explosionproof"
 imgCard: "/src/assets/images/explosionproof/DS-2DF6C431-CX(T5316L)/DS-2DF6C431-CX(T5316L)-1.png"
 imgAlt: "DS-2DF6C431-CX(T5/316L)"
 thumbnails: [

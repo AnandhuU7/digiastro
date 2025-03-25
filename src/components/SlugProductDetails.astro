@@ -27,38 +27,97 @@ const {
   specifications,
 } = product.data as ProductData;
 
-// Generate meta description from subtitle and first feature
-const metaDescription = `${subTitle} ${features[0]}`;
+const allImages = [
+  {
+    src: imgCard.src,
+    alt: imgAlt
+  },
+  ...(thumbnails ? thumbnails.map(thumb => ({
+    src: thumb.src,
+    alt: `${imgAlt} thumbnail`
+  })) : [])
+];
 
-// Create schema.org structured data
+// Generate meta description
+const metaDescription = `${subTitle}. Key features: ${features.slice(0, 3).join(', ')}...`;
+
+// Enhanced Product Schema
 const productSchema = {
   "@context": "https://schema.org",
   "@type": "Product",
-  name: title,
-  description: subTitle,
-  category: category,
-  image: imgCard.src,
-  url: `https://dubai-hikvision.com/${category}/${product.slug}`,
-  offers: {
-    "@type": "Offer",
-    availability: "https://schema.org/InStock",
+  "@id": product.data.id,
+  "name": title,
+  "description": subTitle,
+  "url": `https://dubai-hikvision.com/${category}/${product.slug}`,
+  "brand": {
+    "@type": "Brand",
+    "name": "Hikvision"
   },
-  additionalProperty: features.map(feature => ({
-    "@type": "PropertyValue",
-    name: "Feature",
-    value: feature
+  "image": allImages.map(img => ({
+    "@type": "ImageObject",
+    "url": `https://dubai-hikvision.com${img.src}`,
+    "width": 800,
+    "height": 600,
+    "caption": `${img.alt} - ${title}`,
+    "representativeOfPage": img.src === imgCard.src
   })),
-  // Convert specifications to schema.org properties
-  ...Object.entries(specifications).reduce((acc: Record<string, string>, [category, specs]) => {
-    Object.entries(specs).forEach(([key, value]) => {
-      if (typeof value === 'string') {
-        acc[key] = value;
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "AED",
+    "price": 50,
+    "priceValidUntil": new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+    "itemCondition": "https://schema.org/NewCondition",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "Organization",
+      "name": "Dubai Hikvision",
+      "url": "https://dubai-hikvision.com"
+    }
+  },
+  "additionalProperty": [
+    ...features.map(feature => ({
+      "@type": "PropertyValue",
+      "name": "Feature",
+      "value": feature
+    })),
+    ...Object.entries(specifications).flatMap(([specCategory, specs]) => 
+      Object.entries(specs).map(([key, value]) => ({
+        "@type": "PropertyValue",
+        "name": `${specCategory} - ${key.replace(/_/g, ' ')}`,
+        "value": typeof value === 'string' ? value : JSON.stringify(value)
+      }))
+    )
+  ],
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://dubai-hikvision.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Products",
+        "item": "https://dubai-hikvision.com/productsnew"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": category,
+        "item": `https://dubai-hikvision.com/${category}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": title,
+        "item": `https://dubai-hikvision.com/${category}/${product.slug}`
       }
-    });
-    return acc;
-  }, {})
+    ]
+  }
 };
-
 // Ensure thumbnails is treated as an array
 const thumbnailsArray = thumbnails
   ? Array.isArray(thumbnails)
@@ -70,20 +129,24 @@ const thumbnailsArray = thumbnails
 <!-- Add SEO meta tags -->
 <head>
   <!-- Basic SEO -->
-  <title>{title} | {category}</title>
+  <title>{title} | {category} | Dubai Hikvision</title>
   <meta name="description" content={metaDescription} />
   
-  <!-- Open Graph -->
-  <meta property="og:title" content={title} />
+  <link rel="canonical" href={`https://dubai-hikvision.com/${category}/${product.slug}`} />
+  
+  <meta property="og:title" content={`${title} | ${category}`} />
   <meta property="og:description" content={metaDescription} />
-  <meta property="og:image" content={imgCard.src} />
-  <meta property="og:type" content="product" />
+  <meta property="og:image" content={`https://dubai-hikvision.com${imgCard.src}`} />
+  <meta property="og:image:alt" content={imgAlt} />
+  <meta property="og:type" content="product.item" />
+  <meta property="og:url" content={`https://dubai-hikvision.com/${category}/${product.slug}`} />
+  <meta property="product:price:currency" content="AED" />
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={title} />
+  <meta name="twitter:title" content={`${title} | ${category}`} />
   <meta name="twitter:description" content={metaDescription} />
-  <meta name="twitter:image" content={imgCard.src} />
+  <meta name="twitter:image" content={`https://dubai-hikvision.com${imgCard.src}`} />
   
   <!-- Schema.org structured data -->
   <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />

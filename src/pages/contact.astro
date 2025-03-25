@@ -8,37 +8,53 @@ const description = `Trusted Hikvision distributor in Dubai, UAE. Offering genui
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "ContactPage",
-  "name": "Dubai Hikvision - Contact Us",
-  "description": "Get in touch with Hikvision Dubai for sales, support, and inquiries. Visit our showroom or contact us via phone, email, or WhatsApp.",
+  "name": "Contact Hikvision Dubai - Sales & Support | Dubai & UAE Authorized Dealer",
+  "description": "Contact Dubai's leading Hikvision distributor for CCTV, security systems & smart solutions. Visit our showroom, call +971 55 292 9644, or WhatsApp for expert advice.",
   "url": "https://dubai-hikvision.com/contact",
   "mainEntity": {
     "@type": "Organization",
-    "name": "Dubai Hikvision",
-    "title": "Contact us for more information hikvision dubai,uae",
-    "logo": "https://dubai-hikvision.com/logo.svg",  
+    "name": "Dubai Hikvision - Authorized Hikvision Distributor",
+    "url": "https://dubai-hikvision.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dubai-hikvision.com/logo.svg",
+      "width": 300,
+      "height": 60
+    },
     "contactPoint": [
       {
         "@type": "ContactPoint",
-        "contactType": "Sales",
-        "telephone": "+971 55 292 9644",
+        "contactType": "sales",
+        "telephone": "+971552929644",
         "email": "sales@lovosis.com",
-        "availableLanguage": ["English", "Arabic"]
+        "areaServed": ["UAE", "Dubai", "SA", "QA", "OM", "KW", "BH"],
+        "availableLanguage": ["English","Arabic"]
+      },
+      {
+        "@type": "ContactPoint",
+        "contactType": "technical support",
+        "telephone": "+971552929644",
+        "hoursAvailable": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Mo","Tu","We","Th","Fr"],
+          "opens": "08:00",
+          "closes": "18:00"
+        }
       }
     ],
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "25th St, Naif - Dubai - United Arab Emirates",
+      "streetAddress": "25th St, Naif, Dubai",
       "addressLocality": "Dubai",
-      "addressCountry": "AE",
-      "addressRegion": "Dubai, United Arab Emirates",
-      "postalCode": "123421"
+      "addressRegion": "Dubai",
+      "postalCode": "123421",
+      "addressCountry": "UAE"
     },
     "geo": {
       "@type": "GeoCoordinates",
       "latitude": "25.276987",
       "longitude": "55.296249"
-    },
-    "openingHours": "Mo-Su 09:00-20:00"
+    }
   },
   "breadcrumb": {
     "@type": "BreadcrumbList",
@@ -56,10 +72,22 @@ const structuredData = {
         "position": 2,
         "item": {
           "@id": "https://dubai-hikvision.com/contact",
-          "name": "Contact"
+          "name": "Contact Us"
         }
       }
     ]
+  },
+  "potentialAction": {
+    "@type": "CommunicateAction",
+    "name": "Contact via WhatsApp",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://wa.me/971552929644",
+      "actionPlatform": [
+        "http://schema.org/DesktopWebPlatform",
+        "http://schema.org/MobileWebPlatform"
+      ]
+    }
   },
   "faq": {
     "@type": "FAQPage",

@@ -3,7 +3,7 @@ id: 1
 title: "DS-2CD2786G2H-IPTRZS"
 slug: "network-1"
 subTitle: "8 MP AcuSense PTRZ Varifocal Dome Network Camera"
-category: "Network Camera"
+category: "networkcamera"
 imgCard: "/src/assets/images/networkcamera/DS-2CD2786G2H-IPTRZS/DS-2CD2786G2H-IPTRZS-1.png"
 imgAlt: "DS-2CD2786G2H-IPTRZS"
 thumbnails: [

@@ -14,12 +14,34 @@ const featureKeywords = feature.map(f => f.data.name).join(", ");
 const featureDescriptions = feature.map(f => f.data.body).join(" ");
 const seoKeywords = `Hikvision, Security Solutions, ${featureKeywords}, Surveillance, CCTV, Access Control`;
 const seoDescription = `${description} ${featureDescriptions}`;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Hikvision Security Solutions",
+  "description": seoDescription,
+  "brand": { "@type": "Brand", "name": "Hikvision" },
+  "image": "https://dubai-hikvision.com/logo.svg",
+  "additionalProperty": [
+    {
+      "@type": "PropertyValue",
+      "name": "Installation",
+      "value": "Professional setup by certified technicians"
+    },
+    ...feature.map(f => ({
+      "@type": "PropertyValue",
+      "name": f.data.name,
+      "value": f.data.body
+    }))
+  ]
+}
 ---
 
 <!-- Add SEO meta tags -->
 <head>
   <title>{title}</title>
-  <meta name="description" content={title} />
+
+  <meta name="description" content={seoDescription} />
   <meta name="keywords" content={seoKeywords} />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href={canonicalURL} />
@@ -37,48 +59,10 @@ const seoDescription = `${description} ${featureDescriptions}`;
   <meta name="twitter:description" content={seoDescription} />
   <meta name="twitter:image" content="https://dubai-hikvision.com/logo.svg" />
   
-  <!-- Schema.org structured data -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "Hikvision Security Solutions",
-      "description": "{seoDescription}",
-      "brand": {
-        "@type": "Brand",
-        "name": "Hikvision"
-      },
-      "offers": {
-        "@type": "AggregateOffer",
-        "priceCurrency": "AED",
-        "availability": "https://schema.org/InStock"
-      },
-      "image": "https://dubai-hikvision.com/logo.svg",     
-      "additionalProperty": [
-        {
-          "@type": "PropertyValue",
-          "name": "Expert Installation",
-          "value": "Professional setup and configuration by certified technicians"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Support",
-          "value": "24/7 technical assistance and monitoring"
-        },
-        {
-          "@type": "PropertyValue",
-          "name": "Warranty",
-          "value": "Comprehensive warranty and maintenance plans"
-        },
-        ...feature.map(f => ({
-          "@type": "PropertyValue",
-          "name": f.data.name,
-          "value": f.data.body
-        }))
-      ]
-    }
-  </script>
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 </head>
+
+
 <section class="relative">
   <div class="container relative pt-10" style="background-color: #f1f7ff;">
     <div class="grid grid-cols-1 pb-5 text-center">
@@ -133,8 +117,9 @@ const seoDescription = `${description} ${featureDescriptions}`;
       </div>
     </div>
   </div>
-  <div class="relative">
-    <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-6 pt-6 p-2 pb-20 mobile-feature-carousel" style="background-color: #f1f7ff;">
+  <div class="relative" style="background-color: #f1f7ff;">
+    <!-- Feature Cards Section with flip-flop for all screen sizes -->
+    <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-6 pt-6 p-2 pb-4 mobile-feature-carousel" style="background-color: #f1f7ff;">
       {feature.map((feature, index) => (
         <div 
           class="group perspective h-[400px] w-full cursor-pointer feature-card" 
@@ -166,18 +151,26 @@ const seoDescription = `${description} ${featureDescriptions}`;
         </div>
       ))}
     </div>
-    <div class="mobile-navigation-buttons absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-4">
-      <button id="prevButton" class="bg-white text-gray-700 flex items-center justify-center rounded-xl shadow-md hover:shadow-lg transition-all duration-300" style="width: 44px; height: 44px; background: white; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="stroke: #06adcc; stroke-width: 2;">
+    
+    <!-- Mobile Navigation Buttons -->
+    <div class="mobile-navigation-buttons flex justify-center items-center mt-6 md:hidden">
+      <button id="prevButton" class="bg-white text-gray-700 flex items-center justify-center rounded-xl shadow-md hover:shadow-lg transition-all duration-300 w-11 h-11 mr-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="#06adcc" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
         </svg>
       </button>
-      <button id="nextButton" class="bg-white text-gray-700 flex items-center justify-center rounded-xl shadow-md hover:shadow-lg transition-all duration-300" style="width: 44px; height: 44px; background: white; box-shadow: 0 5px 15px rgba(0,0,0,0.08);">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="stroke: #06adcc; stroke-width: 2;">
+      <div class="carousel-indicators flex space-x-2">
+        {feature.map((_, index) => (
+          <div class="carousel-indicator w-2 h-2 rounded-full bg-gray-300 transition-colors duration-300" data-index={index}></div>
+        ))}
+      </div>
+      <button id="nextButton" class="bg-white text-gray-700 flex items-center justify-center rounded-xl shadow-md hover:shadow-lg transition-all duration-300 w-11 h-11 ml-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="#06adcc" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
         </svg>
       </button>
     </div>
+  </div>
 </section>
 
 <style>
@@ -185,102 +178,138 @@ const seoDescription = `${description} ${featureDescriptions}`;
   .preserve-3d { transform-style: preserve-3d; }
   .backface-hidden { backface-visibility: hidden; }
   .flip { transform: rotateY(180deg); }
-
-  /* Hide navigation buttons on larger screens */
-  .mobile-navigation-buttons {
-    display: none;
+  
+  /* Active indicator styling */
+  .carousel-indicator.active {
+    background-color: #06adcc;
+    width: 0.75rem;
   }
-
-  /* Show navigation buttons only on mobile screens */
+  
+  /* Hide all cards except the current one on mobile */
   @media (max-width: 767px) {
-    .mobile-navigation-buttons {
-      display: flex;
-    }
-
-    /* Hide all cards except the first one on mobile */
     .feature-card {
       display: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
     }
-
-    .feature-card[data-index="0"] {
+    
+    .feature-card.active {
       display: block;
-    }
-  }
-.mobile-navigation-buttons {
-  margin-top: 20px;
-  bottom: -5px; 
-}
-
-/* Add more space at the bottom of the card container */
-.mobile-feature-carousel {
-  padding-bottom: 3rem !important; 
-}
-
-  @media (min-width: 768px) {
-    .feature-card {
-      display: block !important; /* Override any inline styles */
+      opacity: 1;
     }
   }
 </style>
 
 <script>
-  // Flip-flop functionality for larger screens
-  if (window.innerWidth > 767) { // Only apply this logic on screens larger than mobile
-    document.querySelectorAll('.group').forEach(card => {
-      card.addEventListener('click', () => {
-        const relativeElement = card.querySelector('.relative');
-        if (relativeElement) {
-          relativeElement.classList.toggle('flip');
-        }
-      });
-    });
-  }
-
-  // Mobile card navigation logic
-  let currentCardIndex = 0;
-  const cards = document.querySelectorAll('.feature-card');
-  const totalCards = cards.length;
-
-  const updateCardVisibility = () => {
-    if (window.innerWidth <= 767) { // Only apply this logic on mobile screens
-      cards.forEach((card, index) => {
-        (card as HTMLElement).style.display = index === currentCardIndex ? 'block' : 'none';
+  document.addEventListener('DOMContentLoaded', () => {
+    // Get all feature cards and navigation elements
+    const cards = document.querySelectorAll('.feature-card');
+    const indicators = document.querySelectorAll('.carousel-indicator');
+    const prevButton = document.getElementById('prevButton');
+    const nextButton = document.getElementById('nextButton');
+    const totalCards = cards.length;
+    let currentCardIndex = 0;
+    
+    // Function to toggle card visibility on mobile
+    const updateCardVisibility = () => {
+      if (window.innerWidth <= 767) {
+        // First hide all cards
+        cards.forEach((card, index) => {
+          card.classList.remove('active');
+        });
+        
+        // Show only the current card
+        cards[currentCardIndex].classList.add('active');
+        
+        // Update indicators
+        indicators.forEach((indicator, index) => {
+          if (index === currentCardIndex) {
+            indicator.classList.add('active');
+          } else {
+            indicator.classList.remove('active');
+          }
+        });
+      } else {
+        cards.forEach(card => {
+          card.classList.add('active');
+        });
+      }
+    };
+    
+    if (window.innerWidth <= 767) {
+      cards[0].classList.add('active');
+      indicators[0].classList.add('active');
+    } else {
+      cards.forEach(card => {
+        card.classList.add('active');
       });
     }
-  };
-
-  const prevButton = document.getElementById('prevButton');
-  const nextButton = document.getElementById('nextButton');
-
-  if (prevButton && nextButton) { // Check if buttons exist
-    prevButton.addEventListener('click', () => {
-      currentCardIndex = (currentCardIndex - 1 + totalCards) % totalCards;
-      updateCardVisibility();
-    });
-
-    nextButton.addEventListener('click', () => {
-      currentCardIndex = (currentCardIndex + 1) % totalCards;
-      updateCardVisibility();
-    });
-  }
-
-  // Initial visibility update
-  updateCardVisibility();
-
-  // Update visibility on window resize
-  window.addEventListener('resize', () => {
-    updateCardVisibility();
-
-    // Reapply flip-flop logic if screen size changes
-    if (window.innerWidth > 767) {
-      document.querySelectorAll('.group').forEach(card => {
-        card.addEventListener('click', () => {
+    cards.forEach(card => {
+      card.addEventListener('click', (e) => {
+        const targetElement = e.target as Element;
+        if (targetElement && targetElement.closest('button') === null) {
           const relativeElement = card.querySelector('.relative');
           if (relativeElement) {
             relativeElement.classList.toggle('flip');
           }
-        });
+        }
+      });
+    });
+    
+    // Navigation for mobile
+    if (prevButton) {
+      prevButton.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent card flipping when clicking navigation
+        currentCardIndex = (currentCardIndex - 1 + totalCards) % totalCards;
+        updateCardVisibility();
       });
     }
+    
+    if (nextButton) {
+      nextButton.addEventListener('click', (e) => {
+        e.stopPropagation(); 
+        currentCardIndex = (currentCardIndex + 1) % totalCards;
+        updateCardVisibility();
+      });
+    }
+    
+
+    indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', (e) => {
+        e.stopPropagation(); 
+        currentCardIndex = index;
+        updateCardVisibility();
+      });
+    });
+    
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    document.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+    
+    document.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    });
+    
+    function handleSwipe() {
+      if (window.innerWidth <= 767) {
+        const swipeThreshold = 50;
+        if (touchEndX < touchStartX - swipeThreshold) {
+          currentCardIndex = (currentCardIndex + 1) % totalCards;
+          updateCardVisibility();
+        } else if (touchEndX > touchStartX + swipeThreshold) {
+          currentCardIndex = (currentCardIndex - 1 + totalCards) % totalCards;
+          updateCardVisibility();
+        }
+      }
+    }
+    
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      updateCardVisibility();
+    });
   });
 </script>

@@ -39,9 +39,21 @@ const title = "Dubai Hikvision Security Products FAQ";
 const description = "Find answers to frequently asked questions about Hikvision security products, including purchasing, authenticity, installation, and technical support in UAE.";
 const keywords = "Hikvision UAE, Hikvision products, Hikvision distributor, security cameras UAE, buy Hikvision UAE, CCTV Dubai,Dubai Hikvision";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.heading,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.content
+      }
+    }))
+}
 ---
 
-<!-- Add SEO meta tags -->
 <head>
   <title>{title}</title>
   <meta name="description" content={description} />
@@ -57,23 +69,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <meta property="og:image" content="https://dubai-hikvision.com/logo.svg" />
 
   <!-- Schema.org structured data -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {faqs.map(faq => ({
-          "@type": "Question",
-          "name": faq.heading,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": faq.content
-          }
-        }))}
-      ]
-    }
-  </script>
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 </head>
+
 <section class="pb-20 pt-10 bg-gradient-to-b from-blue-50 to-white pt-8">
   <div class="container mx-auto max-w-6xl px-4">
     <div class="text-center mb-6">

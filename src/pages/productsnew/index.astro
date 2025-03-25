@@ -90,61 +90,65 @@ const products = [
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  name: title,
-  description: description,
-  url: "https://dubai-hikvision.com/productsnew",
-  mainEntity: {
+  "name": title,
+  "description": description,
+  "url": "https://dubai-hikvision.com/productsnew",
+  "image": products.map(p => ({
+    "@type": "ImageObject",
+    "contentUrl": "https://dubai-hikvision.com" + p.image.src,
+    "creditText": "Hikvision " + p.title,
+    "creator": {
+      "@type": "Organization",
+      "name": "Hikvision"
+    }
+  })),
+  "mainEntity": {
     "@type": "ItemList",
-    name: "Hikvision Security Products",
-    description: description,
-    numberOfItems: products.length,
-    itemListElement: products.map((product, index) => ({
+    "name": "Hikvision Security Products",
+    "description": description,
+    "numberOfItems": products.length,
+    "itemListElement": products.map((product, index) => ({
       "@type": "ListItem",
-      position: index + 1,
-      item: {
+      "position": index + 1,
+      "item": {
         "@type": "Product",
-        name: product.title,
-        description: product.description,
-        image: product.image.src,
-        brand: {
+        "name": product.title,
+        "description": product.description,
+        "url": "https://dubai-hikvision.com" + product.link, 
+        "brand": {
           "@type": "Brand",
-          name: "Hikvision"
+          "name": "Hikvision"
         },
-        offers: {
+        "offers": {
           "@type": "Offer",
-          availability: "https://schema.org/InStock",
-          price: 100,
-          priceCurrency: "AED",
-          seller: {
+          "url": "https://dubai-hikvision.com" + product.link, 
+          "priceCurrency": "AED",
+          "price": 100, 
+          "availability": "https://schema.org/InStock",
+          "seller": {
             "@type": "Organization",
-            name: "Dubai Hikvision"
+            "name": "Dubai Hikvision"
           }
         }
       }
     }))
   },
-  organization: {
+  "publisher": {
     "@type": "Organization",
-    name: "Dubai Hikvision",
-    url: "https://dubai-hikvision.com",
-    logo: "https://dubai-hikvision.com/logo.svg",
+    "name": "Dubai Hikvision",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dubai-hikvision.com/logo.svg"
+    }
   },
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "25th St, Naif - Dubai - United Arab Emirates",
-    addressLocality: "Dubai",
-    addressCountry: "AE",
-    addressRegion: "Dubai, United Arab Emirates",
-    postalCode: "123421"
-  },
-  breadcrumb: {
+  "breadcrumb": {
     "@type": "BreadcrumbList",
     "@id": "https://dubai-hikvision.com/#breadcrumb",
-    itemListElement: [
+    "itemListElement": [
       {
         "@type": "ListItem",
-        position: 1,
-        item: {
+        "position": 1,
+        "item": {
           "@id": "https://dubai-hikvision.com",
           "name": "Home"
         }

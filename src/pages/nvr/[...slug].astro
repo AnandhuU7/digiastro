@@ -18,56 +18,44 @@ const { product } = Astro.props;
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Product",
-  name: product.data.title,
-  description: product.data.subTitle,
-  category: product.data.category,
-  url: `https://dubai-hikvision.com/nvr/${product.data.slug}`,
-  image: product.data.imgCard.src,
-  title: `${product.data.title} | Dubai Hikvision`,
-  // keywords: `${product.data.title}, ${product.data.subTitle}, ${product.data.category}, Hikvision Dubai, Hikvision Security Products, Hikvision Network Cameras, Hikvision NVR Systems, Hikvision PTZ Cameras, Hikvision CCTV Cameras, Hikvision Webcams, Hikvision Dubai Distributor, Hikvision Security Solutions, Hikvision Surveillance Equipment, Hikvision Dubai Security Systems, Hikvision Distributor Dubai, hikvision cctv in dubai, hikvision cctv in uae, hikvision cctv camera price in dubai, hikvision ip camera, hikvision dvr 4 channel, hikvision dvr 8 channel, hikvision wifi camera, hikvision ptz camera`,
-  openGraph: {
-    basic: {
-      title: product.data.title,
-      type: "product",
-      image: product.data.imgCard.src,
-    },
-    optional: {
-      description: product.data.subTitle,
-      locale: "en_DUBAI",
-      siteName: "Dubai Hikvision",
-    },
-    image: {
-      alt: product.data.title,
+  "name": product.data.title,
+  "description": product.data.subTitle,
+  "title": `${product.data.title} | Dubai Hikvision`,
+  "url": `https://dubai-hikvision.com/nvr/${product.slug}`,
+  "category": "nvr",
+  "image": {
+    "@type": "ImageObject",
+    "url": `https://dubai-hikvision.com${product.data.imgCard.src}`,
+    "width": 300,
+    "height": 300,
+    "caption": `${product.data.title} - Hikvision Network Camera`
+  },
+  "brand": {
+    "@type": "Brand",
+    "name": "Hikvision",
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": 50,
+    "priceCurrency": "AED",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
+    "seller": {
+      "@type": "Organization",
+      "name": "Dubai Hikvision",
+      "url": "https://dubai-hikvision.com",
+      "logo": "https://dubai-hikvision.com/logo.svg"
     }
   },
-  brand: {
-    "@type": "Brand",
-    name: "Hikvision",
-  },
-  offers: {
-    "@type": "Offer",
-    price: 100,
-    priceCurrency: "AED",
-    availability: "https://schema.org/InStock",
-  },
-  aggregateRating: product.data.rating && product.data.reviewCount
-    ? {
-        "@type": "AggregateRating",
-        ratingValue: product.data.rating.toFixed(1),
-        reviewCount: product.data.reviewCount,
-      }
-    : undefined,
-  manufacturer: {
-    "@type": "Organization",
-    name: "Dubai Hikvision",
-  },
-  categoryHierarchy: [
-    { "@type": "Thing", name: "Products" },
-    { "@type": "Thing", name: "NVR" },
-  ],
-  breadcrumb: {
+  "aggregateRating": product.data.rating && product.data.reviewCount ? {
+    "@type": "AggregateRating",
+    "ratingValue": product.data.rating.toFixed(1),
+    "reviewCount": product.data.reviewCount,
+    "bestRating": "5",
+    "worstRating": "1"
+  } : undefined,
+  "breadcrumb": {
     "@type": "BreadcrumbList",
-    "@id": "https://dubai-hikvision.com/#breadcrumb",
     "itemListElement": [
       {
         "@type": "ListItem",
@@ -97,20 +85,18 @@ const structuredData = {
         "@type": "ListItem",
         "position": 4,
         "item": {
-          "@id": `https://dubai-hikvision.com/nvr/${product.data.slug}`,
+          "@id": `https://dubai-hikvision.com/nvr/${product.slug}`,
           "name": product.data.title
         }
       }
     ]
-  },
+  }
 };
-
 ---
 
 <Layout 
   title={structuredData.title} 
   description={structuredData.description}
-  openGraph={structuredData.openGraph}
   structuredData={structuredData}
 >
   <SlugProductDetails product={product} />

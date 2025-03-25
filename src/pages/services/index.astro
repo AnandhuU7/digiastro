@@ -44,38 +44,48 @@ const services = [
 // Structured Data for Services
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "Our Services",
-  "description": "Explore our comprehensive range of security solutions, including CCTV installation, surveillance systems, remote monitoring, and more.",
+  "@type": "WebPage",
+  "name": "Security Services | Dubai Hikvision",
+  "description": "Professional security system installation, monitoring and maintenance services in Dubai and UAE",
   "url": "https://dubai-hikvision.com/services",
-  "itemListElement": services.map((service, index) => ({
-    "@type": "ListItem",
-    "position": index + 1,
-    "item": {
-      "@type": "Service",
-      "name": service.title,
-      "description": service.description,
-      "provider": {
-        "@type": "Organization",
-        "name": "Dubai Hikvision",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://dubai-hikvision.com/logo.svg"
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Dubai Hikvision",
+    "image": "https://dubai-hikvision.com/logo.svg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "25th St, Naif",
+      "addressLocality": "Dubai",
+      "addressRegion": "Dubai",
+      "postalCode": "123421",
+      "addressCountry": "AE"
+    },
+    "telephone": "+971 55 292 9644",
+    "openingHours": "Mo-Fr 08:00-18:00",
+    "areaServed": ["Dubai", "UAE"]
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "name": "Our Security Services",
+    "description": "Comprehensive security solutions including CCTV installation, surveillance systems and smart home integration",
+    "numberOfItems": services.length,
+    "itemListElement": services.map((service, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": "Service",
+        "@id": `https://dubai-hikvision.com/services#${service.icon}`,
+        "name": service.title,
+        "description": service.description,
+        "serviceType": service.title,
+        "provider": {
+          "@id": "#DubaiHikvision"
         }
       }
-    }
-  })),
-  "publisher": {
-    "@type": "Organization",
-    "name": "Dubai Hikvision",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://dubai-hikvision.com/logo.svg"
-    }
+    }))
   },
   "breadcrumb": {
     "@type": "BreadcrumbList",
-    "@id": "https://dubai-hikvision.com/#breadcrumb",
     "itemListElement": [
       {
         "@type": "ListItem",

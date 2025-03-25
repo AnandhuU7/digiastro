@@ -3,7 +3,7 @@ id: 3
 title: "DS-2DE2C400MWG/W"
 slug: "ptz-3"
 subTitle: "4 MP Fixed Outdoor Smart Hybrid-light WiFi PT Network Camera"
-category: "PTZ Camera"
+category: "ptzcamera"
 imgCard: "/src/assets/images/ptzcamera/DS-2DE2C400MWGW/DS-2DE2C400MWGW-1.png"
 imgAlt: "DS-2DE2C400MWG/W"
 thumbnails: [
