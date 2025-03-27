@@ -86,30 +86,15 @@ const structuredData = {
 };
 ---
 
-<!-- Add SEO meta tags -->
-<head>
-  <title>{title}</title>
-  <meta name="description" content={description} />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href={canonicalURL} />
-  
-  <!-- Open Graph / Social Media Meta Tags -->
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
-  <meta property="og:type" content="product" />
-  <meta property="og:url" content={canonicalURL} />
-  <meta property="og:image" content={product.data.imgCard.src} />
-
-  <!-- Schema.org structured data -->
   <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-</head>
+
 
 
 <div class="group">
   <div class="product-card bg-white rounded-lg overflow-hidden shadow-lg group-hover:shadow-2xl transform transition-all duration-300 border border-gray-100 group-hover:border-[#32869f] group-hover:-translate-y-2">
     <div class="relative overflow-hidden">
       <!-- Product Image -->
-      <div class="h-64 bg-gray-50 flex items-center justify-center p-4 relative">
+      <div class="h-64 bg-white flex items-center justify-center p-4 relative">
         <img 
           class="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105" 
           src={product.data.imgCard.src} 

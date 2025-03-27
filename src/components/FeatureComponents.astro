@@ -36,37 +36,15 @@ const structuredData = {
   ]
 }
 ---
-
-<!-- Add SEO meta tags -->
-<head>
-  <title>{title}</title>
-
-  <meta name="description" content={seoDescription} />
-  <meta name="keywords" content={seoKeywords} />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href={canonicalURL} />
-  
-  <!-- Open Graph / Social Media Meta Tags -->
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={seoDescription} />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content={canonicalURL} />
-  <meta property="og:image" content="https://dubai-hikvision.com/logo.svg" />
-  
-  <!-- Twitter Card Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={title} />
-  <meta name="twitter:description" content={seoDescription} />
-  <meta name="twitter:image" content="https://dubai-hikvision.com/logo.svg" />
   
 <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-</head>
 
 
-<section class="relative">
-  <div class="container relative pt-10" style="background-color: #f1f7ff;">
-    <div class="grid grid-cols-1 pb-5 text-center">
-      <span class="bg-cyan-50 text-cyan-600 text-sm font-medium px-4 py-1 rounded-full mb-4 inline-block mx-auto">
+
+<section class="relative" style="background-color: #f1f7ff;">
+  <div class="container mx-auto px-4 max-w-7xl pt-10">
+    <div class="text-center pb-5">
+      <span class="bg-cyan-50 text-cyan-600 text-sm font-medium px-4 py-1 rounded-full mb-4 inline-block">
         Premium Security Solutions
       </span>
       
@@ -75,11 +53,12 @@ const structuredData = {
         <span class="text-cyan-600 block mt-2">Securing Your Future</span>
       </h2>
       
-      <p class="text-slate-600 text-base md:text-lg max-w-3xl mx-auto leading-relaxed px-4 md:px-0">
+      <p class="text-slate-600 text-base md:text-lg  max-w-3xl mx-auto leading-relaxed px-4 md:px-0">
         We provide great pricing on all Hikvision products, so you can get your hands on top-notch security technology without breaking the bank. With us, you'll find the best bang for your buck, all while ensuring you don't skimp on quality or performance. Our extensive selection features state-of-the-art surveillance cameras, smart security systems, and cutting-edge access control solutions.
       </p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8 max-w-4xl mx-auto text-left px-8">
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border-l-4 border-cyan-500 max-w-xs mx-auto sm:mx-0 w-full">
+  
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-8 max-w-5xl mx-auto px-4">
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border-l-4 border-cyan-500">
           <h3 class="font-semibold text-slate-900 mb-2 flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-600 mr-2" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
@@ -88,7 +67,7 @@ const structuredData = {
           </h3>
           <p class="text-slate-600">Professional setup and configuration by certified technicians</p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border-l-4 border-cyan-500 max-w-xs mx-auto sm:mx-0 w-full">
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border-l-4 border-cyan-500">
           <h3 class="font-semibold text-slate-900 mb-2 flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-600 mr-2" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
@@ -97,7 +76,7 @@ const structuredData = {
           </h3>
           <p class="text-slate-600">Round-the-clock technical assistance and monitoring</p>
         </div>
-        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border-l-4 border-cyan-500 max-w-xs mx-auto sm:mx-0 w-full">
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 border-l-4 border-cyan-500">
           <h3 class="font-semibold text-slate-900 mb-2 flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-cyan-600 mr-2" viewBox="0 0 20 20" fill="currentColor">
               <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
@@ -107,6 +86,7 @@ const structuredData = {
           <p class="text-slate-600">Comprehensive warranty and maintenance plans</p>
         </div>
       </div>  
+  
       <div class="mt-10">
         <a href="/productsnew" class="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-gradient-to-r from-cyan-600 to-cyan-500 hover:from-cyan-500 hover:to-cyan-400 rounded-lg transition duration-300 ease-in-out transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
           Explore Products
@@ -117,7 +97,7 @@ const structuredData = {
       </div>
     </div>
   </div>
-  <div class="relative" style="background-color: #f1f7ff;">
+  <div class="relative">
     <!-- Feature Cards Section with flip-flop for all screen sizes -->
     <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-2 grid-cols-1 gap-6 pt-6 p-2 pb-4 mobile-feature-carousel" style="background-color: #f1f7ff;">
       {feature.map((feature, index) => (
@@ -196,6 +176,12 @@ const structuredData = {
     .feature-card.active {
       display: block;
       opacity: 1;
+    }
+  }
+  @media (max-width: 640px) {
+    .container {
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
   }
 </style>

@@ -53,24 +53,8 @@ const structuredData = {
     }))
 }
 ---
-
-<head>
-  <title>{title}</title>
-  <meta name="description" content={description} />
-  <meta name="keywords" content={keywords} />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href={canonicalURL} />
-  
-  <!-- Open Graph / Social Media Meta Tags -->
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content={canonicalURL} />
-  <meta property="og:image" content="https://dubai-hikvision.com/logo.svg" />
-
-  <!-- Schema.org structured data -->
   <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-</head>
+
 
 <section class="pb-20 pt-10 bg-gradient-to-b from-blue-50 to-white pt-8">
   <div class="container mx-auto max-w-6xl px-4">

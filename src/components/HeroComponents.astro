@@ -154,38 +154,7 @@ const schemaData = {
 };
 
 ---
-
-<!-- Add SEO meta tags -->
-<head>
-  <title>{metaData.title}</title>
-  <meta name="description" content={metaData.description} />
-  <meta name="keywords" content={metaData.keywords} />
-  <meta name="author" content={metaData.author} />
-  <meta name="robots" content="index, follow" />
-  <meta name="googlebot" content="index, follow" />
-  <meta name="revisit-after" content="7 days" />
-
-  <!-- Canonical URL -->
-  <link rel="canonical" href={Astro.url.href} />
-
-  <!-- Open Graph tags -->
-  <meta property="og:title" content={metaData.title} />
-  <meta property="og:description" content={metaData.description} />
-  <meta property="og:image" content={metaData.ogImage} />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content={Astro.url.href} />
-  <meta property="og:site_name" content={metaData.author} />
-
-  <!-- Twitter Card tags -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={metaData.title} />
-  <meta name="twitter:description" content={metaData.description} />
-  <meta name="twitter:image" content={metaData.ogImage} />
-  <meta name="twitter:site" content="@DubaiHikvision" />
-
-  <!-- Schema.org structured data -->
-  <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
-</head>
+<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
 <div class="relative">
   <!-- Banner Section -->
   <div class="group relative w-full h-[300px] md:h-[430px] overflow-hidden">

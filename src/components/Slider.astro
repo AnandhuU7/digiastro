@@ -10,29 +10,7 @@ const doubledSliders = [...sliders, ...sliders];
 const title = "Hikvision Security Products";
 const description = "Browse our comprehensive collection of Hikvision security products. View our latest surveillance cameras, smart security systems, and innovative access control solutions.";
 const canonicalURL = "https://dubai-hikvision.com";
----
-
-<!-- Add SEO meta tags -->
-<head>
-  <title>{title}</title>
-  <meta name="description" content={description} />
-  <meta name="robots" content="index, follow" />
-  <link rel="canonical" href={canonicalURL} />
-  
-  <!-- Open Graph / Social Media Meta Tags -->
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content={canonicalURL} />
-  <meta property="og:image" content={sliders[0]?.data.slider} />
-
-  <!-- Twitter Card Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={title} />
-  <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content={sliders[0]?.data.slider} />
-
-  <!-- Schema.org structured data -->
+--- 
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -60,7 +38,6 @@ const canonicalURL = "https://dubai-hikvision.com";
       ]
     }
   </script>
-</head>
 
 
 <div class="relative w-full overflow-hidden rounded-xl bg-[#f1f7ff] pt-10">
