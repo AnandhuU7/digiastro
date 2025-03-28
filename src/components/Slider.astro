@@ -15,6 +15,7 @@ const structuredData = {
     "item": {
       "@type": "Product",
       "name": slider.data.sliderAlt,
+      "description": slider.data.description,
       "image": {
         "@type": "ImageObject",
         "url": "https://dubai-hikvision.com" + slider.data.slider,
@@ -22,18 +23,17 @@ const structuredData = {
         "width": 800,
         "caption": slider.data.sliderAlt
       },
-      "description": slider.data.description,
       "brand": {
         "@type": "Brand",
         "name": "Hikvision"
       },
       "aggregateRating": slider.data.rating && slider.data.reviewCount ? {
-    "@type": "AggregateRating",
-    "ratingValue": slider.data.rating.toFixed(1),
-    "reviewCount": slider.data.reviewCount,
-    "bestRating": 5,
-    "worstRating": 1
-  } : undefined,
+        "@type": "AggregateRating",
+        "ratingValue": slider.data.rating.toFixed(1),
+        "reviewCount": slider.data.reviewCount,
+        "bestRating": 5,
+        "worstRating": 1
+      } : undefined,
       "category": "Security Products",
       "offers": {
         "@type": "Offer",
