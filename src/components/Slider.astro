@@ -1,9 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
 
-// Fetch slider data at build time in Astro
+
 const sliders = await getCollection("slider");
-// Duplicate the sliders for the infinite effect
+
 const doubledSliders = [...sliders, ...sliders];
 
 const structuredData = {
