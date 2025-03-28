@@ -82,8 +82,8 @@ const productSchema = {
     "@type": "AggregateRating",
     "ratingValue": product.data.rating.toFixed(1),
     "reviewCount": product.data.reviewCount,
-    "bestRating": "5",
-    "worstRating": "1"
+    "bestRating": 5,
+    "worstRating": 1
   } : undefined,
   "additionalProperty": [
     ...features.map(feature => ({
@@ -136,33 +136,7 @@ const thumbnailsArray = thumbnails
     : [thumbnails]
   : [];
 ---
-
-<!-- Add SEO meta tags -->
-<head>
-  <!-- Basic SEO -->
-  <title>{title} | {category} | Dubai Hikvision</title>
-  <meta name="description" content={metaDescription} />
-  
-  <link rel="canonical" href={`https://dubai-hikvision.com/${category}/${product.slug}`} />
-  
-  <meta property="og:title" content={`${title} | ${category}`} />
-  <meta property="og:description" content={metaDescription} />
-  <meta property="og:image" content={`https://dubai-hikvision.com${imgCard.src}`} />
-  <meta property="og:image:alt" content={imgAlt} />
-  <meta property="og:type" content="product.item" />
-  <meta property="og:url" content={`https://dubai-hikvision.com/${category}/${product.slug}`} />
-  <meta property="product:price:currency" content="AED" />
-  
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={`${title} | ${category}`} />
-  <meta name="twitter:description" content={metaDescription} />
-  <meta name="twitter:image" content={`https://dubai-hikvision.com${imgCard.src}`} />
-  
-  <!-- Schema.org structured data -->
   <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
-</head>
-
 <main class="container mx-auto px-4 py-4 sm:py-8">
   <div class="product-container max-w-6xl mx-auto">
     <!-- Product Header -->
