@@ -1,8 +1,6 @@
 ---
 const { product, category } = Astro.props;
 
-const title = `${product.data.title} | Hikvision Security Products`;
-const description = product.data.description || `High-quality Hikvision ${product.data.title} available in Dubai. Professional security solution with expert installation and support.`;
 const canonicalURL = new URL(`/${category}/${product.slug}`, Astro.site);
 
 const rating = product.data.rating;
@@ -25,7 +23,9 @@ const structuredData = {
       "height": "300px"
     },
   ],
-  "description": description,
+  "description": Array.isArray(product.data.features)
+          ? product.data.features.join(", ")
+          : product.data.features,
   "brand": {
     "@type": "Brand",
     "name": "Hikvision",
@@ -83,13 +83,10 @@ const structuredData = {
       },
     ]
   }
+
 };
 ---
-
   <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-
-
-
 <div class="group">
   <div class="product-card bg-white rounded-lg overflow-hidden shadow-lg group-hover:shadow-2xl transform transition-all duration-300 border border-gray-100 group-hover:border-[#32869f] group-hover:-translate-y-2">
     <div class="relative overflow-hidden">

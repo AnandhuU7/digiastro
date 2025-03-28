@@ -4,42 +4,34 @@ import { getCollection } from "astro:content";
 
 const feature: CollectionEntry<"feature">[] = await getCollection("feature");
 
-// Add SEO metadata
-const title = "Hikvision Security Solutions | Premium Security Technology";
-const description = "Professional Hikvision security solutions featuring expert installation, 24/7 support, and comprehensive warranty coverage. Access cutting-edge surveillance technology at competitive prices.";
-const canonicalURL = "https://dubai-hikvision.com";
-
-// Generate dynamic SEO keywords and descriptions based on features
-const featureKeywords = feature.map(f => f.data.name).join(", ");
-const featureDescriptions = feature.map(f => f.data.body).join(" ");
-const seoKeywords = `Hikvision, Security Solutions, ${featureKeywords}, Surveillance, CCTV, Access Control`;
-const seoDescription = `${description} ${featureDescriptions}`;
-
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Hikvision Security Solutions",
-  "description": seoDescription,
-  "brand": { "@type": "Brand", "name": "Hikvision" },
-  "image": "https://dubai-hikvision.com/logo.svg",
-  "additionalProperty": [
-    {
-      "@type": "PropertyValue",
-      "name": "Installation",
-      "value": "Professional setup by certified technicians"
-    },
-    ...feature.map(f => ({
-      "@type": "PropertyValue",
-      "name": f.data.name,
-      "value": f.data.body
+  "@type": "WebPage",
+  "name": "Hikvision Security Features Overview",
+  "description": "Explore advanced security features including surveillance, access control, and monitoring solutions",
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": feature.length,
+    "itemListElement": feature.map((f, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "item": {
+        "@type": ["ProductFeature", "Intangible"],
+        "name": f.data.name,
+        "description": f.data.body,
+        "featureOf": {
+          "@type": "Brand",
+          "name": "Hikvision",
+          "description": "World leader in video surveillance equipment",
+          "url": "https://dubai-hikvision.com"
+        }
+      }
     }))
-  ]
-}
+  }
+};
 ---
   
 <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-
-
 
 <section class="relative" style="background-color: #f1f7ff;">
   <div class="container mx-auto px-4 max-w-7xl pt-10">

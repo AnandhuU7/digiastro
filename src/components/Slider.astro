@@ -6,40 +6,45 @@ const sliders = await getCollection("slider");
 // Duplicate the sliders for the infinite effect
 const doubledSliders = [...sliders, ...sliders];
 
-// Add SEO metadata
-const title = "Hikvision Security Products";
-const description = "Browse our comprehensive collection of Hikvision security products. View our latest surveillance cameras, smart security systems, and innovative access control solutions.";
-const canonicalURL = "https://dubai-hikvision.com";
---- 
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "itemListElement": [
-        {sliders.map((slider, index) => ({
-          "@type": "ListItem",
-          "position": index + 1,
-          "item": {
-            "@type": "Product",
-            "name": slider.data.sliderAlt,
-            "image": {
-                "@type": "ImageObject",
-                "height": "300",
-                "width": "300",
-                "caption": slider.data.sliderAlt
-              },
-            "brand": {
-              "@type": "Brand",
-              "name": "Hikvision "
-            },
-            "category": "Security Products"
-          }
-        }))}
-      ]
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": sliders.map((slider, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+      "@type": "Product",
+      "name": slider.data.sliderAlt,
+      "image": {
+        "@type": "ImageObject",
+        "height": "300",
+        "width": "300",
+        "caption": slider.data.sliderAlt
+      },
+      "brand": {
+        "@type": "Brand",
+        "name": "Hikvision"
+      },
+      "category": "Security Products",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "AED",
+        "price": 50,
+        "priceValidUntil": "2025-12-31", 
+        "itemCondition": "https://schema.org/NewCondition",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": "Dubai Hikvision",
+          "url": "https://dubai-hikvision.com"
+        }
+      }
     }
-  </script>
+  }))
+};
 
-
+---
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 <div class="relative w-full overflow-hidden rounded-xl bg-[#f1f7ff] pt-10">
   <!-- Removed the gradient overlay since we have a solid bg color -->
   

@@ -34,12 +34,6 @@ const faqs = [
   },
 ];
 
-// Add SEO metadata
-const title = "Dubai Hikvision Security Products FAQ";
-const description = "Find answers to frequently asked questions about Hikvision security products, including purchasing, authenticity, installation, and technical support in UAE.";
-const keywords = "Hikvision UAE, Hikvision products, Hikvision distributor, security cameras UAE, buy Hikvision UAE, CCTV Dubai,Dubai Hikvision";
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-
 const structuredData = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -52,9 +46,8 @@ const structuredData = {
       }
     }))
 }
----
+---  <!-- Schema.org structured data -->
   <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-
 
 <section class="pb-20 pt-10 bg-gradient-to-b from-blue-50 to-white pt-8">
   <div class="container mx-auto max-w-6xl px-4">

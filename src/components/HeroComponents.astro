@@ -113,13 +113,13 @@ const schemaData = {
       "name": service.title
     }))
   ],
-  "mainEntity": {
+"mainEntity": {
     "@type": "ItemList",
     "itemListElement": services.map((service, index) => ({
       "@type": "ListItem",
       "position": index + 1,
       "item": {
-        "@type": "Product",
+        "@type": "Technology",
         "name": service.title,
         "description": service.description,
         "image": {
@@ -128,15 +128,48 @@ const schemaData = {
           "width": 300,
           "height": 300
         },
-        "offers": {
-          "@type": "Offer",
-          "availability": "https://schema.org/InStock",
-          "priceCurrency": "AED"
-        },
+        "applicationCategory": "SecurityTechnology",
+        "feature": [
+          {
+            "@type": "PropertyValue",
+            "name": "DarkFighter Technology",
+            "description": "Hikvision's low-light imaging suite (including DarkFighter 2.0) that enables clear, color images in near darkness."
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "TandemVu Technology",
+            "description": "Combines panoramic wide-area coverage with PTZ detail in one camera, enhanced by AcuSense for real-time detection."
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "ColorVu Technology",
+            "description": "Captures full-color video in extreme low-light using advanced lenses, sensors, and supplemental lighting."
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "AcuSense Technology",
+            "description": "Deep-learning algorithm for accurate human/vehicle detection, minimizing false alarms and enabling efficient incident searches."
+          },
+          "4K Ultra HD Resolution",
+          "Smart Perimeter Protection",
+          "Real-time Video Analytics"
+        ],
         "brand": {
           "@type": "Brand",
           "name": "Hikvision"
-        }
+        },
+        "additionalProperty": [
+          {
+            "@type": "PropertyValue",
+            "name": "Technology Type",
+            "value": "AI-Powered Video Surveillance"
+          },
+          {
+            "@type": "PropertyValue",
+            "name": "AI Capabilities",
+            "value": "Deep Learning, Object Classification"
+          }
+        ]
       }
     }))
   },
@@ -154,7 +187,8 @@ const schemaData = {
 };
 
 ---
-<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+  <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+
 <div class="relative">
   <!-- Banner Section -->
   <div class="group relative w-full h-[300px] md:h-[430px] overflow-hidden">
