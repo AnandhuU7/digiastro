@@ -1,0 +1,70 @@
+---
+id: 1
+title: "DS-2CE72UF3T-E"
+slug: "turbo-1"
+subTitle: "4K ColorVu PoC Fixed Turret Camera"
+category: "turbohd"
+imgCard: "/src/assets/images/turbohd/DS-2CE72UF3T-E/DS-2CE72UF3T-E.webp"
+imgAlt: "DS-2CE72UF3T-E"
+thumbnails: [
+  "/src/assets/images/turbohd/DS-2CE72UF3T-E/DS-2CE72UF3T-E.webp",
+]
+features: [
+  "8 MP resolution (3840 × 2160) for ultra-HD 4K imaging",
+  "24/7 full-color surveillance with ColorVu technology",
+  "130 dB true WDR for clear imaging in backlit scenes",
+  "3D DNR for sharp, low-noise video output",
+  "Fixed lens options: 2.8 mm and 3.6 mm",
+  "Up to 40 m white light for bright night-time visibility",
+  "IP67-rated for reliable outdoor use in all weather conditions"
+]
+rating: 5
+reviewCount: 50
+specifications: {
+  Camera: {
+    Image_Sensor: "8 MP CMOS",
+    Signal_System: "PAL/NTSC",
+    Max_Resolution: "3840 (H) × 2160 (V)",
+    Min_Illumination: "0.0005 Lux@(F1.0, AGC ON), 0 Lux with white light",
+    Shutter_Time: {
+      PAL: "1/12.5 s to 1/50,000 s",
+      NTSC: "1/15 s to 1/50,000 s"
+    },
+    Day_Night: "24/7 Color Imaging",
+    Angle_Adjustment: "Pan: 0° to 360°, Tilt: 0° to 180°, Rotation: 0° to 360°"
+  },
+  Lens: {
+    Lens_Type: "2.8 mm, 3.6 mm, 6 mm fixed focal lens",
+    Focal_Length_FOV: {
+      "2.8 mm": "Horizontal FOV: 110°, Vertical FOV: 59°, Diagonal FOV: 131°",
+      "3.6 mm": "Horizontal FOV: 93°, Vertical FOV: 48°, Diagonal FOV: 113°",
+      "6 mm": "Horizontal FOV: 57°, Vertical FOV: 30°, Diagonal FOV: 67°"
+    },
+    Lens_Mount: "M16"
+  },
+  Image: {
+    Frame_Rate: "TVI: 8 MP @ 12.5 fps/15 fps, 3K @ 20 fps, 1080P @ 25 fps/30 fps",
+    Wide_Dynamic_Range_WDR: "≥130 dB",
+    Image_Parameters_Switch: "STD/HIGH-SAT/HIGHLIGHT",
+    Day_Night_Mode: "Color",
+    White_Balance: "Auto/Manual",
+    Image_Enhancement: "WDR, BLC, HLC, Global, HLS",
+    Privacy_Mask: "4 programmable privacy masks",
+    Noise_Reduction: "3D DNR/2D DNR",
+    Image_Settings: "Brightness, Contrast, Mirror, Sharpness, Anti-Banding, Smart Light, AGC"
+  },
+  General: {
+    Language: "English",
+    Operating_Condition: "-40°C to 60°C (-40°F to 140°F), Humidity: 90% or less (non-condensing)",
+    Material: "Metal",
+    Communication: "HIKVISION-C",
+    Dimension: "194.2 mm × 78 mm × 74.5 mm (7.65\" × 3.07\" × 2.93\")",
+    Weight: "Approx. 566 g (1.25 lb.)",
+    Power: {
+      Supply: "12 VDC ± 25%/PoC.at",
+      Consumption: "Max. 5.1 W",
+      Recommendation: "You are recommended to use one power adapter for one camera, and use 2-pin power supply for long-distance power supply."
+    }
+  }
+}
+---
