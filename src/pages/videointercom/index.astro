@@ -1,0 +1,148 @@
+---
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import ProductComponent from "../../components/ProductComponent.astro";
+import Search from "../../components/Search.astro";
+
+// Hardcoded Category
+const category = "videointercom";
+
+// Fetch content dynamically based on the category
+const products: CollectionEntry<typeof category>[] = (
+  await getCollection(category)
+).sort((a, b) => a.data.id - b.data.id);
+
+// Enhanced SEO metadata
+const title = `Explosion Proof - Dubai Hikvision`;
+const description = `Browse our comprehensive range of explosion proof products from Hikvision, the leading distributor in Dubai. Professional-grade explosion-proof security cameras and surveillance systems for hazardous environments.`;
+// const keywords = `${category}, Hikvision Dubai, security cameras, surveillance systems, Dubai distributor, CCTV cameras, IP cameras, network cameras, security solutions, Hikvision distributor Dubai,
+// Hikvision distributor Dubai,
+// hikvision cctv,
+// hikvision cctv in dubai,
+// hikvision cctv in uae,
+// hikvision cctv camera for home in dubai,
+// hikvision cctv camera for home in uae,
+// hikvision cctv camera price,
+// hikvision cctv camera price in dubai,
+// hikvision cctv camera price in uae,
+// hikvision camera,
+// hikvision camera in dubai,
+// hikvision camera in uae,
+// hikvision ipcamera,
+// hikvision ipcamera in dubai,
+// hikvision ipcamera in uae,
+// hik camera,
+// hik camera price,
+// hikvision camera price,
+// hikvision ip camera price,
+// hikvision ip camera price in dubai,
+// hikvision ip camera price in uae,
+// hik ip camera,
+// Hikvision,
+// Hikvision in dubai,
+// Hikvision in uae,
+// hikvision nvr 8 channel,
+// hikvision nvr 16 channel,
+// hikvision nvr 32 channel,
+// hikvision colorvu,
+// hikvision dvr 4 channel,
+// hikvision dvr 8 channel
+// hikvision security,
+// hikvision wifi camera,
+// hikvision wifi camera price,
+// hikvision wifi,
+// hikvision ptz camera,
+// hikvision ptz camera price,
+// hikvision ptz,
+// hik cctv,
+// hik cctv camera,
+// hikvision webcam in dubai,
+// hik cctv in dubai,`;
+
+// Enhanced structured data
+
+const mainColor = "#32869f";
+---
+
+<Layout 
+  title={title} 
+  description={description} 
+>
+  <!-- Add canonical URL -->
+  <link rel="canonical" href={`https://dubai-hikvision.com/explosionproof`} slot="head" />
+  
+  <!-- Add Open Graph tags -->
+  <meta property="og:title" content={title} slot="head" />
+  <meta property="og:description" content={description} slot="head" />
+  <meta property="og:type" content="website" slot="head" />
+  <meta property="og:url" content={`https://dubai-hikvision.com/explosionproof`} slot="head" />
+  <meta property="og:site_name" content="Dubai Hikvision" slot="head" />
+  
+  <!-- Add Twitter Card tags -->
+  <meta name="twitter:card" content="summary_large_image" slot="head" />
+  <meta name="twitter:title" content={title} slot="head" />
+  <meta name="twitter:description" content={description} slot="head" />
+
+  <div class="container mx-auto px-4 py-8 bg-gray-50">
+    <h1 class="text-4xl font-bold mb-6 text-center" style={`color: ${mainColor};`}>
+      Discover Our {category.charAt(0).toUpperCase() + category.slice(1)} Products
+    </h1>
+    <!-- Search Bar -->
+    <Search mainColor={mainColor} />
+
+    <!-- Products Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      {products.map((product) => (
+        <div class="product-item">
+          <ProductComponent product={product} mainColor={mainColor} category={category} />
+        </div>
+      ))}
+    </div>
+
+    <!-- No Products Found Message -->
+    <div id="noProductsMessage" class="hidden text-center py-12">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 mx-auto text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+      <p class="text-gray-500 text-2xl font-semibold mb-2">No Products Found</p>
+      <p class="text-gray-400 text-lg">Try adjusting your search or check back later.</p>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById("searchInput");
+    const productItems = document.querySelectorAll(".product-item");
+    const noProductsMessage = document.getElementById("noProductsMessage");
+
+    if (searchInput && productItems && noProductsMessage) {
+      searchInput.addEventListener("input", (event) => {
+        const target = event.target as HTMLInputElement | null;
+        const searchTerm = target?.value.toLowerCase() || "";
+
+        let visibleCount = 0;
+
+        productItems.forEach((item) => {
+          const titleElement = item.querySelector(".product-title");
+          const title = titleElement?.textContent?.toLowerCase() || "";
+
+          if (title.includes(searchTerm)) {
+            item.classList.remove("hidden");
+            visibleCount++;
+          } else {
+            item.classList.add("hidden");
+          }
+        });
+
+        // Show or hide the "No Products Found" message
+        if (visibleCount === 0) {
+          noProductsMessage.classList.remove("hidden");
+        } else {
+          noProductsMessage.classList.add("hidden");
+        }
+      });
+    }
+  });
+</script>

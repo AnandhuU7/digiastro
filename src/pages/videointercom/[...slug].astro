@@ -1,0 +1,26 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import SlugProductDetails from "../../components/SlugProductDetails.astro";
+
+// Fetch all product entries and generate static paths
+export async function getStaticPaths() {
+    const productEntries = await getCollection("videointercom");
+  return productEntries.map((product) => ({
+    params: { slug: product.slug },
+    props: { product },
+  }));
+}
+
+// Access the product data passed via props
+const { product } = Astro.props;
+
+
+---
+
+<Layout 
+  title={product.data.title} 
+  description={product.data.subTitle}
+>
+  <SlugProductDetails product={product} />
+</Layout>
