@@ -247,8 +247,8 @@ const features = [
           <p class="max-w-3xl mx-auto text-base sm:text-xl text-teal-100 px-4 animate-fade-up">
             Explore Hikvision's cutting-edge security solutions in Dubai and the UAE. Strengthen safety with Hikvision cameras and dependable security systems.
           </p>
-          <div class="mt-8 sm:mt-10 animate-fade-in">
-            <a href="#products" class="inline-flex items-center px-6 sm:px-8 py-2 sm:py-3 border border-transparent text-sm sm:text-base font-medium rounded-md text-teal-900 bg-teal-100 hover:bg-teal-200 transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+          <div class="mt-8 sm:mt-10 animate-fade-in relative z-10">
+            <a href="#products" class="inline-flex items-center px-6 sm:px-8 py-2 sm:py-3 border border-transparent text-sm sm:text-base font-medium rounded-md text-teal-900 bg-teal-100 hover:bg-teal-200 transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 relative z-20">
               Explore Products
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M10 3a1 1 0 00-1 1v10.586l-3.293-3.293a1 1 0 10-1.414 1.414l5 5a1 1 0 001.414 0l5-5a1 1 0 10-1.414-1.414L11 14.586V4a1 1 0 00-1-1z" clip-rule="evenodd" />
@@ -268,7 +268,7 @@ const features = [
 
     <main>
       <!-- Header Section -->
-      <div class="w-full bg-white py-4 sm:py-6" id="products">
+      <div class="w-full bg-white py-4 sm:py-6" >
         <div class="container mx-auto px-4">
           <h1 class="text-3xl sm:text-4xl font-bold text-center">
             <span class="text-teal-800">Hikvision</span>
@@ -280,7 +280,7 @@ const features = [
       <!-- Banner Section -->
       <div class="w-full bg-[#32869f] py-6 sm:py-8">
         <div class="container mx-auto px-4">
-          <p class="text-white text-center text-base sm:text-xl leading-relaxed">
+          <p class="text-white text-center text-base sm:text-xl leading-relaxed" id="products">
             <span class="hidden sm:inline">Discover Hikvision's advanced security solutions in Dubai and UAE, featuring network cameras, NVR systems, PTZ cameras, and explosion-proof cameras. As a leading Hikvision distributor in Dubai, we provide cutting-edge CCTV systems and surveillance equipment for homes and businesses. Enhance safety with Hikvision cameras and reliable Dubai security systems.</span>
             <span class="inline sm:hidden">Discover Hikvision's advanced security solutions in Dubai and UAE. Enhance safety with Hikvision cameras and reliable security systems.</span>
           </p>
@@ -417,6 +417,26 @@ const features = [
     // Smooth scroll for Explore Products button
     const exploreButton = document.querySelector('a[href="#products"]');
     if (exploreButton) {
+      // Fix potential z-index issues
+      (exploreButton as HTMLElement).style.position = 'relative';
+      (exploreButton as HTMLElement).style.zIndex = '50';
+      
+      // Use mouseover instead of mouseenter (more sensitive)
+      exploreButton.addEventListener('mouseover', (event) => {
+        event.stopPropagation();
+        (exploreButton as HTMLElement).classList.add('bg-teal-200');
+        (exploreButton as HTMLElement).style.transform = 'translateY(-4px)';
+        (exploreButton as HTMLElement).style.boxShadow = '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)';
+      });
+      
+      // Use mouseout to pair with mouseover
+      exploreButton.addEventListener('mouseout', (event) => {
+        event.stopPropagation();
+        (exploreButton as HTMLElement).classList.remove('bg-teal-200');
+        (exploreButton as HTMLElement).style.transform = '';
+        (exploreButton as HTMLElement).style.boxShadow = '';
+      });
+      
       exploreButton.addEventListener('click', (e) => {
         e.preventDefault();
         const target = document.querySelector('#products');

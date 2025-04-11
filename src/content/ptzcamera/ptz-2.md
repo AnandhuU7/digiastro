@@ -7,7 +7,9 @@ category: "ptzcamera"
 imgCard: "/src/assets/images/ptzcamera/DS-2SE3C204MWG-E12/DS-2SE3C204MWG-E12-1.png"
 imgAlt: "DS-2SE3C204MWG-E/12"
 thumbnails: [
-  "/src/assets/images/ptzcamera/DS-2SE3C204MWG-E12/DS-2SE3C204MWG-E12-1.png"
+  "/src/assets/images/ptzcamera/DS-2SE3C204MWG-E12/DS-2SE3C204MWG-E12-1.png",
+  "/src/assets/images/ptzcamera/DS-2SE3C204MWG-E12/DS-2SE3C204MWG-E12-2.png",
+  "/src/assets/images/ptzcamera/DS-2SE3C204MWG-E12/DS-2SE3C204MWG-E12-3.png",
 ]
 features: [
   "2 MP resolution for high-quality imaging",

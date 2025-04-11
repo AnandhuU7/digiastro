@@ -1,13 +1,15 @@
 ---
 id: 1
 title: "DS-KD-TDE"
-slug: "video-1"
+slug: "video-1"           
 subTitle: "Touch Display Module with EM Card Reader"
 category: "videointercom"
 imgCard: "/src/assets/images/videointercom/DS-KD-TDE/DS-KD-TDE-1.webp"
 imgAlt: "DS-KD-TDE"
 thumbnails: [
   "/src/assets/images/videointercom/DS-KD-TDE/DS-KD-TDE-1.webp",
+  "/src/assets/images/videointercom/DS-KD-TDE/DS-KD-TDE-2.webp",
+  "/src/assets/images/videointercom/DS-KD-TDE/DS-KD-TDE-3.webp",
 ]
 features: [
   "4-inch touch display with EM card reader for modular door station",

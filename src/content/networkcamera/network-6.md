@@ -8,6 +8,9 @@ imgCard: "/src/assets/images/networkcamera/DS-2CD2047G2-LUSL/DS-2CD2047G2-LUSL-1
 imgAlt: "DS-2CD2047G2-LU/SL"
 thumbnails: [
   "/src/assets/images/networkcamera/DS-2CD2047G2-LUSL/DS-2CD2047G2-LUSL-1.png",
+  "/src/assets/images/networkcamera/DS-2CD2047G2-LUSL/DS-2CD2047G2-LUSL-2.png",
+  "/src/assets/images/networkcamera/DS-2CD2047G2-LUSL/DS-2CD2047G2-LUSL-3.png",
+  "/src/assets/images/networkcamera/DS-2CD2047G2-LUSL/DS-2CD2047G2-LUSL-4.png",
 ]
 features: [
   "4 MP high-resolution imaging",

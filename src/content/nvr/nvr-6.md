@@ -75,9 +75,6 @@ specifications: {
     Two_Way_Audio: "1-ch, RCA (2.0 Vp-p, 1 KΩ)"
   },
   General: {
-    GUI_Language: [
-      "English", "Russian", "German", "French", "Spanish", "Chinese", "etc."
-    ],
     Power_Supply: "100 to 240 VAC, 50 to 60 Hz, redundant power supply",
     Consumption: "≤ 100 W (without HDD)",
     Working_Temperature: "-10 to 55°C (14 to 131° F)",

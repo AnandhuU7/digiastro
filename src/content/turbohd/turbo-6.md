@@ -8,6 +8,8 @@ imgCard: "/src/assets/images/turbohd/DS-2CE79K0T-LXTSZ/DS-2CE79K0T-LXTSZ-1.webp"
 imgAlt: "DS-2CE79K0T-LXTSZ"
 thumbnails: [
   "/src/assets/images/turbohd/DS-2CE79K0T-LXTSZ/DS-2CE79K0T-LXTSZ-1.webp",
+  "/src/assets/images/turbohd/DS-2CE79K0T-LXTSZ/DS-2CE79K0T-LXTSZ-2.webp",
+  "/src/assets/images/turbohd/DS-2CE79K0T-LXTSZ/DS-2CE79K0T-LXTSZ-3.webp",
 ]
 features: [
   "3K resolution (2960 × 1665) for high-quality, sharp imaging",

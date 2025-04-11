@@ -14,7 +14,6 @@ features: [
   "24/7 full-color surveillance with ColorVu technology",
   "130 dB true WDR for clear imaging in backlit scenes",
   "3D DNR for sharp, low-noise video output",
-  "Fixed lens options: 2.8 mm and 3.6 mm",
   "Up to 40 m white light for bright night-time visibility",
   "IP67-rated for reliable outdoor use in all weather conditions"
 ]

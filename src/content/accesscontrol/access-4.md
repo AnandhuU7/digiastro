@@ -8,6 +8,8 @@ imgCard: "/src/assets/images/accesscontrol/DS-K1T342MFWX-E1/DS-K1T342MFWX-E1-1.w
 imgAlt: "DS-K1T342MFWX-E1"
 thumbnails: [
   "/src/assets/images/accesscontrol/DS-K1T342MFWX-E1/DS-K1T342MFWX-E1-1.webp",
+  "/src/assets/images/accesscontrol/DS-K1T342MFWX-E1/DS-K1T342MFWX-E1-2.webp",
+  "/src/assets/images/accesscontrol/DS-K1T342MFWX-E1/DS-K1T342MFWX-E1-3.webp",
 ]
 features: [
   "4.3\" LCD touchscreen with 2MP wide-angle lens",

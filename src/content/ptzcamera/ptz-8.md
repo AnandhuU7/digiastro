@@ -18,7 +18,6 @@ features: [
   "One-click switch from panoramic to PTZ channel for detailed views",
   "Continuous manual, auto, and panorama tracking",
   "Automatic target switching",
-  "Supports 7 alarm inputs, 2 alarm outputs, 1 audio input, and 1 audio output"
 ]
 rating: 4.5
 reviewCount: 50

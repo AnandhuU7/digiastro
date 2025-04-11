@@ -4,10 +4,12 @@ title: "DS-K1T321EFWX-B"
 slug: "access-2"
 subTitle: "Multi-Auth with Wi-Fi & Access Control"
 category: "accesscontrol"
-imgCard: "/src/assets/images/accesscontrol/DS-K1T321EFWX-B/DS-K1T321EFWX-B.webp"
+imgCard: "/src/assets/images/accesscontrol/DS-K1T321EFWX-B/DS-K1T321EFWX-B-1.webp"
 imgAlt: "DS-K1T321EFWX-B"
 thumbnails: [
-  "/src/assets/images/accesscontrol/DS-K1T321EFWX-B/DS-K1T321EFWX-B.webp",
+  "/src/assets/images/accesscontrol/DS-K1T321EFWX-B/DS-K1T321EFWX-B-1.webp",
+  "/src/assets/images/accesscontrol/DS-K1T321EFWX-B/DS-K1T321EFWX-B-2.webp",
+  "/src/assets/images/accesscontrol/DS-K1T321EFWX-B/DS-K1T321EFWX-B-3.webp",
 ]
 features: [
   "2.4\" LCD screen with 2MP lens",

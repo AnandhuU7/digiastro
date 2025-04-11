@@ -11,7 +11,6 @@ thumbnails: [
 ]
 features: [
   "Supports 32×1080p decoding & 256-ch IP cameras",
-  "H.265+/H.265/H.264+/H.264 video formats",
   "Intelligent analytics: facial recognition, perimeter protection & AcuSearch",
   "Connect up to 8-ch IP speakers",
   "RAID 0, 1, 5, 6, 10 & N+M hot spare for secure storage",
@@ -76,13 +75,6 @@ specifications: {
     Two_Way_Audio: "1-ch, RCA (2.0 Vp-p, 1 KΩ)"
   },
   General: {
-    GUI_Language: [
-      "English", "Russian", "Bulgarian", "Hungarian", "Greek", "German", "Italian", "Czech", "Slovak", "French",
-      "Polish", "Dutch", "Portuguese", "Spanish", "Romanian", "Turkish", "Japanese", "Danish", "Swedish",
-      "Norwegian", "Finnish", "Korean", "Traditional Chinese", "Thai", "Estonian", "Vietnamese", "Croatian",
-      "Slovenian", "Serbian", "Latvian", "Lithuanian", "Uzbek", "Kazakh", "Arabic", "Ukrainian", "Kyrgyz",
-      "Brazilian Portuguese", "Indonesian"
-    ],
     Power_Supply: "100 to 240 VAC, 50 to 60 Hz, redundant power supply",
     Consumption: "≤ 100 W (without HDD)",
     Working_Temperature: "-10 to 55°C (14 to 131° F)",

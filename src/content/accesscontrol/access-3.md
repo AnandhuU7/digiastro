@@ -8,6 +8,8 @@ imgCard: "/src/assets/images/accesscontrol/DS-K1T323EBFWX-E1/DS-K1T323EBFWX-E1-1
 imgAlt: "DS-K1T323EBFWX-E1"
 thumbnails: [
   "/src/assets/images/accesscontrol/DS-K1T323EBFWX-E1/DS-K1T323EBFWX-E1-1.webp",
+  "/src/assets/images/accesscontrol/DS-K1T323EBFWX-E1/DS-K1T323EBFWX-E1-2.webp",
+  "/src/assets/images/accesscontrol/DS-K1T323EBFWX-E1/DS-K1T323EBFWX-E1-3.webp",
 ]
 features: [
   "2.4\" display with 2MP wide-angle lens",

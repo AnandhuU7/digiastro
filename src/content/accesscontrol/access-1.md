@@ -8,6 +8,8 @@ imgCard: "/src/assets/images/accesscontrol/DS-K1T320EFWX-B/DS-K1T320EFWX-B-1.web
 imgAlt: "DS-K1T320EFWX-B"
 thumbnails: [
   "/src/assets/images/accesscontrol/DS-K1T320EFWX-B/DS-K1T320EFWX-B-1.webp",
+  "/src/assets/images/accesscontrol/DS-K1T320EFWX-B/DS-K1T320EFWX-B-2.webp",
+  "/src/assets/images/accesscontrol/DS-K1T320EFWX-B/DS-K1T320EFWX-B-3.webp",
 ]
 features: [
   "2.4\" LCD screen with 2MP lens",

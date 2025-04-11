@@ -8,6 +8,9 @@ imgCard: "/src/assets/images/networkcamera/DS-2CD2347G2-L(U)/DS-2CD2347G2-L(U)-1
 imgAlt: "DS-2CD2347G2-L(U)"
 thumbnails: [
   "/src/assets/images/networkcamera/DS-2CD2347G2-L(U)/DS-2CD2347G2-L(U)-1.png",
+  "/src/assets/images/networkcamera/DS-2CD2347G2-L(U)/DS-2CD2347G2-L(U)-2.png",
+  "/src/assets/images/networkcamera/DS-2CD2347G2-L(U)/DS-2CD2347G2-L(U)-3.png",
+  "/src/assets/images/networkcamera/DS-2CD2347G2-L(U)/DS-2CD2347G2-L(U)-4.png",
 ]
 features: [
   "4 MP high-resolution imaging",

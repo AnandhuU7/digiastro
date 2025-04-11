@@ -8,6 +8,8 @@ imgCard: "/src/assets/images/accesscontrol/DS-K1T343EFWX-B/DS-K1T343EFWX-B-1.web
 imgAlt: "DS-K1T343EFWX-B"
 thumbnails: [
   "/src/assets/images/accesscontrol/DS-K1T343EFWX-B/DS-K1T343EFWX-B-1.webp",
+  "/src/assets/images/accesscontrol/DS-K1T343EFWX-B/DS-K1T343EFWX-B-2.webp",
+  "/src/assets/images/accesscontrol/DS-K1T343EFWX-B/DS-K1T343EFWX-B-3.webp",
 ]
 features: [
   "4.3\" LCD touchscreen with 2MP wide-angle camera",

@@ -8,6 +8,8 @@ imgCard: "/src/assets/images/networkcamera/DS-2CD2H23G2-IZS/DS-2CD2H23G2-IZS-1.p
 imgAlt: "DS-2CD2H23G2-IZS"
 thumbnails: [
   "/src/assets/images/networkcamera/DS-2CD2H23G2-IZS/DS-2CD2H23G2-IZS-1.png",
+  "/src/assets/images/networkcamera/DS-2CD2H23G2-IZS/DS-2CD2H23G2-IZS-2.png",
+  "/src/assets/images/networkcamera/DS-2CD2H23G2-IZS/DS-2CD2H23G2-IZS-3.png",
 ]
 features: [
   "2 MP high-resolution imaging",

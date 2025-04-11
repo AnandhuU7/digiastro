@@ -14,7 +14,6 @@ features: [
   "Ultra-Low Light Performance: 0.0005 Lux (Color), 0.0001 Lux (B/W) at F1.5, AGC ON",
   "31× Optical Zoom: Adjustable focal length from 5.9 mm to 182.9 mm",
   "Efficient Video Compression: Supports H.265+/H.265 for optimized storage and bandwidth",
-  "Superior Image Clarity: 3D DNR and low bitrate technology for sharp, noise-free visuals",
   "Wide Dynamic Range: 120dB true WDR ensures clear imaging against strong backlight",
   "Rugged and Reliable: IP68-rated water and dust resistance for harsh environments"
 ]

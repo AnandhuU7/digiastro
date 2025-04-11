@@ -57,9 +57,6 @@ specifications: {
     Two_Way_Audio: "1-ch, RCA (2.0 Vp-p, 1 KΩ, using the audio input)"
   },
   General: {
-    GUI_Language: [
-      "English", "Russian", "Bulgarian", "Hungarian", "Greek", "German", "Italian", "Czech", "Slovak", "French", "Polish", "Dutch", "Portuguese", "Spanish", "Romanian", "Turkish", "Japanese", "Danish", "Swedish", "Norwegian", "Finnish", "Korean", "Traditional Chinese", "Thai", "Estonian", "Vietnamese", "Croatian", "Slovenian", "Serbian", "Latvian", "Lithuanian", "Uzbek", "Kazakh", "Arabic", "Ukrainian", "Kyrgyz", "Brazilian Portuguese", "Indonesian"
-    ],
     Power_Supply: "12 VDC, 1.5 A",
     Consumption: "≤ 10 W (without HDD)",
     Working_Temperature: "-10 °C to 55 °C (14 °F to 131 °F)",

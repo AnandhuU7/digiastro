@@ -4,7 +4,7 @@ title: "DS-2CE78D0T-LPTS"
 slug: "turbo-2"
 subTitle: "2 MP Two-Way Audio Fixed Turret Camera"
 category: "turbohd"
-imgCard: "/src/assets/images/turbohd/DS-2CE78D0T-LPTS/DS-2CE78D0T-LPTS.png"
+imgCard: "/src/assets/images/turbohd/DS-2CE78D0T-LPTS/DS-2CE78D0T-LPTS-1.png"
 imgAlt: "DS-2CE78D0T-LPTS"
 thumbnails: [
   "/src/assets/images/turbohd/DS-2CE78D0T-LPTS/DS-2CE78D0T-LPTS-1.png",

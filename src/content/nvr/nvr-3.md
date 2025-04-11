@@ -11,7 +11,6 @@ thumbnails: [
 ]
 features: [
   "Supports 32×1080p decoding & 128-ch IP cameras",
-  "H.265+/H.265/H.264+/H.264 video formats",
   "Facial recognition, perimeter protection & AcuSearch",
   "Connect up to 8-ch IP speakers",
   "RAID 0, 1, 5, 6, 10 & N+M hot spare for secure storage",

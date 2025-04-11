@@ -4,10 +4,13 @@ title: "DS-E16HGHI-XB"
 slug: "dvr-2"
 subTitle: "16CH 1080p Lite H.265 eSSD DVR "
 category: "dvr"
-imgCard: "/src/assets/images/dvr/DS-E16HGHI-XB/DS-E16HGHI-XB.webp"
+imgCard: "/src/assets/images/dvr/DS-E16HGHI-XB/DS-E16HGHI-XB-1.webp"
 imgAlt: "DS-E16HGHI-XB"
 thumbnails: [
-  "/src/assets/images/dvr/DS-E16HGHI-XB/DS-E16HGHI-XB.webp",
+  "/src/assets/images/dvr/DS-E16HGHI-XB/DS-E16HGHI-XB-1.webp",
+  "/src/assets/images/dvr/DS-E16HGHI-XB/DS-E16HGHI-XB-2.webp",
+  "/src/assets/images/dvr/DS-E16HGHI-XB/DS-E16HGHI-XB-3.webp",
+  "/src/assets/images/dvr/DS-E16HGHI-XB/DS-E16HGHI-XB-4.webp",
 ]
 features: [
   "Powered by fast M-SATA eSSD technology",

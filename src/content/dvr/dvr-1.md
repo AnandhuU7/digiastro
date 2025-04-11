@@ -4,10 +4,13 @@ title: "DS-E04HGHI-XD"
 slug: "dvr-1"
 subTitle: "4K ColorVu PoC Fixed Turret Camera"
 category: "dvr"
-imgCard: "/src/assets/images/dvr/DS-E04HGHI-XD/DS-E04HGHI-XD.webp"
+imgCard: "/src/assets/images/dvr/DS-E04HGHI-XD/DS-E04HGHI-XD-1.webp"
 imgAlt: "DS-E04HGHI-XD"
 thumbnails: [
-  "/src/assets/images/dvr/DS-E04HGHI-XD/DS-E04HGHI-XD.webp",
+  "/src/assets/images/dvr/DS-E04HGHI-XD/DS-E04HGHI-XD-1.webp",
+  "/src/assets/images/dvr/DS-E04HGHI-XD/DS-E04HGHI-XD-2.webp",
+  "/src/assets/images/dvr/DS-E04HGHI-XD/DS-E04HGHI-XD-3.webp",
+  "/src/assets/images/dvr/DS-E04HGHI-XD/DS-E04HGHI-XD-4.webp",
 ]
 features: [
   "4-channel DVR with 1080p Lite@30fps encoding capability",

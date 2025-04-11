@@ -8,6 +8,8 @@ imgCard: "/src/assets/images/turbohd/DS-2CE50K0T-VPLTSZ/DS-2CE50K0T-VPLTSZ-1.web
 imgAlt: "DS-2CE50K0T-VPLTSZ"
 thumbnails: [
   "/src/assets/images/turbohd/DS-2CE50K0T-VPLTSZ/DS-2CE50K0T-VPLTSZ-1.webp",
+  "/src/assets/images/turbohd/DS-2CE50K0T-VPLTSZ/DS-2CE50K0T-VPLTSZ-2.webp",
+  "/src/assets/images/turbohd/DS-2CE50K0T-VPLTSZ/DS-2CE50K0T-VPLTSZ-3.webp",
 ]
 features: [
   "3K resolution (2960 × 1665) for ultra-clear imaging",

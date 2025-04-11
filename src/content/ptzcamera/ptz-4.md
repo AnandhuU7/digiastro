@@ -7,7 +7,9 @@ category: "ptzcamera"
 imgCard: "/src/assets/images/ptzcamera/DS-2SE2C400MWG-E14/DS-2SE2C400MWG-E14-1.png"
 imgAlt: "DS-2SE2C400MWG-E/14"
 thumbnails: [
-  "/src/assets/images/ptzcamera/DS-2SE2C400MWG-E14/DS-2SE2C400MWG-E14-1.png"
+  "/src/assets/images/ptzcamera/DS-2SE2C400MWG-E14/DS-2SE2C400MWG-E14-1.png",
+  "/src/assets/images/ptzcamera/DS-2SE2C400MWG-E14/DS-2SE2C400MWG-E14-2.png",
+  "/src/assets/images/ptzcamera/DS-2SE2C400MWG-E14/DS-2SE2C400MWG-E14-3.png",
 ]
 features: [
   "4 MP resolution for clear, detailed imaging",
@@ -15,7 +17,6 @@ features: [
   "Smart Hybrid Light with advanced long-range technology",
   "Hik-Connect cloud service and app for remote management",
   "Built-in microphone and speaker for real-time audio security",
-  "Supports microSD/SDHC/SDXC cards up to 512 GB",
   "IP66 water and dust resistance for outdoor durability"
 ]
 rating: 4.5

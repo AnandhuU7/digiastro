@@ -7,7 +7,9 @@ category: "ptzcamera"
 imgCard: "/src/assets/images/ptzcamera/DS-2DE2C400MWGW/DS-2DE2C400MWGW-1.png"
 imgAlt: "DS-2DE2C400MWG/W"
 thumbnails: [
-  "/src/assets/images/ptzcamera/DS-2DE2C400MWGW/DS-2DE2C400MWGW-1.png"
+  "/src/assets/images/ptzcamera/DS-2DE2C400MWGW/DS-2DE2C400MWGW-1.png",
+  "/src/assets/images/ptzcamera/DS-2DE2C400MWGW/DS-2DE2C400MWGW-2.png",
+  "/src/assets/images/ptzcamera/DS-2DE2C400MWGW/DS-2DE2C400MWGW-3.png",
 ]
 features: [
   "4 MP high-resolution imaging for clear surveillance",

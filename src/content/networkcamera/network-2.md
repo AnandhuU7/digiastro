@@ -8,15 +8,17 @@ imgCard: "/src/assets/images/networkcamera/DS-2CD2383G2-LI(2U)/DS-2CD2383G2-LI(2
 imgAlt: "DS-2CD2383G2-LI(2U)"
 thumbnails: [
   "/src/assets/images/networkcamera/DS-2CD2383G2-LI(2U)/DS-2CD2383G2-LI(2U)-1.png",
+  "/src/assets/images/networkcamera/DS-2CD2383G2-LI(2U)/DS-2CD2383G2-LI(2U)-2.png",
+  "/src/assets/images/networkcamera/DS-2CD2383G2-LI(2U)/DS-2CD2383G2-LI(2U)-3.png",
+  "/src/assets/images/networkcamera/DS-2CD2383G2-LI(2U)/DS-2CD2383G2-LI(2U)-4.png",
 ]
 features: [
-  "8 MP high-quality imaging for clear and detailed surveillance",
-  "AcuSense technology for human and vehicle classification using deep learning",
-  "Smart Hybrid Light with IR and white lights, offering 4 lighting modes",
-  "Built-in dual microphones for real-time, high-quality audio",
-  "120 dB true WDR for clear imaging in strong backlight conditions",
-  "Efficient H.265+ compression for optimized storage",
-  "IP67 water and dust resistance for reliable outdoor use",
+  "8 MP high-resolution imaging for clear surveillance",
+  "AcuSense technology for accurate human/vehicle detection",
+  "Smart Hybrid Light with IR and white light, 4 lighting modes",
+  "Built-in dual microphones for high-quality real-time audio",
+  "120 dB true WDR for strong backlight compensation",
+  "IP67-rated for water and dust resistance in outdoor environments",
 ]
 rating: 4.5
 reviewCount: 50
