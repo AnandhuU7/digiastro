@@ -22,7 +22,7 @@ const metaData = {
   author: "Dubai Hikvision",
 };
 
-const slides = [
+export const slides = [
   {
     id: 1,
     imgMain: banner1,
@@ -46,7 +46,7 @@ const slides = [
 
 
 
-const services = [
+export const services = [
   {
     icon: service1,
     title: "DarkFighter Technology",
@@ -85,109 +85,9 @@ const services = [
   },
 ];
 
-const schemaData = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": metaData.title,
-  "description": metaData.description,
-  "url": "https://dubai-hikvision.com",
-  "primaryImageOfPage": {
-    "@type": "ImageObject",
-    "url": slides[0].imgMain.src,
-    "width": 1920,
-    "height": 1080
-  },
-  "image": [
-    ...slides.map(slide => ({
-      "@type": "ImageObject",
-      "url": slide.imgMain.src,
-      "width": 1920,
-      "height": 1080,
-      "name": slide.title
-    })),
-    ...services.map(service => ({
-      "@type": "ImageObject",
-      "url": service.icon.src,
-      "width": 300,
-      "height": 300,
-      "name": service.title
-    }))
-  ],
-"mainEntity": {
-    "@type": "ItemList",
-    "itemListElement": services.map((service, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "item": {
-        "@type": "Technology",
-        "name": service.title,
-        "description": service.description,
-        "image": {
-          "@type": "ImageObject",
-          "url": service.icon.src,
-          "width": 300,
-          "height": 300
-        },
-        "applicationCategory": "SecurityTechnology",
-        "feature": [
-          {
-            "@type": "PropertyValue",
-            "name": "DarkFighter Technology",
-            "description": "Hikvision's low-light imaging suite (including DarkFighter 2.0) that enables clear, color images in near darkness."
-          },
-          {
-            "@type": "PropertyValue",
-            "name": "TandemVu Technology",
-            "description": "Combines panoramic wide-area coverage with PTZ detail in one camera, enhanced by AcuSense for real-time detection."
-          },
-          {
-            "@type": "PropertyValue",
-            "name": "ColorVu Technology",
-            "description": "Captures full-color video in extreme low-light using advanced lenses, sensors, and supplemental lighting."
-          },
-          {
-            "@type": "PropertyValue",
-            "name": "AcuSense Technology",
-            "description": "Deep-learning algorithm for accurate human/vehicle detection, minimizing false alarms and enabling efficient incident searches."
-          },
-          "4K Ultra HD Resolution",
-          "Smart Perimeter Protection",
-          "Real-time Video Analytics"
-        ],
-        "brand": {
-          "@type": "Brand",
-          "name": "Hikvision"
-        },
-        "additionalProperty": [
-          {
-            "@type": "PropertyValue",
-            "name": "Technology Type",
-            "value": "AI-Powered Video Surveillance"
-          },
-          {
-            "@type": "PropertyValue",
-            "name": "AI Capabilities",
-            "value": "Deep Learning, Object Classification"
-          }
-        ]
-      }
-    }))
-  },
-  "breadcrumb": {
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://dubai-hikvision.com"
-      }
-    ]
-  }
-};
 
 ---
-  <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+
 
 <div class="relative">
   <!-- Banner Section -->

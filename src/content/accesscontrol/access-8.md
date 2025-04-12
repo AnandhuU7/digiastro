@@ -11,7 +11,7 @@ thumbnails: [
 ]
 features: [
   "7\" LCD touchscreen with 2MP wide-angle camera and M1 card reader",
-  "Face recognition range: 0.3–3 m, <0.2s/user, ≥99% accuracy",
+  "Face recognition range: 0.3 to 3 meters, less than 0.2 seconds/user, 99% or higher accuracy",
   "Mask detection with voice alert and denied access if mask is missing",
   "Stores 50,000 faces, 5,000 fingerprints, and 50,000 cards",
   "Two-way audio with client software, indoor, and main station",

@@ -12,7 +12,7 @@ thumbnails: [
 features: [
   "7\" LCD touchscreen with 2MP wide-angle camera",
   "Recognition distance: 0.3 to 3 meters",
-  "Fast face detection: <0.2s/user with ≥99% accuracy",
+  "Fast face detection: less than 0.2 seconds/user with 99% or higher accuracy",
   "Stores 6,000 faces, 50,000 cards, and 150,000 events",
   "Supports M1 card, QR code, and face mask detection",
   "Detects single or up to 5 faces at once",

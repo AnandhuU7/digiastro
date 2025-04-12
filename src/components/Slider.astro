@@ -1,59 +1,12 @@
 ---
 import { getCollection } from 'astro:content';
 
-
-const sliders = await getCollection("slider");
+export const sliders = await getCollection("slider");
 
 const doubledSliders = [...sliders, ...sliders];
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "itemListElement": sliders.map((slider, index) => ({
-    "@type": "ListItem",
-    "position": index + 1,
-    "item": {
-      "@type": "Product",
-      "name": slider.data.sliderAlt,
-      "description": slider.data.description,
-      "image": {
-        "@type": "ImageObject",
-        "url": "https://dubai-hikvision.com" + slider.data.slider,
-        "height": 800,
-        "width": 800,
-        "caption": slider.data.sliderAlt
-      },
-      "brand": {
-        "@type": "Brand",
-        "name": "Hikvision"
-      },
-      "aggregateRating": slider.data.rating && slider.data.reviewCount ? {
-        "@type": "AggregateRating",
-        "ratingValue": slider.data.rating.toFixed(1),
-        "reviewCount": slider.data.reviewCount,
-        "bestRating": 5,
-        "worstRating": 1
-      } : undefined,
-      "category": "Security Products",
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "AED",
-        "price": 50,
-        "priceValidUntil": "2025-12-31", 
-        "itemCondition": "https://schema.org/NewCondition",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Dubai Hikvision",
-          "url": "https://dubai-hikvision.com"
-        }
-      }
-    }
-  }))
-};
 
 ---
-<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 <div class="relative w-full overflow-hidden rounded-xl bg-[#f1f7ff] pt-10">
   <!-- Removed the gradient overlay since we have a solid bg color -->
   

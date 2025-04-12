@@ -4,34 +4,7 @@ import { getCollection } from "astro:content";
 
 const feature: CollectionEntry<"feature">[] = await getCollection("feature");
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Hikvision Security Features Overview",
-  "description": "Explore advanced security features including surveillance, access control, and monitoring solutions",
-  "mainEntity": {
-    "@type": "ItemList",
-    "numberOfItems": feature.length,
-    "itemListElement": feature.map((f, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "item": {
-        "@type": ["ProductFeature", "Intangible"],
-        "name": f.data.name,
-        "description": f.data.body,
-        "featureOf": {
-          "@type": "Brand",
-          "name": "Hikvision",
-          "description": "World leader in video surveillance equipment",
-          "url": "https://dubai-hikvision.com"
-        }
-      }
-    }))
-  }
-};
 ---
-  
-<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
 <section class="relative" style="background-color: #f1f7ff;">
   <div class="container mx-auto px-4 max-w-7xl pt-10">

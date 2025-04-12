@@ -14,7 +14,7 @@ thumbnails: [
 features: [
   "4.3\" LCD touchscreen with 2MP wide-angle lens",
   "Stores 1,500 faces, 3,000 fingerprints, and 3,000 cards",
-  "Face recognition range: 0.3–1.5 m, <0.2s speed, ≥99% accuracy",
+  "Face recognition range: 0.3–1.5 m, less than 0.2s speed, 99% or higher accuracy",
   "Supports face with mask detection",
   "Two-way audio via client software, indoor, and main stations",
   "Configurable via web client; supports ISAPI & ISUP 5.0",

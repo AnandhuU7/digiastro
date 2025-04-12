@@ -14,7 +14,7 @@ thumbnails: [
 features: [
   "4.3\" LCD touchscreen with 2MP wide-angle camera",
   "Stores 1,500 faces, 3,000 fingerprints, and 3,000 cards",
-  "Fast face recognition: 0.3–1.5 m range, <0.2s, ≥99% accuracy",
+  "Fast face recognition: 0.3 to 1.5 m range, less than 0.2 seconds, 99% or higher accuracy",
   "Built-in EM card reader for flexible authentication",
   "Two-way audio via client software, indoor & main stations",
   "Supports TCP/IP, Wi-Fi, ISAPI & ISUP 5.0 protocols",
