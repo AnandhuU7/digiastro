@@ -14,6 +14,36 @@ export async function getStaticPaths() {
 
 // Access the product data passed via props
 const { product } = Astro.props;
+const breadcrumb = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://dubai-hikvision.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Products",
+      "item": "https://dubai-hikvision.com/productsnew"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Turbo HD",
+      "item": `https://dubai-hikvision.com/turbohd`
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "name": product.data.title,
+      "item": `https://dubai-hikvision.com/turbohd/${product.slug}`
+    }
+  ]
+};
 
 
 ---
@@ -22,5 +52,6 @@ const { product } = Astro.props;
   title={product.data.title} 
   description={product.data.subTitle}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
   <SlugProductDetails product={product} />
 </Layout>

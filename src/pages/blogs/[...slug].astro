@@ -94,8 +94,8 @@ const structuredData = {
   title={`${entry.data.title} | Dubai Hikvision`}
   description={entry.data.description}
   canonicalURL={`https://dubai-hikvision.com/blogs/${entry.slug}`}
-  structuredData={structuredData}
 >
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 <section class="relative py-24 overflow-hidden">
   <!-- Gradient background with improved colors -->
   <div class="absolute inset-0 bg-gradient-to-br from-[#32869f] to-[#1d5566] z-0"></div>

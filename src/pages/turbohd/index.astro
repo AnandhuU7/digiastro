@@ -16,51 +16,31 @@ const products: CollectionEntry<typeof category>[] = (
 // Enhanced SEO metadata
 const title = `Explosion Proof - Dubai Hikvision`;
 const description = `Browse our comprehensive range of explosion proof products from Hikvision, the leading distributor in Dubai. Professional-grade explosion-proof security cameras and surveillance systems for hazardous environments.`;
-// const keywords = `${category}, Hikvision Dubai, security cameras, surveillance systems, Dubai distributor, CCTV cameras, IP cameras, network cameras, security solutions, Hikvision distributor Dubai,
-// Hikvision distributor Dubai,
-// hikvision cctv,
-// hikvision cctv in dubai,
-// hikvision cctv in uae,
-// hikvision cctv camera for home in dubai,
-// hikvision cctv camera for home in uae,
-// hikvision cctv camera price,
-// hikvision cctv camera price in dubai,
-// hikvision cctv camera price in uae,
-// hikvision camera,
-// hikvision camera in dubai,
-// hikvision camera in uae,
-// hikvision ipcamera,
-// hikvision ipcamera in dubai,
-// hikvision ipcamera in uae,
-// hik camera,
-// hik camera price,
-// hikvision camera price,
-// hikvision ip camera price,
-// hikvision ip camera price in dubai,
-// hikvision ip camera price in uae,
-// hik ip camera,
-// Hikvision,
-// Hikvision in dubai,
-// Hikvision in uae,
-// hikvision nvr 8 channel,
-// hikvision nvr 16 channel,
-// hikvision nvr 32 channel,
-// hikvision colorvu,
-// hikvision dvr 4 channel,
-// hikvision dvr 8 channel
-// hikvision security,
-// hikvision wifi camera,
-// hikvision wifi camera price,
-// hikvision wifi,
-// hikvision ptz camera,
-// hikvision ptz camera price,
-// hikvision ptz,
-// hik cctv,
-// hik cctv camera,
-// hikvision webcam in dubai,
-// hik cctv in dubai,`;
 
-// Enhanced structured data
+const breadcrumbData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://dubai-hikvision.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Products",
+        "item": "https://dubai-hikvision.com/productsnew"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": category.charAt(0).toUpperCase() + category.slice(1),
+        "item": `https://dubai-hikvision.com/turbohd`
+      },
+    ]
+  };
 
 const mainColor = "#32869f";
 ---
@@ -69,6 +49,7 @@ const mainColor = "#32869f";
   title={title} 
   description={description} 
 >
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbData)} />
   <!-- Add canonical URL -->
   <link rel="canonical" href={`https://dubai-hikvision.com/explosionproof`} slot="head" />
   

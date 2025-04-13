@@ -1,7 +1,7 @@
 ---
 const subTitle: string = "Ask us anything about our brand and products, and get factual responses.";
 const makeId = (base: any, index: any) => `${base}${index + 1}`;
-const faqs = [
+export const faqs = [
   {
     heading: "Where can I purchase Hikvision products in the UAE and Dubai?",
     content:
@@ -34,21 +34,8 @@ const faqs = [
   },
 ];
 
-const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqs.map(faq => ({
-      "@type": "Question",
-      "name": faq.heading,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.content
-      }
-    }))
-}
----  <!-- Schema.org structured data -->
-  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
+---  
 <section class="pb-20 pt-10 bg-gradient-to-b from-blue-50 to-white pt-8">
   <div class="container mx-auto max-w-6xl px-4">
     <div class="text-center mb-6">

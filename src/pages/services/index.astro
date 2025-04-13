@@ -42,16 +42,13 @@ const services = [
 ];
 
 // Structured Data for Services
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Security Services | Dubai Hikvision",
-  "description": "Professional security system installation, monitoring and maintenance services in Dubai and UAE",
-  "url": "https://dubai-hikvision.com/services",
-  "provider": {
+const structuredData = [
+  {
+    "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Dubai Hikvision",
-    "image": "https://dubai-hikvision.com/logo.svg",
+    "logo": "https://dubai-hikvision.com/logo.svg",
+    "priceRange": 0,
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "25th St, Naif",
@@ -60,31 +57,23 @@ const structuredData = {
       "postalCode": "123421",
       "addressCountry": "AE"
     },
-    "telephone": "+971 55 292 9644",
+    "telephone": "+971552929644",
     "openingHours": "Mo-Fr 08:00-18:00",
-    "areaServed": ["Dubai", "UAE"]
-  },
-  "mainEntity": {
-    "@type": "ItemList",
-    "name": "Our Security Services",
-    "description": "Comprehensive security solutions including CCTV installation, surveillance systems and smart home integration",
-    "numberOfItems": services.length,
-    "itemListElement": services.map((service, index) => ({
-      "@type": "ListItem",
-      "position": index + 1,
-      "item": {
-        "@type": "Service",
-        "@id": `https://dubai-hikvision.com/services#${service.icon}`,
-        "name": service.title,
-        "description": service.description,
-        "serviceType": service.title,
-        "provider": {
-          "@id": "#DubaiHikvision"
+    "areaServed": ["AE", "Dubai", "SA", "QA", "OM", "KW", "BH"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Our Security Services",
+      "itemListElement": services.map((service, index) => ({
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": service.title,
+          "description": service.description
         }
-      }
-    }))
+      }))
+    }
   },
-  "breadcrumb": {
+  {
     "@type": "BreadcrumbList",
     "itemListElement": [
       {
@@ -105,10 +94,10 @@ const structuredData = {
       }
     ]
   }
-};
+];
+ 
 ---
 <Layout title="Our Services | Dubai Hikvision" structuredData={structuredData}>
-  <!-- Structured Data Script -->
 
   <!-- Hero Section -->
   <section class="relative py-14 overflow-hidden">

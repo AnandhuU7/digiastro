@@ -45,6 +45,7 @@ const metaDescription = `${subTitle}. Key features: ${features.slice(0, 3).join(
 const productSchema = {
   "@context": "https://schema.org",
   "@type": "Product",
+  "productID": product.data.id,
   "name": title,
   "description": Array.isArray(product.data.features)
           ? product.data.features.join(", ")
@@ -53,35 +54,43 @@ const productSchema = {
   "category": category,
   "brand": {
     "@type": "Brand",
-    "name": "Hikvision"
+    "name": "Hikvision",
+    "logo": "https://dubai-hikvision.com/logo.svg"
   },
-  "image": allImages.map(img => ({
-    "@type": "ImageObject",
-    "url": `https://dubai-hikvision.com${img.src}`,
-    "width": 800,
-    "height": 800,
-    "caption": ` ${title}`,
-    "representativeOfPage": img.src === imgCard.src
-  })),
+  "image": [
+    {
+      "@type": "ImageObject",
+      "url": `https://dubai-hikvision.com${imgCard.src}`,
+      "width": 800,
+      "height": 800,
+      "caption": `${title} - ${imgAlt}`,
+      "representativeOfPage": true
+    },
+    ...(thumbnails ? thumbnails.map(thumb => ({
+      "@type": "ImageObject",
+      "url": `https://dubai-hikvision.com${thumb.src}`,
+      "width": 800,
+      "height": 800,
+      "caption": `${title} - ${imgAlt} thumbnail`
+    })) : [])
+  ],
   "offers": {
     "@type": "Offer",
     "priceCurrency": "AED",
     "price": 50,
-    "priceValidUntil": new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+    "priceValidUntil": product.data.priceExpiry || new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
     "itemCondition": "https://schema.org/NewCondition",
     "availability": "https://schema.org/InStock",
     "seller": {
       "@type": "Organization",
       "name": "Dubai Hikvision",
-      "url": "https://dubai-hikvision.com",
-      "logo": "https://dubai-hikvision.com/logo.svg"
-    
+      "url": "https://dubai-hikvision.com"
     }
   },
   "aggregateRating": product.data.rating && product.data.reviewCount ? {
     "@type": "AggregateRating",
-    "ratingValue": product.data.rating.toFixed(1),
-    "reviewCount": product.data.reviewCount,
+    "ratingValue": Number(product.data.rating),
+    "reviewCount": Math.round(Number(product.data.reviewCount)),
     "bestRating": 5,
     "worstRating": 1
   } : undefined,
@@ -99,35 +108,6 @@ const productSchema = {
       }))
     )
   ],
-  "breadcrumb": {
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://dubai-hikvision.com"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Products",
-        "item": "https://dubai-hikvision.com/productsnew"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": category,
-        "item": `https://dubai-hikvision.com/${category}`
-      },
-      {
-        "@type": "ListItem",
-        "position": 4,
-        "name": title,
-        "item": `https://dubai-hikvision.com/${category}/${product.slug}`
-      }
-    ]
-  }
 };
 // Ensure thumbnails is treated as an array
 const thumbnailsArray = thumbnails
@@ -136,7 +116,7 @@ const thumbnailsArray = thumbnails
     : [thumbnails]
   : [];
 ---
-  <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
 <main class="container mx-auto px-4 py-4 sm:py-8">
   <div class="product-container max-w-6xl mx-auto">
     <!-- Product Header -->

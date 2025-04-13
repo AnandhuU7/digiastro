@@ -2,7 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import { getCollection } from "astro:content";
 
-const feature: CollectionEntry<"feature">[] = await getCollection("feature");
+export const feature: CollectionEntry<"feature">[] = await getCollection("feature");
 
 ---
 
