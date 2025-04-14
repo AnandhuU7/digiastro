@@ -3,7 +3,6 @@ import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import SlugProductDetails from "../../components/SlugProductDetails.astro";
 
-// Fetch all product entries and generate static paths
 export async function getStaticPaths() {
     const productEntries = await getCollection("dvr");
   return productEntries.map((product) => ({
@@ -12,8 +11,8 @@ export async function getStaticPaths() {
   }));
 }
 
-// Access the product data passed via props
 const { product } = Astro.props;
+const ogUrl = `https://dubai-hikvision.com/dvr/${product.slug}`;
 const breadcrumb = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -51,6 +50,7 @@ const breadcrumb = {
 <Layout 
   title={product.data.title} 
   description={product.data.subTitle}
+  ogUrl={ogUrl}
 >
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
   <SlugProductDetails product={product} />

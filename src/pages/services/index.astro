@@ -1,5 +1,8 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+const title="Our Services | Dubai Hikvision"
+const description="Explore our comprehensive range of Hikvision security solutions including network cameras, NVR systems, PTZ cameras, and explosion-proof equipment. Industry-leading security technology for all your surveillance needs."
+const ogUrl="https://dubai-hikvision.com/services"
 
 // Updated service data for security cameras
 const services = [
@@ -97,9 +100,8 @@ const structuredData = [
 ];
  
 ---
-<Layout title="Our Services | Dubai Hikvision" structuredData={structuredData}>
-
-  <!-- Hero Section -->
+<Layout title={title} description={description} ogUrl={ogUrl}>
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   <section class="relative py-14 overflow-hidden">
     <!-- Gradient background with improved colors -->
     <div class="absolute inset-0 bg-gradient-to-br from-[#32869f] to-[#1d5566] z-0"></div>

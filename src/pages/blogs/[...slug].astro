@@ -13,6 +13,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
+const ogUrl = `https://dubai-hikvision.com/blogs/${entry.slug}`;
 const { Content } = await entry.render();
 
 // Get more posts for related blogs section
@@ -30,18 +31,25 @@ const formattedDate = entry.data.publishDate
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://dubai-hikvision.com/blogs/${entry.slug}`
+  },
   "headline": entry.data.title,
-  "description": entry.data.description,
-  "url": `https://dubai-hikvision.com/blogs/${entry.slug}`,
+  "description": entry.data.intro,
   "image": {
     "@type": "ImageObject",
     "url": `https://dubai-hikvision.com${entry.data.cardImage.src}`,
+    "width": 600,
+    "height": 350,  
     "caption": entry.data.title
   },
-  "datePublished": entry.data.publishDate,
+  "datePublished": `${entry.data.publishDate}T00:00:00Z`,
+  "dateModified": `${entry.data.publishDate}T00:00:00Z`,
+ 
   "author": {
-    "@type": "Person", 
-    "name": entry.data.author 
+    "@type": "Person",
+    "name": entry.data.author
   },
   "publisher": {
     "@type": "Organization",
@@ -53,14 +61,14 @@ const structuredData = {
       "height": 60
     }
   },
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": `https://dubai-hikvision.com/blogs/${entry.slug}`
-  },
-  "articleBody": entry.data.description, 
-  "breadcrumb": {
-    "@type": "BreadcrumbList",
-    "itemListElement": [
+  "articleBody": entry.data.description
+
+};
+
+const breadcrumbData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
       {
         "@type": "ListItem",
         "position": 1,
@@ -87,15 +95,15 @@ const structuredData = {
       }
     ]
   }
-};
+
 ---
 
 <Layout
   title={`${entry.data.title} | Dubai Hikvision`}
   description={entry.data.description}
-  canonicalURL={`https://dubai-hikvision.com/blogs/${entry.slug}`}
+  ogUrl={ogUrl}
 >
-<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+<script type="application/ld+json" set:html={JSON.stringify([structuredData, breadcrumbData])} />
 <section class="relative py-24 overflow-hidden">
   <!-- Gradient background with improved colors -->
   <div class="absolute inset-0 bg-gradient-to-br from-[#32869f] to-[#1d5566] z-0"></div>

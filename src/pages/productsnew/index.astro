@@ -15,7 +15,7 @@ import { SEO } from "astro-seo";
 
 const title = "Hikvision Security Products & Solutions | Network Cameras, NVR, PTZ, Explosion Proof & More";
 const description = "Explore our comprehensive range of Hikvision security solutions including network cameras, NVR systems, PTZ cameras, and explosion-proof equipment. Industry-leading security technology for all your surveillance needs.";
-
+const ogUrl="https://dubai-hikvision.com/productsnew"
 // Hardcoded data for products
 const products = [
   {
@@ -76,10 +76,36 @@ const products = [
   }
 ];
 
+const features = [
+  {
+    id: 1,
+    title: "Advanced Security",
+    description: "Experience top-notch encryption and protection that ensures your safety and reliability like never before.",
+    icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+  },
+  {
+    id: 2,
+    title: "High Performance",
+    description: "Experience unparalleled speed, reliability, and efficiency that make your operations run smoothly and effortlessly.",
+    icon: "M13 10V3L4 14h7v7l9-11h-7z"
+  },
+  {
+    id: 3,
+    title: "Smart Features",
+    description: "Discover how AI-powered analytics and automation can lead to smart, future-ready solutions that truly make a difference.",
+    icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+  },
+  {
+    id: 4,
+    title: "Scalable Solutions",
+    description: "Discover adaptable systems that evolve alongside your business needs.",
+    icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+  }
+];
 // Generate structured data for the product listing page
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "WebPage",
+  "@type": "CollectionPage",
   "name": title,
   "description": description,
   "url": "https://dubai-hikvision.com/productsnew",
@@ -156,35 +182,10 @@ const structuredData = {
   }
 };
 
-const features = [
-  {
-    id: 1,
-    title: "Advanced Security",
-    description: "Experience top-notch encryption and protection that ensures your safety and reliability like never before.",
-    icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-  },
-  {
-    id: 2,
-    title: "High Performance",
-    description: "Experience unparalleled speed, reliability, and efficiency that make your operations run smoothly and effortlessly.",
-    icon: "M13 10V3L4 14h7v7l9-11h-7z"
-  },
-  {
-    id: 3,
-    title: "Smart Features",
-    description: "Discover how AI-powered analytics and automation can lead to smart, future-ready solutions that truly make a difference.",
-    icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-  },
-  {
-    id: 4,
-    title: "Scalable Solutions",
-    description: "Discover adaptable systems that evolve alongside your business needs.",
-    icon: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-  }
-];
+
 ---
-<Layout title={title} description={description}  structuredData={structuredData}>
-  <!-- Add scroll-smooth to the root HTML element -->
+<Layout title={title} description={description} ogUrl={ogUrl}>
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   <div class="scroll-smooth">
     <!-- Hero Section -->
     <div class="relative overflow-hidden bg-gradient-to-r from-teal-800 to-blue-800">

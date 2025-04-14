@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 }
 
 const { product } = Astro.props;
-
+const ogUrl = `https://dubai-hikvision.com/networkcamera/${product.slug}`;
 const breadcrumb = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -50,6 +50,7 @@ const breadcrumb = {
 <Layout 
   title={product.data.title} 
   description={product.data.subTitle}
+  ogUrl={ogUrl}
 >
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
   <SlugProductDetails product={product} />

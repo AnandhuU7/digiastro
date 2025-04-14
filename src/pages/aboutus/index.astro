@@ -5,7 +5,7 @@ import aboutus from "../../assets/images/hikvision.webp";
 // SEO metadata
 const title = "About Dubai Hikvision - Leading Security Solutions Provider in Dubai & UAE";
 const description = "Dubai Hikvision is a trusted provider of advanced security and surveillance solutions in Dubai & UAE, specializing in Hikvision CCTV cameras, NVRs, DVRs, access control, and AI-powered security systems.";
-const canonicalURL = "https://dubai-hikvision.com/aboutus";
+const ogUrl = "https://dubai-hikvision.com/aboutus";
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -21,8 +21,8 @@ const structuredData = {
     "logo": {
       "@type": "ImageObject",
       "url": "https://dubai-hikvision.com/logo.svg",
-      "width": "300",
-      "height": "60"
+      "width": 300,
+      "height": 60
     },
     "foundingDate": "2010",
     "founders": [
@@ -47,7 +47,7 @@ const structuredData = {
         "contactType": "sales",
         "email": "sales@lovosis.com",
         "areaServed": "AE",
-        "availableLanguage": ["English", "Arabic"]
+        "availableLanguage": ["English"]
       },
       {
         "@type": "ContactPoint",
@@ -62,8 +62,8 @@ const structuredData = {
     "logo": {
       "@type": "ImageObject",
       "url": "https://dubai-hikvision.com/logo.svg",
-      "width": "300",
-      "height": "60"
+      "width": 300,
+      "height": 60
     }
   },
   "breadcrumb": {
@@ -93,9 +93,9 @@ const structuredData = {
 <Layout 
   title={title}
   description={description}
-  canonicalURL={canonicalURL}
-  structuredData={structuredData}
+  ogUrl={ogUrl}
 >
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
 <section class="relative py-14 overflow-hidden">
   <!-- Gradient background with improved colors -->

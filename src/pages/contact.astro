@@ -4,13 +4,13 @@ import MapContainer from "../components/GoogleMap.tsx";
 
 const title = `Trusted Hikvision Distributor in Dubai|Wholesale Hikvision dealer in Dubai`;
 const description = `Trusted Hikvision distributor in Dubai, UAE. Offering genuine products and expert guidance for all your surveillance needs. Contact us for solutions.`;
-
+const ogUrl="https://dubai-hikvision.com/contact"
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "ContactPage",
+  "@type": ["ContactPage","WebPage"],
   "name": "Contact Hikvision Dubai - Sales & Support | Dubai & UAE Wholesale Dealer",
   "description": "Contact Dubai's leading Hikvision distributor for CCTV, security systems & smart solutions. Visit our showroom, call +971 55 292 9644, or WhatsApp for expert advice.",
-  "url": "https://dubai-hikvision.com/contact",
+  "url": ogUrl,
   "mainEntity": {
     "@type": "Organization",
     "name": "Dubai Hikvision - Wholesale Hikvision Distributor",
@@ -28,7 +28,7 @@ const structuredData = {
         "telephone": "+971552929644",
         "email": "sales@lovosis.com",
         "areaServed": ["AE", "Dubai", "SA", "QA", "OM", "KW", "BH"],
-        "availableLanguage": ["English","Arabic"]
+        "availableLanguage": ["English"]
       },
       {
         "@type": "ContactPoint",
@@ -92,8 +92,9 @@ const structuredData = {
 };
 ---
 
-<Layout title={title} description={description} structuredData={structuredData}>
-  <!-- Hero Section with enhanced glassmorphism and #32869f color scheme -->
+<Layout title={title} description={description} ogUrl={ogUrl}>
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+
   <section class="relative bg-gradient-to-br from-[#32869f] to-[#1d5566] pb-28 pt-10 overflow-hidden">
     <!-- Static background elements -->
     <div class="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full transform translate-x-1/3 -translate-y-1/3"></div>

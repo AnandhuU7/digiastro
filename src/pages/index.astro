@@ -10,7 +10,7 @@ import { sliders } from "../components/Slider.astro";
 
 const title = `Dubai Hikvision - Hikvision Wholesale Distributor`;
 const description = `Premier Hikvision distributor in Dubai, UAE. Explore our range of genuine products and benefit from expert support. Contact us for inquiries`;
-
+const ogUrl="https://dubai-hikvision.com"
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
@@ -18,7 +18,7 @@ const structuredData = {
       "@type": "WebPage",
       name: title,
       description: description,
-      url: "https://dubai-hikvision.com",
+      url: ogUrl,
       publisher: {
         "@type": "Organization",
         name: "Dubai Hikvision",
@@ -227,7 +227,7 @@ const structuredData = {
 
 <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} ogUrl={ogUrl}>
   <HeroComponents />
   <DigiComponents />
   <Slider />

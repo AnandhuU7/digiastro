@@ -16,7 +16,7 @@ const products: CollectionEntry<typeof category>[] = (
 // Enhanced SEO metadata
 const title = `Explosion Proof - Dubai Hikvision`;
 const description = `Browse our comprehensive range of explosion proof products from Hikvision, the leading distributor in Dubai. Professional-grade explosion-proof security cameras and surveillance systems for hazardous environments.`;
-
+const ogUrl="https://dubai-hikvision.com/turbohd"
 const breadcrumbData = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -48,22 +48,9 @@ const mainColor = "#32869f";
 <Layout 
   title={title} 
   description={description} 
+  ogUrl={ogUrl}
 >
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbData)} />
-  <!-- Add canonical URL -->
-  <link rel="canonical" href={`https://dubai-hikvision.com/explosionproof`} slot="head" />
-  
-  <!-- Add Open Graph tags -->
-  <meta property="og:title" content={title} slot="head" />
-  <meta property="og:description" content={description} slot="head" />
-  <meta property="og:type" content="website" slot="head" />
-  <meta property="og:url" content={`https://dubai-hikvision.com/explosionproof`} slot="head" />
-  <meta property="og:site_name" content="Dubai Hikvision" slot="head" />
-  
-  <!-- Add Twitter Card tags -->
-  <meta name="twitter:card" content="summary_large_image" slot="head" />
-  <meta name="twitter:title" content={title} slot="head" />
-  <meta name="twitter:description" content={description} slot="head" />
 
   <div class="container mx-auto px-4 py-8 bg-gray-50">
     <h1 class="text-4xl font-bold mb-6 text-center" style={`color: ${mainColor};`}>
