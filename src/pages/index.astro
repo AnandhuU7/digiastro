@@ -14,16 +14,24 @@ const ogUrl="https://dubai-hikvision.com"
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
+  {
+      "@type": "Organization",
+      "@id": "https://dubai-hikvision.com/#organization",
+      name: "Dubai Hikvision",
+      url: "https://dubai-hikvision.com",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://dubai-hikvision.com/logo.png",
+        width: 300,
+        height: 60
+      }
+    },
     {
       "@type": "WebPage",
       name: title,
       description: description,
       url: ogUrl,
-      publisher: {
-        "@type": "Organization",
-        name: "Dubai Hikvision",
-        url: "https://dubai-hikvision.com",
-      },
+      publisher: { "@id": "https://dubai-hikvision.com/#organization" },
       breadcrumb: {
         "@type": "BreadcrumbList",
         itemListElement: [
@@ -70,7 +78,7 @@ const structuredData = {
           description: service.description,
           image: {
             "@type": "ImageObject",
-            url: service.icon.src,
+            url: "https://dubai-hikvision.com" + service.icon.src,
             width: 300,
             height: 300,
           },
@@ -107,7 +115,6 @@ const structuredData = {
           brand: {
             "@type": "Brand",
             name: "Hikvision",
-            url: "https://www.hikvision.com",
           },
           additionalProperty: [
             {
@@ -164,11 +171,7 @@ const structuredData = {
             priceValidUntil: "2025-12-31",
             itemCondition: "https://schema.org/NewCondition",
             availability: "https://schema.org/InStock",
-            seller: {
-              "@type": "Organization",
-              name: "Dubai Hikvision",
-              url: "https://dubai-hikvision.com",
-            },
+            seller: { "@id": "https://dubai-hikvision.com/#organization" },
           },
         },
       })),
@@ -201,12 +204,7 @@ const structuredData = {
           "@type": "PropertyValue",
           name: f.data.name,
           description: f.data.body,
-          valueReference: {
-            "@type": "Brand",
-            name: "Hikvision",
-            description: "World leader in video surveillance equipment",
-            url: "https://dubai-hikvision.com",
-          },
+          valueReference: { "@id": "https://dubai-hikvision.com/#organization" },
         },
       })),
     },

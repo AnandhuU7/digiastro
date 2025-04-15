@@ -80,11 +80,7 @@ const productSchema = {
     "priceValidUntil": product.data.priceExpiry || new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
     "itemCondition": "https://schema.org/NewCondition",
     "availability": "https://schema.org/InStock",
-    "seller": {
-      "@type": "Organization",
-      "name": "Dubai Hikvision",
-      "url": "https://dubai-hikvision.com"
-    }
+    "seller": { "@id": "https://dubai-hikvision.com/#organization" },
   },
   "aggregateRating": product.data.rating && product.data.reviewCount ? {
     "@type": "AggregateRating",

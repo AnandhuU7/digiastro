@@ -5,56 +5,36 @@ const rating = product.data.rating;
 
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "ItemList",
-  "itemListElement": [product].map((product, index) => ({
-    "@type": "ListItem",
-    "position": index + 1,
-    "item": {
-      "@type": "Product",
-      "productID": product.data.id,
-      "name": product.data.title,
-      "image": {
-        "@type": "ImageObject",
-        "contentUrl": "https://dubai-hikvision.com" + product.data.imgCard.src,
-        "creditText": "Hikvision " + product.data.title,
-        "width": 800,
-        "height": 800
-      },
-      "url": new URL(`/${category}/${product.slug}`, Astro.site).toString(),
-      "aggregateRating": product.data.rating && product.data.reviewCount ? {
-        "@type": "AggregateRating",
-        "ratingValue": Number(product.data.rating),
-        "reviewCount": Math.round(Number(product.data.reviewCount)),
-        "bestRating": 5,
-        "worstRating": 1
-      } : undefined,
-      "brand": {
-        "@type": "Brand",
-        "name": "Hikvision",
-        "logo": {
-          "@type": "ImageObject",
-          "contentUrl": "https://dubai-hikvision.com/logo.svg",
-          "width": 300,
-          "height": 60
-        }
-      },
-      "category": category.charAt(0).toUpperCase() + category.slice(1),
-      "offers": {
-        "@type": "Offer",
-        "priceCurrency": "AED",
-        "price": product.data.price || 50,
-        "availability": product.data.inStock !== false 
-          ? "https://schema.org/InStock" 
-          : "https://schema.org/OutOfStock",
-        "itemCondition": "https://schema.org/NewCondition",
-        "seller": {
-          "@type": "Organization",
-          "name": "Dubai Hikvision",
-          "url": "https://dubai-hikvision.com"
-        }
-      }
-    }
-  }))
+  "@type": "Product",
+  "productID": product.data.id,
+  "name": product.data.title,
+  "image": {
+    "@type": "ImageObject",
+    "contentUrl": "https://dubai-hikvision.com" + product.data.imgCard.src,
+    "creditText": "Hikvision " + product.data.title,
+    "width": 800,
+    "height": 800
+  },
+  "url": new URL(`/${category}/${product.slug}`, Astro.site).toString(),
+  "aggregateRating": product.data.rating && product.data.reviewCount ? {
+    "@type": "AggregateRating",
+    "ratingValue": Number(product.data.rating),
+    "reviewCount": Math.round(Number(product.data.reviewCount)),
+    "bestRating": 5,
+    "worstRating": 1
+  } : undefined,
+  "brand": { "@id": "https://dubai-hikvision.com/#organization" },
+  "category": category.charAt(0).toUpperCase() + category.slice(1),
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "AED",
+    "price": product.data.price || 50,
+    "availability": product.data.inStock !== false 
+      ? "https://schema.org/InStock" 
+      : "https://schema.org/OutOfStock",
+    "itemCondition": "https://schema.org/NewCondition",
+    "seller": { "@id": "https://dubai-hikvision.com#organization" }
+  }
 };
 
 ---

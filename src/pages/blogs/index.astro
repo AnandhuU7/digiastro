@@ -51,16 +51,7 @@ const blogs = (await getCollection(category))
       }
     }))
   },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Dubai Hikvision",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://dubai-hikvision.com/logo.svg",
-      "width": 300,
-      "height": 60
-    }
-  },
+  "publisher": { "@id": "https://dubai-hikvision.com/#organization" },
   "breadcrumb": {
     "@type": "BreadcrumbList",
     "itemListElement": [
