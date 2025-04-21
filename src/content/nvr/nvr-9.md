@@ -1,0 +1,65 @@
+---
+id: 9
+title: "DS-7108NI-Q1/M"
+slug: "DS-7108NI-Q1/M"
+subTitle: "8-ch Mini 1U NVR"
+category: "nvr"
+imgCard: "/src/assets/images/nvr/DS-7108NI-Q1_M/DS-7108NI-Q1_M-1.webp"
+imgAlt: "DS-7108NI-Q1/M"
+thumbnails: [
+  "/src/assets/images/nvr/DS-7104NI-Q1_4P_M/DS-7104NI-Q1_4P_M-1.webp",
+  "/src/assets/images/nvr/DS-7104NI-Q1_4P_M/DS-7104NI-Q1_4P_M-2.webp"
+]
+features: [
+  "H.265+/H.265/H.264+/H.264 video compression support",
+  "Up to 60 Mbps incoming and outgoing bandwidth",
+  "Supports up to 8 network camera inputs",
+  "4-channel 1080p video decoding capability",
+  "Simultaneous HDMI and VGA video output",
+  "Compact 1U design for easy installation"
+]
+rating: 5
+reviewCount: 100
+specifications: {
+  Video_and_Audio: {
+    IP_Video_Input: {
+      Channels: "8-ch",
+      Max_Resolution: "Up to 6 MP"
+    },
+    Incoming_Bandwidth: "60 Mbps",
+    Outgoing_Bandwidth: "60 Mbps",
+    HDMI_Output: "1-ch, 1920 × 1080p/60Hz, 1600 × 1200/60Hz, 1280 × 1024/60Hz, 1280 × 720/60Hz",
+    VGA_Output: "1-ch, 1920 × 1080p/60Hz, 1600 × 1200/60Hz, 1280 × 1024/60Hz, 1280 × 720/60Hz",
+    Video_Output_Mode: "HDMI/VGA simultaneous output",
+    Decoding: {
+      Decoding_Format: "H.265+/H.265/ H.264+/H.264",
+      Recording_Resolution: "6 MP/4 MP/3 MP/1080p/UXGA/720p/VGA/4CIF/DCIF/2CIF/CIF/QCIF",
+      Synchronous_Playback: "4-ch",
+      Decoding_Capability: "4-ch@1080p (30 fps) or 2-ch@4 MP (30 fps) or 1-ch@6 MP (30 fps)",
+      Stream_Type: "Video, Video & Audio"
+    }
+  },
+  Network: {
+    Remote_Connection: "16",
+    Network_Protocol: "TCP/IP, DHCP, Hik-Connect, DNS, DDNS, NTP, SADP, SMTP, UPnP™",
+    Network_Interface: "1, RJ-45 10/100Mbps self-adaptive Ethernet interface"
+  },
+  Auxiliary_Interface: {
+    SATA: {
+      Interface: "1 SATA interface",
+    },
+    Capacity: "Up to 6TB capacity for each disk",
+    Alarm_In_Out: "N/A",
+    USB_Interface: "Rear panel: 2 × USB 2.0"
+  },
+  General: {
+    Power_Supply: "12 VDC, 1.5 A",
+    Consumption: "≤ 10 W",
+    Working_Temperature: "-10 to +55º C (+14 to +131º F)",
+    Working_Humidity: "10% to 90%",
+    Dimension: "265 × 223 × 48 mm (10.4\" × 8.8\" × 1.9\")",
+    Weight: "≤ 1 kg (2.2 lb)",
+    Certification: "CE, EN50130-4, EN 61000-3-2, EN 61000-3-3"
+  }
+}
+---

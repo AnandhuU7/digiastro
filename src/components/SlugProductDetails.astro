@@ -27,19 +27,6 @@ const {
   specifications,
 } = product.data as ProductData;
 
-const allImages = [
-  {
-    src: imgCard.src,
-    alt: imgAlt,
-  },
-  ...(thumbnails
-    ? thumbnails.map((thumb) => ({
-        src: thumb.src,
-        alt: `${imgAlt} thumbnail`,
-      }))
-    : []),
-];
-
 // Enhanced Product Schema
 const productSchema = {
   "@context": "https://schema.org",
@@ -57,22 +44,18 @@ const productSchema = {
     logo: "https://dubai-hikvision.com/logo.svg",
   },
   image: [
-    {
-      "@type": "ImageObject",
-      contentUrl: "https://dubai-hikvision.com" + imgCard.src,
-      width: 800,
-      height: 800,
-      creditText: `${title} - ${imgAlt}`,
-      representativeOfPage: true,
-    },
     ...(thumbnails
-      ? thumbnails.map((thumb) => ({
-          "@type": "ImageObject",
-          contentUrl: "https://dubai-hikvision.com" + thumb.src,
-          width: 800,
-          height: 800,
-          creditText: `${title} - ${imgAlt} thumbnail`,
-        }))
+      ? thumbnails.map((thumb) => {
+        const fileName = thumb?.src?.split('/').pop()?.split('.')[0] || '';
+          return {
+            "@type": "ImageObject",
+            contentUrl: "https://dubai-hikvision.com" + thumb.src,
+            width: 800,
+            height: 800,
+            creditText: fileName,
+            representativeOfPage: thumb.src === imgCard.src,
+          };
+        })
       : []),
   ],
   offers: {

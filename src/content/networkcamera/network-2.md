@@ -20,8 +20,8 @@ features: [
   "120 dB true WDR for strong backlight compensation",
   "IP67-rated for water and dust resistance in outdoor environments",
 ]
-rating: 4.5
-reviewCount: 50
+rating: 5
+reviewCount: 100
 specifications: {
   Camera: {
     Image_Sensor: "1/2.8\" Progressive Scan CMOS",
