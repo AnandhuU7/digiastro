@@ -1,7 +1,7 @@
 ---
 id: 4
 title: "DS-2DF6231-CX(T5/316L)"
-slug: "exp-4"
+slug: "DS-2DF6231-CX(T5/316L)"
 subTitle:  "6-Inch 31× Explosion-Proof Network Speed Dome – High-Performance 2 MP Imaging"
 category: "explosionproof"
 imgCard: "/src/assets/images/explosionproof/DS-2DF6231-CX(T5316L)/DS-2DF6231-CX(T5316L)-1.png"

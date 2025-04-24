@@ -1,7 +1,7 @@
 ---
 id: 6
 title: "DS-KH6350-TE1"
-slug: "video-6"
+slug: "DS-KH6350-TE1"
 subTitle: "KH6 Series IP Indoor Station"
 category: "videointercom"
 imgCard: "/src/assets/images/videointercom/DS-KH6350-TE1/DS-KH6350-TE1-1.webp"

@@ -1,7 +1,7 @@
 ---
 id: 3
 title: "iDS-7216HQHI-M2/XT"
-slug: "dvr-3"
+slug: "iDS-7216HQHI-M2/XT"
 subTitle: "16CH 1080p H.265 AcuSense DVR "
 category: "dvr"
 imgCard: "/src/assets/images/dvr/iDS-7216HQHI-M2_XT/iDS-7216HQHI-M2_XT-1.webp"

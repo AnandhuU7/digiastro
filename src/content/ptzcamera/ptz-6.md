@@ -1,7 +1,7 @@
 ---
 id: 6
 title: "DS-2SE4C225MWG-E/26"
-slug: "ptz-6"
+slug: "DS-2SE4C225MWG-E/26"
 subTitle: "TandemVu 6+2MP 25X Colorful & IR Panoramic PTZ Camera"
 category: "ptzcamera"
 imgCard: "/src/assets/images/ptzcamera/DS-2SE4C225MWG-E26(F0)/DS-2SE4C225MWG-E26(F0)-1.png"

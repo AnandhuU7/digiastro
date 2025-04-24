@@ -1,7 +1,7 @@
 ---
 id: 3
 title: "DS-KH8380-WTE1/Flush"
-slug: "video-3"
+slug: "DS-KH8380-WTE1/Flush"
 subTitle: "8 Series Indoor Station"
 category: "videointercom"
 imgCard: "/src/assets/images/videointercom/DS-KH8380-WTE1/DS-KH8380-WTE1-1.webp"

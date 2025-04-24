@@ -1,75 +1,72 @@
 ---
 id: 14
-title: "DS-2CE70DF0T-PF"
-slug: "DS-2CE70DF0T-PF"
-subTitle: "2 MP ColorVu Indoor Fixed Turret Camera"
+title: "DS-2CE79D3T-IT3ZF"
+slug: "DS-2CE79D3T-IT3ZF"
+subTitle: "2 MP Ultra Low Light Motorized Varifocal Bullet Camera"
 category: "turbohd"
-imgCard: "/src/assets/images/turbohd/DS-2CE70DF0T-PF/DS-2CE70DF0T-PF-1.webp"
-imgAlt: "DS-2CE70DF0T-PF"
+imgCard: "/src/assets/images/turbohd/DS-2CE79D3T-IT3ZF/DS-2CE79D3T-IT3ZF-1.webp"
+imgAlt: "DS-2CE79D3T-IT3ZF"
 thumbnails: [
-  "/src/assets/images/turbohd/DS-2CE70DF0T-PF/DS-2CE70DF0T-PF-1.webp",
+  "/src/assets/images/turbohd/DS-2CE79D3T-IT3ZF/DS-2CE79D3T-IT3ZF-1.webp",
 ]
 features: [
-  "High quality 2 MP resolution (1920 × 1080)",
-  "24/7 color imaging with F1.0 aperture for vivid detail",
-  "3D DNR technology ensures clean and sharp visuals",
-  "Available in 2.8 mm, 3.6 mm, and 6 mm fixed focal lenses",
-  "Up to 20 m white light distance for enhanced night imaging",
-  "One port supports 4 switchable signals (TVI/AHD/CVI/CVBS)"
+  "2 MP turret camera with ultra-low light sensitivity (0.005 lux)",
+  "120 dB true WDR for clear imaging in challenging lighting",
+  "3D DNR for clean and sharp image quality",
+  "Motorized varifocal lens with auto focus during zoom",
+  "EXIR 2.0 infrared technology with 70 m IR distance",
+  "Water and dust resistant (IP67)",
+  "4 in 1 (TVI/AHD/CVI/CVBS signal switchable)"
 ]
 rating: 5
 reviewCount: 100
 specifications: {
   Camera: {
-    Image_Sensor: "2 MP CMOS",
+    Image_Sensor: "2.0 megapixel progressive scan CMOS",
     Max_Resolution: "1920 (H) × 1080 (V)",
-    Min_Illumination: "0.001 Lux @ (F1.0, AGC ON), 0 Lux with white light",
-    Shutter_Time: "PAL: 1/25 s to 1/50,000 s; NTSC: 1/30 s to 1/50,000 s",
+    Min_Illumination: "0.005 Lux@(F1.6, AGC ON), 0 Lux with IR",
+    Shutter_Time: {
+      PAL: "1/25 s to 1/50,000 s",
+      NTSC: "1/30 s to 1/50,000 s"
+    },
+    Day_Night: "IR cut filter",
     Angle_Adjustment: "Pan: 0° to 360°, Tilt: 0° to 75°, Rotation: 0° to 360°",
-    Signal_System: "PAL/NTSC",
-    Light_Alarm: "Solid Light Alarm (White Light)"
+    Signal_System: "PAL/NTSC"
   },
   Lens: {
-    Lens_Type: "2.8 mm, 3.6 mm, 6 mm fixed focal lens",
-    Focal_Length_and_FOV: {
-      "2.8 mm": "Horizontal_FOV: 98°, Vertical_FOV: 51°, Diagonal_FOV: 115°",
-      "3.6 mm": "Horizontal_FOV: 76°, Vertical_FOV: 41°, Diagonal_FOV: 90°",
-      "6 mm": "Horizontal_FOV: 50°, Vertical_FOV: 27°, Diagonal_FOV: 58°"
-    },
-    Lens_Mount: "M12"
-  },
-  Illuminator: {
-    Supplement_Light_Type: "White Light",
-    Supplement_Light_Range: "Up to 20 m",
-    Smart_Supplement_Light: "Yes"
+    Lens_Type: "2.7 mm to 13.5 mm",
+    Focal_Length_&_FOV: "102° to 31°",
+    Lens_Mount: "Φ 14"
   },
   Image: {
-    Image_Parameters_Switch: "STD/HIGH-SAT/HIGHLIGHT",
-    Image_Settings: "Brightness, Mirror, Sharpness, Anti-Banding, AGC",
+    Image_Parameters_Switch: "STD/HIGH-SAT",
+    Image_Settings: "Brightness, Sharpness, 3D DNR, Mirror, Smart IR",
     Frame_Rate: {
-      TVI: "1080p@25fps/30fps",
-      CVI: "1080p@25fps/30fps",
-      AHD: "1080p@25fps/30fps",
-      CVBS: "PAL/NTSC"
+      PAL: "1080p@25fps",
+      NTSC: "1080p@30fps"
     },
-    Day_Night_Mode: "Color",
-    Wide_Dynamic_Range: "Digital WDR",
-    Image_Enhancement: "DWDR, BLC, HLC, Global",
-    Noise_Reduction: "3D DNR/2D DNR",
-    White_Balance: "Auto/Manual"
+    Day_Night_Mode: "Auto/Color/BW (Black and White)",
+    WDR: "≥ 120 dB",
+    Image_Enhancement: "BLC, HLC",
+    White_Balance: "ATW/MWB",
+    AGC: "High/Medium/Low"
   },
-  Interface: {
-    Video_Output: "Switchable TVI/AHD/CVI/CVBS"
+  interface: {
+    videoOutput: "1 HD analog output"
   },
   General: {
-    Material: "Plastic",
-    Dimension: "Φ 85.02 mm × 81.25 mm (Φ 3.35\" × 3.2\")",
-    Weight: "Approx. 161 g (0.36 lb)",
-    Operating_Condition: "-40°C to 60°C (-40°F to140°F), Humidity: 90% or less (non-condensing)",
-    Communication: "HIKVISION-C",
+    Material: "Metal",
+    Dimension: "123.87 mm × 110.24 mm × 134.3 mm (4.87\" × 4.34\" × 5.29\")",
+    Weight: "Approx. 600 g (1.32 lb.)",
+    Operating_Condition: "-40 °C to 60 °C (-40 °F to 140 °F), humidity: 90% or less (non-condensation)",
     Language: "English",
-    Power: "12 VDC ± 25%, Max. 2.4 W",
-    Power_Recommendation: "You are recommended to use one power adapter to supply the power for one camera."
+    Power_Supply: "12 VDC ±25%",
+    Power_Recommendation: "You are recommended to use one power adapter to supply the power for one camera.",
+    Consumption: "Max. 7.7 W",
+    IR_Range: "Up to 70 m"
+  },
+  Approval: {
+    Protection: "IP67"
   }
 }
 ---

@@ -1,92 +1,99 @@
 ---
 id: 18
-title: "DS-2CD1743G0-I(Z)"
-slug: "network-18"
-subTitle: "4 MP Varifocal Dome Camera"
+title: "DS-2CD1327G2H-LIU"
+slug: "DS-2CD1327G2H-LIU"
+subTitle: "2 MP ColorVu Hybrid Turret Camera"
 category: "networkcamera"
-imgCard: "/src/assets/images/networkcamera/DS-2CD1743G0-I(Z)/DS-2CD1743G0-I(Z)-1.webp"
-imgAlt: "DS-2CD1743G0-I(Z)"
+imgCard: "/src/assets/images/networkcamera/DS-2CD1327G2H-LIU/DS-2CD1327G2H-LIU-1.webp"
+imgAlt: "DS-2CD1327G2H-LIU"
 thumbnails: [
-  "/src/assets/images/networkcamera/DS-2CD1743G0-I(Z)/DS-2CD1743G0-I(Z)-1.webp",
-  "/src/assets/images/networkcamera/DS-2CD1743G0-I(Z)/DS-2CD1743G0-I(Z)-2.webp",
-  "/src/assets/images/networkcamera/DS-2CD1743G0-I(Z)/DS-2CD1743G0-I(Z)-3.webp",
+  "/src/assets/images/networkcamera/DS-2CD1327G2H-LIU/DS-2CD1327G2H-LIU-1.webp",
+  "/src/assets/images/networkcamera/DS-2CD1327G2H-LIU/DS-2CD1327G2H-LIU-2.webp",
+  "/src/assets/images/networkcamera/DS-2CD1327G2H-LIU/DS-2CD1327G2H-LIU-3.webp",
 ]
 features: [
-  "4 MP high-quality imaging for clear surveillance",
-  "120 dB WDR for strong backlight performance",
-  "2.8–12 mm motorized varifocal lens for flexible monitoring",
-  "H.265+ compression for efficient storage and bandwidth",
-  "EXIR 2.0: advanced infrared tech with long IR range",
-  "IP67 water/dust resistance and IK10 vandal protection",
+  "2 MP high-resolution imaging for vibrant color surveillance",
+  "Smart Hybrid Light for extended low-light and long-range performance",
+  "Human and vehicle detection for precise alerting",
+  "Built-in microphone for high-quality real-time audio",
+  "Supports up to 512 GB onboard storage (optional SD card)",
+  "H.265+ compression and IP67-rated water/dust resistance"
 ]
 rating: 5
 reviewCount: 100
 specifications: {
   Camera: {
-    Image_Sensor: "1/3\" Progressive Scan CMOS",
-    Max_Resolution: "2560 × 1440",
-    Min_Illumination: "Color: 0.005 Lux @(F1.6, AGC ON), B/W: 0 Lux with IR",
-    Shutter_Speed: "1/3 s to 1/100,000 s",
-    Wide_Dynamic_Range: "120 dB",
-    Day_Night: "IR Cut Filter",
-    Angle_Adjustment: "Pan: 0° to 355°, Tilt: 0° to 70°, Rotation: 0° to 355°"
+    Image_Sensor: "1/2.8\" Progressive Scan CMOS",
+    Max_Resolution: "1920 × 1080",
+    Min_Illumination: "Color: 0.001 Lux @ (F1.0, AGC ON),0 Lux with light",
+    Shutter_Time: "1/3 s to 1/100,000 s",
+    Day_Night: "IR cut filter",
+    Angle_Adjustment: "Pan: 0° to 360°,tilt: 0° to 75°,rotate: 0° to 360°"
   },
   Lens: {
-    Lens_Type: "Varifocal Lens, motoried lens, 2.8 to 12 mm",
-    Focal_Length_FOV: "2.8 to 12 mm: Horizontal FOV 102° to 31°, Vertical FOV 54° to 17°, Diagonal FOV 123° to 35°",
-    Lens_Mount: "Ø14",
+    Lens_Type: "Fixed focal lens, 2.8 and 4 mm optional",
+    Focal_Length_FOV: {
+      "2.8 mm": "horizontal FOV 106°, vertical FOV 56°, diagonal FOV 129°",
+      "4 mm": "horizontal FOV 88°, vertical FOV 47°, diagonal FOV 103°"
+    },
+    Lens_Mount: "M12",
     Iris_Type: "Fixed",
-    Aperture: "F1.6"
+    Aperture: "F1.0"
   },
   Video: {
     Main_Stream: {
-      "50_Hz": "20 fps (2560 × 1440), 25 fps (1920 × 1080, 1280 × 720)",
-      "60_Hz": "20 fps (2560 × 1440), 30 fps (1920 × 1080, 1280 × 720)"
+      "50_Hz": "25 fps (1920 × 1080, 1280 × 720)",
+      "60_Hz": "30 fps (1920 × 1080, 1280 × 720)"
     },
     Sub_Stream: {
-      "50_Hz": "25 fps (1280 × 720, 640 × 480, 640 × 360)",
-      "60_Hz": "30 fps (1280 × 720, 640 × 480, 640 × 360)"
+      "50_Hz": "25 fps (640 × 480, 640 × 360)",
+      "60_Hz": "30 fps (640 × 480, 640 × 360)"
     },
     Video_Compression: {
       Main_Stream: "H.265+/H.265/H.264+/H.264",
       Sub_Stream: "H.265/H.264/MJPEG"
     },
     Video_Bit_Rate: "32 Kbps to 8 Mbps",
-    H264_Type: "Baseline Profile/Main Profile/High Profile",
+    H264_Type: "Baseline Profile,Main Profile,High Profile",
     H265_Type: "Main Profile",
-    Region_of_Interest: "1 fixed region for main stream"
+    Bit_Rate_Control: "CBR,VBR",
+    ROI: "1 fixed region for main stream"
   },
   Audio: {
-    Audio_Compression: "-S: G.711ulaw/G.711alaw/G.722.1/G.726/MP2L2/PCM/AAC",
-    Audio_Bit_Rate: "-S: 64 Kbps (G.711)/16 Kbps (G.722.1)/16 Kbps (G.726)/32 to 160 Kbps (MP2L2)/16 to 64 Kbps (AAC)",
-    Audio_Sampling_Rate: "-S: 8 kHz/16 kHz",
-    Environment_Noise_Filtering: "-S: Yes"
+    Audio_Type: "Mono sound",
+    Audio_Compression: "G.711/G.722.1/G.726/MP2L2/PCM/AAC-LC",
+    Audio_Bit_Rate: "64 Kbps (G.711)/16 Kbps (G.722.1)/16 Kbps (G.726)/32 to 160 Kbps (MP2L2)/16 to 64 Kbps (AAC-LC)",
+    Audio_Sampling_Rate: "8 kHz/16 kHz",
+    Environment_Noise_Filtering: "Yes"
   },
   Network: {
-    Protocols: "TCP/IP, ICMP, HTTP, HTTPS, FTP, DHCP, DNS, DDNS, RTP, RTSP, RTCP, NTP, UPnP™, SMTP, IGMP, 802.1X, QoS, IPv6, Bonjour, IPv4, UDP, SSL/TLS",
+    Protocols: "TCP/IP, ICMP, DHCP, DNS, HTTP, RTP, RTSP, RTCP, NTP, IGMP, UDP, QoS, FTP, SMTP, UPnP",
     Simultaneous_Live_View: "Up to 6 channels",
-    API: "Open Network Video Interface, ISAPI",
-    User_Host: "Up to 32 users. 3 levels: administrator, operator and user",
-    Network_Storage: "MicroSD/SDHC/SDXC card (256 GB) local storage",
-    Client: "iVMS-4200, Hik-Connect",
-    Web_Browser: "Plug-in required live view: IE 10+; Plug-in free live view: Chrome 57.0+, Firefox 52.0+; Local service: Chrome 57.0+, Firefox 52.0+"
+    API: "Open Network Video Interface (Profile S, Profile T, Profile G (only -F model supports)),ISAPI,SDK",
+    Security: "Password protection, complicated password, watermark, basic and digest authentication for HTTP, WSSE and digest authentication for Open Network Video Interface, security audit log, host authentication (MAC address)",
+    User_Host: "Up to 32 users; 3 user levels: administrator, operator, and user",
+    Client: "iVMS-4200,Hik-Connect",
+    Web_Browser: "Plug-in required live view: IE 10, IE 11, Local service: Chrome 57.0+, Firefox 52.0+, Edge 89+"
   },
   Image: {
-    Image_Settings: "Saturation, brightness, contrast, sharpness, AGC, white balance adjustable by client software or web browser",
-    Day_Night_Switch: "Auto, Schedule, Day, Night",
-    Image_Enhancement: "BLC, 3D DNR"
+    Image_Settings: "Rotate mode,saturation,brightness,contrast,sharpness,gain,white balance,adjustable by client software or web browser",
+    Day_Night_Switch: "Day,Night,Auto,Schedule",
+    WDR: "Digital WDR",
+    SNR: "≥ 52 dB",
+    Image_Enhancement: "BLC,HLC,3D DNR",
+    Privacy_Mask: "4 programmable polygon privacy masks"
   },
   General: {
-    Power: "12 VDC ± 25%, 0.8 A, max. 10 W, Ø5.5 mm coaxial power plug; PoE: 802.3af, Class 3, 36 V to 57 V, 0.32 A to 0.2 A, max. 11.5 W",
-    Camera_Material: "Metal",
-    Camera_Dimension: "Ø141 mm × 99.9 mm (Ø5.6\" × 3.9\")",
-    Package_Dimension: "140 mm × 140 mm × 154 mm (5.5\" × 5.5\" × 6.1\")",
-    Camera_Weight: "Approx. 820 g (1.8 lb.)",
-    With_Package_Weight: "Approx. 1200 g (2.6 lb.)",
-    Storage_Conditions: "-30 °C to 60 °C (22 °F to +140 °F). Humidity 95% or less (non-condensing)",
-    Startup_and_Operating_Conditions: "-30 °C to 60 °C (22 °F to +140 °F). Humidity 95% or less (non-condensing)",
+    Power: "12 VDC ± 25%, 0.45 A, max. 5.4 W,Ø5.5 mm coaxial power plug,reverse polarity protection, PoE: IEEE 802.3af, Class 3, max. 6.5 W",
+    Material: "Metal & Plastic",
+    Dimension: "Ø110 mm × 93 mm (Ø4.33\" × 3.66\")",
+    Package_Dimension: "150 mm × 150 mm × 141 mm (5.91\" × 5.91\" × 5.55\")",
+    Weight: "Approx. 380 g (0.8 lb.)",
+    With_Package_Weight: "Approx. 611 g (1.3 lb.)",
+    Storage_Conditions: "-30 °C to 60 °C (-22 °F to 140 °F). Humidity 95% or less (non-condensing)",
+    Startup_and_Operating_Conditions: "-30 °C to 60 °C (-22 °F to 140 °F). Humidity 95% or less (non-condensing)",
     Language: "English, Ukrainian",
-    General_Function: "Anti-flicker, heartbeat, mirror, password protection, privacy mask, watermark, IP address filter"
+    General_Function: "Heartbeat, anti-banding, mirror, password protection,password reset by email"
   }
 }
 ---

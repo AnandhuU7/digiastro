@@ -1,7 +1,7 @@
 ---
 id: 8
 title: "DS-KV9503-WBE1"
-slug: "video-8"
+slug: "DS-KV9503-WBE1"
 subTitle: "Vandal-Resistant Facial Recognition IP Villa Door Station"
 category: "videointercom"
 imgCard: "/src/assets/images/videointercom/DS-KV9503-WBE1/DS-KV9503-WBE1-1.webp"

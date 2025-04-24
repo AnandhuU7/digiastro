@@ -1,7 +1,7 @@
 ---
 id: 7
 title: "DS-2XE6146F-HS(C)"
-slug: "exp-7"
+slug: "DS-2XE6146F-HS(C)"
 subTitle:  "Fixed Dome Explosion-Proof Network Camera – ATEX & IECEx Certified"
 category: "explosionproof"
 imgCard: "/src/assets/images/explosionproof/DS-2XE6146F-HS/DS-2XE6146F-HS-1.png"

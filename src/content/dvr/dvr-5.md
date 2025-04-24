@@ -1,7 +1,7 @@
 ---
 id: 5
 title: "DS-7104HGHI-M1"
-slug: "dvr-5"
+slug: "DS-7104HGHI-M1"
 subTitle: "4CH 720p H.265 Mini DVR"
 category: "dvr"
 imgCard: "/src/assets/images/dvr/DS-7104HGHI-M1/DS-7104HGHI-M1.webp"

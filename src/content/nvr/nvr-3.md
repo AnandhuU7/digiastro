@@ -1,87 +1,102 @@
 ---
 id: 3
-title: "DS-96128NXI-S24R"
-slug: "nvr-3"
-subTitle: "S Series NVR with AcuSense – 32×1080p Decoding & 8K HDMI Output"
+title: "DS-7604NXI-K1/4P"
+slug: "DS-7604NXI-K1/4P"
+subTitle: "4-ch PoE 1U AcuSense 4K NVR"
 category: "nvr"
-imgCard: "/src/assets/images/nvr/DS-96128NXI-S24R/DS-96128NXI-S24R-1.png"
-imgAlt: "DS-96128NXI-S24R"
+imgCard: "/src/assets/images/nvr/DS-7604NXI-K1_4P/DS-7604NXI-K1_4P-1.webp"
+imgAlt: "DS-7604NXI-K1/4P"
 thumbnails: [
-  "/src/assets/images/nvr/DS-96128NXI-S24R/DS-96128NXI-S24R-1.png"
+  "/src/assets/images/nvr/DS-7604NXI-K1_4P/DS-7604NXI-K1_4P-1.webp"
 ]
 features: [
-  "Supports 32×1080p decoding & 128-ch IP cameras",
-  "Facial recognition, perimeter protection & AcuSearch",
-  "Connect up to 8-ch IP speakers",
-  "RAID 0, 1, 5, 6, 10 & N+M hot spare for secure storage",
-  "8K HDMI video output for ultra-HD display",
-  "Redundant power supply for enhanced reliability"
+  "Up to 4 IP cameras with 4 built-in PoE ports",
+  "Supports H.265+/H.265/H.264+/H.264 video formats",
+  "Up to 12 MP/8 MP/4 MP/1080p decoding capability",
+  "40 Mbps incoming bandwidth",
+  "AcuSense tech for smart detection and alerts",
+  "Plug and play setup with 1U compact design"
 ]
-rating: 4.5
-reviewCount: 50
+rating: 5
+reviewCount: 100
 specifications: {
   Intelligent_Analytics: {
-    AI_by_NVR: {
-      features: "Facial recognition, Perimeter protection, Video structuralization"
-    },
-    AI_by_Camera: {
-      features: "Facial recognition, Perimeter protection, Video structuralization, AcuSearch, Motion detection 2.0, ANPR, People counting, VCA"
-    }
+    AI_by_Device: "Facial recognition, perimeter protection, motion detection 2.0",
+    AI_by_Camera: "Facial recognition, perimeter protection, throwing objects from building, motion detection 2.0, ANPR, VCA"
   },
   Facial_Recognition: {
-    Facial_Detection_and_Analytics: {
-      features: "Face picture comparison, Human face capture, Face picture search"
-    },
+    Face_Attributes: "N/A",
+    Facial_Detection_and_Analytics: "Face picture comparison, human face capture, face picture search",
     Face_Picture_Library: {
-      Libraries: "64",
-      Max_Pictures: "300000",
+      Libraries: "Up to 16",
+      Max_Pictures: "20000",
       Picture_Size_Limit: "4 MB",
-      Total_Capacity: "10 GB"
+      Total_Capacity: "1 GB"
     },
-    Face_Picture_Comparison: {
-      Channels: "16",
-      Comparison_Speed: "24 pictures per second"
-    },
-    Facial_Detection_and_Analytics_Performance: {
-      Simultaneous_Mode: "8-ch, up to 2 MP",
-      Independent_Mode: "4-ch, up to 2 MP"
-    }
+    Facial_Detection_and_Analytics_Performance: "1-ch, 4 MP; 1-ch, 8 MP",
+    Face_Picture_Comparison: "2-ch"
+  },
+  Motion_Detection_2_0: {
+    By_Device: "All channels, 4 MP (when enhanced SVC mode is enabled, up to 8 MP) video analysis for human and vehicle recognition to reduce false alarm",
+    By_Camera: "All channels"
   },
   Video_and_Audio: {
-    IP_Video_Input: "128-ch, Up to 32 MP resolution",
-    Incoming_Bandwidth: "1280 Mbps",
-    Outgoing_Bandwidth: "1024 Mbps",
-    Incoming_Bandwidth_RAID_Mode: "640 Mbps",
-    Outgoing_Bandwidth_RAID_Mode: "512 Mbps",
-    HDMI_Outputs: {
-      HDMI_1: "4K (4096 × 2160)/30 Hz, 4K (3840 × 2160)/60 Hz, 4K (3840 × 2160)/30 Hz, 2K (2560 × 1440)/60 Hz, 1080P (1920 × 1080)/60 Hz",
-      HDMI_2: "4K (4096 × 2160)/30 Hz, 4K (3840 × 2160)/60 Hz, 4K (3840 × 2160)/30 Hz, 2K (2560 × 1440)/60 Hz, 1080P (1920 × 1080)/60 Hz",
-      HDMI_3: "8K (7680 × 4320)/30 Hz, 4K (4096 × 2160)/30 Hz, 4K (3840 × 2160)/60 Hz, 4K (3840 × 2160)/30 Hz, 2K (2560 × 1440)/60 Hz, 1080P (1920 × 1080)/60 Hz",
-      HDMI_4: "1080P (1920 × 1080)/60 Hz"
+    IP_Video_Input: "4-ch",
+    Incoming_Bandwidth: "40 Mbps",
+    Outgoing_Bandwidth: "80 Mbps",
+    HDMI_Output: "1-ch, 4K (3840 × 2160)/30 Hz, 2K (2560 × 1440)/60 Hz, 1920 × 1080/60 Hz, 1600 × 1200/60 Hz, 1280 × 1024/60 Hz, 1280 × 720/60 Hz",
+    VGA_Output: "1-ch, 1920 × 1080/60 Hz, 1280 × 1024/60 Hz, 1280 × 720/60 Hz",
+    Video_Output_Mode: "HDMI1/VGA simultaneous output",
+    CVBS_Output: "N/A",
+    Audio_Output: "1-ch, RCA (Linear, 1 KΩ)",
+    Two_Way_Audio: "1-ch, RCA (2.0 Vp-p, 1 KΩ, using the audio input)"
+  },
+  Decoding: {
+    Decoding_Format: "H.265/H.265+/H.264+/H.264",
+    Recording_Resolution: "12 MP/8 MP/6 MP/5 MP/4 MP/3 MP/1080p/UXGA/720p/VGA/4CIF/DCIF/2CIF/CIF/QCIF",
+    Synchronous_Playback: "4-ch",
+    Decoding_Capability: {
+      AI_on: "1-ch@12 MP (30 fps)/1-ch@8 MP (30 fps)/3-ch@4 MP (30 fps)/6-ch@1080p (30 fps)",
+      AI_off: "1-ch@12 MP (30 fps)/2-ch@8 MP (30 fps)/4-ch@4 MP (30 fps)/8-ch@1080p (30 fps)"
     },
-    VGA_Outputs: {
-      VGA_1: "1080P (1920 × 1080)/60 Hz",
-      VGA_2: "1080P (1920 × 1080)/60 Hz"
+    Stream_Type: "Video, Video & Audio",
+    Audio_Compression: "G.711ulaw/G.711alaw/G.722/G.726/AAC"
+  },
+  Network: {
+    Remote_Connection: "128",
+    API: "ONVIF (profile S/G); SDK; ISAPI",
+    Compatible_Browser: "IE11, Chrome V57, Firefox V52, Safari V12, Edge V89, or above version",
+    Network_Protocol: "TCP/IP, DHCP, IPv4, IPv6, DNS, DDNS, NTP, RTSP, SADP, SMTP, SNMP, NFS, iSCSI, ISUP, UPnP™, HTTP, HTTPS",
+    Network_Interface: "1 RJ-45 10/100/1000 Mbps self-adaptive Ethernet interface",
+  },
+  PoE: {
+    Interface: "4, RJ-45 10/100 Mbps self-adaptive Ethernet interface",
+    Power: "≤ 50 W",
+    Standard: "IEEE 802.3af/at"
+  },
+  Auxiliary_Interface: {
+    SATA: {
+      interface: "1 SATA interface",
     },
-    Video_Output_Mode: {
-      Mode_1: "Simultaneous output with 1080p resolution",
-      Mode_2: "Simultaneous output on HDMI 1, VGA 1, HDMI 2, VGA 2, HDMI 3, and HDMI 4",
-      Mode_3: "Independent output with 8K HDMI 3 output resolution",
-      Mode_4: "Independent output with HDMI 3 output resolution ≤ 4K"
+    Capacity: "Up to 10 TB capacity for each HDD",
+    USB_Interface: {
+      Front_Panel: "1 × USB 2.0",
+      Rear_Panel: "1 × USB 2.0"
     },
-    HDMI_Input: "1-ch",
-    HDMI_Loopback: "1-ch (matching the HDMI input)",
-    Audio_Output: "2-ch, RCA (Linear, 1 KΩ)",
-    Two_Way_Audio: "1-ch, RCA (2.0 Vp-p, 1 KΩ)"
+    Alarm_In_Out: "4/1; N/A ;N/A (4/1 is optional)"
   },
   General: {
-    GUI_Language: "Multiple languages supported including English, Russian, German, French, Spanish, Chinese, etc.",
-    Power_Supply: "100 to 240 VAC, 50 to 60 Hz, redundant power supply",
-    Consumption: "≤ 100 W (without HDD)",
-    Working_Temperature: "-10 to 55°C (14 to 131° F)",
-    Working_Humidity: "10 to 90%",
-    Dimension: "447 mm × 572 mm × 173 mm (17.6 × 22.5 × 6.8 inch)",
-    Weight: "≤ 19 kg (without HDD, 28.7 lb.)"
+    GUI_Language: "English, Russian, Bulgarian, Hungarian, Greek, German, Italian, Czech, Slovak, French, Polish, Dutch, Portuguese, Spanish, Romanian, Turkish, Japanese, Danish, Swedish Language, Norwegian, Finnish, Korean, Traditional Chinese, Thai, Estonian, Vietnamese, Croatian, Slovenian, Serbian, Latvian, Lithuanian, Uzbek, Kazakh, Arabic, Ukrainian, Kyrgyz , Brazilian Portuguese, Indonesian",
+    Power Supply: "48 VDC, 1.35 A",
+    Consumption: "≤ 10 W (without HDD and PoE off)",
+    Working_Temperature: "-10 °C to 55 °C (14 °F to 131 °F)",
+    Working_Humidity: "10% to 90%",
+    Dimension: "320 mm × 240 mm × 48 mm (12.6\"× 9.4\" × 1.9\")",
+    Weight: "≤ 1 kg (without HDD, 2.2 lb.)"
+  },
+  Certification: {
+    CE: "EN 55032: 2015, EN 61000-3-2, EN 61000-3-3, EN 50130-4, EN 55035: 2017",
+    Obtained Certification: "CE, FCC, IC, CB, KC, UL, Rohs, Reach, WEEE, RCM, UKCA, LOA, BIS;CE, CB, KC, Reach, WEEE, RCM, UKCA, LOA"
   }
 }
 ---

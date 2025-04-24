@@ -1,7 +1,7 @@
 ---
 id: 4
 title: "DS-K1T342MFWX-E1"
-slug: "access-4"
+slug: "DS-K1T342MFWX-E1"
 subTitle: "Touchscreen Access with Wi-Fi & PoE"
 category: "accesscontrol"
 imgCard: "/src/assets/images/accesscontrol/DS-K1T342MFWX-E1/DS-K1T342MFWX-E1-1.webp"

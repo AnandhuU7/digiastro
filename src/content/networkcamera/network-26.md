@@ -1,44 +1,43 @@
 ---
 id: 26
-title: "DS-2CD1327G2H-LIU"
-slug: "DS-2CD1327G2H-LIU"
-subTitle: "2 MP ColorVu Hybrid Turret Camera"
+title: "DS-2CD2H23G2-IZS"
+slug: "DS-2CD2H23G2-IZS"
+subTitle: "2 MP AcuSense Motorized Varifocal Turret Camera"
 category: "networkcamera"
-imgCard: "/src/assets/images/networkcamera/DS-2CD1327G2H-LIU/DS-2CD1327G2H-LIU-1.webp"
-imgAlt: "DS-2CD1327G2H-LIU"
+imgCard: "/src/assets/images/networkcamera/DS-2CD2H23G2-IZS/DS-2CD2H23G2-IZS-1.png"
+imgAlt: "DS-2CD2H23G2-IZS"
 thumbnails: [
-  "/src/assets/images/networkcamera/DS-2CD1327G2H-LIU/DS-2CD1327G2H-LIU-1.webp",
-  "/src/assets/images/networkcamera/DS-2CD1327G2H-LIU/DS-2CD1327G2H-LIU-2.webp",
-  "/src/assets/images/networkcamera/DS-2CD1327G2H-LIU/DS-2CD1327G2H-LIU-3.webp",
+  "/src/assets/images/networkcamera/DS-2CD2H23G2-IZS/DS-2CD2H23G2-IZS-1.png",
+  "/src/assets/images/networkcamera/DS-2CD2H23G2-IZS/DS-2CD2H23G2-IZS-2.png",
+  "/src/assets/images/networkcamera/DS-2CD2H23G2-IZS/DS-2CD2H23G2-IZS-3.png",
 ]
 features: [
-  "2 MP high-resolution imaging for vibrant color surveillance",
-  "Smart Hybrid Light for extended low-light and long-range performance",
-  "Human and vehicle detection for precise alerting",
-  "Built-in microphone for high-quality real-time audio",
-  "Supports up to 512 GB onboard storage (optional SD card)",
-  "H.265+ compression and IP67-rated water/dust resistance"
+  "2 MP high-resolution imaging",
+  "Motorized varifocal lens for easy installation and monitoring",
+  "120 dB WDR for clear images in backlit environments",
+  "H.265+ compression for optimized storage",
+  "IP67 water and dust resistance, IK10 vandal-proof",
+  "Deep learning for human and vehicle classification",
 ]
-rating: 5
-reviewCount: 100
+rating: 4
+reviewCount: 50
 specifications: {
   Camera: {
     Image_Sensor: "1/2.8\" Progressive Scan CMOS",
     Max_Resolution: "1920 × 1080",
-    Min_Illumination: "Color: 0.001 Lux @ (F1.0, AGC ON),0 Lux with light",
+    Min_Illumination: "Color: 0.005 Lux @ (F1.6, AGC ON), B/W: 0 Lux with IR",
     Shutter_Time: "1/3 s to 1/100,000 s",
     Day_Night: "IR cut filter",
-    Angle_Adjustment: "Pan: 0° to 360°,tilt: 0° to 75°,rotate: 0° to 360°"
+    Angle_Adjustment: "Pan: 0° to 360°, Tilt: 0° to 75°, Rotate: 0° to 360°"
   },
   Lens: {
-    Lens_Type: "Fixed focal lens, 2.8 and 4 mm optional",
+    Lens_Type: "Varifocal lens, motorized lens, 2.8 to 12 mm",
     Focal_Length_FOV: {
-      "2.8 mm": "horizontal FOV 106°, vertical FOV 56°, diagonal FOV 129°",
-      "4 mm": "horizontal FOV 88°, vertical FOV 47°, diagonal FOV 103°"
+      "2.8 to 12 mm": "Horizontal FOV 106.6° to 31.7°, Vertical FOV 54.7° to 17.7°, Diagonal FOV 130.3° to 36.4°"
     },
-    Lens_Mount: "M12",
+    Lens_Mount: "Ø14",
     Iris_Type: "Fixed",
-    Aperture: "F1.0"
+    Aperture: "F1.6"
   },
   Video: {
     Main_Stream: {
@@ -49,51 +48,27 @@ specifications: {
       "50_Hz": "25 fps (640 × 480, 640 × 360)",
       "60_Hz": "30 fps (640 × 480, 640 × 360)"
     },
+    Third_Stream: {
+      "50_Hz": "10 fps (1920 × 1080, 1280 × 720, 640 × 480, 640 × 360)",
+      "60_Hz": "10 fps (1920 × 1080, 1280 × 720, 640 × 480, 640 × 360)"
+    },
     Video_Compression: {
-      Main_Stream: "H.265+/H.265/H.264+/H.264",
-      Sub_Stream: "H.265/H.264/MJPEG"
+      Main_Stream: "H.265/H.264/H.264+/H.265+",
+      Sub_Stream: "H.265/H.264/MJPEG",
+      Third_Stream: "H.265/H.264"
     },
     Video_Bit_Rate: "32 Kbps to 8 Mbps",
-    H264_Type: "Baseline Profile,Main Profile,High Profile",
+    H264_Type: "Baseline Profile, Main Profile, High Profile",
     H265_Type: "Main Profile",
-    Bit_Rate_Control: "CBR,VBR",
-    ROI: "1 fixed region for main stream"
+    Bit_Rate_Control: "CBR, VBR",
+    Scalable_Video_Coding: "H.264 and H.265 encoding",
+    Region_of_Interest: "1 fixed region for main stream and sub-stream"
   },
   Audio: {
-    Audio_Type: "Mono sound",
-    Audio_Compression: "G.711/G.722.1/G.726/MP2L2/PCM/AAC-LC",
-    Audio_Bit_Rate: "64 Kbps (G.711)/16 Kbps (G.722.1)/16 Kbps (G.726)/32 to 160 Kbps (MP2L2)/16 to 64 Kbps (AAC-LC)",
-    Audio_Sampling_Rate: "8 kHz/16 kHz",
+    Audio_Compression: "G.711/G.722.1/G.726/MP2L2/PCM/MP3/AAC-LC",
+    Audio_Bit_Rate: "64 Kbps (G.711ulaw/G.711alaw)/16 Kbps (G.722.1)/16 Kbps (G.726)/32 to 192 Kbps (MP2L2)/8 to 320 Kbps (MP3)/16 to 64 Kbps (AAC-LC)",
+    Audio_Sampling_Rate: "8 kHz/16 kHz/32 kHz/44.1 kHz/48 kHz",
     Environment_Noise_Filtering: "Yes"
-  },
-  Network: {
-    Protocols: "TCP/IP, ICMP, DHCP, DNS, HTTP, RTP, RTSP, RTCP, NTP, IGMP, UDP, QoS, FTP, SMTP, UPnP",
-    Simultaneous_Live_View: "Up to 6 channels",
-    API: "Open Network Video Interface (Profile S, Profile T, Profile G (only -F model supports)),ISAPI,SDK",
-    Security: "Password protection, complicated password, watermark, basic and digest authentication for HTTP, WSSE and digest authentication for Open Network Video Interface, security audit log, host authentication (MAC address)",
-    User_Host: "Up to 32 users; 3 user levels: administrator, operator, and user",
-    Client: "iVMS-4200,Hik-Connect",
-    Web_Browser: "Plug-in required live view: IE 10, IE 11, Local service: Chrome 57.0+, Firefox 52.0+, Edge 89+"
-  },
-  Image: {
-    Image_Settings: "Rotate mode,saturation,brightness,contrast,sharpness,gain,white balance,adjustable by client software or web browser",
-    Day_Night_Switch: "Day,Night,Auto,Schedule",
-    WDR: "Digital WDR",
-    SNR: "≥ 52 dB",
-    Image_Enhancement: "BLC,HLC,3D DNR",
-    Privacy_Mask: "4 programmable polygon privacy masks"
-  },
-  General: {
-    Power: "12 VDC ± 25%, 0.45 A, max. 5.4 W,Ø5.5 mm coaxial power plug,reverse polarity protection, PoE: IEEE 802.3af, Class 3, max. 6.5 W",
-    Material: "Metal & Plastic",
-    Dimension: "Ø110 mm × 93 mm (Ø4.33\" × 3.66\")",
-    Package_Dimension: "150 mm × 150 mm × 141 mm (5.91\" × 5.91\" × 5.55\")",
-    Weight: "Approx. 380 g (0.8 lb.)",
-    With_Package_Weight: "Approx. 611 g (1.3 lb.)",
-    Storage_Conditions: "-30 °C to 60 °C (-22 °F to 140 °F). Humidity 95% or less (non-condensing)",
-    Startup_and_Operating_Conditions: "-30 °C to 60 °C (-22 °F to 140 °F). Humidity 95% or less (non-condensing)",
-    Language: "English, Ukrainian",
-    General_Function: "Heartbeat, anti-banding, mirror, password protection,password reset by email"
   }
 }
 ---

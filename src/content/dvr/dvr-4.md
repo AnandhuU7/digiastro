@@ -1,7 +1,7 @@
 ---
 id: 4
 title: "iDS-7204HQHI-M1/E"
-slug: "dvr-4"
+slug: "iDS-7204HQHI-M1/E"
 subTitle: "4CH 1080p H.265 AcuSense DVR "
 category: "dvr"
 imgCard: "/src/assets/images/dvr/iDS-7204HQHI-M1_E/iDS-7204HQHI-M1_E.webp"

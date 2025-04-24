@@ -1,7 +1,7 @@
 ---
 id: 7
 title: "DS-2DE5425IWG-E"
-slug: "ptz-7"
+slug: "DS-2DE5425IWG-E"
 subTitle: "4 MP 25X Powered by DarkFighter IR AcuSense Network Speed Dome"
 category: "ptzcamera"
 imgCard: "/src/assets/images/ptzcamera/DS-2DE5425IWG-E/DS-2DE5425IWG-E-1.png"

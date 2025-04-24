@@ -1,7 +1,7 @@
 ---
 id: 7
 title: "DS-KH6110-WE1"
-slug: "video-7"
+slug: "DS-KH6110-WE1"
 subTitle: "KH6 Series IP Indoor Station"
 category: "videointercom"
 imgCard: "/src/assets/images/videointercom/DS-KH6110-WE1/DS-KH6110-WE1-1.webp"

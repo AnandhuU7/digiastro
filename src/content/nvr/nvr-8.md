@@ -1,69 +1,74 @@
 ---
 id: 8
-title: "DS-7104NI-Q1/4P/M"
-slug: "DS-7104NI-Q1/4P/M"
-subTitle: "4-ch Mini PoE NVR"
+title: "DS-7604NXI-K1"
+slug: "DS-7604NXI-K1"
+subTitle: "4-ch 1U K Series AcuSense 4K NVR"
 category: "nvr"
-imgCard: "/src/assets/images/nvr/DS-7104NI-Q1_4P_M/DS-7104NI-Q1_4P_M-1.webp"
-imgAlt: "DS-7104NI-Q1/4P/M"
+imgCard: "/src/assets/images/nvr/DS-7604NXI-K1/DS-7604NXI-K1-1.webp"
+imgAlt: "DS-7604NXI-K1"
 thumbnails: [
-  "/src/assets/images/nvr/DS-7104NI-Q1_4P_M/DS-7104NI-Q1_4P_M-1.webp",
-  "/src/assets/images/nvr/DS-7104NI-Q1_4P_M/DS-7104NI-Q1_4P_M-2.webp"
+  "/src/assets/images/nvr/DS-7604NXI-K1/DS-7604NXI-K1-1.webp",
 ]
 features: [
-  "H.265+/H.265/H.264+/H.264 video compression support",
-  "Up to 40 Mbps incoming and 60 Mbps outgoing bandwidth",
-  "Supports up to 4 network camera inputs",
-  "4-channel 1080p video decoding capability",
-  "Simultaneous HDMI and VGA video output",
-  "Compact 1U design with built-in 4 PoE ports",
+  "Supports up to 4 IP camera inputs",
+  "H.265+/H.265/H.264+/H.264 video compression formats",
+  "Up to 12 MP/8 MP/4 MP/1080p decoding capability",
+  "Handles up to 40 Mbps incoming bandwidth",
+  "Built-in AcuSense for smart human and vehicle detection",
+  "Compact 1U design with efficient performance"
 ]
 rating: 5
 reviewCount: 100
 specifications: {
+  Intelligent_Analytics: {
+    AI_by_Device: "Facial recognition, perimeter protection, motion detection 2.0",
+    AI_by_Camera: "Facial recognition, perimeter protection, throwing objects from building, motion detection2.0, ANPR, VCA"
+  },
+  Facial_Recognition: {
+    Face_Attributes: "N/A",
+    Facial_Detection_and_Analytics: "Face picture comparison, human face capture, face picture search",
+    Face_Picture_Library: "Up to 16 face picture libraries, with up to 5,000 face pictures in total (each picture ≤ 1MB, total capacity ≤ 73MB); Up to 16 face picture libraries, with up to 20,000 face pictures in total (each picture ≤ 4 MB, total capacity ≤ 1 GB)",
+    Facial_Detection_and_Analytics_Performance: "1-ch, 4 MP; 1-ch, 8 MP",
+    Face_Picture_Comparison: "2-ch"
+  },
+  Motion_Detection_2_0: {
+    By_Device: "All channels, 4 MP (when enhanced SVC mode is enabled, up to 8 MP) video analysis for human and vehicle recognition to reduce false alarm",
+    By_Camera: "All channels"
+  },
   Video_and_Audio: {
-    IP_Video_Input: {
-      Channels: "4-ch",
-      Max_Resolution: "Up to 6 MP"
-    },
+    IP_Video_Input: "4-ch",
     Incoming_Bandwidth: "40 Mbps",
-    Outgoing_Bandwidth: "60 Mbps",
-    HDMI_Output: "1-ch, 1920 × 1080p/60Hz, 1600 × 1200/60Hz, 1280 × 1024/60Hz, 1280 × 720/60Hz",
-    VGA_Output: "1-ch, 1920 × 1080p/60Hz, 1600 × 1200/60Hz, 1280 × 1024/60Hz, 1280 × 720/60Hz",
-    Video_Output_Mode: "HDMI/VGA simultaneous output",
-    Decoding: {
-      Decoding_Format: "H.265+/H.265/ H.264+/H.264",
-      Recording_Resolution: "6 MP/4 MP/3 MP/1080p/UXGA/720p/VGA/4CIF/DCIF/2CIF/CIF/QCIF",
-      Synchronous_Playback: "4-ch",
-      Decoding_Capability: "4-ch@1080p (30 fps) or 2-ch@4 MP (30 fps) or 1-ch@6 MP (30 fps)",
-      Stream_Type: "Video, Video & Audio"
-    }
+    Outgoing_Bandwidth: "80 Mbps",
+    HDMI_Output: "1-ch, 4K (3840 × 2160)/30 Hz, 2K (2560 × 1440)/60 Hz, 1920 × 1080/60 Hz, 1600 × 1200/60 Hz, 1280 × 1024/60 Hz, 1280 × 720/60 Hz",
+    VGA_Output: "1-ch, 1920 × 1080/60 Hz, 1280 × 1024/60 Hz, 1280 × 720/60 Hz",
+    Video_Output_Mode: "HDMI1/VGA simultaneous output",
+    CVBS_Output: "N/A",
+    Audio_Output: "1-ch, RCA (Linear, 1 KΩ)",
+    Two_Way_Audio: "1-ch, RCA (2.0 Vp-p, 1 KΩ, using the audio input)"
   },
   Network: {
-    Remote_Connection: "16",
-    Network_Protocol: "TCP/IP, DHCP, Hik-Connect, DNS, DDNS, NTP, SADP, SMTP, UPnP™",
-    Network_Interface: "1, RJ-45 10/100Mbps self-adaptive Ethernet interface"
-  },
-  PoE: {
-    Interface: "4, RJ-45 10/100 Mbps self-adaptive Ethernet interface",
-    Power: "≤ 36 W",
-    Standard: "IEEE 802.3 af/at"
+    Remote_Connection: "128",
+    API: "ONVIF (profile S/G); SDK; ISAPI",
+    Compatible_Browser: "IE11, Chrome V57, Firefox V52, Safari V12, Edge V89, or above version",
+    Network_Protocol: "TCP/IP, DHCP, IPv4, IPv6, DNS, DDNS, NTP, RTSP, SADP, SMTP, SNMP, NFS, iSCSI, ISUP, UPnP™, HTTP, HTTPS",
+    Network_Interface: "1 RJ-45 10/100/1000 Mbps self-adaptive Ethernet interface"
   },
   Auxiliary_Interface: {
     SATA: {
       Interface: "1 SATA interface",
     },
-    Capacity: "Up to 6TB capacity for each disk",
-    Alarm_In_Out: "N/A",
-    USB_Interface: "Rear panel: 2 × USB 2.0"
+    Capacity: "Up to 10 TB capacity for each HDD",
+    USB_Interface: "Front panel: 1 × USB 2.0; Rear panel: 1 × USB 2.0",
+    Alarm_In_Out: "4/1; N/A; N/A (4/1 is optional)"
   },
   General: {
-    Power_Supply: "48 VDC, 1 A",
-    Consumption: "≤ 10 W",
-    Working_Temperature: "-10 to +55º C (+14 to +131º F)",
+    GUI_Language: "English, Russian, Bulgarian, Hungarian, Greek, German, Italian, Czech, Slovak, French, Polish, Dutch.. etc",
+    Power_Supply: "12 VDC, 1.5 A",
+    Consumption: "≤ 10 W (without HDD)",
+    Working_Temperature: "-10 °C to 55 °C (14 °F to 131 °F)",
     Working_Humidity: "10% to 90%",
-    Dimension: "265 × 223 × 48 mm (10.4\" × 8.8\" × 1.9\")",
-    Weight: "≤ 1 kg (2.2 lb)"
+    Dimension: "320 mm × 240 mm × 48 mm (12.6\"× 9.4\" × 1.9\")",
+    Weight: "≤1 kg (without HDD, 2.2 lb.)"
   }
 }
 ---

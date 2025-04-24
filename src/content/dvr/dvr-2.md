@@ -1,7 +1,7 @@
 ---
 id: 2
 title: "DS-E16HGHI-XB"
-slug: "dvr-2"
+slug: "DS-E16HGHI-XB"
 subTitle: "16CH 1080p Lite H.265 eSSD DVR "
 category: "dvr"
 imgCard: "/src/assets/images/dvr/DS-E16HGHI-XB/DS-E16HGHI-XB-1.webp"

@@ -1,84 +1,67 @@
 ---
 id: 19
-title: "DS-2CE16K0T-LPFS"
-slug: "DS-2CE16K0T-LPFS"
-subTitle: "3K Smart Hybrid Light Mini Bullet Camera with Audio"
+title: "DS-2CE19K0T-LXTSZ"
+slug: "DS-2CE19K0T-LXTSZ"
+subTitle: "3K Two Way Audio Vari-focal Bullet"
 category: "turbohd"
-imgCard: "/src/assets/images/turbohd/DS-2CE16K0T-LPFS/DS-2CE16K0T-LPFS-1.webp"
-imgAlt: "DS-2CE16K0T-LPFS"
+imgCard: "/src/assets/images/turbohd/DS-2CE19K0T-LXTSZ/DS-2CE19K0T-LXTSZ-1.webp"
+imgAlt: "DS-2CE19K0T-LXTSZ"
 thumbnails: [
-  "/src/assets/images/turbohd/DS-2CE16K0T-LPFS/DS-2CE16K0T-LPFS-1.webp",
-  "/src/assets/images/turbohd/DS-2CE16K0T-LPFS/DS-2CE16K0T-LPFS-2.webp",
-  "/src/assets/images/turbohd/DS-2CE16K0T-LPFS/DS-2CE16K0T-LPFS-3.webp"
+  "/src/assets/images/turbohd/DS-2CE19K0T-LXTSZ/DS-2CE19K0T-LXTSZ-1.webp",
+  "/src/assets/images/turbohd/DS-2CE19K0T-LXTSZ/DS-2CE19K0T-LXTSZ-2.webp",
+  "/src/assets/images/turbohd/DS-2CE19K0T-LXTSZ/DS-2CE19K0T-LXTSZ-3.webp",
 ]
 features: [
-  "High quality 3K resolution (2960 × 1665)",
-  "2.8 mm and 3.6 mm fixed focal lens options",
-  "Up to 25 m IR and 20 m white light distance",
-  "Built-in mic with audio over coaxial cable",
-  "One port supports 4 switchable signals (TVI/AHD/CVI/CVBS)",
-  "Weather resistant design (IP67 rated)",
-  "Smart Hybrid Light for flexible night-time lighting"
+  "3K resolution (2960 × 1665) for ultra-clear imaging",
+  "Smart-Hybrid Light for flexible day/night security lighting  ",
+  "2.7 mm to 13.5 mm varifocal lens for adjustable viewing angles",
+  "Up to 60 m white light and 60 m IR for powerful night vision",
+  "Built-in strobe light and audio alarm to deter intruders",
+  "High-quality audio via coaxial cable with built-in mic and speaker",
+  "Real-time two-way communication with integrated audio system",
+  "IP67-rated water and dust resistance for outdoor reliability"
 ]
 rating: 5
-reviewCount: 100
+reviewCount: 50
 specifications: {
   Camera: {
     Image_Sensor: "3K CMOS",
-    Max_Resolution: "2960 (H) × 1665 (V)",
-    Min_Illumination: "0.01 Lux @ (F2.0, AGC ON), 0 Lux with IR",
-    Shutter_Time: "PAL: 1/25 s to 1/50,000 s; NTSC: 1/30 s to 1/50,000 s",
+    Max_Resolution: "2960 (H) × 1664 (V)",
+    Min_Illumination: "0.01 Lux @ (F1.6, AGC ON), 0 Lux with IR",
+    Shutter_Time: {
+      PAL: "1/12.5 s to 1/50,000 s",
+      NTSC: "1/15 s to 1/50,000 s"
+    },
     Day_Night: "ICR",
-    Angle_Adjustment: "Pan: 0 to 360°, Tilt: 0 to 90°, Rotation: 0 to 360°",
+    Angle_Adjustment: "Pan: 0° to 360°, Tilt: 0° to 90°, Rotate: 0° to 360°",
     Signal_System: "PAL/NTSC"
   },
   Lens: {
-    Lens_Type: "2.8 mm and 3.6 mm fixed focal lens",
-    Field_of_View: {
-      "2.8 mm": "Horizontal_FOV: 105°, Vertical_FOV: 62°, Diagonal_FOV: 132°",
-      "3.6 mm": "Horizontal_FOV: 92°, Vertical_FOV: 48°, Diagonal_FOV: 112°"
-    },
-    Lens_Mount: "M12"
-  },
-  Microphone: {
-    Pickup_Distance: "In a radius of 5 m",
-    Amount: "1"
-  },
-  Illuminator: {
-    Supplement_Light_Range: {
-      IR: "Up to 25 m",
-      White_Light: "Up to 20 m"
-    },
-    Supplement_Light_Type: "Smart, IR, White Light"
+    Lens_Type: "2.7 mm to 13.5 mm motorized",
+    Focal_Length_FOV: "Horizontal FOV: 98° to 33°, Vertical FOV: 52° to 18°, Diagonal FOV: 116° to 38°",
+    Lens_Mount: "Ø14"
   },
   Image: {
-    Image_Settings: "Brightness, Sharpness, Smart IR",
-    Frame_Rate: {
-      TVI: "3K@20 fps, 4 MP@25 fps/30 fps, 1080p@25 fps/30 fps",
-      AHD: "4 MP@25 fps/30 fps",
-      CVI: "4 MP@25 fps/30 fps",
-      CVBS: "PAL/NTSC"
-    },
+    Image_Parameters_Switch: "STD/HIGH-SAT/HIGHLIGHT",
+    Image_Settings: "Anti-banding, Brightness, Sharpness, Smart IR",
+    Frame_Rate: "TVI: 3K @10 fps/12.5 fps/20 fps/25 fps, 4 MP @25 fps/30 fps, 1080P @25 fps/30 fps",
     Day_Night_Mode: "Auto/Color",
-    WDR: "Digital WDR",
-    Image_Enhancement: "DWDR/BLC/HLC/Global",
-    White_Balance: "Auto/Manual",
-    AGC: "Yes"
-  },
-  Interface: {
-    Video_Output: "Switchable TVI/AHD/CVI/CVBS"
+    Image_Enhancement: "DWDR, BLC, HLC, Global",
+    Wide_Dynamic_Range_WDR: "Digital WDR",
+    Noise_Reduction: "2D DNR",
+    White_Balance: "Auto, Manual"
   },
   General: {
-    Material: "Plastic",
-    Dimension: "138.8 mm × Ø70 mm (5.47\" × Ø2.76\")",
-    Weight: "Approx. 160 g (0.35 lb.)",
-    Operating_Condition: "-40 °C to 60 °C (-40 °F to 140 °F), humidity: 90% or less (non-condensation)",
+    Power: {
+      Power_Supply: "12 VDC ±25%, max. 11.8 W",
+      Recommendation: "You are recommended to use one power adapter to supply the power for one camera. If a high-impedance cable is used (such as the 18 m extension cable in the kit package), an 18 VDC adapter is required."
+    },
+    Material: "Main body: Plastic; Front cover: Metal",
+    Dimension: "Ø105 × 285.8 mm (Ø4.13'' × 9.92'')",
+    Weight: "Approx. 735 g (1.62 lb.)",
+    Operating_Condition: "-40 °C to 60 °C (-40 °F to 140 °F). Humidity 90% or less (non-condensing)",
     Communication: "HIKVISION-C",
-    Language: "English",
-    Power_Supply: "12 VDC ± 25%",
-    Power_Recommendation: "You are recommended to use one power adapter to supply the power for one camera.",
-    Consumption: "Max. 2.9 W",
-    Protection: "IP67"
+    Language: "English"
   }
 }
 ---

@@ -1,7 +1,7 @@
 ---
 id: 6
 title: "DS-K1T343EFWX-B"
-slug: "access-6"
+slug: "DS-K1T343EFWX-B"
 subTitle: "Touchscreen with Face, Fingerprint & EM Card Access"
 category: "accesscontrol"
 imgCard: "/src/assets/images/accesscontrol/DS-K1T343EFWX-B/DS-K1T343EFWX-B-1.webp"

@@ -1,86 +1,70 @@
 ---
 id: 5
-title: "DS-96128NXI-S8"
-slug: "nvr-5"
-subTitle: "S Series NVR with AcuSense – 32×1080p Decoding, 128-ch IP & 8K HDMI"
+title: "DS-7608NI-Q2/8P"
+slug: "DS-7608NI-Q2/8P"
+subTitle: "8-ch 1U 8 PoE 4K NVR"
 category: "nvr"
-imgCard: "/src/assets/images/nvr/DS-96128NXI-S8/DS-96128NXI-S8-1.png"
-imgAlt: "DS-96128NXI-S8"
+imgCard: "/src/assets/images/nvr/DS-7608NI-Q2_8P/DS-7608NI-Q2_8P-1.webp"
+imgAlt: "DS-7608NI-Q2_8P"
 thumbnails: [
-  "/src/assets/images/nvr/DS-96128NXI-S8/DS-96128NXI-S8-1.png"
+  "/src/assets/images/nvr/DS-7608NI-Q2_8P/DS-7608NI-Q2_8P-1.webp",
 ]
 features: [
-  "Supports 32×1080p decoding & 128-ch IP cameras",
-  "Facial recognition, perimeter protection & AcuSearch",
-  "Connect up to 8-ch IP speakers",
-  "RAID 0, 1, 5, 6, 10 & N+M hot spare for secure storage",
-  "8K HDMI video output for ultra-HD display",
-  "Redundant power supply for uninterrupted operation"
+  "Supports up to 8 IP camera inputs",
+  "Built-in 8 PoE ports for easy plug and play",
+  "H.265+/H.265/H.264+/H.264 video compression",
+  "Decoding: 1×8 MP or 5×1080p channels",
+  "Up to 80 Mbps incoming bandwidth",
+  "1U design with 4K resolution support"
 ]
-rating: 4.5
-reviewCount: 50
+rating: 5
+reviewCount: 100
 specifications: {
-  Intelligent_Analytics: {
-    AI_by_NVR: {
-      features: "Facial recognition, Perimeter protection, Video structuralization"
-    },
-    AI_by_Camera: {
-      features: "Facial recognition, Perimeter protection, Video structuralization, AcuSearch, Motion detection 2.0, ANPR, People counting, VCA"
-    }
-  },
-  Facial_Recognition: {
-    Facial_Detection_and_Analytics: {
-      features: "Face picture comparison, Human face capture, Face picture search"
-    },
-    Face_Picture_Library: {
-      Libraries: "64",
-      Max_Pictures: "300000",
-      Picture_Size_Limit: "4 MB",
-      Total_Capacity: "10 GB"
-    },
-    Face_Picture_Comparison: {
-      Channels: "16",
-      Comparison_Speed: "24 pictures per second"
-    },
-    Facial_Detection_and_Analytics_Performance: {
-      Simultaneous_Mode: "8-ch, up to 2 MP",
-      Independent_Mode: "4-ch, up to 2 MP"
-    }
+  Motion_Detection_2_0: {
+    Human_Vehicle_Analysis: "4"
   },
   Video_and_Audio: {
-    IP_Video_Input: "128-ch, Up to 32 MP resolution",
-    Incoming_Bandwidth: "1280 Mbps",
-    Outgoing_Bandwidth: "1024 Mbps",
-    Incoming_Bandwidth_RAID_Mode: "640 Mbps",
-    Outgoing_Bandwidth_RAID_Mode: "512 Mbps",
-    HDMI_Outputs: {
-      HDMI_1: "4K (4096 × 2160)/30 Hz, 4K (3840 × 2160)/60 Hz, 4K (3840 × 2160)/30 Hz, 2K (2560 × 1440)/60 Hz, 1080P (1920 × 1080)/60 Hz",
-      HDMI_2: "4K (4096 × 2160)/30 Hz, 4K (3840 × 2160)/60 Hz, 4K (3840 × 2160)/30 Hz, 2K (2560 × 1440)/60 Hz, 1080P (1920 × 1080)/60 Hz",
-      HDMI_3: "8K (7680 × 4320)/30 Hz, 4K (4096 × 2160)/30 Hz, 4K (3840 × 2160)/60 Hz, 4K (3840 × 2160)/30 Hz, 2K (2560 × 1440)/60 Hz, 1080P (1920 × 1080)/60 Hz",
-      HDMI_4: "1080P (1920 × 1080)/60 Hz"
-    },
-    VGA_Outputs: {
-      VGA_1: "1080P (1920 × 1080)/60 Hz",
-      VGA_2: "1080P (1920 × 1080)/60 Hz"
-    },
-    Video_Output_Mode: {
-      Mode_1: "Simultaneous output with 1080p resolution",
-      Mode_2: "Simultaneous output on HDMI 1, VGA 1, HDMI 2, VGA 2, HDMI 3, and HDMI 4",
-      Mode_3: "Independent output with 8K HDMI 3 output resolution",
-      Mode_4: "Independent output with HDMI 3 output resolution ≤ 4K"
-    },
-    HDMI_Input: "1-ch",
-    HDMI_Loopback: "1-ch (matching the HDMI input)",
-    Audio_Output: "2-ch, RCA (Linear, 1 KΩ)",
+    IP_Video_Input: "8-ch",
+    HDMI_Output: "1-ch, 4K (4096 × 2160)/30 Hz, 4K (3840 × 2160)/30 Hz, 2K (2560 × 1440)/60 Hz, 1920 × 1080/60 Hz, 1600 × 1200/60 Hz, 1280 × 1024/60 Hz, 1280 × 720/60 Hz",
+    VGA_Output: "1-ch, 1920 × 1080/60 Hz, 1280 × 1024/60 Hz, 1280 × 720/60 Hz",
+    Video_Output_Mode: "HDMI/VGA simultaneous output",
+    Incoming_Bandwidth: "80 Mbps",
+    Outgoing_Bandwidth: "80 Mbps",
+    Audio_Output: "1-ch, RCA (Linear, 1 KΩ)",
     Two_Way_Audio: "1-ch, RCA (2.0 Vp-p, 1 KΩ)"
   },
+  Decoding: {
+    Decoding_Format: "H.265+/H.265/H.264+/H.264",
+    Decoding_Capability: "1-ch@8 MP (30 fps)/5-ch@1080p (30 fps)",
+    Synchronous_Playback: "8-ch",
+    Recording_Resolution: "8 MP/6 MP/5 MP/4 MP/3 MP/1080p/UXGA/720p/VGA/4CIF/DCIF/2CIF/CIF/QCIF"
+  },
+  Network: {
+    Network_Protocol: "TCP/IP, DHCP, Hik-Connect, DNS, DDNS, NTP, SADP, SMTP, NFS, iSCSI, UPnP™, HTTPS",
+    Network_Interface: "1 RJ-45 10/100 Mbps self-adaptive Ethernet interface",
+  },
+  PoE: {
+    Interface: "8, RJ-45 10/100 Mbps self-adaptive Ethernet interface",
+    Max_Power: "≤ 80 W",
+    Standard: "IEEE 802.3 af/at",
+  },
+  Auxiliary_Interface: {
+    SATA: {
+      interface: "2 SATA interfaces",
+    },
+    Capacity: "Up to 8 TB capacity for each disk",
+    USB_Interface: {
+      Ports: "2 × USB 2.0"
+    }
+  },
   General: {
-    Power_Supply: "100 to 240 VAC, 50 to 60 Hz, redundant power supply",
-    Consumption: "≤ 100 W (without HDD)",
-    Working_Temperature: "-10 to 55°C (14 to 131° F)",
-    Working_Humidity: "10 to 90%",
-    Dimension: "442 mm × 460 mm × 88 mm (17.4 × 18.1 × 3.5 inch)",
-    Weight: "≤ 10 kg (without HDD, 28.7 lb.)"
+    Power_Supply: "48 VDC, 2.5 A MAX",
+    Consumption: "≤ 15 W",
+    Working_Temperature: "-10 °C to +55 °C (14 °F to 131 °F)",
+    Working_Humidity: "10% to 90%",
+    Chassis: "1U chassis",
+    Dimension: "385 × 315 × 52 mm (15.2\"× 12.4\" × 2.0\")",
+    Weight: "≤ 2.6 kg (5.7 lb)"
   }
 }
 ---

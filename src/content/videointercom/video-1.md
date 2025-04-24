@@ -1,7 +1,7 @@
 ---
 id: 1
 title: "DS-KD-TDE"
-slug: "video-1"           
+slug: "DS-KD-TDE"           
 subTitle: "Touch Display Module with EM Card Reader"
 category: "videointercom"
 imgCard: "/src/assets/images/videointercom/DS-KD-TDE/DS-KD-TDE-1.webp"

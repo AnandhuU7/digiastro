@@ -1,7 +1,7 @@
 ---
 id: 2
 title: "DS-K1T321EFWX-B"
-slug: "access-2"
+slug: "DS-K1T321EFWX-B"
 subTitle: "Multi-Auth with Wi-Fi & Access Control"
 category: "accesscontrol"
 imgCard: "/src/assets/images/accesscontrol/DS-K1T321EFWX-B/DS-K1T321EFWX-B-1.webp"

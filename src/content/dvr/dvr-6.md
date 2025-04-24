@@ -1,7 +1,7 @@
 ---
 id: 6
 title: "iDS-6716HUHI-M"
-slug: "dvr-6"
+slug: "iDS-6716HUHI-M"
 subTitle: "16CH 5MP H.265 AcuSense DVR"
 category: "dvr"
 imgCard: "/src/assets/images/dvr/iDS-6716HUHI-M/iDS-6716HUHI-M-1.webp"

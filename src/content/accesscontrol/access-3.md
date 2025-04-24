@@ -1,7 +1,7 @@
 ---
 id: 3
 title: "DS-K1T323EBFWX-E1"
-slug: "access-3"
+slug: "DS-K1T323EBFWX-E1"
 subTitle: "Wide-Angle Lens & Multi-Biometric Access"
 category: "accesscontrol"
 imgCard: "/src/assets/images/accesscontrol/DS-K1T323EBFWX-E1/DS-K1T323EBFWX-E1-1.webp"

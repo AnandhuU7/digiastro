@@ -1,7 +1,7 @@
 ---
 id: 5
 title: "DS-KH6220-LE1(B)"
-slug: "video-5"
+slug: "DS-KH6220-LE1(B)"
 subTitle: "IP Indoor Station"
 category: "videointercom"
 imgCard: "/src/assets/images/videointercom/DS-KH6220-LE1(B)/DS-KH6220-LE1(B)-1.webp"

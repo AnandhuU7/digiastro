@@ -1,7 +1,7 @@
 ---
 id: 2
 title: "DS-KD-PMR"
-slug: "video-2"
+slug: "DS-KD-PMR"
 subTitle: "Induction Loop Module"
 category: "videointercom"
 imgCard: "/src/assets/images/videointercom/DS-KD-PMR/DS-KD-PMR-1.webp"

@@ -1,71 +1,96 @@
 ---
 id: 8
-title: "DS-2SE3C204MWG-E/12"
-slug: "network-8"
-subTitle: "TandemVu 2MP+2MP 4X POE PTZ Network Camera"
+title: "DS-2CD1143G2-LIU"
+slug: "DS-2CD1143G2-LIU"
+subTitle: "4 MP Smart Hybrid Bullet Camera"
 category: "networkcamera"
-imgCard: "/src/assets/images/networkcamera/DS-2SE3C204MWG-E12/DS-2SE3C204MWG-E12-1.png"
-imgAlt: "DS-2SE3C204MWG-E/12"
+imgCard: "/src/assets/images/networkcamera/DS-2CD1143G2-LIU/DS-2CD1143G2-LIU-1.webp"
+imgAlt: "DS-2CD1143G2-LIU"
 thumbnails: [
-  "/src/assets/images/networkcamera/DS-2SE3C204MWG-E12/DS-2SE3C204MWG-E12-1.png",
-  "/src/assets/images/networkcamera/DS-2SE3C204MWG-E12/DS-2SE3C204MWG-E12-2.png",
-  "/src/assets/images/networkcamera/DS-2SE3C204MWG-E12/DS-2SE3C204MWG-E12-3.png",
+  "/src/assets/images/networkcamera/DS-2CD1143G2-LIU/DS-2CD1143G2-LIU-1.webp",
+  "/src/assets/images/networkcamera/DS-2CD1143G2-LIU/DS-2CD1143G2-LIU-2.webp",
+  "/src/assets/images/networkcamera/DS-2CD1143G2-LIU/DS-2CD1143G2-LIU-3.webp",
 ]
 features: [
-  "2 MP resolution for high-quality imaging",
-  "Powered-by-DarkFighter technology for excellent low-light performance",
-  "4× optical zoom and 16× digital zoom for expansive area coverage",
-  "Supports WDR, HLC, BLC, 3D DNR, defog, and regional exposure/focus",
-  "12V DC & PoE+ support for flexible installation",
-  "Human and vehicle detection for enhanced security",
+  "4 MP high-quality imaging for clear surveillance",
+  "Smart Hybrid Light for enhanced low-light and long-range performance",
+  "Human and vehicle detection for intelligent alerts",
+  "Built-in microphone for real-time audio monitoring",
+  "H.265+ compression for efficient storage and bandwidth",
+  "IP67-rated for water/dust resistance and IK08 vandal protection"
 ]
-rating: 4.5
-reviewCount: 50
+rating: 5
+reviewCount: 100
 specifications: {
   Camera: {
-    Image_Sensor: "[Bullet channel]: 1/2.8\" Progressive Scan CMOS; [PTZ channel]: 1/2.8\" progressive scan CMOS",
-    Min_Illumination: "[Bullet channel]: Color: 0.03 Lux @ (F2.0, AGC ON), B/W: 0.01 Lux @ (F2.0, AGC ON), 0 Lux with IR; [PTZ channel]: Color: 0.01 Lux @ (F1.5, AGC ON), B/W: 0.005 Lux @ (F1.5, AGC ON), 0 Lux with IR;",
-    Shutter_Speed: "1 s to 1/30,000 s",
-    Slow_Shutter: "Yes",
-    Day_Night: "ICR",
-    Zoom: "[PTZ channel] 4 × optical, 16 × digital",
-    Max_Resolution: "[Bullet channel] 1920 × 1080, [PTZ channel] 1920 × 1080"
+    Image_Sensor: "1/3\" Progressive Scan CMOS",
+    Max_Resolution: "2560 × 1440",
+    Min_Illumination: "Color: 0.005 Lux @ (F1.6, AGC ON), B/W: 0 Lux with IR",
+    Shutter_Time: "1/3 s to 1/100,000 s",
+    Day_Night: "IR cut filter",
+    Angle_Adjustment: "Pan: 0° to 355°, Tilt: 0° to 75°, Rotate: 0° to 355°"
   },
   Lens: {
-    Focus: "Auto, Manual, Semi-auto",
-    Focal_Length: "[Bullet channel]: 2.8 mm; [PTZ channel]: 2.8 to 12 mm, 4 × optical",
-    Zoom_Speed: "[PTZ channel]: approx. 3.3 s",
-    FOV: {
-      "Bullet channel": "Horizontal FOV 104.9°, Vertical FOV 57.9°, Diagonal FOV 122.8°",
-      "PTZ channel": "Horizontal FOV 92° to 33°, Vertical FOV 49° to 18.2°, Diagonal FOV 104° to 37.7°"
-    },
-    Aperture: "[Bullet channel] F2.0, [PTZ channel] F1.5 to F2.9"
+    Lens_Type: "Fixed focal lens, 2.8 and 4 mm optional",
+    Focal_Length_FOV: "2.8 mm: Horizontal FOV 98°, Vertical FOV 54°, Diagonal FOV 114°; 4 mm: Horizontal FOV 78°, Vertical FOV 42°, Diagonal FOV 93°",
+    Lens_Mount: "M12",
+    Iris_Type: "Fixed",
+    Aperture: "F1.6"
   },
   Video: {
-    Region_of_Interest: "1 fixed region for main stream",
     Main_Stream: {
-        "50_Hz": "25 fps (1920 × 1080, 1280 × 720)",
-        "60_Hz": "30 fps (1920 × 1080, 1280 × 720)"
+      "50_Hz": "20 fps (2560 × 1440), 25 fps (1920 × 1080, 1280 × 720)",
+      "60_Hz": "20 fps (2560 × 1440), 24 fps (1920 × 1080, 1280 × 720)"
     },
     Sub_Stream: {
-        "50_Hz": "25 fps (640 × 480, 640 × 360)",
-        "60_Hz": "30 fps (640 × 480, 640 × 360)"
+      "50_Hz": "25 fps (1280 × 720, 640 × 480, 640 × 360)",
+      "60_Hz": "24 fps (1280 × 720, 640 × 480, 640 × 360)"
     },
-    Third_Stream: {
-        "50_Hz": "25 fps (1280 × 720, 640 × 480, 640 × 360)",
-        "60_Hz": "30 fps (1280 × 720, 640 × 480, 640 × 360)"
+    Video_Compression: {
+      Main_Stream: "H.265+/H.265/H.264+/H.264",
+      Sub_Stream: "H.265/H.264/MJPEG"
     },
-    Video_Compression: "H.265, H.264, MJPEG",
-    Video_Bit_Rate: "32 kbps to 16384 kbps",
-    H264_Type: "Main Profile, Baseline Profile, High Profile",
+    Video_Bit_Rate: "32 Kbps to 8 Mbps",
+    H264_Type: "Baseline Profile, Main Profile, High Profile",
     H265_Type: "Main Profile",
-    Scalable_Video_Coding: "Yes"
+    Bit_Rate_Control: "CBR, VBR",
+    Region_of_Interest: "1 fixed region for main stream"
   },
   Audio: {
-    Audio_Compression: "G.711, G.722.1, G.726, MP2L2, PCM, MP3, AAC",
-    Audio_Bit_Rate: "MP2L2: 32 kbps to 160 kbps; AAC: 16 kbps, 32 kbps, 64 kbps; MP3: 8 kbps to 160 kbps",
-    Audio_Sampling_Rate: "MP2L2: 16 kHz, AAC-LC: 16 kHz, PCM: 8 kHz, 16 kHz, MP3: 8 kHz, 16 kHz",
-    Environment_Noise_Filtering: "Yes"
+    Audio_Type: "Mono sound",
+    Environment_Noise_Filtering: "Yes",
+    Audio_Sampling_Rate: "8 kHz/16 kHz",
+    Audio_Compression: "G.711ulaw/G.711alaw/G.722.1/G.726/MP2L2/PCM/AAC-LC",
+    Audio_Bit_Rate: "64 Kbps (G.711 ulaw)/64 Kbps (G.711 alaw)/16 Kbps (G.722.1)/16 Kbps (G.726)/32 to 160 Kbps (MP2L2)/16 to 64 Kbps (AAC-LC)"
+  },
+  Network: {
+    Security: "Password protection, complicated password, watermark, basic and digest authentication for HTTP, WSSE and digest authentication for Open Network Video Interface, security audit log, host authentication (MAC address)",
+    Simultaneous_Live_View: "Up to 6 channels",
+    API: "Open Network Video Interface (Profile S, Profile T, Profile G (only -F model supports)), ISAPI, SDK",
+    Protocols: "TCP/IP, ICMP, DHCP, DNS, HTTP, RTP, RTSP, NTP, IGMP, IPv6, UDP, QoS, FTP, SMTP",
+    User_Host: "Up to 32 users, 3 user levels: administrator, operator, and user",
+    Client: "iVMS-4200, Hik-Connect",
+    Web_Browser: "Plug-in required live view: IE 10, IE 11; Local service: Chrome 57.0+, Firefox 52.0+"
+  },
+  Image: {
+    Wide_Dynamic_Range: "120 dB",
+    SNR: "≥ 52 dB",
+    Day_Night_Switch: "Day, Night, Auto, Schedule",
+    Image_Enhancement: "BLC, HLC, 3D DNR",
+    Image_Settings: "Rotate mode, saturation, brightness, contrast, sharpness, gain, white balance, adjustable by client software or web browser",
+    Privacy_Mask: "4 programmable polygon privacy masks"
+  },
+  General: {
+    Power: "12 VDC ± 25%, 0.5 A, max. 6 W, Ø5.5 mm coaxial power plug, reverse polarity protection; PoE: IEEE 802.3af, Class 3, max. 7.5 W",
+    Material: "Metal & Plastic",
+    Dimension: "Ø121.4 mm × 97.7 mm (Ø4.8\" × 3.8\")",
+    Package_Dimension: "150 mm × 150 mm × 141 mm (5.9\" × 5.9\" × 5.6\")",
+    Weight: "Approx. 550 g (1.2 lb.)",
+    With_Package_Weight: "Approx. 800 g (1.8 lb.)",
+    Storage_Conditions: "-30 °C to 60 °C (-22 °F to 140 °F), Humidity 95% or less (non-condensing)",
+    Startup_and_Operating_Conditions: "-30 °C to 60 °C (-22 °F to 140 °F), Humidity 95% or less (non-condensing)",
+    Language: "English, Ukrainian",
+    General_Function: "Heartbeat, anti-banding, mirror, password protection, password reset via email"
   }
 }
 ---

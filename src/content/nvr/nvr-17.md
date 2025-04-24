@@ -1,73 +1,86 @@
 ---
 id: 17
-title: "DS-7632NXI-K2"
-slug: "DS-7632NXI-K2"
-subTitle: "32-ch 1U K Series AcuSense 4K NVR"
+title: "DS-96128NXI-S8"
+slug: "DS-96128NXI-S8"
+subTitle: "S Series NVR with AcuSense – 32×1080p Decoding, 128-ch IP & 8K HDMI"
 category: "nvr"
-imgCard: "/src/assets/images/nvr/DS-7632NXI-K2/DS-7632NXI-K2-1.webp"
-imgAlt: "DS-7632NXI-K2"
+imgCard: "/src/assets/images/nvr/DS-96128NXI-S8/DS-96128NXI-S8-1.png"
+imgAlt: "DS-96128NXI-S8"
 thumbnails: [
-  "/src/assets/images/nvr/DS-7632NXI-K2/DS-7632NXI-K2-1.webp",
+  "/src/assets/images/nvr/DS-96128NXI-S8/DS-96128NXI-S8-1.png"
 ]
 features: [
-  "Supports up to 32 IP camera inputs",
-  "H.265+/H.265/H.264+/H.264 video compression formats",
-  "Up to 12 MP/8 MP/4 MP/1080p multi-channel decoding",
-  "Handles up to 256 Mbps incoming bandwidth",
-  "AcuSense technology for smart human and vehicle detection",
-  "Compact 1U design with advanced performance"
+  "Supports 32×1080p decoding & 128-ch IP cameras",
+  "Facial recognition, perimeter protection & AcuSearch",
+  "Connect up to 8-ch IP speakers",
+  "RAID 0, 1, 5, 6, 10 & N+M hot spare for secure storage",
+  "8K HDMI video output for ultra-HD display",
+  "Redundant power supply for uninterrupted operation"
 ]
-rating: 5
-reviewCount: 100
+rating: 4.5
+reviewCount: 50
 specifications: {
   Intelligent_Analytics: {
-    AI_by_Device: "Facial recognition, perimeter protection, motion detection 2.0",
-    AI_by_Camera: "Facial recognition, perimeter protection, throwing objects from building, motion detection2.0, ANPR, VCA"
+    AI_by_NVR: {
+      features: "Facial recognition, Perimeter protection, Video structuralization"
+    },
+    AI_by_Camera: {
+      features: "Facial recognition, Perimeter protection, Video structuralization, AcuSearch, Motion detection 2.0, ANPR, People counting, VCA"
+    }
   },
   Facial_Recognition: {
-    Facial_Detection_and_Analytics: "Face picture comparison, human face capture, face picture search",
-    Face_Picture_Library: "Up to 16 face picture libraries, with up to 20,000 face pictures in total (each picture ≤ 4 MB, total capacity ≤ 1 GB)",
-    Facial_Detection_and_Analytics_Performance: "1-ch, 8 MP",
-    Face_Picture_Comparison: "4-ch"
-  },
-  Motion_Detection_2_0: {
-    By_Device: "All channels, 4 MP (when enhanced SVC mode is enabled, up to 8 MP) video analysis for human and vehicle recognition to reduce false alarm",
-    By_Camera: "All channels"
+    Facial_Detection_and_Analytics: {
+      features: "Face picture comparison, Human face capture, Face picture search"
+    },
+    Face_Picture_Library: {
+      Libraries: "64",
+      Max_Pictures: "300000",
+      Picture_Size_Limit: "4 MB",
+      Total_Capacity: "10 GB"
+    },
+    Face_Picture_Comparison: {
+      Channels: "16",
+      Comparison_Speed: "24 pictures per second"
+    },
+    Facial_Detection_and_Analytics_Performance: {
+      Simultaneous_Mode: "8-ch, up to 2 MP",
+      Independent_Mode: "4-ch, up to 2 MP"
+    }
   },
   Video_and_Audio: {
-    IP_Video_Input: "32-ch",
-    Incoming_Bandwidth: "256 Mbps",
-    Outgoing_Bandwidth: "160 Mbps",
-    HDMI_Output: "1-ch, 4K (3840 × 2160)/30 Hz, 2K (2560 × 1440)/60 Hz, 1920 × 1080/60 Hz, 1600 × 1200/60 Hz, 1280 × 1024/60 Hz, 1280 × 720/60 Hz, 1024 × 768/60 Hz",
-    VGA_Output: "1-ch, 1920 × 1080/60 Hz, 1280 × 1024/60 Hz, 1280 × 720/60 Hz",
-    Video_Output_Mode: "HDMI/VGA independent output",
-    CVBS_Output: "N/A",
-    Audio_Output: "1-ch, RCA (2.0 Vp-p, 1 KΩ, using the audio input)",
-    Two_Way_Audio: "1-ch, RCA (Linear, 1 KΩ)"
-  },
-  Network: {
-    Remote_Connection: "128",
-    API: "ONVIF (profile S/G); SDK; ISAPI",
-    Compatible_Browser: "IE11, Chrome V57, Firefox V52, Safari V12, Edge V89, or above version",
-    Network_Protocol: "TCP/IP, DHCP, IPv4, IPv6, DNS, DDNS, NTP, RTSP, SADP, SMTP, SNMP, NFS, iSCSI, ISUP, UPnP™, HTTP, HTTPS",
-    Network_Interface: "1 RJ-45 10/100/1000 Mbps self-adaptive Ethernet interface"
-  },
-  Auxiliary_Interface: {
-    SATA: {
-      Interface: "2 SATA interfaces",
+    IP_Video_Input: "128-ch, Up to 32 MP resolution",
+    Incoming_Bandwidth: "1280 Mbps",
+    Outgoing_Bandwidth: "1024 Mbps",
+    Incoming_Bandwidth_RAID_Mode: "640 Mbps",
+    Outgoing_Bandwidth_RAID_Mode: "512 Mbps",
+    HDMI_Outputs: {
+      HDMI_1: "4K (4096 × 2160)/30 Hz, 4K (3840 × 2160)/60 Hz, 4K (3840 × 2160)/30 Hz, 2K (2560 × 1440)/60 Hz, 1080P (1920 × 1080)/60 Hz",
+      HDMI_2: "4K (4096 × 2160)/30 Hz, 4K (3840 × 2160)/60 Hz, 4K (3840 × 2160)/30 Hz, 2K (2560 × 1440)/60 Hz, 1080P (1920 × 1080)/60 Hz",
+      HDMI_3: "8K (7680 × 4320)/30 Hz, 4K (4096 × 2160)/30 Hz, 4K (3840 × 2160)/60 Hz, 4K (3840 × 2160)/30 Hz, 2K (2560 × 1440)/60 Hz, 1080P (1920 × 1080)/60 Hz",
+      HDMI_4: "1080P (1920 × 1080)/60 Hz"
     },
-    Capacity: "Up to 10 TB capacity for each HDD",
-    USB_Interface: "Front panel: 1 × USB 2.0; Rear panel: 1 × USB 2.0",
-    Alarm_In_Out: "4/1"
+    VGA_Outputs: {
+      VGA_1: "1080P (1920 × 1080)/60 Hz",
+      VGA_2: "1080P (1920 × 1080)/60 Hz"
+    },
+    Video_Output_Mode: {
+      Mode_1: "Simultaneous output with 1080p resolution",
+      Mode_2: "Simultaneous output on HDMI 1, VGA 1, HDMI 2, VGA 2, HDMI 3, and HDMI 4",
+      Mode_3: "Independent output with 8K HDMI 3 output resolution",
+      Mode_4: "Independent output with HDMI 3 output resolution ≤ 4K"
+    },
+    HDMI_Input: "1-ch",
+    HDMI_Loopback: "1-ch (matching the HDMI input)",
+    Audio_Output: "2-ch, RCA (Linear, 1 KΩ)",
+    Two_Way_Audio: "1-ch, RCA (2.0 Vp-p, 1 KΩ)"
   },
   General: {
-    GUI_Language: "English, Russian, Bulgarian, Hungarian, Greek, German, Italian, Czech, Slovak, French, Polish, Dutch etc..",
-    Power_Supply: "12 VDC, 3.3 A",
-    Consumption: "≤ 15 W (without HDD)",
-    Working_Temperature: "-10 °C to 55 °C (14 °F to 131 °F)",
-    Working_Humidity: "10% to 90%",
-    Dimension: "385 mm × 315 mm × 52 mm (15.2\"× 12.4\" × 2.0\")",
-    Weight: "≤ 1 kg (without HDD, 2.2 lb.)"
+    Power_Supply: "100 to 240 VAC, 50 to 60 Hz, redundant power supply",
+    Consumption: "≤ 100 W (without HDD)",
+    Working_Temperature: "-10 to 55°C (14 to 131° F)",
+    Working_Humidity: "10 to 90%",
+    Dimension: "442 mm × 460 mm × 88 mm (17.4 × 18.1 × 3.5 inch)",
+    Weight: "≤ 10 kg (without HDD, 28.7 lb.)"
   }
 }
 ---

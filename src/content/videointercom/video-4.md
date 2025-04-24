@@ -1,7 +1,7 @@
 ---
 id: 4
 title: "DS-KV6113-WPE1(C)"
-slug: "video-4"
+slug: "DS-KV6113-WPE1(C)"
 subTitle: "POE/WiFi Villa Door Station"
 category: "videointercom"
 imgCard: "/src/assets/images/videointercom/DS-KV6113-WPE1(C)/DS-KV6113-WPE1(C)-1.webp"

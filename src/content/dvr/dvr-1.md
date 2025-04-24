@@ -1,7 +1,7 @@
 ---
 id: 1
 title: "DS-E04HGHI-XD"
-slug: "dvr-1"
+slug: "DS-E04HGHI-XD"
 subTitle: "4K ColorVu PoC Fixed Turret Camera"
 category: "dvr"
 imgCard: "/src/assets/images/dvr/DS-E04HGHI-XD/DS-E04HGHI-XD-1.webp"

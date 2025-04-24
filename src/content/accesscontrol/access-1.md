@@ -1,7 +1,7 @@
 ---
 id: 1
 title: "DS-K1T320EFWX-B"
-slug: "access-1"
+slug: "DS-K1T320EFWX-B"
 subTitle: "Multi-Auth Biometric & Access Control"
 category: "accesscontrol"
 imgCard: "/src/assets/images/accesscontrol/DS-K1T320EFWX-B/DS-K1T320EFWX-B-1.webp"

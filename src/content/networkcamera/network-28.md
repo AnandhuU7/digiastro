@@ -1,100 +1,82 @@
 ---
 id: 28
-title: "DS-2CD1347G2H-LIU"
-slug: "DS-2CD1347G2H-LIU"
-subTitle: "4 MP ColorVu Hybrid Turret Camera"
+title: "DS-2CD2047G2-LU/SL"
+slug: "DS-2CD2047G2-LU/SL"
+subTitle: "4 MP ColorVu Strobe Light Mini Bullet Network Camera"
 category: "networkcamera"
-imgCard: "/src/assets/images/networkcamera/DS-2CD1347G2H-LIU/DS-2CD1347G2H-LIU-1.webp"
-imgAlt: "DS-2CD1347G2H-LIU"
+imgCard: "/src/assets/images/networkcamera/DS-2CD2047G2-LUSL/DS-2CD2047G2-LUSL-1.png"
+imgAlt: "DS-2CD2047G2-LU/SL"
 thumbnails: [
-  "/src/assets/images/networkcamera/DS-2CD1347G2H-LIU/DS-2CD1347G2H-LIU-1.webp",
-  "/src/assets/images/networkcamera/DS-2CD1347G2H-LIU/DS-2CD1347G2H-LIU-2.webp",
-  "/src/assets/images/networkcamera/DS-2CD1347G2H-LIU/DS-2CD1347G2H-LIU-3.webp",
+  "/src/assets/images/networkcamera/DS-2CD2047G2-LUSL/DS-2CD2047G2-LUSL-1.png",
+  "/src/assets/images/networkcamera/DS-2CD2047G2-LUSL/DS-2CD2047G2-LUSL-2.png",
+  "/src/assets/images/networkcamera/DS-2CD2047G2-LUSL/DS-2CD2047G2-LUSL-3.png",
+  "/src/assets/images/networkcamera/DS-2CD2047G2-LUSL/DS-2CD2047G2-LUSL-4.png",
 ]
 features: [
-  "4 MP high-resolution imaging with vibrant color clarity",
-  "Smart Hybrid Light for advanced low-light and long-range performance",
-  "Human and vehicle detection for intelligent alerts",
-  "Built-in microphone for real-time audio monitoring",
-  "Supports up to 512 GB onboard storage (optional SD card)",
-  "H.265+ compression and IP67-rated weather protection"
+  "4 MP high-resolution imaging",
+  "H.265+ compression for efficient storage",
+  "130 dB WDR for clear images in backlit environments",
+  "Deep learning for human and vehicle classification",
+  "24/7 colorful imaging",
+  "Active strobe light and audio alarm to deter intruders",
+  "Real-time security with built-in two-way audio",
+  "IP67 water and dust resistance",
 ]
-rating: 5
-reviewCount: 100
+rating: 4
+reviewCount: 50
 specifications: {
   Camera: {
-    Image_Sensor: "1/3\" Progressive Scan CMOS",
-    Max_Resolution: "2560 × 1440",
-    Min_Illumination: "Color: 0.001 Lux @ (F1.0, AGC ON), 0 Lux with light",
+    Image_Sensor: "1/1.8\" Progressive Scan CMOS",
+    Max_Resolution: "2688 × 1520",
+    Min_Illumination: "Color: 0.0005 Lux @ (F1.0, AGC ON), 0 Lux with white light",
     Shutter_Time: "1/3 s to 1/100,000 s",
-    Day_Night: "IR cut filter",
-    Angle_Adjustment: "Pan: 0° to 360°, tilt: 0° to 75°, rotate: 0° to 360°"
+    Angle_Adjustment: "Pan: 0° to 360°, Tilt: 0° to 90°, Rotate: 0° to 360°"
   },
   Lens: {
-    Lens_Type: "Fixed focal lens, 2.8 and 4 mm optional",
     Focal_Length_FOV: {
-      "2.8 mm": "horizontal FOV 96°, vertical FOV 52°, diagonal FOV 114°",
-      "4 mm": "horizontal FOV 80°, vertical FOV 43°, diagonal FOV 93°"
+      "2.8 mm": "Horizontal FOV 111.9°, Vertical FOV 60.5°, Diagonal FOV 133.6°",
+      "4 mm": "Horizontal FOV 95.2°, Vertical FOV 50.6°, Diagonal FOV 114.7°",
+      "6 mm": "Horizontal FOV 58.4°, Vertical FOV 31°, Diagonal FOV 68.7°"
     },
-    Lens_Mount: "M12",
+    Lens_Mount: "M16",
     Iris_Type: "Fixed",
-    Aperture: "F1.0"
+    Aperture: "F1.0",
+    Depth_of_Field: {
+      "2.8 mm": "3.1 m to ∞",
+      "4 mm": "5.4 m to ∞",
+      "6 mm": "12.1 m to ∞"
+    }
   },
   Video: {
     Main_Stream: {
-      "50_Hz": "20 fps (2560 × 1440) , 25 fps (1920 × 1080, 1280 × 720)",
-      "60_Hz": "20 fps (2560 × 1440), 24 fps (1920 × 1080, 1280 × 720)"
+      "50_Hz": "25 fps (2688 × 1520, 1920 × 1080, 1280 × 720)",
+      "60_Hz": "30 fps (2688 × 1520, 1920 × 1080, 1280 × 720)"
     },
     Sub_Stream: {
       "50_Hz": "25 fps (1280 × 720, 640 × 480, 640 × 360)",
-      "60_Hz": "24 fps (1280 × 720, 640 × 480, 640 × 360)"
+      "60_Hz": "30 fps (1280 × 720, 640 × 480, 640 × 360)"
+    },
+    Third_Stream: {
+      "50_Hz": "10 fps (1920 × 1080, 1280 × 720, 640 × 480, 640 × 360)",
+      "60_Hz": "10 fps (1920 × 1080, 1280 × 720, 640 × 480, 640 × 360)"
     },
     Video_Compression: {
-      Main_Stream: "H.265+/H.265/H.264+/H.264",
-      Sub_Stream: "H.265/H.264/MJPEG"
+      Main_Stream: "H.265/H.264/H.265+/H.264+",
+      Sub_Stream: "H.265/H.264/MJPEG",
+      Third_Stream: "H.265/H.264"
     },
     Video_Bit_Rate: "32 Kbps to 8 Mbps",
-    H264_Type: "Baseline Profile,Main Profile,High Profile",
+    H264_Type: "Baseline Profile/Main Profile/High Profile",
     H265_Type: "Main Profile",
-    Bit_Rate_Control: "CBR,VBR",
-    ROI: "1 fixed region for main stream",
-    Scalable_Video_Coding: "H.264 and H.265 encoding"
+    Bit_Rate_Control: "CBR/VBR",
+    Scalable_Video_Coding: "H.265 and H.264 encoding",
+    Region_of_Interest: "1 fixed region for main stream and sub-stream"
   },
   Audio: {
-    Audio_Type: "Mono sound",
-    Audio_Compression: "G.711/G.722.1/G.726/MP2L2/PCM/AAC-LC",
-    Audio_Bit_Rate: "64 Kbps (G.711)/16 Kbps (G.722.1)/16 Kbps (G.726)/32 to 160 Kbps (MP2L2)/16 to 64 Kbps (AAC-LC)",
-    Audio_Sampling_Rate: "8 kHz/16 kHz",
+    Audio_Compression: "G.711ulaw/G.711alaw/G.722.1/G.726/MP2L2/PCM/MP3/AAC-LC",
+    Audio_Bit_Rate: "64 Kbps (G.711ulaw/G.711alaw)/16 Kbps (G.722.1)/16 Kbps (G.726)/32 to 192 Kbps (MP2L2)/8 to 320 Kbps (MP3)/16 to 64 Kbps (AAC-LC)",
+    Audio_Sampling_Rate: "8 kHz/16 kHz/32 kHz/44.1 kHz/48 kHz",
     Environment_Noise_Filtering: "Yes"
-  },
-  Network: {
-    Protocols: "TCP/IP, ICMP, DHCP, DNS, HTTP, RTP, RTSP, RCTP, NTP, IGMP, UDP, QoS, FTP, SMTP",
-    Simultaneous_Live_View: "Up to 6 channels",
-    API: "Open Network Video Interface (Profile S, Profile T, Profile G (only -F model supports)),ISAPI,SDK",
-    Security: "Password protection, complicated password, watermark, basic and digest authentication for HTTP, WSSE and digest authentication for Open Network Video Interface, security audit log, host authentication (MAC address)",
-    User_Host: "Up to 32 users; 3 user levels: administrator, operator, and user",
-    Client: "iVMS-4200,Hik-Connect",
-    Web_Browser: "Plug-in required live view: IE 10, IE 11, Local service: Chrome 57.0+, Firefox 52.0+, Edge 89+"
-  },
-  Image: {
-    Image_Settings: "Rotate mode,saturation,brightness,contrast,sharpness,gain,white balance,adjustable by client software or web browser",
-    Day_Night_Switch: "Day,Night,Auto,Schedule",
-    WDR: "120 dB",
-    SNR: "≥ 52 dB",
-    Image_Enhancement: "BLC,HLC,3D DNR",
-    Privacy_Mask: "4 programmable polygon privacy masks"
-  },
-  General: {
-    Power: "12 VDC ± 25%, 0.5 A, max. 6.0 W,Ø5.5 mm coaxial power plug,reverse polarity protection, PoE: IEEE 802.3af, Class 3, max. 7.5 W",
-    Material: "Metal & Plastic",
-    Dimension: "Ø110 mm × 93 mm (Ø4.33\" × 3.66\")",
-    Package_Dimension: "150 mm × 150 mm × 141 mm (5.91\" × 5.91\" × 5.55\")",
-    Weight: "Approx. 420 g (0.9 lb.)",
-    With_Package_Weight: "Approx. 656 g (1.4 lb.)",
-    Storage_Conditions: "-30 °C to 60 °C (-22 °F to 140 °F). Humidity 95% or less (non-condensing)",
-    Startup_and_Operating_Conditions: "-30 °C to 60 °C (-22 °F to 140 °F). Humidity 95% or less (non-condensing)",
-    Language: "English, Ukrainian",
-    General_Function: "Heartbeat, anti-banding, mirror, password protection, password reset by email"
   }
 }
 ---

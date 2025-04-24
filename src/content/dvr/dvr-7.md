@@ -1,7 +1,7 @@
 ---
 id: 7
 title: "DS-7204HGHI-M1/T"
-slug: "dvr-7"
+slug: "DS-7204HGHI-M1/T"
 subTitle: "4CH 1080p Lite H.265 DVR"
 category: "dvr"
 imgCard: "/src/assets/images/dvr/DS-7204HGHI-M1_T/DS-7204HGHI-M1T-1.webp"

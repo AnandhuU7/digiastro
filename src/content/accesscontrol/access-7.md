@@ -1,7 +1,7 @@
 ---
 id: 7
 title: "DS-K1T670MX-QR"
-slug: "access-7"
+slug: "DS-K1T670MX-QR"
 subTitle: "7-Inch Touchscreen with QR & Multi-Face Detection"
 category: "accesscontrol"
 imgCard: "/src/assets/images/accesscontrol/DS-K1T670MX-QR/DS-K1T670MX-QR-1.webp"

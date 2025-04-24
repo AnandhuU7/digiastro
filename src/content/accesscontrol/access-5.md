@@ -1,7 +1,7 @@
 ---
 id: 5
 title: "DS-K1T323EBWX-E1"
-slug: "access-5"
+slug: "DS-K1T323EBWX-E1"
 subTitle: "Face & Card Access with WDR & PoE"
 category: "accesscontrol"
 imgCard: "/src/assets/images/accesscontrol/DS-K1T323EBWX-E1/DS-K1T323EBWX-E1-1.webp"

@@ -1,7 +1,7 @@
 ---
 id: 8
 title: "iDS-7116HQHI-M1/S"
-slug: "dvr-8"
+slug: "iDS-7116HQHI-M1/S"
 subTitle: "16CH 1080p H.265 AcuSense DVR"
 category: "dvr"
 imgCard: "/src/assets/images/dvr/iDS-7116HQHI-M1S/iDS-7116HQHI-M1S.webp"

@@ -1,7 +1,7 @@
 ---
 id: 8
 title: "DS-K1T671TMFW"
-slug: "access-8"
+slug: "DS-K1T671TMFW"
 subTitle: "7\" Touchscreen, Mask Alert, High Capacity, IP65"
 category: "accesscontrol"
 imgCard: "/src/assets/images/accesscontrol/DS-K1T671TMFW/DS-K1T671TMFW-1.webp"

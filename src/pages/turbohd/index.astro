@@ -164,10 +164,13 @@ const mainColor = "#32869f";
     if (searchInput) {
       searchInput.addEventListener("input", (e) => {
         const searchTerm =
-          (e.target as HTMLInputElement)?.value.toLowerCase() || "";
+          (e.target as HTMLInputElement)?.value
+          .trim()
+          .toLowerCase()
+          .replace(/[-\s()\/"']/g, "");
         filteredProducts = Array.from(productItems).filter((item) => {
           const titleElement = item.querySelector(".product-title");
-          const title = titleElement?.textContent?.toLowerCase() || "";
+          const title = (titleElement?.textContent?.toLowerCase() || "").replace(/[-\s()\/"']/g, "");
           return title.includes(searchTerm);
         });
 

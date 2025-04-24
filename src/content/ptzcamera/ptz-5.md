@@ -1,7 +1,7 @@
 ---
 id: 5
 title: "DS-2DE3404W-DE(T5)"
-slug: "ptz-5"
+slug: "DS-2DE3404W-DE(T5)"
 subTitle: "3-inch 4 MP 4x Zoom Mini PT Dome Network Camera"
 category: "ptzcamera"
 imgCard: "/src/assets/images/ptzcamera/DS-2DE3404W-DE(T5)/DS-2DE3404W-DE(T5)-1.png"
