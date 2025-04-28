@@ -1,54 +1,9 @@
 ---
 const { product, category } = Astro.props;
-
 const rating = product.data.rating;
 
-const structuredData = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  productID: product.data.id,
-  name: product.data.title,
-  image: {
-    "@type": "ImageObject",
-    contentUrl: "https://dubai-hikvision.com" + product.data.imgCard.src,
-    creditText: "Hikvision " + product.data.title,
-    width: 800,
-    height: 800,
-  },
-  url: new URL(`/${category}/${product.slug}`, Astro.site).toString(),
-  aggregateRating:
-    product.data.rating && product.data.reviewCount
-      ? {
-          "@type": "AggregateRating",
-          ratingValue: Number(product.data.rating),
-          reviewCount: Math.round(Number(product.data.reviewCount)),
-          bestRating: 5,
-          worstRating: 1,
-        }
-      : undefined,
-  brand: {
-    "@type": "Organization",
-    name: "Hikvision",
-  },
-  category: category.charAt(0).toUpperCase() + category.slice(1),
-  offers: {
-    "@type": "Offer",
-    priceCurrency: "AED",
-    price: product.data.price || 50,
-    availability:
-      product.data.inStock !== false
-        ? "https://schema.org/InStock"
-        : "https://schema.org/OutOfStock",
-    itemCondition: "https://schema.org/NewCondition",
-    seller: {
-      "@type": "Organization",
-      name: "Dubai Hikvision",
-    },
-  },
-};
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 <div class="group">
   <div
     class="product-card bg-white rounded-lg overflow-hidden shadow-lg group-hover:shadow-2xl transform transition-all duration-300 border-2 border-gray-100 hover:border-gray-300 group-hover:-translate-y-2"

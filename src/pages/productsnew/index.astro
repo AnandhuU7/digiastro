@@ -123,45 +123,56 @@ const structuredData = {
   name: title,
   description: description,
   url: "https://dubai-hikvision.com/productsnew",
-  image: products.map((p) => ({
-    "@type": "ImageObject",
-    contentUrl: "https://dubai-hikvision.com" + p.image.src,
-    creditText: "Hikvision " + p.title,
-    creator: {
-      "@type": "Organization",
-      name: "Dubai Hikvision",
-    },
-  })),
-  mainEntity: {
+  // image: products.map((p) => ({
+  //   "@type": "ImageObject",
+  //   contentUrl: "https://dubai-hikvision.com" + p.image.src,
+  //   creditText: "Hikvision " + p.title,
+  //   creator: {
+  //     "@type": "Organization",
+  //     name: "Dubai Hikvision",
+  //   },
+  // })),
+  // mainEntity: {
+  //   "@type": "ItemList",
+  //   name: "Hikvision Security Products",
+  //   description: description,
+  //   numberOfItems: products.length,
+  //   itemListElement: products.map((product, index) => ({
+  //     "@type": "ListItem",
+  //     position: index + 1,
+  //     item: {
+  //       "@type": "Product",
+  //       name: product.title,
+  //       description: product.description,
+  //       image: "https://dubai-hikvision.com" + product.image.src,
+  //       url: "https://dubai-hikvision.com" + product.link,
+  //       brand: {
+  //         "@type": "Brand",
+  //         name: "Hikvision",
+  //       },
+  //       offers: {
+  //         "@type": "Offer",
+  //         url: "https://dubai-hikvision.com" + product.link,
+  //         priceCurrency: "AED",
+  //         price: 100,
+  //         availability: "https://schema.org/InStock",
+  //         seller: {
+  //           "@type": "Organization",
+  //           name: "Dubai Hikvision",
+  //         },
+  //       },
+  //     },
+  //   })),
+  // },
+
+  "mainEntity": {
     "@type": "ItemList",
-    name: "Hikvision Security Products",
-    description: description,
-    numberOfItems: products.length,
-    itemListElement: products.map((product, index) => ({
+    "itemListElement":products.map((product, index) => ({
       "@type": "ListItem",
-      position: index + 1,
-      item: {
-        "@type": "Product",
-        name: product.title,
-        description: product.description,
-        image: "https://dubai-hikvision.com" + product.image.src,
-        url: "https://dubai-hikvision.com" + product.link,
-        brand: {
-          "@type": "Brand",
-          name: "Hikvision",
-        },
-        offers: {
-          "@type": "Offer",
-          url: "https://dubai-hikvision.com" + product.link,
-          priceCurrency: "AED",
-          price: 100,
-          availability: "https://schema.org/InStock",
-          seller: {
-            "@type": "Organization",
-            name: "Dubai Hikvision",
-          },
-        },
-      },
+       position: index + 1,
+       name: product.title,
+       url: "https://dubai-hikvision.com" + product.link,
+    
     })),
   },
   breadcrumb: {
@@ -189,11 +200,8 @@ const structuredData = {
 };
 ---
 
-<Layout title={title} description={description} ogUrl={ogUrl}>
-  <script
-    type="application/ld+json"
-    set:html={JSON.stringify(structuredData)}
-  />
+<Layout title={title} description={description} ogUrl={ogUrl} lovosis={structuredData}>
+
   <div class="scroll-smooth">
     <!-- Hero Section -->
     <div

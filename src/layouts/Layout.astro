@@ -6,7 +6,7 @@ import FooterSections from "../components/FooterSections.astro";
 import Whatsapp from "../components/Whatsapp";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
 import ScrollProgress from "../components/ScrollProgress.astro";
-const { title, description, keywords, structuredData, ogUrl } = Astro.props;
+const { title, description,lovosis, keywords,ogUrl } = Astro.props;
 const ogImage = "https://dubai-hikvision.com/logo.svg"; 
 const canonicalURL = ogUrl ? new URL(ogUrl, Astro.site) : new URL(Astro.url.pathname, Astro.site);
 ---
@@ -20,9 +20,16 @@ const canonicalURL = ogUrl ? new URL(ogUrl, Astro.site) : new URL(Astro.url.path
     <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <GoogleAnalytics />
-    {structuredData && (
-      <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
-    )}
+    {
+			lovosis && (
+				<script
+					is:inline
+					type="application/ld+json"
+					set:html={JSON.stringify(lovosis)}
+				/>
+       
+			)
+		}
 
     <SEO
       title={title ?? "Best Hikvision Distributor in Dubai, UAE "}

@@ -15,9 +15,10 @@ const allProducts: CollectionEntry<typeof category>[] = (
 ).sort((a, b) => a.data.id - b.data.id);
 
 const title = `Network Camera - Dubai Hikvision`;
+
 const description = `Browse our comprehensive range of network camera products from Hikvision, the leading distributor in Dubai. Professional-grade security cameras and surveillance systems with advanced features.`;
 const ogUrl = "https://dubai-hikvision.com/networkcamera";
-const breadcrumbData = {
+const structuredData = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
@@ -40,16 +41,24 @@ const breadcrumbData = {
       item: `https://dubai-hikvision.com/networkcamera`,
     },
   ],
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement":allProducts.slice(0, 10).map((product, index) => ({
+      "@type": "ListItem",
+       position: index + 1,
+       name: product.data.title,
+       image:`${Astro.url.origin}/networkcamera/${product.data.imgCard.src}`,
+       url: `${Astro.url.origin}/${product.slug}`,
+    
+    })),
+  },
 };
 
 const mainColor = "#32869f";
 ---
 
-<Layout title={title} description={description} ogUrl={ogUrl}>
-  <script
-    type="application/ld+json"
-    set:html={JSON.stringify(breadcrumbData)}
-  />
+<Layout title={title} description={description} ogUrl={ogUrl} lovosis={structuredData}>
+  
 
   <div class="container mx-auto px-4 py-8 bg-gray-50">
     <h1
