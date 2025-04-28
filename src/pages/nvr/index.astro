@@ -21,8 +21,32 @@ const description = `Browse our comprehensive range of Network Video Recorders (
 const ogUrl="https://dubai-hikvision.com/nvr"
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
+  "@type": "CollectionPage",
+  "name": `Hikvision ${category.charAt(0).toUpperCase() + category.slice(1)} Products`,
+  "description": description,
+  "url": ogUrl,
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: allProducts.map((product, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Product",
+        name: product.data.title,
+        image: {
+          "@type": "ImageObject",
+          contentUrl: new URL(product.data.imgCard.src, Astro.site).toString(),
+          creditText: "Hikvision " + product.data.title,
+          width: 800,
+          height: 800,
+        },
+        url: new URL(`/${category}/${product.slug}`, Astro.site).toString(),
+      }
+    })),
+  },
+"breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
       {
         "@type": "ListItem",
         "position": 1,
@@ -39,26 +63,11 @@ const structuredData = {
         "@type": "ListItem",
         "position": 3,
         "name": category.charAt(0).toUpperCase() + category.slice(1),
-        "item": `https://dubai-hikvision.com/nvr`
-      },
-    ],
-    mainEntity: {
-    "@type": "ItemList",
-    itemListElement: allProducts.map((product, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: product.data.title,
-      image: {
-        "@type": "ImageObject",
-        contentUrl: new URL(product.data.imgCard.src, Astro.site).toString(),
-        creditText: "Hikvision " + product.data.title,
-        width: 800,
-        height: 800,
-      },
-      url: new URL(`/${category}/${product.slug}`, Astro.site).toString(),
-    })),
-  },
-  };
+        "item": ogUrl
+      }
+    ]
+  }
+};
 
 
 const mainColor = "#32869f";
