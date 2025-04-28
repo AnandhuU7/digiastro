@@ -15,7 +15,7 @@ const products: CollectionEntry<typeof category>[] = (
 const title = `Explosion Proof - Dubai Hikvision`;
 const description = `Browse our comprehensive range of explosion proof products from Hikvision, the leading distributor in Dubai. Professional-grade explosion-proof security cameras and surveillance systems for hazardous environments.`;
 const ogUrl="https://dubai-hikvision.com/explosionproof"
-const breadcrumbData = {
+const structuredData = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
@@ -37,7 +37,23 @@ const breadcrumbData = {
         "name": category.charAt(0).toUpperCase() + category.slice(1),
         "item": `https://dubai-hikvision.com/explosionproof`
       },
-    ]
+    ],
+    mainEntity: {
+    "@type": "ItemList",
+    itemListElement: products.map((product, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: product.data.title,
+      image: {
+        "@type": "ImageObject",
+        contentUrl: new URL(product.data.imgCard.src, Astro.site).toString(),
+        creditText: "Hikvision " + product.data.title,
+        width: 800,
+        height: 800,
+      },
+      url: new URL(`/${category}/${product.slug}`, Astro.site).toString(),
+    })),
+  },
   };
 
 const mainColor = "#32869f";
@@ -47,8 +63,9 @@ const mainColor = "#32869f";
   title={title} 
   description={description} 
   ogUrl={ogUrl}
+  lovosis={structuredData}
+
 >
-<script type="application/ld+json" set:html={JSON.stringify(breadcrumbData)} />
   <div class="container mx-auto px-4 py-8 bg-gray-50">
     <h1 class="text-4xl font-bold mb-6 text-center" style={`color: ${mainColor};`}>
       Discover Our {category.charAt(0).toUpperCase() + category.slice(1)} Products

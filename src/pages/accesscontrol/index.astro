@@ -14,40 +14,53 @@ const products: CollectionEntry<typeof category>[] = (
 const title = `Explosion Proof - Dubai Hikvision`;
 const description = `Browse our comprehensive range of explosion proof products from Hikvision, the leading distributor in Dubai. Professional-grade explosion-proof security cameras and surveillance systems for hazardous environments.`;
 const ogUrl = "https://dubai-hikvision.com/accesscontrol";
-const breadcrumbData = {
+const structuredData = {
   "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://dubai-hikvision.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Products",
+        "item": "https://dubai-hikvision.com/productsnew"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": category.charAt(0).toUpperCase() + category.slice(1),
+        "item": `https://dubai-hikvision.com/accesscontrol`
+      }
+    ]
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": products.map((product, index) => ({
       "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: "https://dubai-hikvision.com",
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "Products",
-      item: "https://dubai-hikvision.com/productsnew",
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: category.charAt(0).toUpperCase() + category.slice(1),
-      item: `https://dubai-hikvision.com/accesscontrol`,
-    },
-  ],
+      "position": index + 1,
+      "name": product.data.title,
+      "image": {
+        "@type": "ImageObject",
+        "contentUrl": new URL(product.data.imgCard.src, Astro.site).toString(),
+        "creditText": "Hikvision " + product.data.title,
+        "width": 800,
+        "height": 800
+      },
+      "url": new URL(`/${category}/${product.slug}`, Astro.site).toString()
+    }))
+  }
 };
 
 const mainColor = "#32869f";
 ---
 
-<Layout title={title} description={description} ogUrl={ogUrl}>
-  <script
-    type="application/ld+json"
-    set:html={JSON.stringify(breadcrumbData)}
-  />
-
+<Layout title={title} description={description} ogUrl={ogUrl} lovosis={structuredData}>
   <div class="container mx-auto px-4 py-8 bg-gray-50">
     <h1
       class="text-4xl font-bold mb-6 text-center"

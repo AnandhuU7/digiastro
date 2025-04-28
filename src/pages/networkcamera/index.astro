@@ -41,15 +41,20 @@ const structuredData = {
       item: `https://dubai-hikvision.com/networkcamera`,
     },
   ],
-  "mainEntity": {
+  mainEntity: {
     "@type": "ItemList",
-    "itemListElement":allProducts.slice(0, 10).map((product, index) => ({
+    itemListElement: allProducts.map((product, index) => ({
       "@type": "ListItem",
-       position: index + 1,
-       name: product.data.title,
-       image:`${Astro.url.origin}/networkcamera/${product.data.imgCard.src}`,
-       url: `${Astro.url.origin}/${product.slug}`,
-    
+      position: index + 1,
+      name: product.data.title,
+      image: {
+        "@type": "ImageObject",
+        contentUrl: new URL(product.data.imgCard.src, Astro.site).toString(),
+        creditText: "Hikvision " + product.data.title,
+        width: 800,
+        height: 800,
+      },
+      url: new URL(`/${category}/${product.slug}`, Astro.site).toString(),
     })),
   },
 };
@@ -57,9 +62,12 @@ const structuredData = {
 const mainColor = "#32869f";
 ---
 
-<Layout title={title} description={description} ogUrl={ogUrl} lovosis={structuredData}>
-  
-
+<Layout
+  title={title}
+  description={description}
+  ogUrl={ogUrl}
+  lovosis={structuredData}
+>
   <div class="container mx-auto px-4 py-8 bg-gray-50">
     <h1
       class="text-4xl font-bold mb-6 text-center"
@@ -93,7 +101,6 @@ const mainColor = "#32869f";
     </div>
 
     <!-- Pagination -->
-   
 
     <!-- No Products Found Message -->
     <div id="noProductsMessage" class="hidden text-center py-12">
@@ -171,14 +178,15 @@ const mainColor = "#32869f";
     // Handle search
     if (searchInput) {
       searchInput.addEventListener("input", (e) => {
-        const searchTerm =
-          (e.target as HTMLInputElement)?.value
+        const searchTerm = (e.target as HTMLInputElement)?.value
           .trim()
           .toLowerCase()
           .replace(/[-\s()\/"']/g, "");
         filteredProducts = Array.from(productItems).filter((item) => {
           const titleElement = item.querySelector(".product-title");
-          const title = (titleElement?.textContent?.toLowerCase() || "").replace(/[-\s()\/"']/g, "");
+          const title = (
+            titleElement?.textContent?.toLowerCase() || ""
+          ).replace(/[-\s()\/"']/g, "");
           return title.includes(searchTerm);
         });
 
@@ -189,7 +197,9 @@ const mainColor = "#32869f";
         // Show/hide no products message and pagination
         const hasProducts = filteredProducts.length > 0;
         noProductsMessage?.classList.toggle("hidden", hasProducts);
-        document.querySelector(".pagination")?.classList.toggle("hidden", !hasProducts);
+        document
+          .querySelector(".pagination")
+          ?.classList.toggle("hidden", !hasProducts);
       });
     }
 

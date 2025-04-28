@@ -38,16 +38,34 @@ const breadcrumbData = {
     },
   ],
 };
+const productListData = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: products.map((product, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: product.data.title,
+    image: {
+      "@type": "ImageObject",
+      contentUrl: new URL(product.data.imgCard.src, Astro.site).toString(),
+      creditText: "Hikvision " + product.data.title,
+      width: 800,
+      height: 800,
+    },
+    url: new URL(`/${category}/${product.slug}`, Astro.site).toString(),
+  })),
+};
 
 const mainColor = "#32869f";
 ---
 
-<Layout title={title} description={description} ogUrl={ogUrl}>
-  <script
-    type="application/ld+json"
-    set:html={JSON.stringify(breadcrumbData)}
-  />
-
+<Layout 
+  title={title} 
+  description={description} 
+  ogUrl={ogUrl} 
+  breadcrumbs={breadcrumbData}
+  productList={productListData}
+>
   <div class="container mx-auto px-4 py-8 bg-gray-50">
     <h1
       class="text-4xl font-bold mb-6 text-center"
