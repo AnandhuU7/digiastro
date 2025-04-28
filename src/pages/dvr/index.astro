@@ -14,47 +14,49 @@ const products: CollectionEntry<typeof category>[] = (
 const title = `Explosion Proof - Dubai Hikvision`;
 const description = `Browse our comprehensive range of explosion proof products from Hikvision, the leading distributor in Dubai. Professional-grade explosion-proof security cameras and surveillance systems for hazardous environments.`;
 const ogUrl = "https://dubai-hikvision.com/dvr";
-const breadcrumbData = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://dubai-hikvision.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Products",
+        item: "https://dubai-hikvision.com/productsnew",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: category.charAt(0).toUpperCase() + category.slice(1),
+        item: `https://dubai-hikvision.com/dvr`,
+      },
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: products.map((product, index) => ({
       "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: "https://dubai-hikvision.com",
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      name: "Products",
-      item: "https://dubai-hikvision.com/productsnew",
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: category.charAt(0).toUpperCase() + category.slice(1),
-      item: `https://dubai-hikvision.com/dvr`,
-    },
-  ],
-};
-const productListData = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  itemListElement: products.map((product, index) => ({
-    "@type": "ListItem",
-    position: index + 1,
-    name: product.data.title,
-    image: {
-      "@type": "ImageObject",
-      contentUrl: new URL(product.data.imgCard.src, Astro.site).toString(),
-      creditText: "Hikvision " + product.data.title,
-      width: 800,
-      height: 800,
-    },
-    url: new URL(`/${category}/${product.slug}`, Astro.site).toString(),
-  })),
-};
+      position: index + 1,
+      name: product.data.title,
+      image: {
+        "@type": "ImageObject",
+        contentUrl: new URL(product.data.imgCard.src, Astro.site).toString(),
+        creditText: "Hikvision " + product.data.title,
+        width: 800,
+        height: 800,
+      },
+      url: new URL(`/${category}/${product.slug}`, Astro.site).toString(),
+    })),
+  }
+];
 
 const mainColor = "#32869f";
 ---
@@ -63,8 +65,7 @@ const mainColor = "#32869f";
   title={title} 
   description={description} 
   ogUrl={ogUrl} 
-  breadcrumbs={breadcrumbData}
-  productList={productListData}
+  lovosis={structuredData}
 >
   <div class="container mx-auto px-4 py-8 bg-gray-50">
     <h1

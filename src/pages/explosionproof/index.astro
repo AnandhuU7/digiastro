@@ -17,8 +17,13 @@ const description = `Browse our comprehensive range of explosion proof products 
 const ogUrl="https://dubai-hikvision.com/explosionproof"
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
+  "@type": "CollectionPage",
+  "name": title,
+  "description": description,
+  "url": ogUrl,
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
       {
         "@type": "ListItem",
         "position": 1,
@@ -35,10 +40,11 @@ const structuredData = {
         "@type": "ListItem",
         "position": 3,
         "name": category.charAt(0).toUpperCase() + category.slice(1),
-        "item": `https://dubai-hikvision.com/explosionproof`
-      },
-    ],
-    mainEntity: {
+        "item": ogUrl
+      }
+    ]
+  },
+  "mainEntity": {
     "@type": "ItemList",
     itemListElement: products.map((product, index) => ({
       "@type": "ListItem",
@@ -54,7 +60,7 @@ const structuredData = {
       url: new URL(`/${category}/${product.slug}`, Astro.site).toString(),
     })),
   },
-  };
+};
 
 const mainColor = "#32869f";
 ---
