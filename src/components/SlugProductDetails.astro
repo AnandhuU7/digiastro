@@ -27,79 +27,7 @@ const {
   specifications,
 } = product.data as ProductData;
 
-// Enhanced Product Schema
-const productSchema = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  productID: product.data.id,
-  name: title,
-  description: Array.isArray(product.data.features)
-    ? product.data.features.join(", ")
-    : product.data.features,
-  url: `https://dubai-hikvision.com/${category}/${product.slug}`,
-  category: category,
-  brand: {
-    "@type": "Brand",
-    name: "Hikvision",
-    logo: "https://dubai-hikvision.com/logo.svg",
-  },
-  image: [
-    ...(thumbnails
-      ? thumbnails.map((thumb) => {
-        const fileName = thumb?.src?.split('/').pop()?.split('.')[0] || '';
-          return {
-            "@type": "ImageObject",
-            contentUrl: "https://dubai-hikvision.com" + thumb.src,
-            width: 800,
-            height: 800,
-            creditText: fileName,
-            representativeOfPage: thumb.src === imgCard.src,
-          };
-        })
-      : []),
-  ],
-  offers: {
-    "@type": "Offer",
-    priceCurrency: "AED",
-    price: 50,
-    priceValidUntil:
-      product.data.priceExpiry ||
-      new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)
-        .toISOString()
-        .split("T")[0],
-    itemCondition: "https://schema.org/NewCondition",
-    availability: "https://schema.org/InStock",
-    seller: {
-      "@type": "Organization",
-      name: "Dubai Hikvision",
-    },
-  },
-  aggregateRating:
-    product.data.rating && product.data.reviewCount
-      ? {
-          "@type": "AggregateRating",
-          ratingValue: Number(product.data.rating),
-          reviewCount: Math.round(Number(product.data.reviewCount)),
-          bestRating: 5,
-          worstRating: 1,
-        }
-      : undefined,
-  additionalProperty: [
-    ...features.map((feature) => ({
-      "@type": "PropertyValue",
-      name: "Feature",
-      value: feature,
-    })),
-    ...Object.entries(specifications).flatMap(([specCategory, specs]) =>
-      Object.entries(specs).map(([key, value]) => ({
-        "@type": "PropertyValue",
-        name: `${specCategory} - ${key.replace(/_/g, " ")}`,
-        value: typeof value === "string" ? value : JSON.stringify(value),
-      })),
-    ),
-  ],
-};
-// Ensure thumbnails is treated as an array
+
 const thumbnailsArray = thumbnails
   ? Array.isArray(thumbnails)
     ? thumbnails
@@ -107,7 +35,6 @@ const thumbnailsArray = thumbnails
   : [];
 ---
 
-<script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
 <main class="container mx-auto px-4 py-4 sm:py-8">
   <div class="product-container max-w-6xl mx-auto">
     <!-- Product Header -->

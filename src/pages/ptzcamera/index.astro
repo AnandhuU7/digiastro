@@ -17,51 +17,63 @@ console.log(products);
 const title = `PTZ Camera - Dubai Hikvision`;
 const description = `Browse our comprehensive range of PTZ camera products from Hikvision, the leading distributor in Dubai. Professional-grade motorized surveillance cameras with advanced pan, tilt, and zoom capabilities for dynamic monitoring.`;
 const ogUrl = "https://dubai-hikvision.com/ptzcamera";
+
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  "name": `Hikvision ${category.charAt(0).toUpperCase() + category.slice(1)} Products`,
-  "description": description,
-  "url": ogUrl,
-  "mainEntity": {
+  name: `Hikvision Ptzcamera Products`,
+  description: description,
+  url: ogUrl,
+  mainEntity: {
     "@type": "ItemList",
     itemListElement: products.map((product, index) => ({
       "@type": "ListItem",
       position: index + 1,
-      name: product.data.title,
-      image: {
-        "@type": "ImageObject",
-        contentUrl: new URL(product.data.imgCard.src, Astro.site).toString(),
-        creditText: "Hikvision " + product.data.title,
-        width: 800,
-        height: 800,
+      item: {
+        "@type": "Product",
+        name: product.data.title,
+        image: {
+          "@type": "ImageObject",
+          contentUrl: new URL(product.data.imgCard.src, Astro.site).toString(),
+          creditText: "Hikvision " + product.data.title,
+          width: 800,
+          height: 800,
+        },
+        aggregateRating: product.data.rating
+          ? {
+              "@type": "AggregateRating",
+              ratingValue: Number(product.data.rating),
+              bestRating: 5,
+              worstRating: 1,
+            }
+          : undefined,
+        url: new URL(`/${category}/${product.slug}`, Astro.site).toString(),
       },
-      url: new URL(`/${category}/${product.slug}`, Astro.site).toString(),
     })),
   },
-  "breadcrumb": {
+  breadcrumb: {
     "@type": "BreadcrumbList",
-    "itemListElement": [
+    itemListElement: [
       {
         "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://dubai-hikvision.com"
+        position: 1,
+        name: "Home",
+        item: "https://dubai-hikvision.com",
       },
       {
         "@type": "ListItem",
-        "position": 2,
-        "name": "Products",
-        "item": "https://dubai-hikvision.com/productsnew"
+        position: 2,
+        name: "Products",
+        item: "https://dubai-hikvision.com/productsnew",
       },
       {
         "@type": "ListItem",
-        "position": 3,
-        "name": category.charAt(0).toUpperCase() + category.slice(1),
-        "item": ogUrl
-      }
-    ]
-  }
+        position: 3,
+        name: "Ptzcamera",
+        item: "https://dubai-hikvision.com/ptzcamera",
+      },
+    ],
+  },
 };
 const mainColor = "#32869f";
 ---
@@ -77,11 +89,10 @@ const mainColor = "#32869f";
       class="text-4xl font-bold mb-6 text-center"
       style={`color: ${mainColor};`}
     >
-      Discover Our {category.charAt(0).toUpperCase() + category.slice(1)} Products
+      Discover Our Ptzcamera Products
     </h1>
     <!-- Search Bar -->
     <Search mainColor={mainColor} />
-    {products}
     <!-- Products Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
       {

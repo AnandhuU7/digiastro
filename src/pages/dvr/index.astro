@@ -14,9 +14,45 @@ const products: CollectionEntry<typeof category>[] = (
 const title = `Explosion Proof - Dubai Hikvision`;
 const description = `Browse our comprehensive range of explosion proof products from Hikvision, the leading distributor in Dubai. Professional-grade explosion-proof security cameras and surveillance systems for hazardous environments.`;
 const ogUrl = "https://dubai-hikvision.com/dvr";
-const structuredData = [
-  {
-    "@context": "https://schema.org",
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  name: `Hikvision Dvr Products`,
+  description: description,
+  url: ogUrl,
+  mainEntity: {
+    "@type": "ItemList",
+    itemListElement: products
+      .map((product, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "Product",
+          name: product.data.title,
+          image: {
+            "@type": "ImageObject",
+            contentUrl: new URL(
+              product.data.imgCard.src,
+              Astro.site,
+            ).toString(),
+            creditText: "Hikvision " + product.data.title,
+            width: 800,
+            height: 800,
+          },
+          aggregateRating: product.data.rating
+            ? {
+                "@type": "AggregateRating",
+                ratingValue: Number(product.data.rating),
+                bestRating: 5,
+                worstRating: 1,
+              }
+            : undefined,
+          url: new URL(`/${category}/${product.slug}`, Astro.site).toString(),
+        },
+      })),
+  },
+  breadcrumb: {
     "@type": "BreadcrumbList",
     itemListElement: [
       {
@@ -34,45 +70,24 @@ const structuredData = [
       {
         "@type": "ListItem",
         position: 3,
-        name: category.charAt(0).toUpperCase() + category.slice(1),
+        name: "Dvr",
         item: `https://dubai-hikvision.com/dvr`,
       },
-    ]
+    ],
   },
-  {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    itemListElement: products.map((product, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: product.data.title,
-      image: {
-        "@type": "ImageObject",
-        contentUrl: new URL(product.data.imgCard.src, Astro.site).toString(),
-        creditText: "Hikvision " + product.data.title,
-        width: 800,
-        height: 800,
-      },
-      url: new URL(`/${category}/${product.slug}`, Astro.site).toString(),
-    })),
-  }
-];
+};
+
 
 const mainColor = "#32869f";
 ---
 
-<Layout 
-  title={title} 
-  description={description} 
-  ogUrl={ogUrl} 
-  lovosis={structuredData}
->
+<Layout title={title} description={description} ogUrl={ogUrl} lovosis={structuredData}>
   <div class="container mx-auto px-4 py-8 bg-gray-50">
     <h1
       class="text-4xl font-bold mb-6 text-center"
       style={`color: ${mainColor};`}
     >
-      Discover Our {category.charAt(0).toUpperCase() + category.slice(1)} Products
+      Discover Our Dvr Products
     </h1>
     <!-- Search Bar -->
     <Search mainColor={mainColor} />

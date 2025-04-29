@@ -22,54 +22,65 @@ const ogUrl="https://dubai-hikvision.com/nvr"
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  "name": `Hikvision ${category.charAt(0).toUpperCase() + category.slice(1)} Products`,
-  "description": description,
-  "url": ogUrl,
+  name: `Hikvision Nvr Products`,
+  description: description,
+  url: ogUrl,
   mainEntity: {
     "@type": "ItemList",
-    itemListElement: allProducts.map((product, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      item: {
-        "@type": "Product",
-        name: product.data.title,
-        image: {
-          "@type": "ImageObject",
-          contentUrl: new URL(product.data.imgCard.src, Astro.site).toString(),
-          creditText: "Hikvision " + product.data.title,
-          width: 800,
-          height: 800,
+    itemListElement: allProducts
+      .slice(0, productsPerPage)
+      .map((product, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "Product",
+          name: product.data.title,
+          image: {
+            "@type": "ImageObject",
+            contentUrl: new URL(
+              product.data.imgCard.src,
+              Astro.site,
+            ).toString(),
+            creditText: "Hikvision " + product.data.title,
+            width: 800,
+            height: 800,
+          },
+          aggregateRating: product.data.rating
+            ? {
+                "@type": "AggregateRating",
+                ratingValue: Number(product.data.rating),
+                bestRating: 5,
+                worstRating: 1,
+              }
+            : undefined,
+          url: new URL(`/${category}/${product.slug}`, Astro.site).toString(),
         },
-        url: new URL(`/${category}/${product.slug}`, Astro.site).toString(),
-      }
-    })),
+      })),
   },
-"breadcrumb": {
+  breadcrumb: {
     "@type": "BreadcrumbList",
-    "itemListElement": [
+    itemListElement: [
       {
         "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://dubai-hikvision.com"
+        position: 1,
+        name: "Home",
+        item: "https://dubai-hikvision.com",
       },
       {
         "@type": "ListItem",
-        "position": 2,
-        "name": "Products",
-        "item": "https://dubai-hikvision.com/productsnew"
+        position: 2,
+        name: "Products",
+        item: "https://dubai-hikvision.com/productsnew",
       },
       {
         "@type": "ListItem",
-        "position": 3,
-        "name": category.charAt(0).toUpperCase() + category.slice(1),
-        "item": ogUrl
-      }
-    ]
-  }
+        position: 3,
+        name: "Nvr",
+        item: "https://dubai-hikvision.com/nvr",
+      },
+    ],
+  },
 };
-
-
 const mainColor = "#32869f";
 ---
 
@@ -79,9 +90,9 @@ const mainColor = "#32869f";
       class="text-4xl font-bold mb-6 text-center"
       style={`color: ${mainColor};`}
     >
-      Discover Our Network Camera Products
+      Discover Our Nvr Products
     </h1>
-    <!-- Search Bar -->
+    
     <Search mainColor={mainColor} />
 
     <!-- Products Grid -->
