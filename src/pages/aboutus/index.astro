@@ -37,29 +37,6 @@ const structuredData = {
         jobTitle: "Founder & CEO",
       },
     ],
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: "25th St, Naif - Dubai - United Arab Emirates",
-      addressLocality: "Dubai",
-      addressRegion: "Dubai",
-      postalCode: "123421",
-      addressCountry: "AE",
-    },
-    contactPoint: [
-      {
-        "@type": "ContactPoint",
-        telephone: "+971 55 292 9644",
-        contactType: "sales",
-        email: "sales@lovosis.com",
-        areaServed: "AE",
-        availableLanguage: ["English"],
-      },
-      {
-        "@type": "ContactPoint",
-        telephone: "+971 55 292 9644",
-        contactType: "customer support",
-      },
-    ],
   },
   breadcrumb: {
     "@type": "BreadcrumbList",
@@ -85,12 +62,7 @@ const structuredData = {
 };
 ---
 
-<Layout title={title} description={description} ogUrl={ogUrl}>
-  <script
-    type="application/ld+json"
-    set:html={JSON.stringify(structuredData)}
-  />
-
+<Layout title={title} description={description} ogUrl={ogUrl} lovosis={structuredData}>
   <section class="relative py-14 overflow-hidden">
     <!-- Gradient background with improved colors -->
     <div

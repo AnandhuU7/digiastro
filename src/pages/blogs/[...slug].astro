@@ -56,37 +56,29 @@ const structuredData = {
      name: "Dubai Hikvision",
   },
   articleBody: entry.data.description,
-};
-
-const breadcrumbData = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    {
-      "@type": "ListItem",
-      position: 1,
-      item: {
-        "@id": "https://dubai-hikvision.com",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
         name: "Home",
+        item: "https://dubai-hikvision.com"
       },
-    },
-    {
-      "@type": "ListItem",
-      position: 2,
-      item: {
-        "@id": "https://dubai-hikvision.com/blogs",
+      {
+        "@type": "ListItem",
+        position: 2,
         name: "Blogs",
+        item: "https://dubai-hikvision.com/blogs"
       },
-    },
-    {
-      "@type": "ListItem",
-      position: 3,
-      item: {
-        "@id": `https://dubai-hikvision.com/blogs/${entry.slug}`,
+      {
+        "@type": "ListItem",
+        position: 3,
         name: entry.data.title,
-      },
-    },
-  ],
+        item: `https://dubai-hikvision.com/blogs/${entry.slug}`
+      }
+    ]
+  }
 };
 ---
 
@@ -94,11 +86,8 @@ const breadcrumbData = {
   title={`${entry.data.title} | Dubai Hikvision`}
   description={entry.data.description}
   ogUrl={ogUrl}
+  lovosis={structuredData}
 >
-  <script
-    type="application/ld+json"
-    set:html={JSON.stringify([structuredData, breadcrumbData])}
-  />
   <section class="relative py-24 overflow-hidden">
     <!-- Gradient background with improved colors -->
     <div

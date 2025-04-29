@@ -97,8 +97,7 @@ const structuredData = [
 ];
  
 ---
-<Layout title={title} description={description} ogUrl={ogUrl}>
-<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+<Layout title={title} description={description} ogUrl={ogUrl} lovosis={structuredData}>
   <section class="relative py-14 overflow-hidden">
     <!-- Gradient background with improved colors -->
     <div class="absolute inset-0 bg-gradient-to-br from-[#32869f] to-[#1d5566] z-0"></div>

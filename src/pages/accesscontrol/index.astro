@@ -11,9 +11,10 @@ const products: CollectionEntry<typeof category>[] = (
   await getCollection(category)
 ).sort((a, b) => a.data.id - b.data.id);
 
-const title = `Explosion Proof - Dubai Hikvision`;
+const title = `Accesscontrol - Dubai Hikvision`;
 const description = `Browse our comprehensive range of explosion proof products from Hikvision, the leading distributor in Dubai. Professional-grade explosion-proof security cameras and surveillance systems for hazardous environments.`;
 const ogUrl = "https://dubai-hikvision.com/accesscontrol";
+
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
@@ -39,14 +40,16 @@ const structuredData = {
             width: 800,
             height: 800,
           },
-          aggregateRating: product.data.rating
-            ? {
-                "@type": "AggregateRating",
-                ratingValue: Number(product.data.rating),
-                bestRating: 5,
-                worstRating: 1,
-              }
-            : undefined,
+          aggregateRating:
+            product.data.rating && product.data.reviewCount
+              ? {
+                  "@type": "AggregateRating",
+                  ratingValue: Number(product.data.rating),
+                  reviewCount: Math.round(Number(product.data.reviewCount)),
+                  bestRating: 5,
+                  worstRating: 1,
+                }
+              : undefined,
           url: new URL(`/${category}/${product.slug}`, Astro.site).toString(),
         },
       })),

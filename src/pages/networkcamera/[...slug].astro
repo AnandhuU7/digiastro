@@ -14,35 +14,65 @@ export async function getStaticPaths() {
 
 const { product } = Astro.props;
 const ogUrl = `https://dubai-hikvision.com/networkcamera/${product.slug}`;
-const breadcrumb = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "https://dubai-hikvision.com"
+
+const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.data.title,
+    description: product.data.subTitle,
+    image: {
+        "@type": "ImageObject",
+        contentUrl: "https://dubai-hikvision.com" + product.data.imgCard.src,
+        width: 800,
+        height: 800,
+        creditText: product.data.imgCard.src?.split('/').pop()?.split('.')[0] || '',
+        representativeOfPage: true
     },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Products",
-      "item": "https://dubai-hikvision.com/productsnew"
+    offers: {
+        "@type": "Offer",
+        priceCurrency: "AED",
+        price: "0.00",
+        availability: "https://schema.org/InStock",
+        itemCondition: "https://schema.org/NewCondition"
     },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "Network Camera",
-      "item": `https://dubai-hikvision.com/networkcamera`
-    },
-    {
-      "@type": "ListItem",
-      "position": 4,
-      "name": product.data.title,
-      "item": `https://dubai-hikvision.com/networkcamera/${product.slug}`
+    aggregateRating: product.data.rating && product.data.reviewCount
+        ? {
+            "@type": "AggregateRating",
+            ratingValue: Number(product.data.rating),
+            reviewCount: Math.round(Number(product.data.reviewCount)),
+            bestRating: 5,
+            worstRating: 1,
+        }
+        : undefined,
+    breadcrumbList: {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+            {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://dubai-hikvision.com"
+            },
+            {
+                "@type": "ListItem",
+                position: 2,
+                name: "Products",
+                item: "https://dubai-hikvision.com/productsnew"
+            },
+            {
+                "@type": "ListItem",
+                position: 3,
+                name: "Access Control",
+                item: "https://dubai-hikvision.com/networkcamera"
+            },
+            {
+                "@type": "ListItem",
+                position: 4,
+                name: product.data.title,
+                item: `https://dubai-hikvision.com/networkcamera/${product.slug}`
+            }
+        ]
     }
-  ]
 };
 
 ---
@@ -51,7 +81,7 @@ const breadcrumb = {
   title={product.data.title} 
   description={product.data.subTitle}
   ogUrl={ogUrl}
+  lovosis={structuredData}
 >
-  <script type="application/ld+json" set:html={JSON.stringify(breadcrumb)} />
   <SlugProductDetails product={product} />
 </Layout>

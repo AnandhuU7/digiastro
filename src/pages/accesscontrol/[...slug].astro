@@ -20,21 +20,14 @@ const structuredData = {
     "@type": "Product",
     name: product.data.title,
     description: product.data.subTitle,
-    image: [
-        ...(product.data.thumbnails
-            ? product.data.thumbnails.map((thumb) => {
-                const fileName = thumb?.src?.split('/').pop()?.split('.')[0] || '';
-                return {
-                    "@type": "ImageObject",
-                    contentUrl: "https://dubai-hikvision.com" + thumb.src,
-                    width: 800,
-                    height: 800,
-                    creditText: fileName,
-                    representativeOfPage: thumb.src === product.data.imgCard.src,
-                };
-            })
-            : []),
-    ],
+    image: {
+        "@type": "ImageObject",
+        contentUrl: "https://dubai-hikvision.com" + product.data.imgCard.src,
+        width: 800,
+        height: 800,
+        creditText: product.data.imgCard.src?.split('/').pop()?.split('.')[0] || '',
+        representativeOfPage: true
+    },
     offers: {
         "@type": "Offer",
         priceCurrency: "AED",

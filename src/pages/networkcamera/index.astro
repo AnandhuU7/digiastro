@@ -14,14 +14,14 @@ const allProducts: CollectionEntry<typeof category>[] = (
   await getCollection(category)
 ).sort((a, b) => a.data.id - b.data.id);
 
-const title = `Network Camera - Dubai Hikvision`;
+const title = `Networkcamera - Dubai Hikvision`;
 
 const description = `Browse our comprehensive range of network camera products from Hikvision, the leading distributor in Dubai. Professional-grade security cameras and surveillance systems with advanced features.`;
 const ogUrl = "https://dubai-hikvision.com/networkcamera";
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  name: `Hikvision Netwokcamera Products`,
+  name: `Hikvision Networkcamera Products`,
   description: description,
   url: ogUrl,
   mainEntity: {
@@ -44,14 +44,16 @@ const structuredData = {
             width: 800,
             height: 800,
           },
-          aggregateRating: product.data.rating
-            ? {
-                "@type": "AggregateRating",
-                ratingValue: Number(product.data.rating),
-                bestRating: 5,
-                worstRating: 1,
-              }
-            : undefined,
+          aggregateRating:
+            product.data.rating && product.data.reviewCount
+              ? {
+                  "@type": "AggregateRating",
+                  ratingValue: Number(product.data.rating),
+                  reviewCount: Math.round(Number(product.data.reviewCount)),
+                  bestRating: 5,
+                  worstRating: 1,
+                }
+              : undefined,
           url: new URL(`/${category}/${product.slug}`, Astro.site).toString(),
         },
       })),
