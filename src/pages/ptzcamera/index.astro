@@ -12,8 +12,8 @@ const category = "ptzcamera";
 const products: CollectionEntry<typeof category>[] = (
   await getCollection(category)
 ).sort((a, b) => a.data.id - b.data.id);
-console.log(products);
 
+// Enhanced SEO metadata
 const title = `PTZ Camera - Dubai Hikvision`;
 const description = `Browse our comprehensive range of PTZ camera products from Hikvision, the leading distributor in Dubai. Professional-grade motorized surveillance cameras with advanced pan, tilt, and zoom capabilities for dynamic monitoring.`;
 const ogUrl = "https://dubai-hikvision.com/ptzcamera";
@@ -26,20 +26,24 @@ const structuredData = {
   url: ogUrl,
   mainEntity: {
     "@type": "ItemList",
-    itemListElement: products.map((product, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      item: {
-        "@type": "Product",
-        name: product.data.title,
-        image: {
-          "@type": "ImageObject",
-          contentUrl: new URL(product.data.imgCard.src, Astro.site).toString(),
-          creditText: "Hikvision " + product.data.title,
-          width: 800,
-          height: 800,
-        },
-        aggregateRating:
+    itemListElement: products
+      .map((product, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "Product",
+          name: product.data.title,
+          image: {
+            "@type": "ImageObject",
+            contentUrl: new URL(
+              product.data.imgCard.src,
+              Astro.site,
+            ).toString(),
+            creditText: "Hikvision " + product.data.title,
+            width: 800,
+            height: 800,
+          },
+          aggregateRating:
             product.data.rating && product.data.reviewCount
               ? {
                   "@type": "AggregateRating",
@@ -49,9 +53,9 @@ const structuredData = {
                   worstRating: 1,
                 }
               : undefined,
-        url: new URL(`/${category}/${product.slug}`, Astro.site).toString(),
-      },
-    })),
+          url: new URL(`/${category}/${product.slug}`, Astro.site).toString(),
+        },
+      })),
   },
   breadcrumb: {
     "@type": "BreadcrumbList",
@@ -77,65 +81,45 @@ const structuredData = {
     ],
   },
 };
+
 const mainColor = "#32869f";
 ---
 
-<Layout
-  title={title}
-  description={description}
+<Layout 
+  title={title} 
+  description={description} 
   ogUrl={ogUrl}
   lovosis={structuredData}
 >
   <div class="container mx-auto px-4 py-8 bg-gray-50">
-    <h1
-      class="text-4xl font-bold mb-6 text-center"
-      style={`color: ${mainColor};`}
-    >
+    <h1 class="text-4xl font-bold mb-6 text-center" style={`color: ${mainColor};`}>
       Discover Our Ptzcamera Products
     </h1>
     <!-- Search Bar -->
     <Search mainColor={mainColor} />
+
     <!-- Products Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      {
-        products.map((product) => (
-          <div class="product-item">
-            <ProductComponent
-              product={product}
-              mainColor={mainColor}
-              category={category}
-            />
-          </div>
-        ))
-      }
+      {products.map((product) => (
+        <div class="product-item">
+          <ProductComponent product={product} mainColor={mainColor} category={category} />
+        </div>
+      ))}
     </div>
 
     <!-- No Products Found Message -->
     <div id="noProductsMessage" class="hidden text-center py-12">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-24 w-24 mx-auto text-gray-400 mb-4"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-        ></path>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-24 w-24 mx-auto text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
       <p class="text-gray-500 text-2xl font-semibold mb-2">No Products Found</p>
-      <p class="text-gray-400 text-lg">
-        Try adjusting your search or check back later.
-      </p>
+      <p class="text-gray-400 text-lg">Try adjusting your search or check back later.</p>
     </div>
   </div>
 </Layout>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById("searchInput");
     const productItems = document.querySelectorAll(".product-item");
     const noProductsMessage = document.getElementById("noProductsMessage");

@@ -27,7 +27,6 @@ const structuredData = {
   mainEntity: {
     "@type": "ItemList",
     itemListElement: allProducts
-      .slice(0, productsPerPage)
       .map((product, index) => ({
         "@type": "ListItem",
         position: index + 1,
