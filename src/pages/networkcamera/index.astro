@@ -6,16 +6,17 @@ import ProductComponent from "../../components/ProductComponent.astro";
 import Search from "../../components/Search.astro";
 import Pagination from "../../components/Pagination.astro";
 
+// Hardcoded Category
 const category = "networkcamera";
 const productsPerPage = 8;
 
-// Get all products
+// Fetch content dynamically based on the category
 const allProducts: CollectionEntry<typeof category>[] = (
   await getCollection(category)
 ).sort((a, b) => a.data.id - b.data.id);
 
+// Enhanced SEO metadata
 const title = `Networkcamera - Dubai Hikvision`;
-
 const description = `Browse our comprehensive range of network camera products from Hikvision, the leading distributor in Dubai. Professional-grade security cameras and surveillance systems with advanced features.`;
 const ogUrl = "https://dubai-hikvision.com/networkcamera";
 const structuredData = {
@@ -81,24 +82,18 @@ const structuredData = {
     ],
   },
 };
-
 const mainColor = "#32869f";
 ---
 
-<Layout
-  title={title}
-  description={description}
-  ogUrl={ogUrl}
-  lovosis={structuredData}
->
+<Layout title={title} description={description} ogUrl={ogUrl} lovosis={structuredData}>
   <div class="container mx-auto px-4 py-8 bg-gray-50">
     <h1
       class="text-4xl font-bold mb-6 text-center"
       style={`color: ${mainColor};`}
     >
-      Discover Our NetworkCamera Products
+    Discover Our NetworkCamera Products
     </h1>
-    <!-- Search Bar -->
+    
     <Search mainColor={mainColor} />
 
     <!-- Products Grid -->
@@ -123,6 +118,10 @@ const mainColor = "#32869f";
       }
     </div>
 
+    <!-- Pagination -->
+   
+
+    <!-- No Products Found Message -->
     <div id="noProductsMessage" class="hidden text-center py-12">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -198,15 +197,14 @@ const mainColor = "#32869f";
     // Handle search
     if (searchInput) {
       searchInput.addEventListener("input", (e) => {
-        const searchTerm = (e.target as HTMLInputElement)?.value
+        const searchTerm =
+          (e.target as HTMLInputElement)?.value
           .trim()
           .toLowerCase()
           .replace(/[-\s()\/"']/g, "");
         filteredProducts = Array.from(productItems).filter((item) => {
           const titleElement = item.querySelector(".product-title");
-          const title = (
-            titleElement?.textContent?.toLowerCase() || ""
-          ).replace(/[-\s()\/"']/g, "");
+          const title = (titleElement?.textContent?.toLowerCase() || "").replace(/[-\s()\/"']/g, "");
           return title.includes(searchTerm);
         });
 
@@ -217,9 +215,7 @@ const mainColor = "#32869f";
         // Show/hide no products message and pagination
         const hasProducts = filteredProducts.length > 0;
         noProductsMessage?.classList.toggle("hidden", hasProducts);
-        document
-          .querySelector(".pagination")
-          ?.classList.toggle("hidden", !hasProducts);
+        document.querySelector(".pagination")?.classList.toggle("hidden", !hasProducts);
       });
     }
 

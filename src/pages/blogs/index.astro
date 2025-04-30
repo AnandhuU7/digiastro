@@ -23,7 +23,7 @@ const blogs = (await getCollection(category))
   "blogPosts": blogs.map(blog => ({
         "@type": "BlogPosting",
         "headline": blog.data.title,
-        "description": blog.data.description,
+        "description": blog.data.intro,
         "url": `https://dubai-hikvision.com/blogs/${blog.slug}`,
         "datePublished": `${blog.data.publishDate}T00:00:00Z`,
         "dateModified": `${blog.data.publishDate}T00:00:00Z`,
