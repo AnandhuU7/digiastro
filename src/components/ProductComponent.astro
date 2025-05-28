@@ -4,108 +4,111 @@ const rating = product.data.rating;
 
 ---
 
-<div class="group">
-  <a href={`/${category}/${product.slug}`} class="block">
-    <div
-      class="product-card bg-white rounded-lg overflow-hidden shadow-lg group-hover:shadow-2xl transform transition-all duration-300 border-2 border-gray-100 hover:border-gray-300 group-hover:-translate-y-2"
-    >
-      <div class="relative overflow-hidden">
-        <!-- Product Image -->
-        <div class="h-64 bg-white flex items-center justify-center p-4 relative">
-          <img
-            class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
-            src={product.data.imgCard.src}
-            alt={product.data.imgAlt}
-            loading="lazy"
-            decoding="async"
-          />
+<div class="group relative">
+  <div
+    class="product-card bg-white rounded-lg overflow-hidden shadow-lg group-hover:shadow-2xl transform transition-all duration-300 border-2 border-gray-100 hover:border-gray-300 group-hover:-translate-y-2"
+  >
+    <div class="relative overflow-hidden">
+      <!-- Product Image -->
+      <div class="h-64 bg-white flex items-center justify-center p-4 relative">
+        <img
+          class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105"
+          src={product.data.imgCard.src}
+          alt={product.data.imgAlt}
+          loading="lazy"
+          decoding="async"
+        />
 
-          <!-- Show NEW badge only for recent products -->
-          {
-            new Date(product.data.date) >
-              new Date(Date.now() - 90 * 24 * 60 * 60 * 1000) && (
-              <div class="absolute top-2 right-2 bg-[#32869f] text-white text-xs font-bold px-3 py-1 rounded-md shadow-md">
-                NEW
-              </div>
-            )
-          }
-        </div>
-      </div>
-
-      <!-- Product Details -->
-      <div class="px-6 py-4">
-        <h3
-          class="product-title font-bold text-xl mb-2 text-gray-800 group-hover:text-[#32869f] transition-colors duration-300 line-clamp-2"
-        >
-          {product.data.title}
-        </h3>
-        <!-- Display Rating with Half-Star Support -->
+        <!-- Show NEW badge only for recent products -->
         {
-          rating && (
-            <div class="flex items-center mt-2">
-              <div class="flex">
-                {Array.from({ length: 5 }).map((_, i) => {
-                  const starValue = i + 1;
-                  const isHalfStar =
-                    rating >= starValue - 0.5 && rating < starValue;
-                  const isFullStar = rating >= starValue;
-
-                  return (
-                    <span
-                      class={`text-2xl ${
-                        isFullStar
-                          ? "text-yellow-500"
-                          : isHalfStar
-                            ? "text-gray-300 relative"
-                            : "text-gray-300"
-                      }`}
-                    >
-                      {isHalfStar ? (
-                        <span class="relative">
-                          ★
-                          <span
-                            class="absolute top-0 left-0 overflow-hidden text-yellow-500"
-                            style="width: 50%;"
-                          >
-                            ★
-                          </span>
-                        </span>
-                      ) : (
-                        "★"
-                      )}
-                    </span>
-                  );
-                })}
-              </div>
-              <span class="ml-2 text-gray-600">({rating}/5)</span>
+          new Date(product.data.date) >
+            new Date(Date.now() - 90 * 24 * 60 * 60 * 1000) && (
+            <div class="absolute top-2 right-2 bg-[#32869f] text-white text-xs font-bold px-3 py-1 rounded-md shadow-md">
+              NEW
             </div>
           )
         }
-        <!-- Dynamic Link Based on Category -->
-        <div
-          class="mt-6 flex items-center justify-end border-t border-gray-100 pt-4"
-        >
-          <a
-            href={`/${category}/${product.slug}`}
-            class="bg-[#32869f] text-white font-medium rounded-full px-5 py-2 flex items-center transition-all duration-300 hover:font-semibold hover:translate-x-1"
-          >
-            View Details
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-5 w-5 ml-1 transform transition-transform duration-300"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-            </svg>
-          </a>
-        </div>
       </div>
     </div>
-  </a>
+
+    <!-- Product Details -->
+    <div class="px-6 py-4">
+      <h3
+        class="product-title font-bold text-xl mb-2 text-gray-800 group-hover:text-[#32869f] transition-colors duration-300 line-clamp-2"
+      >
+        {product.data.title}
+      </h3>
+      <!-- Display Rating with Half-Star Support -->
+      {
+        rating && (
+          <div class="flex items-center mt-2">
+            <div class="flex">
+              {Array.from({ length: 5 }).map((_, i) => {
+                const starValue = i + 1;
+                const isHalfStar =
+                  rating >= starValue - 0.5 && rating < starValue;
+                const isFullStar = rating >= starValue;
+
+                return (
+                  <span
+                    class={`text-2xl ${
+                      isFullStar
+                        ? "text-yellow-500"
+                        : isHalfStar
+                          ? "text-gray-300 relative"
+                          : "text-gray-300"
+                    }`}
+                  >
+                    {isHalfStar ? (
+                      <span class="relative">
+                        ★
+                        <span
+                          class="absolute top-0 left-0 overflow-hidden text-yellow-500"
+                          style="width: 50%;"
+                        >
+                          ★
+                        </span>
+                      </span>
+                    ) : (
+                      "★"
+                    )}
+                  </span>
+                );
+              })}
+            </div>
+            <span class="ml-2 text-gray-600">({rating}/5)</span>
+          </div>
+        )
+      }
+      <!-- Dynamic Link Based on Category -->
+      <div
+        class="mt-6 flex items-center justify-end border-t border-gray-100 pt-4"
+      >
+        <a
+          href={`/${category}/${product.slug}`}
+          class="bg-[#32869f] text-white font-medium rounded-full px-5 py-2 flex items-center transition-all duration-300 hover:font-semibold hover:translate-x-1"
+        >
+          View Details
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 ml-1 transform transition-transform duration-300"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <a
+    href={`/${category}/${product.slug}`}
+    class="absolute inset-0 z-10"
+    aria-label={`View details for ${product.data.title}`}
+  ></a>
 </div>
