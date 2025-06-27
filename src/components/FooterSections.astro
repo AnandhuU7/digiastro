@@ -85,10 +85,10 @@ const currentYear = new Date().getFullYear();
         {/* Fourth Column: Newsletter */}
         <div class="md:col-span-1">
           <h4 class="text-lg font-semibold text-gray-800 mb-4 border-b pb-2 border-gray-200">
-            Stay Connected
+            Subscribe to Our Email List
           </h4>
           <form class="space-y-3" id="subscribeForm">
-            <div class="space-y-2">
+            <!-- <div class="space-y-2">
               <input 
                 type="email" 
                 placeholder="Enter your email" 
@@ -97,14 +97,19 @@ const currentYear = new Date().getFullYear();
                 id="emailInput"
               />
               <div id="emailError" class="hidden text-sm text-red-500"></div>
-            </div>
-            <button 
-              type="button" 
-              class="w-full px-4 py-2 bg-gradient-to-r from-cyan-600 to-cyan-500 text-white rounded-md hover:opacity-90 transition-all"
-              id="subscribeBtn"
-            >
-              Subscribe
-            </button>
+            </div> -->
+  <a 
+  href="https://mail.lovosis.com/index.php/lists/aj145oykk4891/subscribe" 
+  target="_blank"
+>
+  <button 
+    type="button" 
+    class="w-full px-4 py-2 bg-gradient-to-r from-cyan-600 to-cyan-500 text-white rounded-md hover:opacity-90 transition-all"
+    id="subscribeBtn"
+  >
+    Subscribe
+  </button>
+</a>
             <div id="message" class="hidden text-center text-cyan-600 font-medium"></div>
           </form>
         </div>
@@ -163,27 +168,7 @@ const currentYear = new Date().getFullYear();
     return true;
   }
 
-  if (subscribeBtn && emailInput && messageDiv && emailError) {
-    const typedEmailInput = emailInput as HTMLInputElement;
-    typedEmailInput.addEventListener('input', () => {
-      if (typedEmailInput.value) validateEmail(typedEmailInput);
-      else emailError.classList.add('hidden');
-    });
-
-    subscribeBtn.addEventListener('click', function() {
-      if (validateEmail(typedEmailInput)) {
-        messageDiv.textContent = 'Thank you for subscribing!';
-        messageDiv.classList.remove('hidden');
-        
-        typedEmailInput.value = '';
-        emailError.classList.add('hidden');
-        
-        setTimeout(() => {
-          messageDiv.classList.add('hidden');
-        }, 3000);
-      }
-    });
-  }
+ 
 </script>
 <style>
   @media (max-width: 767px) {
