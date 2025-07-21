@@ -1,3 +1,28 @@
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.pdf$
+Disallow: /search?*
+Disallow: /*?*sort=*
+Disallow: /*?*filter=*
+
+# Specific crawlers
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+# Sitemaps
 Sitemap: https://dubai-hikvision.com/sitemap-index.xml
+Sitemap: https://dubai-hikvision.com/sitemap-0.xml
+
+# Host directive
+Host: https://dubai-hikvision.com

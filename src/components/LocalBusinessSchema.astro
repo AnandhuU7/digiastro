@@ -1,0 +1,203 @@
+---
+// Enhanced Local Business Schema for Dubai/UAE SEO
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["LocalBusiness", "ElectronicsStore", "SecuritySystemInstaller"],
+      "@id": "https://dubai-hikvision.com/#organization",
+      name: "Dubai Hikvision",
+      alternateName: ["Dubai Hikvision CCTV", "Hikvision Dubai", "Dubai CCTV Solutions"],
+      description: "Leading authorized Hikvision distributor and installer in Dubai, UAE. Specializing in premium CCTV cameras, surveillance systems, access control, and security solutions for residential and commercial properties.",
+      url: "https://dubai-hikvision.com",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://dubai-hikvision.com/logo.svg",
+        width: 300,
+        height: 60,
+        caption: "Dubai Hikvision Logo"
+      },
+      foundingDate: "2010",
+      email: "info@dubai-hikvision.com",
+      telephone: "+971-4-123-4567",
+      faxNumber: "+971-4-123-4568",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "25th St, Naif",
+        addressLocality: "Dubai",
+        addressRegion: "Dubai Emirate",
+        postalCode: "00000",
+        addressCountry: {
+          "@type": "Country",
+          name: "United Arab Emirates",
+          alternateName: "UAE"
+        }
+      },
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: 25.2048,
+        longitude: 55.2708,
+        address: "25th St, Naif - Dubai - United Arab Emirates"
+      },
+      areaServed: [
+        {
+          "@type": "Place",
+          name: "Dubai",
+          containedInPlace: {
+            "@type": "Country",
+            name: "United Arab Emirates"
+          }
+        },
+        {
+          "@type": "Place", 
+          name: "Abu Dhabi",
+          containedInPlace: {
+            "@type": "Country",
+            name: "United Arab Emirates"
+          }
+        },
+        {
+          "@type": "Place",
+          name: "Sharjah", 
+          containedInPlace: {
+            "@type": "Country",
+            name: "United Arab Emirates"
+          }
+        },
+        {
+          "@type": "Place",
+          name: "Ajman",
+          containedInPlace: {
+            "@type": "Country",
+            name: "United Arab Emirates"
+          }
+        },
+        {
+          "@type": "Place",
+          name: "Fujairah",
+          containedInPlace: {
+            "@type": "Country",
+            name: "United Arab Emirates"
+          }
+        },
+        {
+          "@type": "Place",
+          name: "Ras Al Khaimah",
+          containedInPlace: {
+            "@type": "Country",
+            name: "United Arab Emirates"
+          }
+        },
+        {
+          "@type": "Place",
+          name: "Umm Al Quwain",
+          containedInPlace: {
+            "@type": "Country",
+            name: "United Arab Emirates"
+          }
+        }
+      ],
+      serviceArea: {
+        "@type": "Place",
+        name: "United Arab Emirates",
+        containsPlace: [
+          "Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Fujairah", "Ras Al Khaimah", "Umm Al Quwain"
+        ]
+      },
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"],
+          opens: "08:00",
+          closes: "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification", 
+          dayOfWeek: ["Friday"],
+          opens: "08:00",
+          closes: "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Saturday"],
+          opens: "09:00", 
+          closes: "16:00"
+        }
+      ],
+      paymentAccepted: ["Cash", "Credit Card", "Bank Transfer", "Check"],
+      currenciesAccepted: ["AED", "USD"],
+      priceRange: "$$",
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Hikvision Security Products",
+        itemListElement: [
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Product",
+              name: "CCTV Cameras",
+              category: "Security Equipment"
+            }
+          },
+          {
+            "@type": "Offer", 
+            itemOffered: {
+              "@type": "Product",
+              name: "NVR Systems",
+              category: "Recording Equipment"
+            }
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Product", 
+              name: "Access Control Systems",
+              category: "Security Equipment"
+            }
+          },
+          {
+            "@type": "Offer",
+            itemOffered: {
+              "@type": "Product",
+              name: "Video Surveillance Solutions", 
+              category: "Security Services"
+            }
+          }
+        ]
+      },
+      knowsAbout: [
+        "CCTV Installation",
+        "Security Camera Systems", 
+        "Video Surveillance",
+        "Access Control",
+        "IP Cameras",
+        "Network Video Recorders",
+        "Digital Video Recorders",
+        "Security System Design",
+        "Hikvision Products",
+        "Commercial Security",
+        "Residential Security"
+      ],
+      member: [
+        {
+          "@type": "Organization",
+          name: "Dubai Chamber of Commerce"
+        }
+      ],
+      award: [
+        "Authorized Hikvision Distributor",
+        "Top Security Solutions Provider Dubai 2023"
+      ],
+      slogan: "Your Trusted Security Partner in Dubai",
+      sameAs: [
+        "https://www.facebook.com/dubaihikvision",
+        "https://www.instagram.com/dubaihikvision", 
+        "https://www.linkedin.com/company/dubai-hikvision",
+        "https://www.youtube.com/c/dubaihikvision"
+      ]
+    }
+  ]
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} is:inline></script> 
