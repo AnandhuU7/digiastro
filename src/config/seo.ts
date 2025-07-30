@@ -20,10 +20,10 @@ export const seoConfig = {
       region: "Dubai Emirate",
       country: "United Arab Emirates",
       countryCode: "AE",
-      postalCode: "00000",
+      postalCode: "123421",
       coordinates: {
-        latitude: 25.2048,
-        longitude: 55.2708
+        latitude: 25.2732815,
+      longitude: 55.3094023,
       }
     },
     serviceAreas: [
@@ -99,8 +99,8 @@ export const seoConfig = {
   geoTags: {
     region: "AE-DU",
     placename: "Dubai",
-    position: "25.2048;55.2708",
-    ICBM: "25.2048, 55.2708",
+    position: "25.2732815, 55.3094023",
+    ICBM: "25.2732815, 55.3094023",
     language: "en-AE",
     currency: "AED"
   },
