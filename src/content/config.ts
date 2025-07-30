@@ -1,6 +1,6 @@
 // https://docs.astro.build/en/guides/content-collections/#defining-collections
 
-import { z, defineCollection, reference } from 'astro:content';
+import { z, defineCollection } from 'astro:content';
 
 
 const featureCollection = defineCollection({
@@ -259,6 +259,18 @@ const blogCollection = defineCollection({
   }),
 });
 
+const sliderCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    id: z.number(),
+    slider: z.string(),
+    sliderAlt: z.string(),
+    rating: z.number(),
+    reviewCount: z.number(),
+    description: z.string(),
+  }),
+});
+
 export const collections = {
   'feature' : featureCollection,
   'blogs': blogCollection,
@@ -270,4 +282,5 @@ export const collections = {
   'dvr': dvrCollection,
   'accesscontrol': accessControlCollection,
   'videointercom': videoIntercomCollection,
+  'slider': sliderCollection,
 };
