@@ -63,8 +63,8 @@ const blogs = (await getCollection(category))
   }
 };
 ---
-<link rel="stylesheet" href="https://unpkg.com/swiper@11/swiper-bundle.min.css" />
-<script src="https://unpkg.com/swiper@11/swiper-bundle.min.js" defer is:inline></script>
+<link rel="stylesheet" href="https://unpkg.com/swiper@11/swiper-bundle.min.css" media="print" onload="this.media='all'" />
+<script src="https://unpkg.com/swiper@11/swiper-bundle.min.js" defer></script>
 <Layout
     title={title}
     description={description}
@@ -245,8 +245,8 @@ const blogs = (await getCollection(category))
 
 <script is:inline>
   document.addEventListener('DOMContentLoaded', function() {
-    if (typeof window.Swiper !== 'undefined') {
-      new window.Swiper(".mySwiper", {
+    if (typeof Swiper !== 'undefined') {
+      var swiper = new Swiper(".mySwiper", {
         slidesPerView: 1,
         spaceBetween: 10,
         loop: true,
