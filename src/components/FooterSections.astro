@@ -136,7 +136,39 @@ const currentYear = new Date().getFullYear();
   </div>
 </footer>
 <script>
-  // Footer script - functionality can be added here as needed
+  const subscribeBtn = document.getElementById('subscribeBtn');
+  const emailInput = document.getElementById('emailInput');
+  const messageDiv = document.getElementById('message');
+  const emailError = document.getElementById('emailError');
+
+  // Enhanced email validation
+  function validateEmail(email: HTMLInputElement): boolean {
+    if (!emailError) return false;
+
+    // Basic HTML5 validation
+    if (!email.checkValidity()) {
+      if (email.validity.valueMissing) {
+        emailError.textContent = 'Email is required';
+      } else if (email.validity.typeMismatch) {
+        emailError.textContent = 'Please enter a valid email address';
+      }
+      emailError.classList.remove('hidden');
+      return false;
+    }
+    
+    // Additional JS pattern validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email.value)) {
+      emailError.textContent = 'Please enter a valid email address (e.g., user@example.com)';
+      emailError.classList.remove('hidden');
+      return false;
+    }
+    
+    emailError.classList.add('hidden');
+    return true;
+  }
+
+ 
 </script>
 <style>
   @media (max-width: 767px) {

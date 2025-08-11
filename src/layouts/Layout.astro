@@ -6,77 +6,39 @@ import FooterSections from "../components/FooterSections.astro";
 import Whatsapp from "../components/Whatsapp";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
 import ScrollProgress from "../components/ScrollProgress.astro";
-import LocalBusinessSchema from "../components/LocalBusinessSchema.astro";
-const { title, description, lovosis, keywords, ogUrl } = Astro.props;
-const ogImage = "https://dubai-hikvision.com/logo.svg";
-const canonicalURL = ogUrl
-  ? new URL(ogUrl, Astro.site)
-  : new URL(Astro.url.pathname, Astro.site);
+const { title, description,lovosis, keywords,ogUrl } = Astro.props;
+const ogImage = "https://dubai-hikvision.com/logo.svg"; 
+const canonicalURL = ogUrl ? new URL(ogUrl, Astro.site) : new URL(Astro.url.pathname, Astro.site);
 ---
 
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Enhanced Geo-targeting for Dubai/UAE -->
-    <meta name="geo.region" content="AE-DU" />
-    <meta name="geo.placename" content="Dubai" />
-    <meta name="geo.position" content="25.2732815,55.3094023" />
-    <meta name="ICBM" content="25.2732815,55.3094023" />
-    <meta
-      name="DC.title"
-      content={title ?? "Best Hikvision Distributor in Dubai, UAE"}
-    />
-
-    <!-- Regional Language and Location Targeting -->
-    <link rel="alternate" hreflang="en-AE" href={canonicalURL.toString()} />
-    <link rel="alternate" hreflang="en-UAE" href={canonicalURL.toString()} />
-    <link rel="alternate" hreflang="x-default" href={canonicalURL.toString()} />
-
-    <!-- Search Engine Verification -->
     <meta name="p:domain_verify" content="b9495dd687024edbf3a96a57e6ecf9d6" />
     <meta name="yandex-verification" content="fadb69f77db9eae5" />
-    <meta
-      name="google-site-verification"
-      content="your-google-verification-code"
-    />
-
-    <!-- Local Business and Contact Information -->
-    <meta name="contact" content="info@dubai-hikvision.com" />
-    <meta
-      name="address"
-      content="25th St, Naif - Dubai - United Arab Emirates"
-    />
-    <meta name="city" content="Dubai" />
-    <meta name="state" content="Dubai" />
-    <meta name="country" content="United Arab Emirates" />
-
     <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <GoogleAnalytics />
-    <LocalBusinessSchema />
     {
-      lovosis && (
-        <script
-          is:inline
-          type="application/ld+json"
-          set:html={JSON.stringify(lovosis)}
-        />
-      )
-    }
+			lovosis && (
+				<script
+					is:inline
+					type="application/ld+json"
+					set:html={JSON.stringify(lovosis)}
+				/>
+       
+			)
+		}
 
     <SEO
-      title={title ??
-        "Best Hikvision Distributor in Dubai, UAE | Premium CCTV Systems"}
+      title={title ?? "Best Hikvision Distributor in Dubai, UAE "}
       description={description ??
-        "Leading Hikvision wholesale distributor in Dubai, UAE. Premium CCTV cameras, NVR systems, security solutions. Authorized dealer serving Dubai, Abu Dhabi, Sharjah & all UAE."}
+        "Hikvision wholesale dealer in Dubai,UAE. Get top-tier CCTV systems at competitive rates. Wholesale dealer.wholesale distributor"}
       canonical={canonicalURL}
       openGraph={{
         basic: {
-          title:
-            title ??
-            "Best Hikvision Distributor in Dubai, UAE | Premium CCTV Systems",
+          title: title ?? "Best Hikvision Distributor in Dubai, UAE ",
           type: "website",
           image: ogImage,
           url: canonicalURL.toString(),
@@ -84,15 +46,10 @@ const canonicalURL = ogUrl
         optional: {
           description:
             description ??
-            "Leading Hikvision wholesale distributor in Dubai, UAE. Premium CCTV cameras, NVR systems, security solutions. Authorized dealer serving Dubai, Abu Dhabi, Sharjah & all UAE.",
+            "Hikvision wholesale dealer in Dubai,UAE. Get top-tier CCTV systems at competitive rates. Wholesale dealer.wholesale distributor",
+
           siteName: "Dubai Hikvision",
-          locale: "en_AE",
-        },
-        image: {
-          url: ogImage,
-          width: 1200,
-          height: 630,
-          alt: "Dubai Hikvision - Leading Security Solutions Provider in UAE",
+          locale: "en_US",
         },
       }}
       twitter={{
@@ -102,33 +59,22 @@ const canonicalURL = ogUrl
         title:
           title ?? "Best Hikvision Distributor in Dubai, UAE | Dubai Hikvision",
         image: "https://dubai-hikvision.com/logo.svg",
-        imageAlt: "Dubai Hikvision - Security Solutions UAE",
+        imageAlt: "Dubai Hikvision",
         description:
           description ??
-          "Premier Hikvision distributor in Dubai, UAE. Authorized dealer for CCTV, surveillance & security systems across UAE.",
+          "Dubai Hikvision is a wholesale distributor of Hikvision products in Dubai, UAE.",
       }}
       extend={{
         meta: [
           {
             name: "keywords",
             content:
-              "Hikvision Dubai, Hikvision UAE, CCTV Dubai, Security cameras UAE, Hikvision distributor Dubai, surveillance systems UAE, IP cameras Dubai, NVR Dubai, DVR UAE, access control Dubai, video surveillance UAE, security solutions Dubai" +
-              (keywords ? ", " + keywords : ""),
+              "Hikvision wholesale distributor, Dubai, UAE, surveillance, security" +
+              (keywords ?? ""),
           },
-          { name: "robots", content: "index, follow, max-image-preview:large" },
-          {
-            name: "googlebot",
-            content:
-              "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
-          },
+          { name: "robots", content: "index, follow" },
           { name: "language", content: "English" },
           { name: "author", content: "Dubai Hikvision" },
-          { name: "distribution", content: "global" },
-          { name: "rating", content: "general" },
-          { name: "target", content: "all" },
-          { name: "audience", content: "all" },
-          { name: "coverage", content: "worldwide" },
-          { name: "classification", content: "business" },
         ],
       }}
     />

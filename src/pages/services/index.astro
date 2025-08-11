@@ -66,7 +66,7 @@ const structuredData = [
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Our Security Services",
-      "itemListElement": services.map((service) => ({
+      "itemListElement": services.map((service, index) => ({
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",

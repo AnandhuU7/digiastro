@@ -124,6 +124,8 @@ export const faqs = [
       const upIcon = toggle.querySelector('.up-icon');
       
       toggle.addEventListener('click', function() {
+        const isOpen = item.classList.contains('active');
+        
         // Close all other FAQ items (only on desktop)
         if (window.innerWidth >= 1024) {
           faqItems.forEach(function(faqItem) {

@@ -165,7 +165,7 @@ export const feature: CollectionEntry<"feature">[] = await getCollection("featur
     const updateCardVisibility = () => {
       if (window.innerWidth <= 767) {
         // First hide all cards
-        cards.forEach((card) => {
+        cards.forEach((card, index) => {
           card.classList.remove('active');
         });
         
